@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>新的开始</title>
+      <link href="/2020/04/07/article-title/"/>
+      <url>/2020/04/07/article-title/</url>
+      
+        <content type="html"><![CDATA[<p>欢迎来到我的blog，这是我的第一篇博客，这里进行下自己的规划以及本博客主要分享的东西。</p><h2 id="接下来对自己的规划"><a href="#接下来对自己的规划" class="headerlink" title="接下来对自己的规划"></a>接下来对自己的规划</h2><h3 id="数学方面"><a href="#数学方面" class="headerlink" title="数学方面"></a>数学方面</h3><p>自己的数学还是太差了些，由于自己想要走计算机图形学，因此打算主要学习一下的东西：</p><ol><li>数学分析：作为其他数学学科的基础，而且由于我考研只考了数学二，对数学一中的空间解析几何，曲线曲面积分，旋度梯度啥的都需要认真“复习”一次，也会分享在这个博客中；</li><li>线性代数：线性代数在计算机中实在是过于重要，所以我需要系统的不站在考试角度上学习一次线性代数；</li><li>概率和统计：这个还是需要好好复习一遍的，计算机中概率和统计在相当多的方向中有着重要的左右；</li><li>拓扑学，微分几何等之类的更难的课程。</li></ol><h3 id="计算机方面"><a href="#计算机方面" class="headerlink" title="计算机方面"></a>计算机方面</h3><p>计算机的相关知识也会放在这里，主要有：</p><ol><li>算法题：虽然是个跨考，但是我还是会经常刷算法题练练脑子，当然前期的情况下我可能会放一些水题，后期会删掉，同时会有自己关于算法的学习过程；</li><li>408四门基础课：大家都懂；</li><li>数据库：属于一个计算机工程师必须的理论基础；</li><li>计算机图形学相关内容和文献阅读读后感：毕竟想走的方向在这里。<br>以上的学习内容后期也会逐渐丰富起来，这毕竟只是自己的第一个文章。</li></ol><h3 id="blog优化方面"><a href="#blog优化方面" class="headerlink" title="blog优化方面"></a>blog优化方面</h3><p>现在用的是一个开源的theme，后期还是会进行更多的更改甚至更换，主要是很多bug现在的我无法解决，并且也牵扯到一些底层的问题，后期再慢慢改（画）。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 随笔 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
