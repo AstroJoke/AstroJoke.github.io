@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://astrojoke.github.io/"/>
-  <updated>2020-04-07T14:46:40.697Z</updated>
+  <updated>2020-04-09T16:51:15.203Z</updated>
   <id>https://astrojoke.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>洛谷官方题单1题解（超级水题警告）</title>
+    <link href="https://astrojoke.github.io/2020/04/09/luo-gu-guan-fang-ti-dan-1-ti-jie-chao-ji-shui-ti-jing-gao/"/>
+    <id>https://astrojoke.github.io/2020/04/09/luo-gu-guan-fang-ti-dan-1-ti-jie-chao-ji-shui-ti-jing-gao/</id>
+    <published>2020-04-09T15:49:55.000Z</published>
+    <updated>2020-04-09T16:51:15.203Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;最近洛谷直接更新之前的试炼场模式，现在直接就采用题单了，虽然题目多了不少，但是实际上就是把类似于EX之类的放在了一起，虽然题目多，但是感觉在后面可能会导致一个题单难度会存在飞跃。&lt;br&gt;这是第一期水题集锦，我尽量一日到两日更。另外我记得某本书告诉我们，没有循环的题目实际上某
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>新的开始</title>
