@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="洛谷官方题单——分支结构题解（水题警告）, AleXandrite">
-    <meta name="description" content="超级无敌水警告+1">
+    <meta name="keywords" content="洛谷官方题单——顺序结构题解（超级水题警告）, AleXandrite">
+    <meta name="description" content="超级无敌水警告">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>洛谷官方题单——分支结构题解（水题警告） | AleXandrite</title>
+    <title>洛谷官方题单——顺序结构题解（超级水题警告） | AleXandrite</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -390,12 +390,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">洛谷官方题单——分支结构题解（水题警告）</h1>
+                    <h1 class="description center-align post-title">洛谷官方题单——顺序结构题解（超级水题警告）</h1>
                 </div>
             </div>
         </div>
@@ -528,7 +528,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-11
+                    2020-04-10
                 </div>
                 
 
@@ -537,7 +537,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    1.4k
                 </div>
                 
 
@@ -550,120 +550,76 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>依旧水题警告，不多BB，直接上。</p>
-<h2 id="题目0：数的性质"><a href="#题目0：数的性质" class="headerlink" title="题目0：数的性质"></a>题目0：数的性质</h2><p>实际上就是简单的与（&amp;），或（|）以及条件复合的基本用法。</p>
-<pre><code>    scanf("%d", &amp;x);
-    bool a = !(x &amp; 1), b = (x &gt; 4 &amp;&amp; x &lt;= 12);   //a表示题目性质1，b表示题目性质2
-    printf("%d %d %d %d", a &amp; b, a | b, (a &amp;&amp; !b || b &amp;&amp; !a), !a &amp;&amp; !b);</code></pre><h2 id="题目1：闰年判断"><a href="#题目1：闰年判断" class="headerlink" title="题目1：闰年判断"></a>题目1：闰年判断</h2><p>实际上注意整百年的情况，整百年的情况下必须是400的倍数才可以。原因自行百度嗷。</p>
-<pre><code>    printf("%d\n",(n%4==0&amp;&amp;n%100!=0)||(n%400==0));</code></pre><h2 id="题目2：Apples"><a href="#题目2：Apples" class="headerlink" title="题目2：Apples"></a>题目2：Apples</h2><p>简单的输入输出，只要你具备基本的英语知识（apple的复数形式为apples）</p>
-<pre><code>    if(n&lt;=1) return 0*printf("Today, I ate %d apple.",n);
-    else return 0*printf("Today, I ate %d apples.",n);</code></pre><h2 id="题目3：洛谷团队系统"><a href="#题目3：洛谷团队系统" class="headerlink" title="题目3：洛谷团队系统"></a>题目3：洛谷团队系统</h2><p>设题目为n，则本地配置需要5n，而上传则为3n+11，令5n&gt;3n+11有n&gt;5.5，因此直接判断</p>
-<pre><code>    if((n*1.0)&gt;5.5) return 0*printf("Luogu\n");
-    else return 0*printf("Local\n");</code></pre><h2 id="题目4：肥胖问题"><a href="#题目4：肥胖问题" class="headerlink" title="题目4：肥胖问题"></a>题目4：肥胖问题</h2><p>即BMI的计算方法- -，顺带一提，疫情过后各位的BMI怎么样了鸭（滑稽），另外由于题目要求有效数字，所以最好是采用cout输出。</p>
-<pre><code>    double m, h, bmi;
-    cin &gt;&gt; m &gt;&gt; h;
-    bmi = m / (h * h);
-    if (bmi &lt; 18.5) cout &lt;&lt; "Underweight" &lt;&lt; endl;
-    if (bmi &gt;= 18.5 &amp;&amp; bmi &lt; 24)
-        cout &lt;&lt; "Normal";
-    if (bmi &gt;= 24)
-        cout &lt;&lt; bmi &lt;&lt; endl &lt;&lt; "Overweight" &lt;&lt; endl;</code></pre><h2 id="题目5：三位数排序"><a href="#题目5：三位数排序" class="headerlink" title="题目5：三位数排序"></a>题目5：三位数排序</h2><p>这里我用的std::sort，没啥技术含量，直接略过。</p>
-<h2 id="题目6：月份天数"><a href="#题目6：月份天数" class="headerlink" title="题目6：月份天数"></a>题目6：月份天数</h2><p>运用的打表的方法，对于大部分人来说都是基操。</p>
-<pre><code>int M[13]={0,31,28,31,30,31,30,31,31,30,31,30,31}; //提前打个表
-int main(){
-    int year,month;
-    scanf("%d%d",&amp;year,&amp;month);
-    if((year%4==0&amp;&amp;year%100!=0)||year%400==0) M[2]=29;
-    return 0*printf("%d\n",M[month]);
-}</code></pre><h2 id="题目7：不高兴的津津"><a href="#题目7：不高兴的津津" class="headerlink" title="题目7：不高兴的津津"></a>题目7：不高兴的津津</h2><p>直接边读边比较就行了，这道题过水。</p>
-<pre><code>    for (i=0;i&lt;7;i++){
-        scanf("%d%d",&amp;a,&amp;b);
-        s=a+b;
-        if ((s&gt;max)&amp;&amp;(s&gt;8)) max=s,day=i
-    }
-    printf("%d",day);    </code></pre><h2 id="题目8：买铅笔"><a href="#题目8：买铅笔" class="headerlink" title="题目8：买铅笔"></a>题目8：买铅笔</h2><p>表示这道题是我早期做的一道题了，题解看看就完事。</p>
+                <p>最近洛谷直接更新之前的试炼场模式，现在直接就采用题单了，虽然题目多了不少，但是实际上就是把类似于EX之类的放在了一起，虽然题目多，但是感觉在后面可能会导致一个题单难度会存在飞跃。<br>这是第一期水题集锦，我尽量一日到两日更。另外我记得某本书告诉我们，没有循环的题目实际上某种意义上不适合作为计算机程序，这些题基本上都是这种情况。</p>
+<h2 id="题目0：P1001-A-B"><a href="#题目0：P1001-A-B" class="headerlink" title="题目0：P1001 A+B"></a>题目0：P1001 A+B</h2><p>题解花里胡哨过于多，我也不玩那些了。</p>
+<pre><code>    int a,b;
+    scanf("%d%d",&amp;a,&amp;b);
+    printf("%d",a+b);</code></pre><h2 id="题目1：P1000"><a href="#题目1：P1000" class="headerlink" title="题目1：P1000"></a>题目1：P1000</h2><p>输入输出题目，复制粘贴即可，略过</p>
+<h2 id="题目2：苹果采购"><a href="#题目2：苹果采购" class="headerlink" title="题目2：苹果采购"></a>题目2：苹果采购</h2><pre><code>    int a,b;
+    scanf("%d%d",&amp;a,&amp;b);
+    return 0*printf("%d\n",a*b);</code></pre><h2 id="题目3：大小写转换"><a href="#题目3：大小写转换" class="headerlink" title="题目3：大小写转换"></a>题目3：大小写转换</h2><p>这算是一个技巧了，而且后面字符串也有类似的操作的</p>
+<pre><code>    printf("%c\n",a-'a'+'A');</code></pre><h2 id="题目4：数字反转"><a href="#题目4：数字反转" class="headerlink" title="题目4：数字反转"></a>题目4：数字反转</h2><p>通过string方式反向输出即可，反正不会像一些题一样跑出来前导0。（也可以用栈）</p>
+<pre><code>    string s,ans="";
+    cin&gt;&gt;s;
+    int len=s.length();
+    for(int i=len-1;i&gt;=0;i--) ans+=s[i];
+    cout&lt;&lt;ans&lt;&lt;endl;</code></pre><h2 id="题目5：再分肥宅水"><a href="#题目5：再分肥宅水" class="headerlink" title="题目5：再分肥宅水"></a>题目5：再分肥宅水</h2><p>注意输出格式<br>这里是3位小数，而且有这种情况下的要求，建议都用printf</p>
+<pre><code>    printf("%.3lf\n%d",t/n,n*2)</code></pre><h2 id="题目6：小鱼游泳时间"><a href="#题目6：小鱼游泳时间" class="headerlink" title="题目6：小鱼游泳时间"></a>题目6：小鱼游泳时间</h2><p>实际上就是种树问题放在时间上，n段路需要n+1的树，这里计算的时候也要注意；<br>然后分钟可以参考补码的计算方式。补码的情况就是在最大的时候变为最小，所以d+60-b</p>
+<pre><code>    int a, b,c ,d,e,f;//这里都是题目上的字母，不再阐述
+    scanf("%d%d%d%d",&amp;a,&amp;b,&amp;c,&amp;d);
+    if( d - b &lt; 0 ) e = c - a -1 ,f = d + 60 -b;
+    else e= c - a, f = d - b;
+    return 0 * printf("%d %d" , e, f );</code></pre><h2 id="题目7：n合1"><a href="#题目7：n合1" class="headerlink" title="题目7：n合1"></a>题目7：n合1</h2><p>第三题：注意有效数字和小数，cout的方式这样（一般别这么玩）；<br>第五题：行程问题（来自于某小学奥数老师的科普）：相遇问题：路程和=时间×速度和， 火车过桥问题：总路程=车长+桥长，代入公式计算就是15啦<br>第六题：勾股定理（这个大家都不会不知道吧，不会吧不会吧）<br>第九题：这个题就是还原的过程<br>第十题：牛吃草问题（一片草原P，每天增长Q：X牛吃Y天，Z牛吃W天）：在这道题对应之后带进去就可以得到以下方程（我latex还不怎么会用在这里，后期再改）<br>P+30Q=30（即Y）×8（即X）<br>P+6Q=6（即W）×10（即Z）<br>接下来P=15，Q=7.5，即P=P/10（十分钟）+Q=9，即得到了答案（小学生太难了）；<br>第11题：追及问题（依旧来自于某小学奥数老师）：路程变化量：速度变化量=需要的时间</p>
+<pre><code>if (T == 1) {
+        cout &lt;&lt; "I love Luogu!";
+    } else if (T == 2) {
+        cout &lt;&lt; 2 + 4 &lt;&lt; " " &lt;&lt; 10 - 2 - 4;
+    } else if (T == 3) {
+        cout&lt;&lt;3&lt;&lt;endl&lt;&lt;12&lt;&lt;endl&lt;&lt;2&lt;&lt;endl;
+    } else if (T == 4) {
+        printf("%.3lf\n",500.0/3.0);   //不嫌麻烦可以 cout&lt;&lt;fixed&lt;&lt;setprecision(3)&lt;&lt;1.0*500/3;
+    } else if (T == 5) {
+        cout&lt;&lt;15&lt;&lt;endl;
+    } else if (T == 6) {
+        cout&lt;&lt;sqrt(6*6+9*9)&lt;&lt;endl;
+    } else if (T == 7) {
+        cout&lt;&lt;110&lt;&lt;endl&lt;&lt;90&lt;&lt;endl&lt;&lt;0&lt;&lt;endl;
+    } else if (T == 8) {
+        double const pi=3.141593;
+        double const r=5;
+        cout&lt;&lt;pi*r*2&lt;&lt;endl&lt;&lt;pi*r*r&lt;&lt;endl&lt;&lt;4.0/3*pi*r*r*r&lt;&lt;endl;
+    } else if (T == 9) {
+        cout&lt;&lt;22&lt;&lt;endl;
+    } else if (T == 10) {
+        cout&lt;&lt;9&lt;&lt;endl;
+    } else if (T == 11) {
+        cout&lt;&lt;100.0/(8-5)&lt;&lt;endl;
+    } else if (T == 12) {
+        cout&lt;&lt;13&lt;&lt;endl&lt;&lt;"R"&lt;&lt;endl;
+    } else if (T == 13) {
+        double const pi=3.141593;
+        double V=pi*4*4*4*4/3+pi*10*10*10*4/3;
+        cout&lt;&lt;floor(pow(V,1.0/3))&lt;&lt;endl;
+    } else if (T == 14) {
+        cout&lt;&lt;50&lt;&lt;endl;
+    }</code></pre><h2 id="题目8：三角形面积"><a href="#题目8：三角形面积" class="headerlink" title="题目8：三角形面积"></a>题目8：三角形面积</h2><p>海伦公式建议加入模板</p>
+<pre><code>    ans=sqrt(p*(p-a)*(p-b)*(p-c));
+    return 0*printf("%.1lf\n",ans);</code></pre><h2 id="题目9：买铅笔"><a href="#题目9：买铅笔" class="headerlink" title="题目9：买铅笔"></a>题目9：买铅笔</h2><p>这个，转成整数就好了</p>
+<pre><code>  printf("%d",(int)((a*10+b)/19));//a元b角</code></pre><h2 id="题目10：还有几个苹果"><a href="#题目10：还有几个苹果" class="headerlink" title="题目10：还有几个苹果"></a>题目10：还有几个苹果</h2><p>坑有点恶心（也不是恶心，需要考虑下日常），半个不是一个，负数不存在最小为0</p>
 <pre><code>#include&lt;stdio.h&gt;
 int main(){
-   int n, n1, p1, n2, p2, n3, p3, a1, a2, a3, fir=0, sec=0, thi=0;
-   scanf("%d%d%d%d%d%d%d", &amp;n,&amp; n1,&amp;p1, &amp;n2, &amp;p2,&amp; n3,&amp; p3);//早期写法这样太蠢了，不适合拓展
-   a1 = ((n - 1 + n1) / n1)*p1, a2 = ((n - 1 + n2) / n2)*p2, a3 = ((n - 1 + n3) / n3)*p3;
-   if (a1 &gt; a2) {
-      if (a1 &gt; a3){
-         fir = a1;
-         if (a2 &gt; a3) sec = a2,thi = a3;
-         else sec = a3,thi = a2;
-      }
-      else fir = a3,sec = a1,thi = a2;
-   }
-   else {
-         if (a2 &gt; a3){
-             fir = a2; 
-             if (a1 &gt; a3) sec = a1,thi = a3;
-             else sec = a3,thi = a1;
-         }
-      else fir = a3,sec = a2, thi = a1;
-   }
-    return 0*printf("%d", thi);
-}</code></pre><h2 id="题目9：ISBN"><a href="#题目9：ISBN" class="headerlink" title="题目9：ISBN"></a>题目9：ISBN</h2><p>比较暴力的方法，详见代码。</p>
-<pre><code>#include&lt;stdio.h&gt;
-char a[11];
-int main(){
-    char t1, t2;
-    int check=0;
-    scanf("%c-%c%c%c-%c%c%c%c%c-%c",&amp;a[0],&amp;a[1],&amp;a[2],&amp;a[3],&amp;a[4],&amp;a[5],&amp;a[6],&amp;a[7],&amp;a[8],&amp;t1);
-    for(int i=0;i&lt;9;i++) check+= (i+1)*(a[i]-'0');//题解一里面有相关的解释
-    t2=check%11+'0';
-    if(t2=='0'+10) t2='X';
-    if(t1==t2) printf("Right");
-    else printf("%c-%c%c%c-%c%c%c%c%c-%c",a[0],a[1],a[2],a[3],a[4],a[5],a[6],a[7],a[8],t2);
-    return 0;
-}</code></pre><h2 id="题目10：电费"><a href="#题目10：电费" class="headerlink" title="题目10：电费"></a>题目10：电费</h2><p>就是简单粗暴的分段函数desu。</p>
-<pre><code>    if(d&lt;=150) y=0.4463*d;
-    else if(d&gt;150&amp;&amp;d&lt;=400) y=0.4463*150+0.4663*(d-150);
-    else y=0.4463*150+0.4663*250+(d-400)*0.5663;
-    printf("%.1lf",y);//一位小数</code></pre><h2 id="题目11：小鱼的航程"><a href="#题目11：小鱼的航程" class="headerlink" title="题目11：小鱼的航程"></a>题目11：小鱼的航程</h2><p>具体的变量含义见注释。</p>
-<pre><code>   int x, b, c, d;
-   long int n, a;
-   scanf("%d%ld", &amp;x, &amp;n);
-   b = n / 7;    //计算要多少个整周
-   a = b * 250 * 5;//a表示的是答案，整周直接提前计算
-   c = n - 7 * b;//还剩下了几天
-   d = x;//从周几开始天开始
-   while (c){
-      if (d == 7) d = 1;//加入这周是周天，那么我们直接让他下一天变为周一
-      else if (d &lt;= 5) d++, a = a + 250;//工作日，给我游
-      else d++;//表示周六的时候，不游
-      c--;//剩余日期减1
-   }
-   return 0*printf("%ld", a);</code></pre><h2 id="题目12-：三角函数"><a href="#题目12-：三角函数" class="headerlink" title="题目12 ：三角函数"></a>题目12 ：三角函数</h2><p>由于是勾股数，故两个角都是锐角，正弦函数在(0,pi/2)的范围内随角度增加而增加，故较小锐角的正弦值为最小值/最大值，因此难点变为了约分，这里通过gcd来求解。</p>
-<pre><code>    int a[4];
-    for (int i=0;i&lt;3;i++) cin&gt;&gt;a[i];
-    sort(a,a+3); 
-    cout&lt;&lt;a[0]/__gcd(a[0],a[2])&lt;&lt;'/'&lt;&lt;a[2]/__gcd(a[0],a[2]);
-    return 0;</code></pre><h2 id="题目13：淘淘摘苹果"><a href="#题目13：淘淘摘苹果" class="headerlink" title="题目13：淘淘摘苹果"></a>题目13：淘淘摘苹果</h2><p>提前存好遍历一遍就行了，主要是因为高度在最后才输入，因此不能边输入边cnt++。</p>
-<pre><code>   int a[10],int heigh,can,count=0;
-   for(int i=0;i&lt;10;i++) scanf("%d", &amp;a[i]);
-   scanf("%d", &amp;heigh);
-   can = heigh + 30;
-   for (int i = 0; i &lt; 10; i++) if (a[i] &lt;= can) count++;
-   return 0*printf("%d", count);</code></pre><h2 id="题目14：三角形分类"><a href="#题目14：三角形分类" class="headerlink" title="题目14：三角形分类"></a>题目14：三角形分类</h2><p>直接就是三角形判断。</p>
-<pre><code>    scanf("%d%d%d", &amp;a, &amp;b, &amp;c);
-    int d[4] = {0, a, b, c};//直接放在scanf输入也可以的，这里是懒= =
-    sort(d + 1, d + 4);
-    if(d[1] + d[2] &lt;= d[3]) return 0*printf("Not triangle\n");
-    if(d[1] * d[1] + d[2] * d[2] == d[3] * d[3])    printf("Right triangle\n");
-    else if(d[1] * d[1] + d[2] * d[2] &gt; d[3] * d[3])    printf("Acute triangle\n");
-    else if(d[1] * d[1] + d[2] * d[2] &lt; d[3] * d[3])    printf("Obtuse triangle\n");
-    if(a == b || b == c || a == c)  printf("Isosceles triangle\n");
-    if(a == b &amp;&amp; b == c)    printf("Equilateral triangle\n");
-    return 0;</code></pre><h2 id="题目15：ABC"><a href="#题目15：ABC" class="headerlink" title="题目15：ABC"></a>题目15：ABC</h2><p>按照规定的顺序输出三个数字，具体代码见下。</p>
-<pre><code>    int a[3];
-    char A,B,C;
-    cin&gt;&gt;a[0]&gt;&gt;a[1]&gt;&gt;a[2];
-    cin&gt;&gt;A&gt;&gt;B&gt;&gt;C;
-    sort(a,a+3);
-    cout&lt;&lt;a[A-'A']&lt;&lt;" "&lt;&lt;a[B-'A']&lt;&lt;" "&lt;&lt;a[C-'A'];//通过求差来保证ABC的输出顺序
-    return 0;</code></pre><p>水题基本上没了，后面的题开始会有一点点难度了，欢乐水题就此结束。</p>
+    int m,t,s,ans;//字母和题目一个要求
+    scanf("%d%d%d",&amp;m,&amp;t,&amp;s);
+    if(t==0) return 0*printf("0\n");
+    ans=m-s/t;
+    if(ans&lt;0) return 0*printf("0\n");
+    else{
+        if(s%t==0) return 0*printf("%d\n",ans);
+        else return 0*printf("%d\n",ans-1);
+    } 
+}</code></pre><h2 id="题目11：对角线"><a href="#题目11：对角线" class="headerlink" title="题目11：对角线"></a>题目11：对角线</h2><p>说实话我也不知道这道题怎么（哭哭），所以直接抄了官方的题解，代码如下，于是也加入死记硬背套餐了对于我，后续有正式属于我的题解我会更新（咕咕咕）。</p>
+<pre><code>    ans=n*(n-1)/2*(n-2)/3*(n-3)/4;
+    return 0*printf("%lld\n",ans);</code></pre><p>以上结束。（评论区我还没搞出来23333，虽然我觉得也人会回复我的弱智水题）</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -707,7 +663,7 @@ int main(){
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://astrojoke.github.io/2020/04/11/luo-gu-guan-fang-ti-dan-fen-zhi-jie-gou-ti-jie-shui-ti-jing-gao/">https://astrojoke.github.io/2020/04/11/luo-gu-guan-fang-ti-dan-fen-zhi-jie-gou-ti-jie-shui-ti-jing-gao/</a>
+                    <a href="https://astrojoke.github.io/2020/04/10/luo-gu-guan-fang-ti-dan-shun-xu-jie-gou-ti-jie-chao-ji-shui-jing-gao/">https://astrojoke.github.io/2020/04/10/luo-gu-guan-fang-ti-dan-shun-xu-jie-gou-ti-jie-chao-ji-shui-jing-gao/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -916,24 +872,24 @@ int main(){
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/04/13/luo-gu-guan-fang-ti-dan-xun-huan-jie-gou-ti-jie-shui-ti-jing-gao/">
+                <a href="/2020/04/11/luo-gu-guan-fang-ti-dan-fen-zhi-jie-gou-ti-jie-shui-ti-jing-gao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="洛谷官方题单——循环结构题解（水题警告）">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="洛谷官方题单——分支结构题解（水题警告）">
                         
-                        <span class="card-title">洛谷官方题单——循环结构题解（水题警告）</span>
+                        <span class="card-title">洛谷官方题单——分支结构题解（水题警告）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            水题警告
+                            超级无敌水警告+1
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-13
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-11
                         </span>
                         <span class="publish-author">
                             
@@ -961,24 +917,24 @@ int main(){
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/04/10/luo-gu-guan-fang-ti-dan-shun-xu-jie-gou-ti-jie-chao-ji-shui-jing-gao/">
+                <a href="/2020/04/07/xin-de-kai-shi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="洛谷官方题单——顺序结构题解（超级水题警告）">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="新的开始">
                         
-                        <span class="card-title">洛谷官方题单——顺序结构题解（超级水题警告）</span>
+                        <span class="card-title">新的开始</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            超级无敌水警告
+                            Just a New Begin
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-07
                             </span>
                         <span class="publish-author">
                             
@@ -991,8 +947,8 @@ int main(){
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">
-                        <span class="chip bg-color">编程算法题解</span>
+                    <a href="/tags/%E9%9A%8F%E7%AC%94/">
+                        <span class="chip bg-color">随笔</span>
                     </a>
                     
                 </div>

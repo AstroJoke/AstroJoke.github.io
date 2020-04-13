@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://astrojoke.github.io/"/>
-  <updated>2020-04-11T15:02:12.819Z</updated>
+  <updated>2020-04-13T16:14:57.977Z</updated>
   <id>https://astrojoke.github.io/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>洛谷题单——分支结构题解（水题警告）</title>
+    <title>洛谷官方题单——循环结构题解（水题警告）</title>
+    <link href="https://astrojoke.github.io/2020/04/13/luo-gu-guan-fang-ti-dan-xun-huan-jie-gou-ti-jie-shui-ti-jing-gao/"/>
+    <id>https://astrojoke.github.io/2020/04/13/luo-gu-guan-fang-ti-dan-xun-huan-jie-gou-ti-jie-shui-ti-jing-gao/</id>
+    <published>2020-04-13T15:20:45.000Z</published>
+    <updated>2020-04-13T16:14:57.977Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;今天虽然还是水题，但是实际上已经有部分需要一定的基础才能做出来。下面是代码和部分解释。&lt;/p&gt;
+&lt;h2 id=&quot;题目0：找最小值&quot;&gt;&lt;a href=&quot;#题目0：找最小值&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="编程算法题解" scheme="https://astrojoke.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>洛谷官方题单——分支结构题解（水题警告）</title>
     <link href="https://astrojoke.github.io/2020/04/11/luo-gu-guan-fang-ti-dan-fen-zhi-jie-gou-ti-jie-shui-ti-jing-gao/"/>
     <id>https://astrojoke.github.io/2020/04/11/luo-gu-guan-fang-ti-dan-fen-zhi-jie-gou-ti-jie-shui-ti-jing-gao/</id>
     <published>2020-04-11T14:09:25.000Z</published>
-    <updated>2020-04-11T15:02:12.819Z</updated>
+    <updated>2020-04-13T15:22:48.841Z</updated>
     
     <summary type="html">
     
@@ -43,11 +69,11 @@
   </entry>
   
   <entry>
-    <title>洛谷官方题单1题解（超级水题警告）</title>
-    <link href="https://astrojoke.github.io/2020/04/10/luo-gu-ti-dan-shun-xu-jie-gou-ti-jie-chao-ji-shui-jing-gao/"/>
-    <id>https://astrojoke.github.io/2020/04/10/luo-gu-ti-dan-shun-xu-jie-gou-ti-jie-chao-ji-shui-jing-gao/</id>
+    <title>洛谷官方题单——顺序结构题解（超级水题警告）</title>
+    <link href="https://astrojoke.github.io/2020/04/10/luo-gu-guan-fang-ti-dan-shun-xu-jie-gou-ti-jie-chao-ji-shui-jing-gao/"/>
+    <id>https://astrojoke.github.io/2020/04/10/luo-gu-guan-fang-ti-dan-shun-xu-jie-gou-ti-jie-chao-ji-shui-jing-gao/</id>
     <published>2020-04-09T17:24:09.000Z</published>
-    <updated>2020-04-11T14:10:00.940Z</updated>
+    <updated>2020-04-13T15:22:00.231Z</updated>
     
     <summary type="html">
     
@@ -69,8 +95,8 @@
   
   <entry>
     <title>新的开始</title>
-    <link href="https://astrojoke.github.io/2020/04/07/article-title/"/>
-    <id>https://astrojoke.github.io/2020/04/07/article-title/</id>
+    <link href="https://astrojoke.github.io/2020/04/07/xin-de-kai-shi/"/>
+    <id>https://astrojoke.github.io/2020/04/07/xin-de-kai-shi/</id>
     <published>2020-04-07T14:31:16.000Z</published>
     <updated>2020-04-07T14:46:40.697Z</updated>
     
