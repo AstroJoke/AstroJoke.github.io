@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="洛谷官方题单——顺序结构题解（超级水题警告）, AleXandrite">
-    <meta name="description" content="超级无敌水警告">
+    <meta name="keywords" content="洛谷官方题单——数组题解, AleXandrite">
+    <meta name="description" content="开始有一点点难度了，但是仍然水">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>洛谷官方题单——顺序结构题解（超级水题警告） | AleXandrite</title>
+    <title>洛谷官方题单——数组题解 | AleXandrite</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -390,12 +390,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">洛谷官方题单——顺序结构题解（超级水题警告）</h1>
+                    <h1 class="description center-align post-title">洛谷官方题单——数组题解</h1>
                 </div>
             </div>
         </div>
@@ -541,7 +541,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-10
+                    2020-04-14
                 </div>
                 
 
@@ -550,7 +550,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    3.4k
                 </div>
                 
 
@@ -563,76 +563,372 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>最近洛谷直接更新之前的试炼场模式，现在直接就采用题单了，虽然题目多了不少，但是实际上就是把类似于EX之类的放在了一起，虽然题目多，但是感觉在后面可能会导致一个题单难度会存在飞跃。<br>这是第一期水题集锦，我尽量一日到两日更。另外我记得某本书告诉我们，没有循环的题目实际上某种意义上不适合作为计算机程序，这些题基本上都是这种情况。</p>
-<h2 id="题目0：P1001-A-B"><a href="#题目0：P1001-A-B" class="headerlink" title="题目0：P1001 A+B"></a>题目0：P1001 A+B</h2><p>题解花里胡哨过于多，我也不玩那些了。</p>
-<pre><code>    int a,b;
-    scanf("%d%d",&amp;a,&amp;b);
-    printf("%d",a+b);</code></pre><h2 id="题目1：P1000"><a href="#题目1：P1000" class="headerlink" title="题目1：P1000"></a>题目1：P1000</h2><p>输入输出题目，复制粘贴即可，略过</p>
-<h2 id="题目2：苹果采购"><a href="#题目2：苹果采购" class="headerlink" title="题目2：苹果采购"></a>题目2：苹果采购</h2><pre><code>    int a,b;
-    scanf("%d%d",&amp;a,&amp;b);
-    return 0*printf("%d\n",a*b);</code></pre><h2 id="题目3：大小写转换"><a href="#题目3：大小写转换" class="headerlink" title="题目3：大小写转换"></a>题目3：大小写转换</h2><p>这算是一个技巧了，而且后面字符串也有类似的操作的</p>
-<pre><code>    printf("%c\n",a-'a'+'A');</code></pre><h2 id="题目4：数字反转"><a href="#题目4：数字反转" class="headerlink" title="题目4：数字反转"></a>题目4：数字反转</h2><p>通过string方式反向输出即可，反正不会像一些题一样跑出来前导0。（也可以用栈）</p>
-<pre><code>    string s,ans="";
-    cin&gt;&gt;s;
-    int len=s.length();
-    for(int i=len-1;i&gt;=0;i--) ans+=s[i];
-    cout&lt;&lt;ans&lt;&lt;endl;</code></pre><h2 id="题目5：再分肥宅水"><a href="#题目5：再分肥宅水" class="headerlink" title="题目5：再分肥宅水"></a>题目5：再分肥宅水</h2><p>注意输出格式<br>这里是3位小数，而且有这种情况下的要求，建议都用printf</p>
-<pre><code>    printf("%.3lf\n%d",t/n,n*2)</code></pre><h2 id="题目6：小鱼游泳时间"><a href="#题目6：小鱼游泳时间" class="headerlink" title="题目6：小鱼游泳时间"></a>题目6：小鱼游泳时间</h2><p>实际上就是种树问题放在时间上，n段路需要n+1的树，这里计算的时候也要注意；<br>然后分钟可以参考补码的计算方式。补码的情况就是在最大的时候变为最小，所以d+60-b</p>
-<pre><code>    int a, b,c ,d,e,f;//这里都是题目上的字母，不再阐述
-    scanf("%d%d%d%d",&amp;a,&amp;b,&amp;c,&amp;d);
-    if( d - b &lt; 0 ) e = c - a -1 ,f = d + 60 -b;
-    else e= c - a, f = d - b;
-    return 0 * printf("%d %d" , e, f );</code></pre><h2 id="题目7：n合1"><a href="#题目7：n合1" class="headerlink" title="题目7：n合1"></a>题目7：n合1</h2><p>第三题：注意有效数字和小数，cout的方式这样（一般别这么玩）；<br>第五题：行程问题（来自于某小学奥数老师的科普）：相遇问题：路程和=时间×速度和， 火车过桥问题：总路程=车长+桥长，代入公式计算就是15啦<br>第六题：勾股定理（这个大家都不会不知道吧，不会吧不会吧）<br>第九题：这个题就是还原的过程<br>第十题：牛吃草问题（一片草原P，每天增长Q：X牛吃Y天，Z牛吃W天）：在这道题对应之后带进去就可以得到以下方程（我latex还不怎么会用在这里，后期再改）<br>P+30Q=30（即Y）×8（即X）<br>P+6Q=6（即W）×10（即Z）<br>接下来P=15，Q=7.5，即P=P/10（十分钟）+Q=9，即得到了答案（小学生太难了）；<br>第11题：追及问题（依旧来自于某小学奥数老师）：路程变化量：速度变化量=需要的时间</p>
-<pre><code>if (T == 1) {
-        cout &lt;&lt; "I love Luogu!";
-    } else if (T == 2) {
-        cout &lt;&lt; 2 + 4 &lt;&lt; " " &lt;&lt; 10 - 2 - 4;
-    } else if (T == 3) {
-        cout&lt;&lt;3&lt;&lt;endl&lt;&lt;12&lt;&lt;endl&lt;&lt;2&lt;&lt;endl;
-    } else if (T == 4) {
-        printf("%.3lf\n",500.0/3.0);   //不嫌麻烦可以 cout&lt;&lt;fixed&lt;&lt;setprecision(3)&lt;&lt;1.0*500/3;
-    } else if (T == 5) {
-        cout&lt;&lt;15&lt;&lt;endl;
-    } else if (T == 6) {
-        cout&lt;&lt;sqrt(6*6+9*9)&lt;&lt;endl;
-    } else if (T == 7) {
-        cout&lt;&lt;110&lt;&lt;endl&lt;&lt;90&lt;&lt;endl&lt;&lt;0&lt;&lt;endl;
-    } else if (T == 8) {
-        double const pi=3.141593;
-        double const r=5;
-        cout&lt;&lt;pi*r*2&lt;&lt;endl&lt;&lt;pi*r*r&lt;&lt;endl&lt;&lt;4.0/3*pi*r*r*r&lt;&lt;endl;
-    } else if (T == 9) {
-        cout&lt;&lt;22&lt;&lt;endl;
-    } else if (T == 10) {
-        cout&lt;&lt;9&lt;&lt;endl;
-    } else if (T == 11) {
-        cout&lt;&lt;100.0/(8-5)&lt;&lt;endl;
-    } else if (T == 12) {
-        cout&lt;&lt;13&lt;&lt;endl&lt;&lt;"R"&lt;&lt;endl;
-    } else if (T == 13) {
-        double const pi=3.141593;
-        double V=pi*4*4*4*4/3+pi*10*10*10*4/3;
-        cout&lt;&lt;floor(pow(V,1.0/3))&lt;&lt;endl;
-    } else if (T == 14) {
-        cout&lt;&lt;50&lt;&lt;endl;
-    }</code></pre><h2 id="题目8：三角形面积"><a href="#题目8：三角形面积" class="headerlink" title="题目8：三角形面积"></a>题目8：三角形面积</h2><p>海伦公式建议加入模板</p>
-<pre><code>    ans=sqrt(p*(p-a)*(p-b)*(p-c));
-    return 0*printf("%.1lf\n",ans);</code></pre><h2 id="题目9：买铅笔"><a href="#题目9：买铅笔" class="headerlink" title="题目9：买铅笔"></a>题目9：买铅笔</h2><p>这个，转成整数就好了</p>
-<pre><code>  printf("%d",(int)((a*10+b)/19));//a元b角</code></pre><h2 id="题目10：还有几个苹果"><a href="#题目10：还有几个苹果" class="headerlink" title="题目10：还有几个苹果"></a>题目10：还有几个苹果</h2><p>坑有点恶心（也不是恶心，需要考虑下日常），半个不是一个，负数不存在最小为0</p>
+                <p>今天之后，题目会开始变得困难了一些，但是就现在为止还是抵挡不住我们的刷题节奏。废话不多说，直接开搞。</p>
+<h2 id="题目0：小鱼比可爱"><a href="#题目0：小鱼比可爱" class="headerlink" title="题目0：小鱼比可爱"></a>题目0：小鱼比可爱</h2><p>十分简单，存到一个数组中，然后从0往n-1依次遍历，记录当前位置；然后从0到当前位置遍历，当数字比他小，则cnt++，然后输出cnt和一个空格即可。<br>时间复杂度O(n^2)。</p>
+<pre><code>#define MAXN 105   //这里应该是大家都知道的小技巧了，就是数组稍微开大一些
+int array[MAXN];      //但是注意不一定开大一些就+5,+50，有些题目会存在开一倍甚至更多的情况（后面就会有体现）
+int main(){
+    int n,cnt=0;
+    scanf("%d",&amp;n);
+    for(int i=0;i&lt;n;i++) scanf("%d",&amp;array[i]);
+    for(int i=0;i&lt;n;i++){
+        for(int j=0;j&lt;i;j++) if(array[j]&lt;array[i]) cnt++;
+        printf("%d ",cnt);
+        cnt=0;            //毕竟下一轮循环cnt就是新生了
+    }
+    return 0;
+}</code></pre><h2 id="题目1：小鱼的数字游戏"><a href="#题目1：小鱼的数字游戏" class="headerlink" title="题目1：小鱼的数字游戏"></a>题目1：小鱼的数字游戏</h2><p>可以考虑两个办法，一个是开一个stack<int> s;然后存进去再依次输出（栈）。<br>另外一个办法就是记录到一个数组，同时记录个数（因为以0为结尾，所以需要额外记录数字个数），然后从最后往前输出即可。</int></p>
+<pre><code>long long int num[105];   //long long 没必要，但是我就是要加
+int main() {
+    int i = 0;
+    do {scanf("%lld", &amp;num[++i]);} while (num[i] != 0);
+    for (int j = i - 1; j &gt; 0; j--) printf("%lld ", num[j]);
+    return 0;
+}</code></pre><h2 id="题目2：冰雹猜想"><a href="#题目2：冰雹猜想" class="headerlink" title="题目2：冰雹猜想"></a>题目2：冰雹猜想</h2><p>纯粹的模拟题，由于最后需要倒着输出，所以是需要存在一个数组里面的(当然可以利用递归在系统中是需要栈空间的特性来使用递归输出）。</p>
+<pre><code>//递归版本
+#include&lt;stdio.h&gt;
+void print(int n){
+    if(n==1){
+        printf("1");
+        return;
+    }
+    if(n&amp;1) print(n*3+1);
+    else print(n&gt;&gt;1);
+    printf(" %d",n);
+}
+int main(){
+    int n;
+    scanf("%d",&amp;n);
+    print(n);
+    return 0;
+}
+
+//非递归版本，使用栈
+#include&lt;cstdio&gt;
+#include&lt;stack&gt;
+using namespace std;
+stack&lt;int&gt; s;
+int main(){
+    int n;
+    scanf("%d",&amp;n);
+    while(n!=1){
+        s.push(n);
+        if(n&amp;1) n&gt;&gt;=1;
+        else n=n*3+1;
+    }
+    printf("1 ");
+    while(!s.empty()){
+        int ans=s.top();
+        printf("%d ",ans);
+        s.pop();
+    }
+    return 0;
+}
+
+//非递归，普通实现
+#include&lt;stdio.h&gt;
+int memo[1000];
+int main() {
+    int n, cnt = 1;
+    scanf("%d", &amp;n);
+    while (n != 1) {
+        memo[cnt++] = n;
+        if (n &amp; 1) n = 3 * n + 1;
+        else n &gt;&gt;= 1;
+    }
+    memo[cnt] = 1;
+    for (int i = cnt; i &gt;= 1; i--) printf("%d ", memo[i]);
+    return 0;
+}</code></pre><h2 id="题目3：校门外的树"><a href="#题目3：校门外的树" class="headerlink" title="题目3：校门外的树"></a>题目3：校门外的树</h2><p>按照题目模拟一边即可（线段树/分块啥的暂时就别搞这些花里胡哨的嗷）。</p>
+<pre><code>#include&lt;stdio.h&gt;
+#define MAXN 10002
+int path[MAXN];
+int main(){
+    int L, M;
+    int st, en, count;
+    count = 0;
+    scanf("%d%d", &amp;L, &amp;M);
+    for (int i = 0; i &lt;= L; i++) path[i] = 1;
+    while (M){
+        scanf("%d%d", &amp;st, &amp;en);
+        for (int i = st; i &lt;= en; i++) path[i] = 0;
+        M--;
+    }
+    for (int i = 0; i &lt;= L; i++) if (path[i] == 1) count++;
+    return 0*printf("%d", count);
+}</code></pre><h2 id="题目4：旗鼓相当的对手"><a href="#题目4：旗鼓相当的对手" class="headerlink" title="题目4：旗鼓相当的对手"></a>题目4：旗鼓相当的对手</h2><p>我这里使用的是结构体，也可以使用二维数组，然后遍历就行了</p>
+<pre><code>#include&lt;stdio.h&gt;
+typedef struct student {
+    int Chinese, Math, English, sum;
+}student;
+student memo[1005];
+int abs(int x) { return x &gt;= 0 ? x : -x; }
+int check(int i, int j) {
+    return (abs(memo[i].Chinese - memo[j].Chinese) &lt;= 5) &amp;&amp;
+        (abs(memo[i].Math - memo[j].Math) &lt;= 5) &amp;&amp;
+        (abs(memo[i].English - memo[j].English)) &lt;= 5 &amp;&amp;
+        (abs(memo[i].sum - memo[j].sum) &lt;= 10);
+}
+int main() {
+    int n,ans=0;
+    scanf("%d", &amp;n);
+    for (int i = 0; i &lt; n; i++) {
+        scanf("%d%d%d", &amp;memo[i].Chinese, &amp;memo[i].Math, &amp;memo[i].English);
+        memo[i].sum = memo[i].Chinese + memo[i].Math + memo[i].English;
+    }
+    for (int i = 0; i &lt; n; i++)
+        for (int j = i + 1; j &lt; n; j++) 
+            ans += check(i, j);
+    return 0 * printf("%d\n", ans);
+}</code></pre><h2 id="题目5：工艺品制作"><a href="#题目5：工艺品制作" class="headerlink" title="题目5：工艺品制作"></a>题目5：工艺品制作</h2><p>需要使用标记数组book确定这部分切割的地方有没有“蒸发”，然后模拟即可。<br>‘’’<br>#include&lt;stdio.h&gt;<br>const int MAXN = 25;<br>int book[MAXN][MAXN][MAXN];<br>int main() {<br>    int w, x, h, q, ans = 0;<br>    scanf(“%d%d%d%d”, &amp;w, &amp;x, &amp;h, &amp;q);<br>    while (q–){<br>        int x1, y1, z1, x2, y2, z2;<br>        scanf(“%d%d%d%d%d%d”, &amp;x1, &amp;y1, &amp;z1, &amp;x2, &amp;y2, &amp;z2);<br>        for (int i = x1; i &lt;= x2; i++)<br>            for (int j = y1; j &lt;= y2; j++)<br>                for (int k = z1; k &lt;= z2; k++) book[i][j][k] = 1;<br>    }<br>    for (int i = 1; i &lt;= w; i++)<br>        for (int j = 1; j &lt;= x; j++)<br>            for (int k = 1; k &lt;= h; k++)<br>                if (book[i][j][k] == 0) ans++;<br>    return 0 * printf(“%d\n”, ans);<br>}<br>‘’’</p>
+<h2 id="题目6：彩票摇奖"><a href="#题目6：彩票摇奖" class="headerlink" title="题目6：彩票摇奖"></a>题目6：彩票摇奖</h2><p>采用一个数组来确定哪些号码已经被选取，这样在后续可以直接用输入得到的号码当做索引来查看是否买了这个数。</p>
+<pre><code>#include&lt;stdio.h&gt;
+const int MAXN = 35;
+int book[MAXN], ans[8];
+int main() {
+    int n, temp;
+    scanf("%d", &amp;n);
+    for (int i = 0; i &lt; 7; i++) {
+        scanf("%d", &amp;temp);
+        book[temp] = 1;
+    }
+    for (int i = 0; i &lt; n; i++) {
+        int cnt = 0;
+        for (int j = 0; j &lt; 7; j++) {
+            scanf("%d", &amp;temp);
+            if (book[temp] == 1) cnt++;
+        }
+        ans[cnt]++;
+    }
+    for (int i = 7; i &gt;= 1; i--) printf("%d ", ans[i]);
+    return 0;
+}</code></pre><h2 id="题目7：幻方"><a href="#题目7：幻方" class="headerlink" title="题目7：幻方"></a>题目7：幻方</h2><p>注意通过取模来达到循环的技巧也是经常使用的（尤其在字符串和循环队列中），其余按照题目一个一个写就行了。</p>
+<pre><code>//取模，此代码来自洛谷的HsKr 
+#include&lt;stdio.h&gt;
+int n, a[40][40], x, y;
+int main() {
+    scanf("%d", &amp;n);
+    x = 1, y = (n + 1) / 2;
+    for (int i = 1; i &lt;= n * n; i++) {
+        a[x][y] = i;
+        if (a[(x - 2 + n) % n + 1][y % n + 1] == 0) x = (x - 2 + n) % n + 1, y = y % n + 1;
+        else x = x % n + 1;
+    }
+    for (int i = 1; i &lt;= n; i++) {
+        for (int j = 1; j &lt;= n; j++) 
+            printf("%d ", a[i][j]);
+        printf("\n");
+    }
+    return 0;
+}
+
+//非取模
+#include&lt;stdio.h&gt;
+int ans[40][40];
+int main() {
+    int n, x, y;
+    scanf("%d", &amp;n);
+    x = 1, y = (n + 1) / 2;
+    for (int i = 1; i &lt;= n * n; i++) {
+        ans[x][y] = i;
+        if (x == 1 &amp;&amp; y != n) x = n, y++;
+        else if (x != 1 &amp;&amp; y == n) y = 1, x--;
+        else if (x == 1 &amp;&amp; y == n) y = n, x++;
+        else if (ans[x - 1][y + 1] == 0) x--, y++;
+        else x++;
+    }
+    for (int i = 1; i &lt;= n; i++) {
+        for (int j = 1; j &lt;= n; j++) {
+            printf("%d ", ans[i][j]);
+        }
+        printf("\n");
+    }
+}
+</code></pre><h2 id="题目8：显示屏"><a href="#题目8：显示屏" class="headerlink" title="题目8：显示屏"></a>题目8：显示屏</h2><p>打表题，可以提前将对应的存在一个string<string>（或者string的二维数组）里，然后输入的字符串读一位输出一位，中间加列点。<br>这道例题不放代码，因为打表题代码都是大同小异。</string></p>
+<h2 id="题目9：梦中的统计"><a href="#题目9：梦中的统计" class="headerlink" title="题目9：梦中的统计"></a>题目9：梦中的统计</h2><p>输入开始和结束的数字，遍历一遍并在book数组里面统计对应出现的数即可。</p>
 <pre><code>#include&lt;stdio.h&gt;
 int main(){
-    int m,t,s,ans;//字母和题目一个要求
-    scanf("%d%d%d",&amp;m,&amp;t,&amp;s);
-    if(t==0) return 0*printf("0\n");
-    ans=m-s/t;
-    if(ans&lt;0) return 0*printf("0\n");
-    else{
-        if(s%t==0) return 0*printf("%d\n",ans);
-        else return 0*printf("%d\n",ans-1);
-    } 
-}</code></pre><h2 id="题目11：对角线"><a href="#题目11：对角线" class="headerlink" title="题目11：对角线"></a>题目11：对角线</h2><p>说实话我也不知道这道题怎么（哭哭），所以直接抄了官方的题解，代码如下，于是也加入死记硬背套餐了对于我，后续有正式属于我的题解我会更新（咕咕咕）。</p>
-<pre><code>    ans=n*(n-1)/2*(n-2)/3*(n-3)/4;
-    return 0*printf("%lld\n",ans);</code></pre><p>以上结束。（评论区我还没搞出来23333，虽然我觉得也人会回复我的弱智水题）</p>
+    int book[10] = { 0 }, start, end;
+    scanf("%d%d", &amp;start, &amp;end);
+    for (int i = start; i &lt;= end; i++)
+        for (int temp = i; temp != 0; temp /= 10)
+            book[temp % 10]++;
+    for (int i = 0; i &lt;= 9; i++)
+        printf("%d ", book[i]);
+    return 0;
+}</code></pre><h2 id="题目10：珠心算测验"><a href="#题目10：珠心算测验" class="headerlink" title="题目10：珠心算测验"></a>题目10：珠心算测验</h2><p>这里有个坑，注意要防止存在重复的（例如1+7=8，2+6=8，3+5=8都是重复的），因此最后的比较只看他是不是为0而不是简单粗暴的加起来。</p>
+<pre><code>#include&lt;stdio.h&gt;
+#define MAXN 20005
+int answer[MAXN],book[MAXN],store[105];
+int main() {
+    int n;
+    int cnt = 0;
+    scanf("%d", &amp;n);
+    for (int i = 1; i &lt;= n; i++) {
+        scanf("%d", &amp;store[i]);
+        book[store[i]] = 1;
+    }
+    for (int i = 1; i &lt;= n; i++)
+        for (int j = i + 1; j &lt;= n; j++)
+            answer[store[i] + store[j]]++;
+    for (int i = 1; i &lt; MAXN; i++)
+        if (book[i] &gt; 0 &amp;&amp; answer[i]) cnt++;
+    return 0 * printf("%d", cnt);
+}</code></pre><h2 id="题目11：爱与愁的心痛"><a href="#题目11：爱与愁的心痛" class="headerlink" title="题目11：爱与愁的心痛"></a>题目11：爱与愁的心痛</h2><p>就按照题目要求直接写就行了，我这里相当于构造了一个滑动窗口。</p>
+<pre><code>#pragma warning(disable:4996)
+#include&lt;stdio.h&gt;
+int memo[3050];
+int min(int x, int y) { return x &gt; y ? y : x; }
+int main() {
+    freopen("a.in", "r", stdin);
+    freopen("a.out", "w", stdout);
+    int n, m, mmin = 1e9, sum = 0;
+    scanf("%d%d", &amp;n, &amp;m);
+    for (int i = 0; i &lt; n; i++) scanf("%d", &amp;memo[i]);
+    for (int i = 0; i &lt; m; i++) sum += memo[i];
+    if(n==m) return 0 * printf("%d\n", sum);
+    mmin = min(mmin, sum);
+    for (int i = m; i &lt; n; i++) {
+        sum = sum - memo[i - m] + memo[i];
+        mmin = min(mmin, sum);
+    }
+    return 0 * printf("%d\n", mmin);
+}</code></pre><h2 id="题目12：Bovine-Bones-G"><a href="#题目12：Bovine-Bones-G" class="headerlink" title="题目12：Bovine Bones G"></a>题目12：Bovine Bones G</h2><p>简单的骰子模拟题，直接暴力就行了（数据范围很小，n^3也能接受的）。</p>
+<pre><code>#include&lt;stdio.h&gt;
+int book[65];
+int main() {
+    int s1, s2, s3, K = 0, mmax = -1;
+    scanf("%d%d%d", &amp;s1, &amp;s2, &amp;s3);
+    for (int i = 1; i &lt;= s1; i++) 
+        for (int j = 1; j &lt;= s2; j++) 
+            for (int k = 1; k &lt;= s3; k++) 
+                book[i + j + k]++;
+    for (int i = 1; i &lt;= s1 + s2 + s3; i++) 
+        if (mmax &lt; book[i]) K = i, mmax = book[i];
+    return 0 * printf("%d\n", K);
+}</code></pre><h2 id="题目13：开灯"><a href="#题目13：开灯" class="headerlink" title="题目13：开灯"></a>题目13：开灯</h2><p>这里我们可以将题目视作，寻找数组仅出现过奇数次的题目。由于aXORa=0，开关灯相当于是有两个a，则所有数据异或后只有一个数字就是这个开灯的编号。<br>网络上关于位运算的题目有很多，后续有机会写个blog。</p>
+<pre><code>#pragma warning(disable:4996)
+#include&lt;stdio.h&gt;
+int book[65];
+int main() {
+    freopen("a.in", "r", stdin);
+    freopen("a.out", "w", stdout);
+    int n,t,ans=0;
+    double a;
+    scanf("%d", &amp;n);
+    for (int i = 1; i &lt;= n; i++) {
+        scanf("%lf%d", &amp;a, &amp;t);
+        for (int j = 1; j &lt;= t; j++) ans ^= int(j * a);
+    }
+    return 0 * printf("%d\n", ans);
+}</code></pre><h2 id="题目14：蛇形方阵"><a href="#题目14：蛇形方阵" class="headerlink" title="题目14：蛇形方阵"></a>题目14：蛇形方阵</h2><p>这是《算法竞赛入门经典》的最开始的几道例题，十分简单，但是方法有很多，注意天杀的输出格式。</p>
+<pre><code>#include&lt;stdio.h&gt;
+int memo[10][10];
+int dx[4] = { 0,1,0,-1 }, dy[4] = { 1,0,-1,0 };
+int main() {
+    int n;
+    scanf("%d", &amp;n);
+    for (int x = 0, y = 0, num = 1, d = 0; num &lt;= n * n; num++) {
+        memo[x][y] = num;
+        int a = x + dx[d], b = y + dy[d];
+        if (a &lt; 0 || a &gt;= n || b &lt; 0 || b &gt;= n || memo[a][b] != 0) {//换方向了
+            d = (d + 1) % 4;
+            a = x + dx[d], b = y + dy[d];
+        }
+        x = a, y = b;
+    }
+    for (int i = 0; i &lt; n; i++) {
+        for (int j = 0; j &lt; n; j++) printf("%3d", memo[i][j]);
+        printf("\n");
+    }
+    return 0;
+}</code></pre><h2 id="题目15：杨辉三角"><a href="#题目15：杨辉三角" class="headerlink" title="题目15：杨辉三角"></a>题目15：杨辉三角</h2><p>基础递推题，在后面求组合数十分有用。</p>
+<pre><code>#pragma warning(disable:4996)
+#include&lt;stdio.h&gt;
+int main() {
+    int n;
+    scanf("%d", &amp;n);
+    int a[22][22] = { 0 };
+    a[0][0] = 1, a[1][0] = 1, a[1][1] = 1;
+    for (int i = 2; i &lt; n; i++) {
+        a[i][0] = 1;
+        for (int j = 1; j &lt; n - 1; j++) {
+            a[i][j] = a[i - 1][j - 1] + a[i - 1][j];
+        }
+        a[i][i] = 1;
+    }
+    for (int i = 0; i &lt; n; i++) {
+        for (int j = 0; j &lt;= i; j++) {
+            if (i == j) printf("%d\n", a[i][i]);
+            else printf("%d ", a[i][j]);
+        }
+    }
+    return 0;
+}</code></pre><h2 id="题目16：插火把"><a href="#题目16：插火把" class="headerlink" title="题目16：插火把"></a>题目16：插火把</h2><p>具体就按照题目来，十字遍历和方形遍历，最后遍历整个二维数组就可以那些地方会刷怪。</p>
+<pre><code>#include &lt;stdio.h&gt; 
+int map[5005][5005];
+int abs(int x) { return x &gt;= 0 ? x : -x; }
+bool check(int x, int y, int n) {
+    if (x &lt; 1 || y &lt; 1 || x &gt; n || y &gt; n) return 0;
+    return 1;
+}
+int main() {
+    int n, m, k, a, b, ans;
+    scanf("%d%d%d", &amp;n, &amp;m, &amp;k); 
+    for (int i = 1; i &lt;= m + k; i++) { 
+        scanf("%d%d", &amp;a, &amp;b); 
+        for (int x = -2; x &lt;= 2; x++)
+            for (int y = -2; y &lt;= 2; y++)
+                if ((i &gt; m || abs(x) + abs(y) &lt;= 2) &amp;&amp; check(x + a, b + y, n))//i&gt;m就说明是萤石
+                    map[x + a][b + y]++;
+    }
+    for (int i = 1; i &lt;= n; i++) for (int j = 1; j &lt;= n; j++) if (map[i][j] == 0) ans++;
+    return 0 * printf("%d\n", ans);
+}</code></pre><h2 id="题目17：压缩技术"><a href="#题目17：压缩技术" class="headerlink" title="题目17：压缩技术"></a>题目17：压缩技术</h2><p>按照题目要求暴力做就行了，直接按照一维方式来做，二维反而更麻烦。</p>
+<pre><code>#include&lt;iostream&gt;
+int book[42000];
+using namespace std;
+int main(){
+    int n, temp, bit = 0, cur = 0, i = 0;
+    cin &gt;&gt; n;
+    while (cin &gt;&gt; temp){
+        for (i = cur; i &lt; cur + temp; i++) book[i] = bit;
+        cur = i;
+        bit = !bit;
+    }
+    cur = 0;
+    for (int i = 0; i &lt; n; i++){
+        for (int j = 0; j &lt; n; j++)
+            cout &lt;&lt; book[cur++];
+        cout &lt;&lt; endl;
+    }
+    return 0;
+}</code></pre><h2 id="题目18：压缩技术（续集版）"><a href="#题目18：压缩技术（续集版）" class="headerlink" title="题目18：压缩技术（续集版）"></a>题目18：压缩技术（续集版）</h2><p>存在一个string数组里面，这样就不需要后面求个平方根了，然后遍历每一个string，注意不要在循环内使用局部变量，因为其换行不影响cnt的累计。</p>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+string memo[205];
+int main() {
+    char bit = '0';
+    int cnt = 0;
+    cin &gt;&gt; memo[0];
+    for (int i = 1; i &lt; memo[0].size(); i++) cin &gt;&gt; memo[i];
+    cout &lt;&lt; memo[0].size() &lt;&lt; " ";
+    for (int i = 0; i &lt; memo[0].size(); i++) {
+        for (int j = 0; j &lt; memo[0].size(); j++) {
+            if (memo[i][j] == bit) cnt++;
+            else {
+                bit = memo[i][j];
+                cout &lt;&lt; cnt &lt;&lt; " ";
+                cnt = 1;
+            }
+        }
+    }
+    cout &lt;&lt; cnt &lt;&lt; endl;
+    return 0;
+}</code></pre><h2 id="题目19：方块转换"><a href="#题目19：方块转换" class="headerlink" title="题目19：方块转换"></a>题目19：方块转换</h2><p>最后一道可以说是一个搜索，亦可以说是一个模拟，由于代码长度过长，建议直接看洛谷的题解。</p>
+<h3 id="模拟"><a href="#模拟" class="headerlink" title="模拟"></a>模拟</h3><p>首先对于模拟，只需要对1-7的所有内容写一个接口，然后依次调用，一旦在某个地方返回了true/1就可立即输出这个接口对应的数字。</p>
+<h3 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h3><p>如果是用搜索的方式，建议学会剪枝后再继续向下看：<br>1.首先整个数字的变换实际上是不需要完全变换的，我们以1作为例子，在（1）中，（1,1）的位置会变换（1,3），在进行比对的时候如果发现两者不等，直接进入下个接口，不浪费时间。<br>2.同时，我们只需要存储开始和结束，然后使用常数的空间就可以检验是否能够匹配成功。<br>也就是说，搜索可以整个过程减少时空开销，但是，极端情况下，我们是不能减少时间的（由于空间从n^2变为了常数，所以一定是减少的），因为假设都在最后一步才能判断是否正确变换的情况下，那么时间和模拟是一样的。</p>
+<p>以上就这个题单的全部内容啦，突然难度开始微微上调做题速度都慢了不少，明天一定早起早点把新的题单刷完。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -676,7 +972,7 @@ int main(){
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://astrojoke.github.io/2020/04/10/luo-gu-guan-fang-ti-dan-shun-xu-jie-gou-ti-jie-chao-ji-shui-jing-gao/">https://astrojoke.github.io/2020/04/10/luo-gu-guan-fang-ti-dan-shun-xu-jie-gou-ti-jie-chao-ji-shui-jing-gao/</a>
+                    <a href="https://astrojoke.github.io/2020/04/14/luo-gu-guan-fang-ti-dan-shu-zu-ti-jie/">https://astrojoke.github.io/2020/04/14/luo-gu-guan-fang-ti-dan-shu-zu-ti-jie/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -885,29 +1181,30 @@ int main(){
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/04/11/luo-gu-guan-fang-ti-dan-fen-zhi-jie-gou-ti-jie-shui-ti-jing-gao/">
+                <a href="/2020/04/14/luo-gu-guan-fang-ti-dan-shu-zu-ti-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="洛谷官方题单——分支结构题解（水题警告）">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="洛谷官方题单——数组题解">
                         
-                        <span class="card-title">洛谷官方题单——分支结构题解（水题警告）</span>
+                        <span class="card-title">洛谷官方题单——数组题解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            超级无敌水警告+1
+                            开始有一点点难度了，但是仍然水
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-11
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -920,6 +1217,7 @@ int main(){
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -942,31 +1240,31 @@ int main(){
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/04/07/xin-de-kai-shi/">
+                <a href="/2020/04/13/luo-gu-guan-fang-ti-dan-xun-huan-jie-gou-ti-jie-shui-ti-jing-gao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="新的开始">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="洛谷官方题单——循环结构题解（水题警告）">
                         
-                        <span class="card-title">新的开始</span>
+                        <span class="card-title">洛谷官方题单——循环结构题解（水题警告）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Just a New Begin
+                            水题警告
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-13
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%93%94%E5%93%94%E5%8F%A8/" class="post-category">
-                                    哔哔叨
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
@@ -976,8 +1274,12 @@ int main(){
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%9A%8F%E7%AC%94/">
-                        <span class="chip bg-color">随笔</span>
+                    <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">
+                        <span class="chip bg-color">编程算法题解</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%B4%9B%E8%B0%B7/">
+                        <span class="chip bg-color">洛谷</span>
                     </a>
                     
                 </div>
