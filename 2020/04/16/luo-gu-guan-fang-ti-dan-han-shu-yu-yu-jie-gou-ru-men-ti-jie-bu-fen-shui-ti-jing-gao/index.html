@@ -387,6 +387,19 @@
 </header>
 
     
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
 
 
 
@@ -1113,9 +1126,9 @@ int main() {
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="计算机图形学知识点整整理（一）">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="计算机图形学知识点整整理（施工未完成）（一）">
                         
-                        <span class="card-title">计算机图形学知识点整整理（一）</span>
+                        <span class="card-title">计算机图形学知识点整整理（施工未完成）（一）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
