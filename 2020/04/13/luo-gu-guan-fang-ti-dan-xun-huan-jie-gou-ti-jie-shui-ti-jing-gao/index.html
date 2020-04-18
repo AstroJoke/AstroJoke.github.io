@@ -27,7 +27,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
     
 <meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="AleXandrite" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
@@ -567,14 +567,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    2.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    11 分
                 </div>
                 
 				
@@ -592,240 +592,261 @@
             <div id="articleContent">
                 <p>今天虽然还是水题，但是实际上已经有部分需要一定的基础才能做出来。下面是代码和部分解释。</p>
 <h2 id="题目0：找最小值"><a href="#题目0：找最小值" class="headerlink" title="题目0：找最小值"></a>题目0：找最小值</h2><p>这个地方方法很多，主要是因为n太小了导致了其随意做，但是我个人倾向于使用一边读入一边寻找最小值的方法，代码如下。</p>
-<pre><code>    int num,m=9999,temp;
-    scanf("%d",&amp;num);
-    for(int i=0;i&lt;num;i++){
-        scanf("%d",&amp;temp);
-        m=min(m,temp);
-    }
-    return 0*printf("%d\n",m);</code></pre><h2 id="题目1：分类平均"><a href="#题目1：分类平均" class="headerlink" title="题目1：分类平均"></a>题目1：分类平均</h2><p>我们只需要一边读入数据，一边判断他们是否能够满足被k整除，分别记录总和和个数即可，注意输出格式。</p>
-<pre><code>    int n,k,ks=0,kcnt=0,nks=0,nkcnt=0;
-    scanf("%d%d",&amp;n,&amp;k);
-    for(int i=1;i&lt;=n;i++){
-        if(i%k==0) ks+=i,kcnt++;
-        else nks+=i,nkcnt++;
-    }
-    printf("%.1f %.1f",1.0*ks/kcnt,1.0*nks/nkcnt);
-    return 0;</code></pre><h2 id="题目2：一尺之锤"><a href="#题目2：一尺之锤" class="headerlink" title="题目2：一尺之锤"></a>题目2：一尺之锤</h2><p>按照题目的要求，一边除二一边计算日期就行了。（习惯用位运算，左移一位为除2，右移则为乘2）</p>
-<pre><code>    int n,cnt=0;
-    scanf("%d",&amp;n);
-    while(n) n &gt;&gt;= 1,cnt++;
-    return 0*printf("%d\n",cnt);</code></pre><h2 id="题目3：数字直角三角形"><a href="#题目3：数字直角三角形" class="headerlink" title="题目3：数字直角三角形"></a>题目3：数字直角三角形</h2><p>主要是对输出格式的处理，这里有有个小技巧，使用printf函数的时候采用%0xd的时候，可以在前面补0，x为位数。</p>
-<pre><code>    for(int i = 1;i &lt;= n;i++){
-        for(int j = 1;j &lt;= n - i + 1;j++) 
-            printf("%02d",cnt++);
-        printf("\n");
-    }</code></pre><h2 id="题目4：阶乘的和"><a href="#题目4：阶乘的和" class="headerlink" title="题目4：阶乘的和"></a>题目4：阶乘的和</h2><p>高精度警告，因此这里的难度体现在用C/C++上，各位java选手和python选手请忽略</p>
-<pre><code>#include&lt;iostream&gt;
-using namespace std;
-int first[2000], ans[2000];
-void Add(int* a, int* b) {
-    int pos = 0;
-    for (int i = 1; i &lt;= 1000; i++) {
-        b[i] += a[i] + pos;
-        pos = b[i] / 10;
-        b[i] %= 10;
-    }
-}
-void Factorial(int* a, int b) {
-    int pos = 0;
-    for (int i = 1; i &lt;= 1000; i++) {
-        a[i] = a[i] * b + pos;
-        pos = a[i] / 10;
-        a[i] %= 10;
-    }
-}
-int main() {
-    int n, flag = 0;
-    cin &gt;&gt; n;
-    first[1] = 1;
-    for (int i = 1; i &lt;= n; i++) {
-        Factorial(first, i);//求阶乘
-        Add(first, ans);//从第一个数加到ans里面
-    }
-    for (int i = 1000; i &gt;= 1; i--) {
-        if (ans[i] != 0) flag = 1;
-        if (flag) cout &lt;&lt; ans[i];
-    }
-    return 0;
-}</code></pre><h2 id="题目5：计数问题"><a href="#题目5：计数问题" class="headerlink" title="题目5：计数问题"></a>题目5：计数问题</h2><p>算是比较基础的问题，求位数，当然也可以存到一个string数组里面，然后每个都是string，然后直接遍历变求string.strlen()之和。</p>
-<pre><code>#include&lt;stdio.h&gt;
-int Count(x,num){
-    int cnt = 0;
-    while (x){
-        if (num == (x % 10)) cnt++;
-        x = x / 10;
-    }
-    return cnt;
-}
+<pre class="line-numbers language-c"><code class="language-c">    <span class="token keyword">int</span> num<span class="token punctuation">,</span>m<span class="token operator">=</span><span class="token number">9999</span><span class="token punctuation">,</span>temp<span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>num<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        m<span class="token operator">=</span><span class="token function">min</span><span class="token punctuation">(</span>m<span class="token punctuation">,</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token operator">*</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span>m<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="题目1：分类平均"><a href="#题目1：分类平均" class="headerlink" title="题目1：分类平均"></a>题目1：分类平均</h2><p>我们只需要一边读入数据，一边判断他们是否能够满足被k整除，分别记录总和和个数即可，注意输出格式。</p>
+<pre class="line-numbers language-c"><code class="language-c">    <span class="token keyword">int</span> n<span class="token punctuation">,</span>k<span class="token punctuation">,</span>ks<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>kcnt<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>nks<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>nkcnt<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>n<span class="token punctuation">,</span><span class="token operator">&amp;</span>k<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">%</span>k<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span> ks<span class="token operator">+</span><span class="token operator">=</span>i<span class="token punctuation">,</span>kcnt<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span> nks<span class="token operator">+</span><span class="token operator">=</span>i<span class="token punctuation">,</span>nkcnt<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%.1f %.1f"</span><span class="token punctuation">,</span><span class="token number">1.0</span><span class="token operator">*</span>ks<span class="token operator">/</span>kcnt<span class="token punctuation">,</span><span class="token number">1.0</span><span class="token operator">*</span>nks<span class="token operator">/</span>nkcnt<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="题目2：一尺之锤"><a href="#题目2：一尺之锤" class="headerlink" title="题目2：一尺之锤"></a>题目2：一尺之锤</h2><p>按照题目的要求，一边除二一边计算日期就行了。（习惯用位运算，左移一位为除2，右移则为乘2）</p>
+<pre class="line-numbers language-c"><code class="language-c">    <span class="token keyword">int</span> n<span class="token punctuation">,</span>cnt<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span> n <span class="token operator">>>=</span> <span class="token number">1</span><span class="token punctuation">,</span>cnt<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token operator">*</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span>cnt<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="题目3：数字直角三角形"><a href="#题目3：数字直角三角形" class="headerlink" title="题目3：数字直角三角形"></a>题目3：数字直角三角形</h2><p>主要是对输出格式的处理，这里有有个小技巧，使用printf函数的时候采用%0xd的时候，可以在前面补0，x为位数。</p>
+<pre class="line-numbers language-c"><code class="language-c">    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>j <span class="token operator">&lt;=</span> n <span class="token operator">-</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>j<span class="token operator">++</span><span class="token punctuation">)</span> 
+            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%02d"</span><span class="token punctuation">,</span>cnt<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="题目4：阶乘的和"><a href="#题目4：阶乘的和" class="headerlink" title="题目4：阶乘的和"></a>题目4：阶乘的和</h2><p>高精度警告，因此这里的难度体现在用C/C++上，各位java选手和python选手请忽略</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;iostream></span></span>
+using namespace std<span class="token punctuation">;</span>
+<span class="token keyword">int</span> first<span class="token punctuation">[</span><span class="token number">2000</span><span class="token punctuation">]</span><span class="token punctuation">,</span> ans<span class="token punctuation">[</span><span class="token number">2000</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">Add</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">*</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">*</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> pos <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">1000</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        b<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span><span class="token operator">=</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> pos<span class="token punctuation">;</span>
+        pos <span class="token operator">=</span> b<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">;</span>
+        b<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">%</span><span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token function">Factorial</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token operator">*</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> pos <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">1000</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">*</span> b <span class="token operator">+</span> pos<span class="token punctuation">;</span>
+        pos <span class="token operator">=</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">;</span>
+        a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">%</span><span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">,</span> flag <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    cin <span class="token operator">>></span> n<span class="token punctuation">;</span>
+    first<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">Factorial</span><span class="token punctuation">(</span>first<span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//求阶乘</span>
+        <span class="token function">Add</span><span class="token punctuation">(</span>first<span class="token punctuation">,</span> ans<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//从第一个数加到ans里面</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1000</span><span class="token punctuation">;</span> i <span class="token operator">>=</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>ans<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> flag <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>flag<span class="token punctuation">)</span> cout <span class="token operator">&lt;&lt;</span> ans<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="题目5：计数问题"><a href="#题目5：计数问题" class="headerlink" title="题目5：计数问题"></a>题目5：计数问题</h2><p>算是比较基础的问题，求位数，当然也可以存到一个string数组里面，然后每个都是string，然后直接遍历变求string.strlen()之和。</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;stdio.h></span></span>
+<span class="token keyword">int</span> <span class="token function">Count</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>num<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> cnt <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>num <span class="token operator">==</span> <span class="token punctuation">(</span>x <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span> cnt<span class="token operator">++</span><span class="token punctuation">;</span>
+        x <span class="token operator">=</span> x <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> cnt<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-int main(){
-    int count = 0;
-    long int n;
-    int x;
-    scanf("%ld%d", &amp;n, &amp;x);
-    while (n){
-        count += Count(n, x);
-        n--;
-    }
-    return 0*printf("%d", count);
-}</code></pre><h2 id="题目6：级数求和"><a href="#题目6：级数求和" class="headerlink" title="题目6：级数求和"></a>题目6：级数求和</h2><p>如果你知道级数求和公式，那么没必要一步一步的来，但是如果你不知道直接循环即可。</p>
-<pre><code>#include&lt;stdio.h&gt;
-int main(){
-    long long int n,i = 1;
-    scanf("%lld", &amp;n);
-    for (double sum = 0.0; sum &lt;=n; i++)    sum += (1.0 / i);
-    return 0*printf("%lld\n", i-1);//由于i从1开始取，由种树定理可知最后要-1
-}</code></pre><h2 id="题目7：金币"><a href="#题目7：金币" class="headerlink" title="题目7：金币"></a>题目7：金币</h2><p>简单的按照题目的药酒</p>
-<pre><code># include &lt;stdio.h&gt;
-int main()
-{
-    int k,cnt=0;
-    scanf("%d",&amp;k);               
-    for(int n=1;k-n&gt;=0;k-=n)      
-        cnt+=n*n,n++;            
-    return 0*printf("%d\n",cnt+k*n);//因为循环结束条件为k-n&gt;=0,当k-n小于0的时候，
-    //说明还留了一部分，所以需要加，当  k-n恰好等于0的时候，经过一轮循环以后，k直
-    //接变为了0，这个部分就没了。
-}</code></pre><p>当然也可以按照数列求和地方法，高中老师告诉我们：1^2+2^2…+n^2=n(n+1)(2n+1)/6，1+2+3+…+n=n(n+1)/2。通过这两个就可以反解需要多少天才能达到之后超过，之前不够的天数，最后根据是否满足直接补上就行了，代码这里就不贴了，有兴趣的自己算一下。</p>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">long</span> <span class="token keyword">int</span> n<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> x<span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%ld%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">,</span> <span class="token operator">&amp;</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        count <span class="token operator">+</span><span class="token operator">=</span> <span class="token function">Count</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        n<span class="token operator">--</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token operator">*</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="题目6：级数求和"><a href="#题目6：级数求和" class="headerlink" title="题目6：级数求和"></a>题目6：级数求和</h2><p>如果你知道级数求和公式，那么没必要一步一步的来，但是如果你不知道直接循环即可。</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;stdio.h></span></span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">long</span> <span class="token keyword">long</span> <span class="token keyword">int</span> n<span class="token punctuation">,</span>i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%lld"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">double</span> sum <span class="token operator">=</span> <span class="token number">0.0</span><span class="token punctuation">;</span> sum <span class="token operator">&lt;=</span>n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>    sum <span class="token operator">+</span><span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1.0</span> <span class="token operator">/</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token operator">*</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%lld\n"</span><span class="token punctuation">,</span> i<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//由于i从1开始取，由种树定理可知最后要-1</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="题目7：金币"><a href="#题目7：金币" class="headerlink" title="题目7：金币"></a>题目7：金币</h2><p>简单的按照题目的要求即可。</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property"># <span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> k<span class="token punctuation">,</span>cnt<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>k<span class="token punctuation">)</span><span class="token punctuation">;</span>               
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>k<span class="token operator">-</span>n<span class="token operator">>=</span><span class="token number">0</span><span class="token punctuation">;</span>k<span class="token operator">-</span><span class="token operator">=</span>n<span class="token punctuation">)</span>      
+        cnt<span class="token operator">+</span><span class="token operator">=</span>n<span class="token operator">*</span>n<span class="token punctuation">,</span>n<span class="token operator">++</span><span class="token punctuation">;</span>            
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token operator">*</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span>cnt<span class="token operator">+</span>k<span class="token operator">*</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//因为循环结束条件为k-n>=0,当k-n小于0的时候，</span>
+    <span class="token comment" spellcheck="true">//说明还留了一部分，所以需要加，当  k-n恰好等于0的时候，经过一轮循环以后，k直</span>
+    <span class="token comment" spellcheck="true">//接变为了0，这个部分就没了。</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>当然也可以按照数列求和地方法，高中老师告诉我们：1^2+2^2…+n^2=n(n+1)(2n+1)/6，1+2+3+…+n=n(n+1)/2。通过这两个就可以反解需要多少天才能达到之后超过，之前不够的天数，最后根据是否满足直接补上就行了，代码这里就不贴了，有兴趣的自己算一下。</p>
 <h2 id="题目8：数列求和"><a href="#题目8：数列求和" class="headerlink" title="题目8：数列求和"></a>题目8：数列求和</h2><p>这上面这么多循环的数列求和了，这里最简单的数列求和就没有讲解必要了吧，题目不允许使用等差数列，那么，我们就选择使用他啦。</p>
-<pre><code>    return 0*printf("%d\n",n*-~n&gt;&gt;1);//这里牵扯到C语言比较细节的地方——计算优先级和位运算，看不懂还是老老实实写n*(n+1)/2吧</code></pre><h2 id="题目9：质数口袋"><a href="#题目9：质数口袋" class="headerlink" title="题目9：质数口袋"></a>题目9：质数口袋</h2><p>题目要求求出最多的质数个数以及求和要在给定的范围以内，所以我们只需要贪心从小到大直接选就vans了。</p>
-<pre><code>int isPrime(int y) {
-    for(int i=2; i*i&lt;=y; ++i) if(y%i==0) return 0;//这里牵扯到质数的性质，只需要判断小于其自身算数平方根的范围就行了，证明略
-    return 1;
-}
-int main() {
-    int n,x;
-    long long sum=0;
-    scanf("%d",&amp;n);
-    if(n&lt;2) return 0*printf("0\n");
-    else if(n==2) return 0*printf("2\n1\n");
-    for(int i=2; i&lt;=n; ++i) {
-        if(i%2==0&amp;&amp;i!=2) continue;
-        if(sum+i&gt;n) return 0*printf("%d\n",x);
-        if(isPrime(i)) {
-            printf("%d\n",i);
-            sum+=i;
-            x++;
-        }
-    }
-    return 0;
-}</code></pre><h2 id="题目10：回文质数"><a href="#题目10：回文质数" class="headerlink" title="题目10：回文质数"></a>题目10：回文质数</h2><p>按照题目要求，只需要从给定数字最近的一个质数开始就行了。</p>
-<pre><code>#pragma warning(disable:4996)//这个是在VS下不适用scanf_s的时候需要增加的宏定义，一般来说交题可以删掉，我忘了
-#include&lt;stdio.h&gt;
-#include&lt;math.h&gt;
-#include&lt;string.h&gt;
-bool book[10000050];//标记即可
-void Is_Prime(int b) {
-    memset(book+2, true, sizeof(bool) * 10000048);
-    int n = sqrt(b);
-    for (int i = 2; i &lt;= n; i++) if (book[i]) for (int j = 2; j &lt;= b / i; j++) book[i * j] = false;
-}
-bool Is_Palindromes(int num) {
-    int temp = num, ans = 0;
-    while (temp != 0) ans = ans * 10 + temp % 10, temp /= 10;
-    return ans == num;
-}
-int main() {
-    int a, b;
-    scanf("%d%d", &amp;a, &amp;b);
-    if (b &gt;= 10000000) b = 9999999;//这里的原因是，牛逼“网友”证明得到，没有九位数的回文质数
-    Is_Prime(b);
-    if (a % 2 == 0) a++;
-    for (int i = a; i &lt;= b; i += 2) //这里的原因是因为，除了2，质数都不是偶数
-        if (book[i] &amp;&amp; Is_Palindromes(i)) printf("%d\n",i);
-    return 0;
-}</code></pre><h2 id="题目11：小玉在游泳"><a href="#题目11：小玉在游泳" class="headerlink" title="题目11：小玉在游泳"></a>题目11：小玉在游泳</h2><p>注意数据输入，计算过程和输出的要求格式。</p>
-<pre><code>#include&lt;stdio.h&gt;
-#include&lt;math.h&gt;
-int main(){
-    double x,sum=0;
-    int i;
-    scanf("%lf",&amp;x);
-    for(i=0;sum&lt;x;i++) sum+=2*pow(0.98,i);
-    return 0*printf("%d",i);
-}</code></pre><h2 id="题目12：数字反转（弱小版本）"><a href="#题目12：数字反转（弱小版本）" class="headerlink" title="题目12：数字反转（弱小版本）"></a>题目12：数字反转（弱小版本）</h2><p>有弱小必有加强，后面是有一个加强版本的，这里只需要注意前导0的存在就行了。</p>
-<pre><code>    int num;
-    int ans = 0;
-    scanf("%d", &amp;num);
-    while (num) ans = ans * 10 + num % 10,num /= 10;
-    return 0 * printf("%d",ans);</code></pre><h2 id="题目13：月落乌啼算钱"><a href="#题目13：月落乌啼算钱" class="headerlink" title="题目13：月落乌啼算钱"></a>题目13：月落乌啼算钱</h2><p>如果你熟悉斐波那契数列，那么对于其解析式一定特别的熟悉，这道题的题干也给了很多的提示，同时fib数列也是理解和深入dp的一个重要入门手段。</p>
-<pre><code>    long long int f[50];
-    int n;
-    f[0]=0,f[1]=1,f[2]=1;
-    scanf("%d",&amp;n);
-    for (int i=3;i&lt;=n;i++) f[i]=f[i-1]+f[i-2];
-    return 0*printf("%lld.00",f[n]); //题目毕竟要保证这个式子不能让人一下看出来就是整数嘛</code></pre><h2 id="题目14：求极差"><a href="#题目14：求极差" class="headerlink" title="题目14：求极差"></a>题目14：求极差</h2><p>一边输入一边保存最大最小值即可。</p>
-<pre><code>int main(){
-    int min=99999,max=-999999,num,temp;
-    scanf("%d",&amp;num);
-    for(int i=0;i&lt;num;i++){
-        scanf("%d",&amp;temp);
-        max=(max&gt;temp?max:temp);
-        min=(min&lt;temp?min:temp);
-    }
-    return 0*printf("%d\n",max-min);
-}</code></pre><h2 id="题目15：最长连号"><a href="#题目15：最长连号" class="headerlink" title="题目15：最长连号"></a>题目15：最长连号</h2><p>我这里嫌一边输入一边记录麻烦，所以直接采用的是先全部存下来，然后直接进行遍历。</p>
-<pre><code>#include&lt;stdio.h&gt;
-int memo[15000];
-int main() {
-    int num, ans = -1, temp_ans = 1;
-    scanf("%d", &amp;num);
-    if (num == 1) return 0 * printf("1\n");
-    for (int i = 0; i &lt; num; i++) scanf("%d", &amp;memo[i]);
-    for (int i = 0; i &lt; num; i++) {
-        if (memo[i] + 1 == memo[i + 1]) temp_ans++;
-        else temp_ans = 1;
-        ans = (ans &gt; temp_ans ? ans : temp_ans);
-    }
-    return 0 * printf("%d\n", ans);
-}</code></pre><h2 id="题目16：质因数分解"><a href="#题目16：质因数分解" class="headerlink" title="题目16：质因数分解"></a>题目16：质因数分解</h2><p>由唯一分解定理可知：一个数能且仅能分解为一组若干质数的乘积，这里给出来的数据是一定是两个质数的乘积，只需要从小到大依次除，当能够除尽的时候，直接输出另一个数就行了</p>
-<pre><code>for (int i = 2; i &lt;= num; i++) 
-        if (num % i == 0) return 0 * printf("%d\n", num / i);</code></pre><h2 id="题目17：求三角形"><a href="#题目17：求三角形" class="headerlink" title="题目17：求三角形"></a>题目17：求三角形</h2><p>输入输出题，前导0的补充方式在前面有，这里不赘述。</p>
-<pre><code>    for (int i = 0; i &lt; n; i++) {
-        for (int j = 0; j &lt; n; j++) printf("%02d", start++);
-        printf("\n");
-    }
-    printf("\n");
-    for (int i = 0; i &lt; n; i++) {
-        for (int j = 0; j &lt; n; j++) {
-            if (j + i + 1 &lt; n) printf("  ");
-            else printf("%02d", sstart++);
-        }
-        printf("\n");
-    }</code></pre><h2 id="题目18：打分"><a href="#题目18：打分" class="headerlink" title="题目18：打分"></a>题目18：打分</h2><p>求最低最高，在数据比较多的情况可以使用极差那道题的方式，但是这里我采用的是使用sort函数，虽然会慢一些，但是代码更加精简。</p>
-<pre><code>#include&lt;stdio.h&gt;
-#include&lt;algorithm&gt;
-int memo[1005];
-int main() {
-    int n,sum=0;
-    scanf("%d", &amp;n);
-    for (int i = 0; i &lt; n; i++) scanf("%d", &amp;memo[i]);
-    std::sort(memo, memo + n);//你也可以在前面使用名称空间
-    for (int i = 1; i &lt; n - 1; i++) sum += memo[i];
-    return 0 * printf("%.2lf\n", sum * 1.0 / (n - 2));
-}</code></pre><h2 id="题目19：Davor"><a href="#题目19：Davor" class="headerlink" title="题目19：Davor"></a>题目19：Davor</h2><p>因为每个周一到周日所筹集的钱是一样的，所以把钱的总额直接就加起来就行了。</p>
-<pre><code>    for (k = 1;; ++k)
-        for (x = 100; x &gt; 0; --x)
-            if ((7 * x + 21 * k) * 52 == n) 
-                return 0*printf("%d\n%d\n", x, k);</code></pre><h2 id="题目20：津津的储蓄计划"><a href="#题目20：津津的储蓄计划" class="headerlink" title="题目20：津津的储蓄计划"></a>题目20：津津的储蓄计划</h2><p>实际上按照题目要求从1月到12月遍历一次即可。</p>
-<pre><code>#include&lt;stdio.h&gt;
-int main(){
-    int a[12],re = 0,c,st = 0;//re即remain剩余，st即store存储，c为consume消耗后还有的整百部分
-    for (int i = 0; i &lt; 12; i++)  scanf("%d", &amp;a[i]);
-    for (int i = 0; i&lt;12; i++){
-        c = (re + 300 - a[i] )/ 100;
-        re = re + 300 - a[i] - c * 100;
-        st =st+ c * 100;
-        if (re&lt;0){//这里说明剩下的钱不够了
-                i++;
-                printf("-%d\n", i);
-                break;
-            }
-    }
-    if (re&gt;0) printf("%d\n", st*120/100 + re);
-    return 0;
-}</code></pre><p>以上就是本篇的全部内容啦，如果有问题的话可直接联系我的QQ（在下方可以加）。</p>
+<pre class="line-numbers language-c"><code class="language-c">    <span class="token keyword">return</span> <span class="token number">0</span><span class="token operator">*</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span>n<span class="token operator">*</span><span class="token operator">-</span><span class="token operator">~</span>n<span class="token operator">>></span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//这里牵扯到C语言比较细节的地方——计算优先级和位运算，看不懂还是老老实实写n*(n+1)/2吧</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="题目9：质数口袋"><a href="#题目9：质数口袋" class="headerlink" title="题目9：质数口袋"></a>题目9：质数口袋</h2><p>题目要求求出最多的质数个数以及求和要在给定的范围以内，所以我们只需要贪心从小到大直接选就vans了。</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">isPrime</span><span class="token punctuation">(</span><span class="token keyword">int</span> y<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span> i<span class="token operator">*</span>i<span class="token operator">&lt;=</span>y<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token keyword">if</span><span class="token punctuation">(</span>y<span class="token operator">%</span>i<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//这里牵扯到质数的性质，只需要判断小于其自身算数平方根的范围就行了，证明略</span>
+    <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">,</span>x<span class="token punctuation">;</span>
+    <span class="token keyword">long</span> <span class="token keyword">long</span> sum<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">&lt;</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token operator">*</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"0\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">==</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token operator">*</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"2\n1\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">;</span> i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>i<span class="token operator">%</span><span class="token number">2</span><span class="token operator">==</span><span class="token number">0</span><span class="token operator">&amp;&amp;</span>i<span class="token operator">!=</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">continue</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>sum<span class="token operator">+</span>i<span class="token operator">></span>n<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token operator">*</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">isPrime</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            sum<span class="token operator">+</span><span class="token operator">=</span>i<span class="token punctuation">;</span>
+            x<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="题目10：回文质数"><a href="#题目10：回文质数" class="headerlink" title="题目10：回文质数"></a>题目10：回文质数</h2><p>按照题目要求，只需要从给定数字最近的一个质数开始就行了。</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">pragma</span> warning(disable:4996)</span><span class="token comment" spellcheck="true">//这个是在VS下不适用scanf_s的时候需要增加的宏定义，一般来说交题可以删掉，我忘了</span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;math.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;string.h></span></span>
+bool book<span class="token punctuation">[</span><span class="token number">10000050</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//标记即可</span>
+<span class="token keyword">void</span> <span class="token function">Is_Prime</span><span class="token punctuation">(</span><span class="token keyword">int</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">memset</span><span class="token punctuation">(</span>book<span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">,</span> true<span class="token punctuation">,</span> <span class="token keyword">sizeof</span><span class="token punctuation">(</span>bool<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">10000048</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token function">sqrt</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>book<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> b <span class="token operator">/</span> i<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> book<span class="token punctuation">[</span>i <span class="token operator">*</span> j<span class="token punctuation">]</span> <span class="token operator">=</span> false<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+bool <span class="token function">Is_Palindromes</span><span class="token punctuation">(</span><span class="token keyword">int</span> num<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> temp <span class="token operator">=</span> num<span class="token punctuation">,</span> ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>temp <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> ans <span class="token operator">=</span> ans <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> temp <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">,</span> temp <span class="token operator">/</span><span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> ans <span class="token operator">==</span> num<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> a<span class="token punctuation">,</span> b<span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>a<span class="token punctuation">,</span> <span class="token operator">&amp;</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>b <span class="token operator">>=</span> <span class="token number">10000000</span><span class="token punctuation">)</span> b <span class="token operator">=</span> <span class="token number">9999999</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//这里的原因是，牛逼“网友”证明得到，没有九位数的回文质数</span>
+    <span class="token function">Is_Prime</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> a<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> a<span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> b<span class="token punctuation">;</span> i <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//这里的原因是因为，除了2，质数都不是偶数</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>book<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token function">Is_Palindromes</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="题目11：小玉在游泳"><a href="#题目11：小玉在游泳" class="headerlink" title="题目11：小玉在游泳"></a>题目11：小玉在游泳</h2><p>注意数据输入，计算过程和输出的要求格式。</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;math.h></span></span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">double</span> x<span class="token punctuation">,</span>sum<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> i<span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%lf"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>sum<span class="token operator">&lt;</span>x<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span> sum<span class="token operator">+</span><span class="token operator">=</span><span class="token number">2</span><span class="token operator">*</span><span class="token function">pow</span><span class="token punctuation">(</span><span class="token number">0.98</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token operator">*</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="题目12：数字反转（弱小版本）"><a href="#题目12：数字反转（弱小版本）" class="headerlink" title="题目12：数字反转（弱小版本）"></a>题目12：数字反转（弱小版本）</h2><p>有弱小必有加强，后面是有一个加强版本的，这里只需要注意前导0的存在就行了。</p>
+<pre class="line-numbers language-c"><code class="language-c">    <span class="token keyword">int</span> num<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>num<span class="token punctuation">)</span> ans <span class="token operator">=</span> ans <span class="token operator">*</span> <span class="token number">10</span> <span class="token operator">+</span> num <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">,</span>num <span class="token operator">/</span><span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span> <span class="token operator">*</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span>ans<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="题目13：月落乌啼算钱"><a href="#题目13：月落乌啼算钱" class="headerlink" title="题目13：月落乌啼算钱"></a>题目13：月落乌啼算钱</h2><p>如果你熟悉斐波那契数列，那么对于其解析式一定特别的熟悉，这道题的题干也给了很多的提示，同时fib数列也是理解和深入dp的一个重要入门手段。</p>
+<pre class="line-numbers language-c"><code class="language-c">    <span class="token keyword">long</span> <span class="token keyword">long</span> <span class="token keyword">int</span> f<span class="token punctuation">[</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">;</span>
+    f<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">,</span>f<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span>f<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span> f<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>f<span class="token punctuation">[</span>i<span class="token number">-1</span><span class="token punctuation">]</span><span class="token operator">+</span>f<span class="token punctuation">[</span>i<span class="token number">-2</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token operator">*</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%lld.00"</span><span class="token punctuation">,</span>f<span class="token punctuation">[</span>n<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//题目毕竟要保证这个式子不能让人一下看出来就是整数嘛</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="题目14：求极差"><a href="#题目14：求极差" class="headerlink" title="题目14：求极差"></a>题目14：求极差</h2><p>一边输入一边保存最大最小值即可。</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> min<span class="token operator">=</span><span class="token number">99999</span><span class="token punctuation">,</span>max<span class="token operator">=</span><span class="token operator">-</span><span class="token number">999999</span><span class="token punctuation">,</span>num<span class="token punctuation">,</span>temp<span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>num<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        max<span class="token operator">=</span><span class="token punctuation">(</span>max<span class="token operator">></span>temp<span class="token operator">?</span>max<span class="token punctuation">:</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        min<span class="token operator">=</span><span class="token punctuation">(</span>min<span class="token operator">&lt;</span>temp<span class="token operator">?</span>min<span class="token punctuation">:</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token operator">*</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span>max<span class="token operator">-</span>min<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="题目15：最长连号"><a href="#题目15：最长连号" class="headerlink" title="题目15：最长连号"></a>题目15：最长连号</h2><p>我这里嫌一边输入一边记录麻烦，所以直接采用的是先全部存下来，然后直接进行遍历。</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;stdio.h></span></span>
+<span class="token keyword">int</span> memo<span class="token punctuation">[</span><span class="token number">15000</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> num<span class="token punctuation">,</span> ans <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> temp_ans <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>num<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>num <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span> <span class="token operator">*</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"1\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> num<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>memo<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> num<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>memo<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">==</span> memo<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> temp_ans<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span> temp_ans <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        ans <span class="token operator">=</span> <span class="token punctuation">(</span>ans <span class="token operator">></span> temp_ans <span class="token operator">?</span> ans <span class="token punctuation">:</span> temp_ans<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span> <span class="token operator">*</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> ans<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="题目16：质因数分解"><a href="#题目16：质因数分解" class="headerlink" title="题目16：质因数分解"></a>题目16：质因数分解</h2><p>由唯一分解定理可知：一个数能且仅能分解为一组若干质数的乘积，这里给出来的数据是一定是两个质数的乘积，只需要从小到大依次除，当能够除尽的时候，直接输出另一个数就行了</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> num<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> 
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>num <span class="token operator">%</span> i <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span> <span class="token operator">*</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> num <span class="token operator">/</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="题目17：求三角形"><a href="#题目17：求三角形" class="headerlink" title="题目17：求三角形"></a>题目17：求三角形</h2><p>输入输出题，前导0的补充方式在前面有，这里不赘述。</p>
+<pre class="line-numbers language-c"><code class="language-c">    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%02d"</span><span class="token punctuation">,</span> start<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>j <span class="token operator">+</span> i <span class="token operator">+</span> <span class="token number">1</span> <span class="token operator">&lt;</span> n<span class="token punctuation">)</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"  "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">else</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%02d"</span><span class="token punctuation">,</span> sstart<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="题目18：打分"><a href="#题目18：打分" class="headerlink" title="题目18：打分"></a>题目18：打分</h2><p>求最低最高，在数据比较多的情况可以使用极差那道题的方式，但是这里我采用的是使用sort函数，虽然会慢一些，但是代码更加精简。</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;algorithm></span></span>
+<span class="token keyword">int</span> memo<span class="token punctuation">[</span><span class="token number">1005</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">,</span>sum<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>memo<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    std<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">sort</span><span class="token punctuation">(</span>memo<span class="token punctuation">,</span> memo <span class="token operator">+</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//你也可以在前面使用名称空间</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> sum <span class="token operator">+</span><span class="token operator">=</span> memo<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span> <span class="token operator">*</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%.2lf\n"</span><span class="token punctuation">,</span> sum <span class="token operator">*</span> <span class="token number">1.0</span> <span class="token operator">/</span> <span class="token punctuation">(</span>n <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="题目19：Davor"><a href="#题目19：Davor" class="headerlink" title="题目19：Davor"></a>题目19：Davor</h2><p>因为每个周一到周日所筹集的钱是一样的，所以把钱的总额直接就加起来就行了。</p>
+<pre class="line-numbers language-c"><code class="language-c">    <span class="token keyword">for</span> <span class="token punctuation">(</span>k <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span><span class="token punctuation">;</span> <span class="token operator">++</span>k<span class="token punctuation">)</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>x <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span> x <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token operator">--</span>x<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">7</span> <span class="token operator">*</span> x <span class="token operator">+</span> <span class="token number">21</span> <span class="token operator">*</span> k<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">52</span> <span class="token operator">==</span> n<span class="token punctuation">)</span> 
+                <span class="token keyword">return</span> <span class="token number">0</span><span class="token operator">*</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n%d\n"</span><span class="token punctuation">,</span> x<span class="token punctuation">,</span> k<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="题目20：津津的储蓄计划"><a href="#题目20：津津的储蓄计划" class="headerlink" title="题目20：津津的储蓄计划"></a>题目20：津津的储蓄计划</h2><p>实际上按照题目要求从1月到12月遍历一次即可。</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;stdio.h></span></span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token number">12</span><span class="token punctuation">]</span><span class="token punctuation">,</span>re <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>c<span class="token punctuation">,</span>st <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//re即remain剩余，st即store存储，c为consume消耗后还有的整百部分</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">12</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>  <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span><span class="token number">12</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        c <span class="token operator">=</span> <span class="token punctuation">(</span>re <span class="token operator">+</span> <span class="token number">300</span> <span class="token operator">-</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token punctuation">)</span><span class="token operator">/</span> <span class="token number">100</span><span class="token punctuation">;</span>
+        re <span class="token operator">=</span> re <span class="token operator">+</span> <span class="token number">300</span> <span class="token operator">-</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> c <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">;</span>
+        st <span class="token operator">=</span>st<span class="token operator">+</span> c <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>re<span class="token operator">&lt;</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//这里说明剩下的钱不够了</span>
+                i<span class="token operator">++</span><span class="token punctuation">;</span>
+                <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"-%d\n"</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>re<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> st<span class="token operator">*</span><span class="token number">120</span><span class="token operator">/</span><span class="token number">100</span> <span class="token operator">+</span> re<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>以上就是本篇的全部内容啦，如果有问题的话可直接联系我的QQ（在下方可以加）。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1336,7 +1357,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">22.1k</span>&nbsp;字
+                class="white-color">22k</span>&nbsp;字
             
             
             

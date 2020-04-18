@@ -27,7 +27,7 @@
     <script src="/libs/jquery/jquery.min.js"></script>
     
 <meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="AleXandrite" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-atom-dark.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
 <link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
@@ -592,74 +592,85 @@
             <div id="articleContent">
                 <p>最近洛谷直接更新之前的试炼场模式，现在直接就采用题单了，虽然题目多了不少，但是实际上就是把类似于EX之类的放在了一起，虽然题目多，但是感觉在后面可能会导致一个题单难度会存在飞跃。<br>这是第一期水题集锦，我尽量一日到两日更。另外我记得某本书告诉我们，没有循环的题目实际上某种意义上不适合作为计算机程序，这些题基本上都是这种情况。</p>
 <h2 id="题目0：P1001-A-B"><a href="#题目0：P1001-A-B" class="headerlink" title="题目0：P1001 A+B"></a>题目0：P1001 A+B</h2><p>题解花里胡哨过于多，我也不玩那些了。</p>
-<pre><code>    int a,b;
-    scanf("%d%d",&amp;a,&amp;b);
-    printf("%d",a+b);</code></pre><h2 id="题目1：P1000"><a href="#题目1：P1000" class="headerlink" title="题目1：P1000"></a>题目1：P1000</h2><p>输入输出题目，复制粘贴即可，略过</p>
-<h2 id="题目2：苹果采购"><a href="#题目2：苹果采购" class="headerlink" title="题目2：苹果采购"></a>题目2：苹果采购</h2><pre><code>    int a,b;
-    scanf("%d%d",&amp;a,&amp;b);
-    return 0*printf("%d\n",a*b);</code></pre><h2 id="题目3：大小写转换"><a href="#题目3：大小写转换" class="headerlink" title="题目3：大小写转换"></a>题目3：大小写转换</h2><p>这算是一个技巧了，而且后面字符串也有类似的操作的</p>
-<pre><code>    printf("%c\n",a-'a'+'A');</code></pre><h2 id="题目4：数字反转"><a href="#题目4：数字反转" class="headerlink" title="题目4：数字反转"></a>题目4：数字反转</h2><p>通过string方式反向输出即可，反正不会像一些题一样跑出来前导0。（也可以用栈）</p>
-<pre><code>    string s,ans="";
-    cin&gt;&gt;s;
-    int len=s.length();
-    for(int i=len-1;i&gt;=0;i--) ans+=s[i];
-    cout&lt;&lt;ans&lt;&lt;endl;</code></pre><h2 id="题目5：再分肥宅水"><a href="#题目5：再分肥宅水" class="headerlink" title="题目5：再分肥宅水"></a>题目5：再分肥宅水</h2><p>注意输出格式<br>这里是3位小数，而且有这种情况下的要求，建议都用printf</p>
-<pre><code>    printf("%.3lf\n%d",t/n,n*2)</code></pre><h2 id="题目6：小鱼游泳时间"><a href="#题目6：小鱼游泳时间" class="headerlink" title="题目6：小鱼游泳时间"></a>题目6：小鱼游泳时间</h2><p>实际上就是种树问题放在时间上，n段路需要n+1的树，这里计算的时候也要注意；<br>然后分钟可以参考补码的计算方式。补码的情况就是在最大的时候变为最小，所以d+60-b</p>
-<pre><code>    int a, b,c ,d,e,f;//这里都是题目上的字母，不再阐述
-    scanf("%d%d%d%d",&amp;a,&amp;b,&amp;c,&amp;d);
-    if( d - b &lt; 0 ) e = c - a -1 ,f = d + 60 -b;
-    else e= c - a, f = d - b;
-    return 0 * printf("%d %d" , e, f );</code></pre><h2 id="题目7：n合1"><a href="#题目7：n合1" class="headerlink" title="题目7：n合1"></a>题目7：n合1</h2><p>第三题：注意有效数字和小数，cout的方式这样（一般别这么玩）；<br>第五题：行程问题（来自于某小学奥数老师的科普）：相遇问题：路程和=时间×速度和， 火车过桥问题：总路程=车长+桥长，代入公式计算就是15啦<br>第六题：勾股定理（这个大家都不会不知道吧，不会吧不会吧）<br>第九题：这个题就是还原的过程<br>第十题：牛吃草问题（一片草原P，每天增长Q：X牛吃Y天，Z牛吃W天）：在这道题对应之后带进去就可以得到以下方程（我latex还不怎么会用在这里，后期再改）<br>P+30Q=30（即Y）×8（即X）<br>P+6Q=6（即W）×10（即Z）<br>接下来P=15，Q=7.5，即P=P/10（十分钟）+Q=9，即得到了答案（小学生太难了）；<br>第11题：追及问题（依旧来自于某小学奥数老师）：路程变化量：速度变化量=需要的时间</p>
-<pre><code>if (T == 1) {
-        cout &lt;&lt; "I love Luogu!";
-    } else if (T == 2) {
-        cout &lt;&lt; 2 + 4 &lt;&lt; " " &lt;&lt; 10 - 2 - 4;
-    } else if (T == 3) {
-        cout&lt;&lt;3&lt;&lt;endl&lt;&lt;12&lt;&lt;endl&lt;&lt;2&lt;&lt;endl;
-    } else if (T == 4) {
-        printf("%.3lf\n",500.0/3.0);   //不嫌麻烦可以 cout&lt;&lt;fixed&lt;&lt;setprecision(3)&lt;&lt;1.0*500/3;
-    } else if (T == 5) {
-        cout&lt;&lt;15&lt;&lt;endl;
-    } else if (T == 6) {
-        cout&lt;&lt;sqrt(6*6+9*9)&lt;&lt;endl;
-    } else if (T == 7) {
-        cout&lt;&lt;110&lt;&lt;endl&lt;&lt;90&lt;&lt;endl&lt;&lt;0&lt;&lt;endl;
-    } else if (T == 8) {
-        double const pi=3.141593;
-        double const r=5;
-        cout&lt;&lt;pi*r*2&lt;&lt;endl&lt;&lt;pi*r*r&lt;&lt;endl&lt;&lt;4.0/3*pi*r*r*r&lt;&lt;endl;
-    } else if (T == 9) {
-        cout&lt;&lt;22&lt;&lt;endl;
-    } else if (T == 10) {
-        cout&lt;&lt;9&lt;&lt;endl;
-    } else if (T == 11) {
-        cout&lt;&lt;100.0/(8-5)&lt;&lt;endl;
-    } else if (T == 12) {
-        cout&lt;&lt;13&lt;&lt;endl&lt;&lt;"R"&lt;&lt;endl;
-    } else if (T == 13) {
-        double const pi=3.141593;
-        double V=pi*4*4*4*4/3+pi*10*10*10*4/3;
-        cout&lt;&lt;floor(pow(V,1.0/3))&lt;&lt;endl;
-    } else if (T == 14) {
-        cout&lt;&lt;50&lt;&lt;endl;
-    }</code></pre><h2 id="题目8：三角形面积"><a href="#题目8：三角形面积" class="headerlink" title="题目8：三角形面积"></a>题目8：三角形面积</h2><p>海伦公式建议加入模板</p>
-<pre><code>    ans=sqrt(p*(p-a)*(p-b)*(p-c));
-    return 0*printf("%.1lf\n",ans);</code></pre><h2 id="题目9：买铅笔"><a href="#题目9：买铅笔" class="headerlink" title="题目9：买铅笔"></a>题目9：买铅笔</h2><p>这个，转成整数就好了</p>
-<pre><code>  printf("%d",(int)((a*10+b)/19));//a元b角</code></pre><h2 id="题目10：还有几个苹果"><a href="#题目10：还有几个苹果" class="headerlink" title="题目10：还有几个苹果"></a>题目10：还有几个苹果</h2><p>坑有点恶心（也不是恶心，需要考虑下日常），半个不是一个，负数不存在最小为0</p>
-<pre><code>#include&lt;stdio.h&gt;
-int main(){
-    int m,t,s,ans;//字母和题目一个要求
-    scanf("%d%d%d",&amp;m,&amp;t,&amp;s);
-    if(t==0) return 0*printf("0\n");
-    ans=m-s/t;
-    if(ans&lt;0) return 0*printf("0\n");
-    else{
-        if(s%t==0) return 0*printf("%d\n",ans);
-        else return 0*printf("%d\n",ans-1);
-    } 
-}</code></pre><h2 id="题目11：对角线"><a href="#题目11：对角线" class="headerlink" title="题目11：对角线"></a>题目11：对角线</h2><p>说实话我也不知道这道题怎么（哭哭），所以直接抄了官方的题解，代码如下，于是也加入死记硬背套餐了对于我，后续有正式属于我的题解我会更新（咕咕咕）。</p>
-<pre><code>    ans=n*(n-1)/2*(n-2)/3*(n-3)/4;
-    return 0*printf("%lld\n",ans);</code></pre><p>以上结束。（评论区我还没搞出来23333，虽然我觉得也人会回复我的弱智水题）</p>
+<pre class="line-numbers language-c"><code class="language-c">    <span class="token keyword">int</span> a<span class="token punctuation">,</span>b<span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">,</span><span class="token operator">&amp;</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span>a<span class="token operator">+</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="题目1：P1000"><a href="#题目1：P1000" class="headerlink" title="题目1：P1000"></a>题目1：P1000</h2><p>输入输出题目，复制粘贴即可，略过</p>
+<h2 id="题目2：苹果采购"><a href="#题目2：苹果采购" class="headerlink" title="题目2：苹果采购"></a>题目2：苹果采购</h2><pre class="line-numbers language-c"><code class="language-c">    <span class="token keyword">int</span> a<span class="token punctuation">,</span>b<span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">,</span><span class="token operator">&amp;</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token operator">*</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span>a<span class="token operator">*</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="题目3：大小写转换"><a href="#题目3：大小写转换" class="headerlink" title="题目3：大小写转换"></a>题目3：大小写转换</h2><p>这算是一个技巧了，而且后面字符串也有类似的操作的</p>
+<pre class="line-numbers language-c"><code class="language-c">    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%c\n"</span><span class="token punctuation">,</span>a<span class="token operator">-</span><span class="token string">'a'</span><span class="token operator">+</span><span class="token string">'A'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="题目4：数字反转"><a href="#题目4：数字反转" class="headerlink" title="题目4：数字反转"></a>题目4：数字反转</h2><p>通过string方式反向输出即可，反正不会像一些题一样跑出来前导0。（也可以用栈）</p>
+<pre class="line-numbers language-c"><code class="language-c">    string s<span class="token punctuation">,</span>ans<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">;</span>
+    cin<span class="token operator">>></span>s<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> len<span class="token operator">=</span>s<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span>len<span class="token number">-1</span><span class="token punctuation">;</span>i<span class="token operator">>=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">--</span><span class="token punctuation">)</span> ans<span class="token operator">+</span><span class="token operator">=</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    cout<span class="token operator">&lt;&lt;</span>ans<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="题目5：再分肥宅水"><a href="#题目5：再分肥宅水" class="headerlink" title="题目5：再分肥宅水"></a>题目5：再分肥宅水</h2><p>注意输出格式<br>这里是3位小数，而且有这种情况下的要求，建议都用printf</p>
+<pre class="line-numbers language-c"><code class="language-c">    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%.3lf\n%d"</span><span class="token punctuation">,</span>t<span class="token operator">/</span>n<span class="token punctuation">,</span>n<span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="题目6：小鱼游泳时间"><a href="#题目6：小鱼游泳时间" class="headerlink" title="题目6：小鱼游泳时间"></a>题目6：小鱼游泳时间</h2><p>实际上就是种树问题放在时间上，n段路需要n+1的树，这里计算的时候也要注意；<br>然后分钟可以参考补码的计算方式。补码的情况就是在最大的时候变为最小，所以d+60-b</p>
+<pre class="line-numbers language-c"><code class="language-c">    <span class="token keyword">int</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span>c <span class="token punctuation">,</span>d<span class="token punctuation">,</span>e<span class="token punctuation">,</span>f<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//这里都是题目上的字母，不再阐述</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d%d%d%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>a<span class="token punctuation">,</span><span class="token operator">&amp;</span>b<span class="token punctuation">,</span><span class="token operator">&amp;</span>c<span class="token punctuation">,</span><span class="token operator">&amp;</span>d<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span> d <span class="token operator">-</span> b <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token punctuation">)</span> e <span class="token operator">=</span> c <span class="token operator">-</span> a <span class="token operator">-</span><span class="token number">1</span> <span class="token punctuation">,</span>f <span class="token operator">=</span> d <span class="token operator">+</span> <span class="token number">60</span> <span class="token operator">-</span>b<span class="token punctuation">;</span>
+    <span class="token keyword">else</span> e<span class="token operator">=</span> c <span class="token operator">-</span> a<span class="token punctuation">,</span> f <span class="token operator">=</span> d <span class="token operator">-</span> b<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span> <span class="token operator">*</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d %d"</span> <span class="token punctuation">,</span> e<span class="token punctuation">,</span> f <span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="题目7：n合1"><a href="#题目7：n合1" class="headerlink" title="题目7：n合1"></a>题目7：n合1</h2><p>第三题：注意有效数字和小数，cout的方式这样（一般别这么玩）；<br>第五题：行程问题（来自于某小学奥数老师的科普）：相遇问题：路程和=时间×速度和， 火车过桥问题：总路程=车长+桥长，代入公式计算就是15啦<br>第六题：勾股定理（这个大家都不会不知道吧，不会吧不会吧）<br>第九题：这个题就是还原的过程<br>第十题：牛吃草问题（一片草原P，每天增长Q：X牛吃Y天，Z牛吃W天）：在这道题对应之后带进去就可以得到以下方程（我latex还不怎么会用在这里，后期再改）<br>P+30Q=30（即Y）×8（即X）<br>P+6Q=6（即W）×10（即Z）<br>接下来P=15，Q=7.5，即P=P/10（十分钟）+Q=9，即得到了答案（小学生太难了）；<br>第11题：追及问题（依旧来自于某小学奥数老师）：路程变化量：速度变化量=需要的时间</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">if</span> <span class="token punctuation">(</span>T <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">"I love Luogu!"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>T <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token number">2</span> <span class="token operator">+</span> <span class="token number">4</span> <span class="token operator">&lt;&lt;</span> <span class="token string">" "</span> <span class="token operator">&lt;&lt;</span> <span class="token number">10</span> <span class="token operator">-</span> <span class="token number">2</span> <span class="token operator">-</span> <span class="token number">4</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>T <span class="token operator">==</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cout<span class="token operator">&lt;&lt;</span><span class="token number">3</span><span class="token operator">&lt;&lt;</span>endl<span class="token operator">&lt;&lt;</span><span class="token number">12</span><span class="token operator">&lt;&lt;</span>endl<span class="token operator">&lt;&lt;</span><span class="token number">2</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>T <span class="token operator">==</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%.3lf\n"</span><span class="token punctuation">,</span><span class="token number">500.0</span><span class="token operator">/</span><span class="token number">3.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//不嫌麻烦可以 cout&lt;&lt;fixed&lt;&lt;setprecision(3)&lt;&lt;1.0*500/3;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>T <span class="token operator">==</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cout<span class="token operator">&lt;&lt;</span><span class="token number">15</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>T <span class="token operator">==</span> <span class="token number">6</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cout<span class="token operator">&lt;&lt;</span><span class="token function">sqrt</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token operator">*</span><span class="token number">6</span><span class="token operator">+</span><span class="token number">9</span><span class="token operator">*</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>T <span class="token operator">==</span> <span class="token number">7</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cout<span class="token operator">&lt;&lt;</span><span class="token number">110</span><span class="token operator">&lt;&lt;</span>endl<span class="token operator">&lt;&lt;</span><span class="token number">90</span><span class="token operator">&lt;&lt;</span>endl<span class="token operator">&lt;&lt;</span><span class="token number">0</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>T <span class="token operator">==</span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">double</span> <span class="token keyword">const</span> pi<span class="token operator">=</span><span class="token number">3.141593</span><span class="token punctuation">;</span>
+        <span class="token keyword">double</span> <span class="token keyword">const</span> r<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">;</span>
+        cout<span class="token operator">&lt;&lt;</span>pi<span class="token operator">*</span>r<span class="token operator">*</span><span class="token number">2</span><span class="token operator">&lt;&lt;</span>endl<span class="token operator">&lt;&lt;</span>pi<span class="token operator">*</span>r<span class="token operator">*</span>r<span class="token operator">&lt;&lt;</span>endl<span class="token operator">&lt;&lt;</span><span class="token number">4.0</span><span class="token operator">/</span><span class="token number">3</span><span class="token operator">*</span>pi<span class="token operator">*</span>r<span class="token operator">*</span>r<span class="token operator">*</span>r<span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>T <span class="token operator">==</span> <span class="token number">9</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cout<span class="token operator">&lt;&lt;</span><span class="token number">22</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>T <span class="token operator">==</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cout<span class="token operator">&lt;&lt;</span><span class="token number">9</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>T <span class="token operator">==</span> <span class="token number">11</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cout<span class="token operator">&lt;&lt;</span><span class="token number">100.0</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>T <span class="token operator">==</span> <span class="token number">12</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cout<span class="token operator">&lt;&lt;</span><span class="token number">13</span><span class="token operator">&lt;&lt;</span>endl<span class="token operator">&lt;&lt;</span><span class="token string">"R"</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>T <span class="token operator">==</span> <span class="token number">13</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">double</span> <span class="token keyword">const</span> pi<span class="token operator">=</span><span class="token number">3.141593</span><span class="token punctuation">;</span>
+        <span class="token keyword">double</span> V<span class="token operator">=</span>pi<span class="token operator">*</span><span class="token number">4</span><span class="token operator">*</span><span class="token number">4</span><span class="token operator">*</span><span class="token number">4</span><span class="token operator">*</span><span class="token number">4</span><span class="token operator">/</span><span class="token number">3</span><span class="token operator">+</span>pi<span class="token operator">*</span><span class="token number">10</span><span class="token operator">*</span><span class="token number">10</span><span class="token operator">*</span><span class="token number">10</span><span class="token operator">*</span><span class="token number">4</span><span class="token operator">/</span><span class="token number">3</span><span class="token punctuation">;</span>
+        cout<span class="token operator">&lt;&lt;</span><span class="token function">floor</span><span class="token punctuation">(</span><span class="token function">pow</span><span class="token punctuation">(</span>V<span class="token punctuation">,</span><span class="token number">1.0</span><span class="token operator">/</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>T <span class="token operator">==</span> <span class="token number">14</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cout<span class="token operator">&lt;&lt;</span><span class="token number">50</span><span class="token operator">&lt;&lt;</span>endl<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="题目8：三角形面积"><a href="#题目8：三角形面积" class="headerlink" title="题目8：三角形面积"></a>题目8：三角形面积</h2><p>海伦公式建议加入模板</p>
+<pre class="line-numbers language-c"><code class="language-c">    ans<span class="token operator">=</span><span class="token function">sqrt</span><span class="token punctuation">(</span>p<span class="token operator">*</span><span class="token punctuation">(</span>p<span class="token operator">-</span>a<span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>p<span class="token operator">-</span>b<span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>p<span class="token operator">-</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token operator">*</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%.1lf\n"</span><span class="token punctuation">,</span>ans<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="题目9：买铅笔"><a href="#题目9：买铅笔" class="headerlink" title="题目9：买铅笔"></a>题目9：买铅笔</h2><p>这个，转成整数就好了</p>
+<pre class="line-numbers language-c"><code class="language-c">  <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token operator">*</span><span class="token number">10</span><span class="token operator">+</span>b<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">19</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//a元b角</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="题目10：还有几个苹果"><a href="#题目10：还有几个苹果" class="headerlink" title="题目10：还有几个苹果"></a>题目10：还有几个苹果</h2><p>坑有点恶心（也不是恶心，需要考虑下日常），半个不是一个，负数不存在最小为0</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;stdio.h></span></span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">int</span> m<span class="token punctuation">,</span>t<span class="token punctuation">,</span>s<span class="token punctuation">,</span>ans<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//字母和题目一个要求</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d%d%d"</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>m<span class="token punctuation">,</span><span class="token operator">&amp;</span>t<span class="token punctuation">,</span><span class="token operator">&amp;</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>t<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token operator">*</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"0\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    ans<span class="token operator">=</span>m<span class="token operator">-</span>s<span class="token operator">/</span>t<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>ans<span class="token operator">&lt;</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token operator">*</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"0\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>s<span class="token operator">%</span>t<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token operator">*</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span>ans<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">else</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token operator">*</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span>ans<span class="token number">-1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> 
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="题目11：对角线"><a href="#题目11：对角线" class="headerlink" title="题目11：对角线"></a>题目11：对角线</h2><p>说实话我也不知道这道题怎么（哭哭），所以直接抄了官方的题解，代码如下，于是也加入死记硬背套餐了对于我，后续有正式属于我的题解我会更新（咕咕咕）。</p>
+<pre class="line-numbers language-c"><code class="language-c">    ans<span class="token operator">=</span>n<span class="token operator">*</span><span class="token punctuation">(</span>n<span class="token number">-1</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token operator">*</span><span class="token punctuation">(</span>n<span class="token number">-2</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">3</span><span class="token operator">*</span><span class="token punctuation">(</span>n<span class="token number">-3</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">4</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token operator">*</span><span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%lld\n"</span><span class="token punctuation">,</span>ans<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>以上结束。（评论区我还没搞出来23333，虽然我觉得也人会回复我的弱智水题）</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1162,7 +1173,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">22.1k</span>&nbsp;字
+                class="white-color">22k</span>&nbsp;字
             
             
             
