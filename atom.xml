@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://astrojoke.github.io/"/>
-  <updated>2020-04-19T15:07:43.414Z</updated>
+  <updated>2020-04-19T16:45:07.353Z</updated>
   <id>https://astrojoke.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>洛谷官方题单——排序题解（水题警告）</title>
+    <link href="https://astrojoke.github.io/2020/04/19/luo-gu-guan-fang-ti-dan-pai-xu-ti-jie/"/>
+    <id>https://astrojoke.github.io/2020/04/19/luo-gu-guan-fang-ti-dan-pai-xu-ti-jie/</id>
+    <published>2020-04-19T15:15:10.000Z</published>
+    <updated>2020-04-19T16:45:07.353Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;排序的题目基本都大同小异，按照题目给的规则排序即可，这里牵扯到的是stl的sort函数，sort函数一般我们都是这么使用的 ：&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;&lt;span
+        
+      
+    
+    </summary>
+    
+    
+      <category term="算法" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="排序" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/"/>
+    
+    
+      <category term="编程算法题解" scheme="https://astrojoke.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
+    
+      <category term="洛谷" scheme="https://astrojoke.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>洛谷官方题单——模拟与高精度题解</title>
