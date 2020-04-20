@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://astrojoke.github.io/"/>
-  <updated>2020-04-20T15:15:10.425Z</updated>
+  <updated>2020-04-20T16:08:39.412Z</updated>
   <id>https://astrojoke.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>洛谷官方题单——暴力枚举题解（水题警告)</title>
+    <link href="https://astrojoke.github.io/2020/04/20/luo-gu-guan-fang-ti-dan-bao-li-mei-ju-ti-jie-shui-ti-jing-gao/"/>
+    <id>https://astrojoke.github.io/2020/04/20/luo-gu-guan-fang-ti-dan-bao-li-mei-ju-ti-jie-shui-ti-jing-gao/</id>
+    <published>2020-04-20T15:20:33.000Z</published>
+    <updated>2020-04-20T16:08:39.412Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;爆搜出奇迹，就是TLE，实际上所有的题都可以枚举所有结果选择额，但是实际上因为过程太多，很多题直接枚举会TLE，因此需要一定的技巧。&lt;/p&gt;
+&lt;h2 id=&quot;题目0：统计方形（数据加强版）&quot;&gt;&lt;a href=&quot;#题目0：统计方形（数据加强版）&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="算法" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="排序" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/"/>
+    
+    
+      <category term="编程算法题解" scheme="https://astrojoke.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
+    
+      <category term="洛谷" scheme="https://astrojoke.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>洛谷官方题单——排序题解（水题警告）</title>
