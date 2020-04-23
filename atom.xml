@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://astrojoke.github.io/"/>
-  <updated>2020-04-22T15:51:18.271Z</updated>
+  <updated>2020-04-23T15:17:59.706Z</updated>
   <id>https://astrojoke.github.io/</id>
   
   <author>
@@ -17,11 +17,74 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>《CGPP》读书笔记——第一章到第三章</title>
+    <link href="https://astrojoke.github.io/2020/04/23/cgpp-du-shu-bi-ji-di-yi-zhang-dao-di-san-zhang/"/>
+    <id>https://astrojoke.github.io/2020/04/23/cgpp-du-shu-bi-ji-di-yi-zhang-dao-di-san-zhang/</id>
+    <published>2020-04-23T14:00:40.000Z</published>
+    <updated>2020-04-23T15:17:59.706Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;这本书在年前决定要走图形学方向的时候就买了下来，本来是在家过完年就直接回上海看的，但是由于疫情导致现在才开始看，现在可以对于这本书进行整理了。&lt;/p&gt;
+&lt;p&gt;首先说说这本书吧《计算机图形学——原理及实践》是机工出版社引进的《Computer
+        
+      
+    
+    </summary>
+    
+    
+      <category term="图形学" scheme="https://astrojoke.github.io/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+    
+      <category term="图形学" scheme="https://astrojoke.github.io/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+      <category term="读书笔记" scheme="https://astrojoke.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>洛谷官方题单——递推和递归题解</title>
+    <link href="https://astrojoke.github.io/2020/04/22/luo-gu-guan-fang-ti-dan-di-tui-he-di-gui-ti-jie/"/>
+    <id>https://astrojoke.github.io/2020/04/22/luo-gu-guan-fang-ti-dan-di-tui-he-di-gui-ti-jie/</id>
+    <published>2020-04-22T15:53:44.000Z</published>
+    <updated>2020-04-23T15:20:18.735Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;递推算是我们学习数学的基本功了，而算法在某些程度上就是披着程序设计的数学。而且我们最早接触递推便是高中数列的递推式，其对我们来说不会陌生。&lt;br&gt;而对于递归，我们可以看到在进入算法tag的题解中，或多或少的有着递归的影子，这一题单就是帮助我们更好的理解递归这一在程序设计中显
+        
+      
+    
+    </summary>
+    
+    
+      <category term="算法" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="递推" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95/%E9%80%92%E6%8E%A8/"/>
+    
+      <category term="递归" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95/%E9%80%92%E6%8E%A8/%E9%80%92%E5%BD%92/"/>
+    
+    
+      <category term="编程算法题解" scheme="https://astrojoke.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
+    
+      <category term="洛谷" scheme="https://astrojoke.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
+    
+  </entry>
+  
+  <entry>
     <title>洛谷官方题单——暴力枚举题解（水题警告)</title>
     <link href="https://astrojoke.github.io/2020/04/20/luo-gu-guan-fang-ti-dan-bao-li-mei-ju-ti-jie-shui-ti-jing-gao/"/>
     <id>https://astrojoke.github.io/2020/04/20/luo-gu-guan-fang-ti-dan-bao-li-mei-ju-ti-jie-shui-ti-jing-gao/</id>
     <published>2020-04-20T15:20:33.000Z</published>
-    <updated>2020-04-22T15:51:18.271Z</updated>
+    <updated>2020-04-23T15:05:27.897Z</updated>
     
     <summary type="html">
     
@@ -150,7 +213,7 @@
     <link href="https://astrojoke.github.io/2020/04/15/ji-suan-ji-tu-xing-xue-zhi-shi-dian-zheng-zheng-li-yi/"/>
     <id>https://astrojoke.github.io/2020/04/15/ji-suan-ji-tu-xing-xue-zhi-shi-dian-zheng-zheng-li-yi/</id>
     <published>2020-04-15T15:11:13.000Z</published>
-    <updated>2020-04-18T18:10:19.004Z</updated>
+    <updated>2020-04-23T14:03:27.385Z</updated>
     
     <summary type="html">
     
