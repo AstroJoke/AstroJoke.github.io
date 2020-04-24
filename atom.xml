@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://astrojoke.github.io/"/>
-  <updated>2020-04-23T15:17:59.706Z</updated>
+  <updated>2020-04-24T13:40:27.580Z</updated>
   <id>https://astrojoke.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>《CGPP》读书笔记——第一章到第三章</title>
+    <title>《CGPP》读书笔记——第一章</title>
     <link href="https://astrojoke.github.io/2020/04/23/cgpp-du-shu-bi-ji-di-yi-zhang-dao-di-san-zhang/"/>
     <id>https://astrojoke.github.io/2020/04/23/cgpp-du-shu-bi-ji-di-yi-zhang-dao-di-san-zhang/</id>
     <published>2020-04-23T14:00:40.000Z</published>
-    <updated>2020-04-23T15:17:59.706Z</updated>
+    <updated>2020-04-24T13:40:27.580Z</updated>
     
     <summary type="html">
     
@@ -40,8 +40,6 @@
       <category term="图形学" scheme="https://astrojoke.github.io/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
     
     
-      <category term="图形学" scheme="https://astrojoke.github.io/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
-    
       <category term="读书笔记" scheme="https://astrojoke.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
@@ -51,7 +49,7 @@
     <link href="https://astrojoke.github.io/2020/04/22/luo-gu-guan-fang-ti-dan-di-tui-he-di-gui-ti-jie/"/>
     <id>https://astrojoke.github.io/2020/04/22/luo-gu-guan-fang-ti-dan-di-tui-he-di-gui-ti-jie/</id>
     <published>2020-04-22T15:53:44.000Z</published>
-    <updated>2020-04-23T15:20:18.735Z</updated>
+    <updated>2020-04-24T13:40:20.468Z</updated>
     
     <summary type="html">
     
@@ -66,16 +64,16 @@
     </summary>
     
     
-      <category term="算法" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="递推" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95/%E9%80%92%E6%8E%A8/"/>
-    
-      <category term="递归" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95/%E9%80%92%E6%8E%A8/%E9%80%92%E5%BD%92/"/>
+      <category term="算法和程序设计" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
     
     
       <category term="编程算法题解" scheme="https://astrojoke.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
     
       <category term="洛谷" scheme="https://astrojoke.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
+    
+      <category term="递推" scheme="https://astrojoke.github.io/tags/%E9%80%92%E6%8E%A8/"/>
+    
+      <category term="递归" scheme="https://astrojoke.github.io/tags/%E9%80%92%E5%BD%92/"/>
     
   </entry>
   
@@ -84,7 +82,7 @@
     <link href="https://astrojoke.github.io/2020/04/20/luo-gu-guan-fang-ti-dan-bao-li-mei-ju-ti-jie-shui-ti-jing-gao/"/>
     <id>https://astrojoke.github.io/2020/04/20/luo-gu-guan-fang-ti-dan-bao-li-mei-ju-ti-jie-shui-ti-jing-gao/</id>
     <published>2020-04-20T15:20:33.000Z</published>
-    <updated>2020-04-23T15:05:27.897Z</updated>
+    <updated>2020-04-24T13:40:22.868Z</updated>
     
     <summary type="html">
     
@@ -100,14 +98,14 @@
     </summary>
     
     
-      <category term="算法" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="排序" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/"/>
+      <category term="算法和程序设计" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
     
     
       <category term="编程算法题解" scheme="https://astrojoke.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
     
       <category term="洛谷" scheme="https://astrojoke.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
+    
+      <category term="枚举" scheme="https://astrojoke.github.io/tags/%E6%9E%9A%E4%B8%BE/"/>
     
   </entry>
   
@@ -116,7 +114,7 @@
     <link href="https://astrojoke.github.io/2020/04/19/luo-gu-guan-fang-ti-dan-pai-xu-ti-jie/"/>
     <id>https://astrojoke.github.io/2020/04/19/luo-gu-guan-fang-ti-dan-pai-xu-ti-jie/</id>
     <published>2020-04-19T15:15:10.000Z</published>
-    <updated>2020-04-20T15:15:10.425Z</updated>
+    <updated>2020-04-24T13:40:15.309Z</updated>
     
     <summary type="html">
     
@@ -132,14 +130,14 @@
     </summary>
     
     
-      <category term="算法" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="排序" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F/"/>
+      <category term="算法和程序设计" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
     
     
       <category term="编程算法题解" scheme="https://astrojoke.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
     
       <category term="洛谷" scheme="https://astrojoke.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
+    
+      <category term="排序" scheme="https://astrojoke.github.io/tags/%E6%8E%92%E5%BA%8F/"/>
     
   </entry>
   
@@ -148,7 +146,7 @@
     <link href="https://astrojoke.github.io/2020/04/18/luo-gu-guan-fang-ti-dan-mo-ni-yu-gao-jing-du-ti-jie/"/>
     <id>https://astrojoke.github.io/2020/04/18/luo-gu-guan-fang-ti-dan-mo-ni-yu-gao-jing-du-ti-jie/</id>
     <published>2020-04-18T08:13:13.000Z</published>
-    <updated>2020-04-19T15:07:43.414Z</updated>
+    <updated>2020-04-24T13:41:03.986Z</updated>
     
     <summary type="html">
     
@@ -164,16 +162,14 @@
     </summary>
     
     
-      <category term="算法" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法和程序设计" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
     
-      <category term="高精度" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95/%E9%AB%98%E7%B2%BE%E5%BA%A6/"/>
-    
-      <category term="模拟" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95/%E9%AB%98%E7%B2%BE%E5%BA%A6/%E6%A8%A1%E6%8B%9F/"/>
-    
-    
-      <category term="编程算法题解" scheme="https://astrojoke.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
     
       <category term="洛谷" scheme="https://astrojoke.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
+    
+      <category term="高精度" scheme="https://astrojoke.github.io/tags/%E9%AB%98%E7%B2%BE%E5%BA%A6/"/>
+    
+      <category term="模拟" scheme="https://astrojoke.github.io/tags/%E6%A8%A1%E6%8B%9F/"/>
     
   </entry>
   
@@ -182,7 +178,7 @@
     <link href="https://astrojoke.github.io/2020/04/16/luo-gu-guan-fang-ti-dan-han-shu-yu-yu-jie-gou-ru-men-ti-jie-bu-fen-shui-ti-jing-gao/"/>
     <id>https://astrojoke.github.io/2020/04/16/luo-gu-guan-fang-ti-dan-han-shu-yu-yu-jie-gou-ru-men-ti-jie-bu-fen-shui-ti-jing-gao/</id>
     <published>2020-04-16T11:28:59.000Z</published>
-    <updated>2020-04-18T18:06:38.704Z</updated>
+    <updated>2020-04-24T13:40:08.854Z</updated>
     
     <summary type="html">
     
@@ -197,7 +193,7 @@
     </summary>
     
     
-      <category term="程序设计" scheme="https://astrojoke.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+      <category term="算法和程序设计" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
     
     
       <category term="编程算法题解" scheme="https://astrojoke.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
@@ -213,7 +209,7 @@
     <link href="https://astrojoke.github.io/2020/04/15/ji-suan-ji-tu-xing-xue-zhi-shi-dian-zheng-zheng-li-yi/"/>
     <id>https://astrojoke.github.io/2020/04/15/ji-suan-ji-tu-xing-xue-zhi-shi-dian-zheng-zheng-li-yi/</id>
     <published>2020-04-15T15:11:13.000Z</published>
-    <updated>2020-04-23T14:03:27.385Z</updated>
+    <updated>2020-04-24T13:40:17.592Z</updated>
     
     <summary type="html">
     
@@ -243,7 +239,7 @@
     <link href="https://astrojoke.github.io/2020/04/15/luo-gu-guan-fang-ti-dan-zi-fu-chuan-ru-men-ti-jie-bu-fen-shui-ti-jing-gao/"/>
     <id>https://astrojoke.github.io/2020/04/15/luo-gu-guan-fang-ti-dan-zi-fu-chuan-ru-men-ti-jie-bu-fen-shui-ti-jing-gao/</id>
     <published>2020-04-15T06:06:56.000Z</published>
-    <updated>2020-04-18T18:05:10.225Z</updated>
+    <updated>2020-04-24T13:39:57.038Z</updated>
     
     <summary type="html">
     
@@ -258,7 +254,7 @@
     </summary>
     
     
-      <category term="程序设计" scheme="https://astrojoke.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+      <category term="算法和程序设计" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
     
     
       <category term="编程算法题解" scheme="https://astrojoke.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
@@ -274,7 +270,7 @@
     <link href="https://astrojoke.github.io/2020/04/14/luo-gu-guan-fang-ti-dan-shu-zu-ti-jie-bu-fen-shui-ti-jing-gao/"/>
     <id>https://astrojoke.github.io/2020/04/14/luo-gu-guan-fang-ti-dan-shu-zu-ti-jie-bu-fen-shui-ti-jing-gao/</id>
     <published>2020-04-14T11:36:38.000Z</published>
-    <updated>2020-04-18T18:05:54.768Z</updated>
+    <updated>2020-04-24T13:40:01.925Z</updated>
     
     <summary type="html">
     
@@ -290,7 +286,7 @@
     </summary>
     
     
-      <category term="程序设计" scheme="https://astrojoke.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+      <category term="算法和程序设计" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
     
     
       <category term="编程算法题解" scheme="https://astrojoke.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
@@ -306,7 +302,7 @@
     <link href="https://astrojoke.github.io/2020/04/13/luo-gu-guan-fang-ti-dan-xun-huan-jie-gou-ti-jie-shui-ti-jing-gao/"/>
     <id>https://astrojoke.github.io/2020/04/13/luo-gu-guan-fang-ti-dan-xun-huan-jie-gou-ti-jie-shui-ti-jing-gao/</id>
     <published>2020-04-13T15:20:45.000Z</published>
-    <updated>2020-04-18T18:04:31.291Z</updated>
+    <updated>2020-04-24T13:39:59.525Z</updated>
     
     <summary type="html">
     
@@ -322,7 +318,7 @@
     </summary>
     
     
-      <category term="程序设计" scheme="https://astrojoke.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+      <category term="算法和程序设计" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
     
     
       <category term="编程算法题解" scheme="https://astrojoke.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
@@ -338,7 +334,7 @@
     <link href="https://astrojoke.github.io/2020/04/11/luo-gu-guan-fang-ti-dan-fen-zhi-jie-gou-ti-jie-shui-ti-jing-gao/"/>
     <id>https://astrojoke.github.io/2020/04/11/luo-gu-guan-fang-ti-dan-fen-zhi-jie-gou-ti-jie-shui-ti-jing-gao/</id>
     <published>2020-04-11T14:09:25.000Z</published>
-    <updated>2020-04-18T18:03:41.259Z</updated>
+    <updated>2020-04-24T13:39:53.400Z</updated>
     
     <summary type="html">
     
@@ -354,7 +350,7 @@
     </summary>
     
     
-      <category term="程序设计" scheme="https://astrojoke.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+      <category term="算法和程序设计" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
     
     
       <category term="编程算法题解" scheme="https://astrojoke.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
@@ -370,7 +366,7 @@
     <link href="https://astrojoke.github.io/2020/04/10/luo-gu-guan-fang-ti-dan-shun-xu-jie-gou-ti-jie-chao-ji-shui-jing-gao/"/>
     <id>https://astrojoke.github.io/2020/04/10/luo-gu-guan-fang-ti-dan-shun-xu-jie-gou-ti-jie-chao-ji-shui-jing-gao/</id>
     <published>2020-04-09T17:24:09.000Z</published>
-    <updated>2020-04-18T18:06:12.470Z</updated>
+    <updated>2020-04-24T13:40:04.576Z</updated>
     
     <summary type="html">
     
@@ -385,7 +381,7 @@
     </summary>
     
     
-      <category term="程序设计" scheme="https://astrojoke.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+      <category term="算法和程序设计" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
     
     
       <category term="编程算法题解" scheme="https://astrojoke.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
@@ -401,7 +397,7 @@
     <link href="https://astrojoke.github.io/2020/04/07/xin-de-kai-shi/"/>
     <id>https://astrojoke.github.io/2020/04/07/xin-de-kai-shi/</id>
     <published>2020-04-07T14:31:16.000Z</published>
-    <updated>2020-04-14T11:42:56.344Z</updated>
+    <updated>2020-04-24T13:40:25.503Z</updated>
     
     <summary type="html">
     
