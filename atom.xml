@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://astrojoke.github.io/"/>
-  <updated>2020-04-25T03:08:44.089Z</updated>
+  <updated>2020-04-25T09:04:15.050Z</updated>
   <id>https://astrojoke.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://astrojoke.github.io/2020/04/25/cgpp-du-shu-bi-ji-di-er-san-zhang/"/>
     <id>https://astrojoke.github.io/2020/04/25/cgpp-du-shu-bi-ji-di-er-san-zhang/</id>
     <published>2020-04-25T02:57:08.000Z</published>
-    <updated>2020-04-25T03:08:44.089Z</updated>
+    <updated>2020-04-25T09:04:15.050Z</updated>
     
     <summary type="html">
     
@@ -29,8 +29,7 @@
       
         
         
-          &lt;h2 id=&quot;第二章&quot;&gt;&lt;a href=&quot;#第二章&quot; class=&quot;headerlink&quot; title=&quot;第二章&quot;&gt;&lt;/a&gt;第二章&lt;/h2&gt;&lt;p&gt;在对计算机图形学全面综述后，现在开始结合一定的实际案例来对2D图形学简介，而此处基于WPF（微软的）。&lt;/p&gt;
-&lt;h3
+          &lt;h1 id=&quot;第二章：2D图形学简介&quot;&gt;&lt;a href=&quot;#第二章：2D图形学简介&quot; class=&quot;headerlink&quot;
         
       
     
