@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://astrojoke.github.io/"/>
-  <updated>2020-04-24T13:40:27.580Z</updated>
+  <updated>2020-04-25T03:08:44.089Z</updated>
   <id>https://astrojoke.github.io/</id>
   
   <author>
@@ -17,9 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>《CGPP》读书笔记——第二、三章</title>
+    <link href="https://astrojoke.github.io/2020/04/25/cgpp-du-shu-bi-ji-di-er-san-zhang/"/>
+    <id>https://astrojoke.github.io/2020/04/25/cgpp-du-shu-bi-ji-di-er-san-zhang/</id>
+    <published>2020-04-25T02:57:08.000Z</published>
+    <updated>2020-04-25T03:08:44.089Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;第二章&quot;&gt;&lt;a href=&quot;#第二章&quot; class=&quot;headerlink&quot; title=&quot;第二章&quot;&gt;&lt;/a&gt;第二章&lt;/h2&gt;&lt;p&gt;在对计算机图形学全面综述后，现在开始结合一定的实际案例来对2D图形学简介，而此处基于WPF（微软的）。&lt;/p&gt;
+&lt;h3
+        
+      
+    
+    </summary>
+    
+    
+      <category term="图形学" scheme="https://astrojoke.github.io/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+    
+      <category term="读书笔记" scheme="https://astrojoke.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>《CGPP》读书笔记——第一章</title>
-    <link href="https://astrojoke.github.io/2020/04/23/cgpp-du-shu-bi-ji-di-yi-zhang-dao-di-san-zhang/"/>
-    <id>https://astrojoke.github.io/2020/04/23/cgpp-du-shu-bi-ji-di-yi-zhang-dao-di-san-zhang/</id>
+    <link href="https://astrojoke.github.io/2020/04/23/cgpp-du-shu-bi-ji-di-yi-zhang/"/>
+    <id>https://astrojoke.github.io/2020/04/23/cgpp-du-shu-bi-ji-di-yi-zhang/</id>
     <published>2020-04-23T14:00:40.000Z</published>
     <updated>2020-04-24T13:40:27.580Z</updated>
     
