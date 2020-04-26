@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://astrojoke.github.io/"/>
-  <updated>2020-04-25T09:04:15.050Z</updated>
+  <updated>2020-04-26T06:50:13.611Z</updated>
   <id>https://astrojoke.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>洛谷官方题单——贪心题解</title>
+    <link href="https://astrojoke.github.io/2020/04/26/luo-gu-guan-fang-ti-dan-tan-xin-ti-jie/"/>
+    <id>https://astrojoke.github.io/2020/04/26/luo-gu-guan-fang-ti-dan-tan-xin-ti-jie/</id>
+    <published>2020-04-26T06:40:26.000Z</published>
+    <updated>2020-04-26T06:50:13.611Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;贪心顾名思义，就是选择当前最好的，当然很多时候太贪婪不是一件好事，因为目光短浅，没有考虑到后面的事情，结果没有办法保证最后的结果做到最好。&lt;br&gt;这就是贪心最难的地方，你可能知道需要使用贪心，但是你无法证明的时候，贪心的局部最优可能最后的WA。&lt;/p&gt;
+&lt;h2
+        
+      
+    
+    </summary>
+    
+    
+      <category term="算法和程序设计" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+      <category term="编程算法题解" scheme="https://astrojoke.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
+    
+      <category term="洛谷" scheme="https://astrojoke.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
+    
+      <category term="贪心" scheme="https://astrojoke.github.io/tags/%E8%B4%AA%E5%BF%83/"/>
+    
+  </entry>
   
   <entry>
     <title>《CGPP》读书笔记——第二、三章</title>
@@ -76,7 +108,7 @@
     <link href="https://astrojoke.github.io/2020/04/22/luo-gu-guan-fang-ti-dan-di-tui-he-di-gui-ti-jie/"/>
     <id>https://astrojoke.github.io/2020/04/22/luo-gu-guan-fang-ti-dan-di-tui-he-di-gui-ti-jie/</id>
     <published>2020-04-22T15:53:44.000Z</published>
-    <updated>2020-04-25T15:16:10.438Z</updated>
+    <updated>2020-04-26T06:26:35.782Z</updated>
     
     <summary type="html">
     

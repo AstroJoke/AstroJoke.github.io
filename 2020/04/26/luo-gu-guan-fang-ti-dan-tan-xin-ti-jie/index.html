@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="《CGPP》读书笔记——第一章, AleXandrite">
-    <meta name="description" content="本来打算三章一起的，但是绪论实在太多了">
+    <meta name="keywords" content="洛谷官方题单——贪心题解, AleXandrite">
+    <meta name="description" content="施工中，我个人认为最难的基本算法">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>《CGPP》读书笔记——第一章 | AleXandrite</title>
+    <title>洛谷官方题单——贪心题解 | AleXandrite</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -390,7 +390,7 @@
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = '';
+        let pwd = 'ashdaoishioasbfjzbcuizx';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误，将返回主页！');
@@ -403,12 +403,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">《CGPP》读书笔记——第一章</h1>
+                    <h1 class="description center-align post-title">洛谷官方题单——贪心题解</h1>
                 </div>
             </div>
         </div>
@@ -525,8 +525,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">读书笔记</span>
+                            <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">
+                                <span class="chip bg-color">编程算法题解</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%B4%9B%E8%B0%B7/">
+                                <span class="chip bg-color">洛谷</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%B4%AA%E5%BF%83/">
+                                <span class="chip bg-color">贪心</span>
                             </a>
                         
                     </div>
@@ -537,8 +545,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/" class="post-category">
-                                图形学
+                            <a href="/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="post-category">
+                                算法和程序设计
                             </a>
                         
                     </div>
@@ -550,7 +558,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-23
+                    2020-04-26
                 </div>
                 
 
@@ -559,14 +567,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.7k
+                    372
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    19 分
+                    1 分
                 </div>
                 
 				
@@ -582,75 +590,28 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>这本书在年前决定要走图形学方向的时候就买了下来，本来是在家过完年就直接回上海看的，但是由于疫情导致现在才开始看，现在可以对于这本书进行整理了。</p>
-<p>首先说说这本书吧《计算机图形学——原理及实践》是机工出版社引进的《Computer Graphic——Principles and practice》的翻译版本（小声BB，外文版本太贵了），但是这本书被分割为基础篇（1-16章）和进阶篇（17-38章），所以到了后面还是得找到原文阅读。<br>另外由于疫情原因，闫令琪dalao的现代计算机图形学也在B站有同步的更新，也是入门的好东西，他的课用的是虎书《Fundamental of Computer Graphic》，也是一本好书，但是这书的最新版是没有中文版的，所以拿着英文版硬啃吧。<br>接下来便是读书笔记。</p>
-<p>绪论本章主要是对计算机图形学相关的内容进行了基本的介绍——图形学应用、图形学研究的各个领域、图形学方法高效的生成图像的工具、了解图形算法和程序规模的一些数字以及编写图形程序的思想等。</p>
-<h2 id="1-1计算机图形学的简介"><a href="#1-1计算机图形学的简介" class="headerlink" title="1.1计算机图形学的简介"></a>1.1计算机图形学的简介</h2><h3 id="0-计算机图形学"><a href="#0-计算机图形学" class="headerlink" title="0. 计算机图形学"></a>0. 计算机图形学</h3><p>是指通过计算机的显示器和交互设备进行视觉交流的科学和艺术（？）。通常来说视觉是从计算机到人，而图形学则是从人到计算机。而且计算机图形学算是多学科交叉的学科，物理学原理对光的传播建模并动画仿真；采用数学方法描述物体的形状；基于人感知能力进行资源配置（即不花时间绘制不受注意的细节上）。</p>
-<p>狭义上，计算机图形学可以定义为：给定场景中的物体模型（对场景中物体几何和它们如何反射光线的描述）和向场景投射光线的光源模型（通过数学描述、辐射方向和光谱分布等），生成该场景的特定视图（即到达场景中虚拟视点或相机的光线）。</p>
-<p>通过这个描述，或许我们可以将图形学视作一堆矩阵的乘法，或者说就拿光照举例子：入射光乘以场景的反射率得到反射光，递归直至计算出充满整个空间的光（有点像Peano曲线的感觉），但是实际上这是不可能的，原因或许是因为计算机采用0/1导致的离散型无法完全模拟现实。同时基于上面所说的“人和计算机的关系”，我们可以将视觉视作矩阵分解（4.24补充：或者说一切需要猜测的东西都可以视作视觉）。</p>
-<h3 id="1-模型的含义"><a href="#1-模型的含义" class="headerlink" title="1. 模型的含义"></a>1. 模型的含义</h3><p>不再是我们传统意义的模型，至少这个模型我们可以指几何模型，也可以指数学模型。</p>
-<p>几何模型就是我们想要呈现在图像中的物体的模型，而所谓的建模就是从一无所有开始，创建这样一个模型的过程，而所得到的对物体的“几何+其他信息”的描述就是模型；</p>
-<p>而数学模型则是物理/数学中计算的模型，例如光照如何反射的模型，物体如何运动的模型之类的，这些模型或许正确，或许错误，需要一定的公理或者一定的现实基础来证明的。</p>
-<h3 id="2-图形学的研究方向"><a href="#2-图形学的研究方向" class="headerlink" title="2. 图形学的研究方向"></a>2. 图形学的研究方向</h3><p>a. 创建几何模型的方法；<br>b. 表面反射率的表示（如表面下浅层的反射率、途径介质之类的反射率）的表示；<br>c. 基于物理定律和近似模型的场景动画；<br>d. 动画控制；<br>e. 与虚拟体之间的交互；<br>f. 非照片真实感表示。</p>
-<p>值得吐槽的是：非仿真领域（nonsimulation area）的研究似难以获得突破，其原因可能是因为定性的描述对于此领域更重要，即“人与人之间是不同的”。</p>
-<h3 id="3-像素"><a href="#3-像素" class="headerlink" title="3. 像素"></a>3. 像素</h3><p>构成图像点阵的基本元素（或者说这里指的是显示像素）。</p>
-<h3 id="4-图形应用"><a href="#4-图形应用" class="headerlink" title="4. 图形应用"></a>4. 图形应用</h3><p>对于日常生活中的图形应用（日常的，不是专业的，因为专业上的图形应用反而更具有针对性）可能最多的便是游戏——每秒钟能够处理几百万格多边形面片（或者说更多的三角形面片）和视频，这些应用的关键是绘制（指将物体/图像呈现在显示器上）性能相关的处理器时间、内存和带宽。</p>
-<p>而对于性能来说，一种实用的指标是每秒可以绘制的基本体（面向应用的基本构形单元，可能是三角mesh，可能是带texture的多边形，可能是对于流场可视化系统中带颜色的箭头）个数。</p>
-<p>每秒可显示的基本体个数等于煤每帧可现实的基本题数乘以每秒的显示帧率，通过动态调整帧率来满足不同应用对资源的需求调整。</p>
-<h2 id="1-2-CG的历史"><a href="#1-2-CG的历史" class="headerlink" title="1.2 CG的历史"></a>1.2 CG的历史</h2><p>最开始的时候，CG的研究中心存在着经典的简化假设：所有物体对光的反射方式与平光乳胶漆大致相当，故光线要么直接照射在表面，要么再场景中多次反射，最终形成泛光照明效果，是的未收到光源直射的物体也有光照。并且，三角形内部各点通过三角形面片的三个顶点值在进行计算（即插值）。<br>而伴随着越来越多的模型例如形状模型、光源模型和反射模型等的加入，但是如今的主流模型中还是包括了泛光。</p>
-<h3 id="0-泛光"><a href="#0-泛光" class="headerlink" title="0. 泛光"></a>0. 泛光</h3><p>泛光是指的是一定量的光线，他们没有确切的起始点，但在场景中无处不在（就我的初步理解就是环境光线？）。泛光保证了场景中的可见物体均可受到一定的光照，将其值设定为经验值，可以用之模拟光能传输中的某些分量。</p>
-<p>后续（第六章）会介绍反射模型，其具备漫射项——对应表面朝向各个方向的均匀反射的光；镜面反射项——模拟一定方向的反射光（包括近乎完美镜面反射和漫反射）和泛光项。</p>
-<h3 id="1-图像显示器"><a href="#1-图像显示器" class="headerlink" title="1. 图像显示器"></a>1. 图像显示器</h3><p>最开始的向量显示设备，随后向光栅显示设备（展示的图像是一个点阵）的转变。</p>
-<p>显示器的一些参数：分辨率——单个点的精细程度；大小（显示器物理尺寸）和动态范围（可显示的像素最亮和最暗光亮度之比）。</p>
-<h3 id="2-CG的飞跃——可编程图形卡"><a href="#2-CG的飞跃——可编程图形卡" class="headerlink" title="2. CG的飞跃——可编程图形卡"></a>2. CG的飞跃——可编程图形卡</h3><p>应用程序不再发送多边形和图像，而是发送小的程序给图形卡，其分别描述了如何接替的使用随后的多边形和图像的显示方式和次序。这些所谓的“着色器”开辟了不需要使用额外的cpu周期就能生成真实感图形的全新领域（虽然GPU在疯狂运行）。</p>
-<h2 id="1-3-一个栗子——有关真实感的讨论"><a href="#1-3-一个栗子——有关真实感的讨论" class="headerlink" title="1.3 一个栗子——有关真实感的讨论"></a>1.3 一个栗子——有关真实感的讨论</h2><p>在黑暗的房间里，一个100W的点光源悬挂在桌子上方约1m处，桌面涂有灰色乳胶漆。我们从2m高处看这个桌子，会看到什么呢?</p>
-<p>先不管灯泡射出的可见光和景物表面的精确反射率是多少，场景中的大致光照分布(在灯下方较为明亮，而远离灯的区域较暗)可由物理学决定。可以做一个思维实验，想象一下该场景的理想“画面”。</p>
-<p>在这里，该书的作者希望绘制该场景的图形系统能生成与之十分逼近的结果。当然结果肯定是很难的鸭，因为标准图形包没有物理的相关量的完整描述，例如，物理学中光强按照距离光源距离平方成反比，但是传统图形学包会存在二次衰减（有部分原因是因为：示器亮度和人眼对光的非线性反馈导致的，且显示器的动态范围被限定了）导致其生成的图片看起来不对或者说不真实。于是这里就讨论了一个重要的领域。</p>
-<p>早期图形学研究十分偏重的的领域，也因此导致了大多数计算并不是基于物理的，而是曲迎合人的视觉系统的注意（主要是因为人的HVS实在是太鲁棒了，导致有点点不像真的你就看得出来）。</p>
-<p>当然现在也在研究非真实感图形学，而且研究的人越来越多了。</p>
-<p>另外吐槽一句：为什么在视频工作者眼里粒子/特效很麻烦而在CGdalao们的眼里粒子/特效很简单的原因，就是因为粒子/特效不注重真实感，反而更容易“随意”写。</p>
-<p>那么问题来了：我们不追求物理那么追求什么呢？不会是去研究人眼吧？答案还真是这样的，当然不是研究人眼，而是去以视觉的方式来呈现信息。就拿我们书上的例子：</p>
-<p>典型的视图是一个光线好的房间，光线方向各异强度相同射入到景物的表面，反射光差异控制在一定的范围（书上是10^3）。然后简单的将屏幕像素的显示亮度调整到合理的区间，让其在类似的范围内变化，通过这个方式，无需在视图上模拟真实的物理反射。但是，作为我们“真实感”，我们需要将其表示的颜色表达清楚，否则一眼假。</p>
-<p>这个过程可以当做一个抽象——我们不关心物理性质，但是我们只关心外貌（大小，颜色之类的）。</p>
-<h2 id="1-4-目标、资源和适度的抽象"><a href="#1-4-目标、资源和适度的抽象" class="headerlink" title="1.4 目标、资源和适度的抽象"></a>1.4 目标、资源和适度的抽象</h2><p>在上面的栗子中，我们知道了一个原则——在任何的仿真中，首先应该了解其背后的物理数学过程，然后在给定的时空限制，算力等（或者说资源限制）情况下，确定能够提供结果（或者说目标）的最佳近似方法。</p>
-<h3 id="0-睿智的（非骂人意味）建模原则"><a href="#0-睿智的（非骂人意味）建模原则" class="headerlink" title="0. 睿智的（非骂人意味）建模原则"></a>0. 睿智的（非骂人意味）建模原则</h3><p>对某一现象进行建模的时候，先深入了解需要建模的现象和建模的目标，然后选择一个含义丰富的抽象模型，再在你所限的资源范围内，为期选取合适的表示方法，最后通过测试来验证模型是否合适。</p>
-<h3 id="1-视觉系统的原则"><a href="#1-视觉系统的原则" class="headerlink" title="1. 视觉系统的原则"></a>1. 视觉系统的原则</h3><p>在求解图形学问题和构建模型时考虑人类视觉的影响——看不见太小的，看不见过快的，运动控制系统也有局限性（比如我们要在屏幕用鼠标精确点击某一像素）（你要random那不是随意玩）。</p>
-<p>但是，不要认为感知能够改变我们的所有，毕竟脑壳是拿来结合现实思考的。我们在考虑的时候还是需要基于某些东西的特性做出改变的（比如在光照的时候，只描绘可见光或者只将光和波长描述为双射）</p>
-<h2 id="1-5-图形学中的一些参数和一些参数值的量级"><a href="#1-5-图形学中的一些参数和一些参数值的量级" class="headerlink" title="1.5 图形学中的一些参数和一些参数值的量级"></a>1.5 图形学中的一些参数和一些参数值的量级</h2><h3 id="0-普朗克常量"><a href="#0-普朗克常量" class="headerlink" title="0. 普朗克常量"></a>0. 普朗克常量</h3><p>光是波粒二象性的，对于光子来说，其E=hc/波长，而h约为6.6<em>10^(-34) J</em>s，通过公式可以求解单个典型光子（波长为650nm）的能量为3*10^(-19)J</p>
-<h3 id="1-白天和黑夜进入眼睛的光能之比"><a href="#1-白天和黑夜进入眼睛的光能之比" class="headerlink" title="1. 白天和黑夜进入眼睛的光能之比"></a>1. 白天和黑夜进入眼睛的光能之比</h3><p>接近为10^10</p>
-<h3 id="2-显示器和人眼"><a href="#2-显示器和人眼" class="headerlink" title="2. 显示器和人眼"></a>2. 显示器和人眼</h3><p>由于显示器实在是发展太快了，现在已经很难说出一个好的标准了，但是人眼的标准还是可以说出来的，人眼的角分辨率约为1弧度（这就是我们在PPT旋转一度没啥感觉的原因），等效为距离一千米观察300mm的长度（但是现在这么多人戴眼镜，这个东西很堪忧啊）（或者在电脑屏幕1米前观察0.3mm的长度）。</p>
-<h3 id="3-复杂应用的处理需求——以游戏为例"><a href="#3-复杂应用的处理需求——以游戏为例" class="headerlink" title="3. 复杂应用的处理需求——以游戏为例"></a>3. 复杂应用的处理需求——以游戏为例</h3><p>为了让游戏场景出现在屏幕上，需要将描述场景的多边形传送给图形处理器，然后将这些多边形的属性（颜色大小等），通过多种技术（反走样，平滑着色等）予以绘制和展现。</p>
-<p>在这个过程中，每个像素都得着色计算，因此每秒的多边形和每秒的像素成为了效率的指标，且时刻变化。</p>
-<h2 id="1-6-图形管线"><a href="#1-6-图形管线" class="headerlink" title="1.6 图形管线"></a>1.6 图形管线</h2><h3 id="0-图形管线（graphics-pipeline）"><a href="#0-图形管线（graphics-pipeline）" class="headerlink" title="0. 图形管线（graphics pipeline）"></a>0. 图形管线（graphics pipeline）</h3><p>标准图形系统的实施通常被叫做图形管线。管线指阿紫数学模型到生成屏幕像素的一系列过程和步骤。</p>
-<p>我们可以将各个应用大概的分为：纹理数据，多边形网格（传递多边形数据），多边形网格顶点（传递网格顶点数据），取景设置，光源数据。然后将这些应用传到图形卡进行几何变换，光栅化和光照计算，然后生成图像再到显示。</p>
-<p>将图形管线看做一个黑盒，我们也能写出来很多好的图形学程序，你只需要知道接口是怎么传递数据的（再怎么复杂也比写游戏的伤害计算传递的参数少）。</p>
-<p>当然由于现在的发展，不怎么用管线了，反而是用图形的API提供可以调整管线中特定参数的实用方法（这样灵活多了），而是使用shader来进行管线中某些功能，</p>
-<p>管线只是一个抽象的概念，一种思考工作流程的方式，和计算机组成的流水线是差不多的，他会让我们关注与最终的结果或者花费的时间，而不没必要在意底层做了啥，电流怎么走之类的对于本课程无关的细节。</p>
-<h3 id="1-纹理映射和近似"><a href="#1-纹理映射和近似" class="headerlink" title="1. 纹理映射和近似"></a>1. 纹理映射和近似</h3><p>纹理映射就是指通过索引的方式将纹理图像映射（贴）到物体的一个多边形或者多个多边形上。可以用这个方法来改变图像某个点的颜色（当然只是其中的一小个功能）。例如通过多边形顶点计算法向量，然后通过法向量结合顶点进行内部各点的插值计算。</p>
-<p>而在这个过程中，我们采用不真实的法向量（或通过插值来模拟），咋对每个多边形的不同点采用不同的法向量，那么这个图像表面会改变。</p>
-<h3 id="2-光栅化"><a href="#2-光栅化" class="headerlink" title="2. 光栅化"></a>2. 光栅化</h3><p>将连续的几何表示转化为面向显示的离散像素表示。</p>
-<h2 id="1-7-图形学与艺术、设计和感知的关系"><a href="#1-7-图形学与艺术、设计和感知的关系" class="headerlink" title="1.7 图形学与艺术、设计和感知的关系"></a>1.7 图形学与艺术、设计和感知的关系</h2><h3 id="0-关于诡异谷理论"><a href="#0-关于诡异谷理论" class="headerlink" title="0. 关于诡异谷理论"></a>0. 关于诡异谷理论</h3><p>指的是人类对一个东西的认知，先是逐渐认识，然后突然什么都不认识，最后猛地认识清楚，而且最后两个阶段相距非常的近，这一小段就是所说的诡异谷（不是有看山是山，看山不是山，看山依旧是山的境界嘛，和这个差不多）。</p>
-<h3 id="1-马赫带效应"><a href="#1-马赫带效应" class="headerlink" title="1. 马赫带效应"></a>1. 马赫带效应</h3><p>是一种主观的边缘对比效应。当观察两块亮度不同的区域时，边界处亮度对比加强，使轮廓表现得特别明显。</p>
-<h2 id="1-8-基本的图形系统"><a href="#1-8-基本的图形系统" class="headerlink" title="1.8 基本的图形系统"></a>1.8 基本的图形系统</h2><h3 id="图形数据"><a href="#图形数据" class="headerlink" title="图形数据"></a>图形数据</h3><p>通常情况下，图形模型会创建于某一个方便的坐标系中：立方体中心为原点，边长为一，这样均位于-0.5到0.5之间，我们称之为模型空间和对象空间坐标系。</p>
-<p>然后将整个立方体放置在场景（由一系列物体和光源组成的模型）中，通过一定的原则，得到一个坐标系，其坐标系的坐标为场景空间坐标。</p>
-<p>而虚拟相机的位置和朝向亦表示为场景空间坐标，虚拟光源的位置和物理特性同样如此。现在我们构造相机空间坐标系（相机坐标系）：原点设置在相机的中心，x轴指向相机右侧（从后往前看）z指向相机后侧。</p>
-<p>然后通过相机坐标转化为规格化坐标，将其坐标表示为-1到1的浮点数就行了。</p>
-<p>最后可见片段就被变换为像素坐标（对应浮点乘以显示器实际尺寸）通过取整和缩放来实现，所得到的的坐标称为图像坐标。</p>
-<h2 id="1-9-1-12略"><a href="#1-9-1-12略" class="headerlink" title="1.9-1.12略"></a>1.9-1.12略</h2><h2 id="1-13-真实感概述"><a href="#1-13-真实感概述" class="headerlink" title="1.13 真实感概述"></a>1.13 真实感概述</h2><h3 id="0-光线"><a href="#0-光线" class="headerlink" title="0. 光线"></a>0. 光线</h3><p>一些光线的基本物理性质的介绍：<br>a. 光在真空中直线传播，直到遇到某一个平面；<br>b. 光线遇到光滑表面发生反射，反射角和入射角相等，或者被表面吸收，或者组合；<br>c. 大多数看起来“光滑”的面从微观上都是粗糙的，所以这种面会发生漫反射；<br>d. 平板针孔只允许一束光线通过，这些光线或直接穿过针孔中心或与之接近；<br>e. 相机的感光像素检测到光的时候，会通过积分在一小段时间内的所有光，积分的值即为传感器对入射到所有光子的反应；<br>f. 可调节显示器上的像素进行调节使之发出指定亮度的光和颜色光。</p>
-<p>同时还有三大挑战：<br>a. 需要构建适当的数据结构来表示场景中的表面、相机和光源；<br>b. 需要一个可计算所有的光反射并集成的算法；<br>c. 也是最重要的DS和算法都必须要高效。</p>
-<h3 id="1-物体和材料"><a href="#1-物体和材料" class="headerlink" title="1. 物体和材料"></a>1. 物体和材料</h3><p>物体：假设在场景中收到光照时，物体表面吸收光或者反射光或者两者都有，而具体的反射和吸收性质取决于物体的材料；同时假设空气既不反射光也不吸收光，而是让光穿过；同时忽略透明材料和半透明材料。</p>
-<p>物体一般表示为表面的几何，而这些表面一般都是用三角形网格表示。而由于各个三角形面之间的网格边没有面积，所以在计算光和表面交互时可以忽略这些边（或者处理为就在三角形内部）（可以处理为不在三角形内部）（自圆其说即可）。</p>
-<p>多面体上每个三角形都有一个平行于这个三角形平面的向量，这个向量为法向量。设其入射方向为l，那么对于理想反射面，反射光线在ln平面上，入射和反射角相同。而对于其他平面，则向多个方向散射。</p>
-<p>而完全散射表面，光将所有方向散射，反射光亮度与|ln|点积的绝对值成正比，即与其夹角余弦值成正比。</p>
-<p>而对于Phong-Blinn模型来说，光泽表面的外观和视角有关，倘若一个明亮房间观看表面，则会形成一个高光，而移动头部，高光也会移动。这个模型中，反射光为n点乘h的k次幂成正比，h是从表面到光源的向量-l和从表面到视点的向量e平分向量，最后进行单位化就是h了。</p>
-<h3 id="2-接受光线"><a href="#2-接受光线" class="headerlink" title="2. 接受光线"></a>2. 接受光线</h3><p>使用数值积分进行近似，同时选取一些位置对被积函数进行采样，然后综合样本估计总的积分值。</p>
-<h3 id="3-图像显示"><a href="#3-图像显示" class="headerlink" title="3. 图像显示"></a>3. 图像显示</h3><p>像素的概念略。</p>
-<p>像素的显示可以使用三元组（R,G,B）每个数字在0-0xff间，最后发出由三个给定颜色的混合光，但是注意，光强和数字没有正比的关系。</p>
-<h3 id="4-人类的视觉系统特点"><a href="#4-人类的视觉系统特点" class="headerlink" title="4. 人类的视觉系统特点"></a>4. 人类的视觉系统特点</h3><p>人眼对亮度的感知不是线性的。假如你在一张白纸上打印若干黑色条纹，使之只剩下20%的空白区域，显然人射在整张纸上的光只有20%被反射出来。但是如果将这张打印过的纸放在一张同一类型的空白纸旁边，然后从足够远的距离来观察它们(远到无法分辨纸上的黑条纹)，那么打印纸的亮度看上丢天约是未打印的空白纸的一半。大致上说，倘若眼睛已适应了某亮度层次的光线， 即使进入人眼的光的强度减少了80%，但感知到的亮度只是减少了一半而已。</p>
-<p>同时对人的视觉系统有很好的适应性：能够从噪声很多的黑白图片识别自己的家之类的。因为这个原因，对于CG来说既是优势又是劣势，即对于某些很糟糕的近似，我们能够辨别出来，但是很精细的近似，我们却又能发现其不现实的地方。</p>
-<h3 id="5-数学相关"><a href="#5-数学相关" class="headerlink" title="5. 数学相关"></a>5. 数学相关</h3><p>三角形、小向量和矩阵操作，微积分，几何和拓扑（连续性，曲面几何，曲率，微分几何等）。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>实际上第一章就是给了我们一个图形学大概的全貌，由于知识体系的不够所以我们不能够很好的理解其中一些的细节，同时也是为后面的一些内容提前做一个有效铺垫，防止我们突然看到某个概念而一脸懵逼（突然想起来采煤概论的时候老师开场就在那里说上山下山的懵逼感）。<br>另外这第一章总结的内容超出我的想象，搞得我两天都没有敲代码了，明天应该会更新递推和递归题解，以及第二三章的内容。</p>
-<script>
+                <p>贪心顾名思义，就是选择当前最好的，当然很多时候太贪婪不是一件好事，因为目光短浅，没有考虑到后面的事情，结果没有办法保证最后的结果做到最好。<br>这就是贪心最难的地方，你可能知道需要使用贪心，但是你无法证明的时候，贪心的局部最优可能最后的WA。</p>
+<h2 id="题目0：部分背包问题"><a href="#题目0：部分背包问题" class="headerlink" title="题目0：部分背包问题"></a>题目0：部分背包问题</h2><h2 id="题目1：排队接水"><a href="#题目1：排队接水" class="headerlink" title="题目1：排队接水"></a>题目1：排队接水</h2><h2 id="题目2：凌乱的yyy-线段覆盖"><a href="#题目2：凌乱的yyy-线段覆盖" class="headerlink" title="题目2：凌乱的yyy / 线段覆盖"></a>题目2：凌乱的yyy / 线段覆盖</h2><h2 id="题目3：合并果子"><a href="#题目3：合并果子" class="headerlink" title="题目3：合并果子"></a>题目3：合并果子</h2><h2 id="题目4：小A的糖果"><a href="#题目4：小A的糖果" class="headerlink" title="题目4：小A的糖果"></a>题目4：小A的糖果</h2><h2 id="题目5：删数问题"><a href="#题目5：删数问题" class="headerlink" title="题目5：删数问题"></a>题目5：删数问题</h2><h2 id="题目6：陶陶摘苹果（升级版）"><a href="#题目6：陶陶摘苹果（升级版）" class="headerlink" title="题目6：陶陶摘苹果（升级版）"></a>题目6：陶陶摘苹果（升级版）</h2><pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;algorithm></span></span>
+using namespace std<span class="token punctuation">;</span>
+<span class="token keyword">typedef</span> <span class="token keyword">struct</span> apple <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> h<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> s<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>apple<span class="token punctuation">;</span>
+apple memo<span class="token punctuation">[</span><span class="token number">5050</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+bool <span class="token function">cmp</span><span class="token punctuation">(</span>apple a<span class="token punctuation">,</span> <span class="token keyword">const</span> apple b<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> a<span class="token punctuation">.</span>s <span class="token operator">&lt;</span> b<span class="token punctuation">.</span>s<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">,</span> s<span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">,</span> <span class="token operator">&amp;</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>a<span class="token punctuation">,</span> <span class="token operator">&amp;</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d%d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>memo<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>h<span class="token punctuation">,</span> <span class="token operator">&amp;</span>memo<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">sort</span><span class="token punctuation">(</span>memo<span class="token punctuation">,</span> memo <span class="token operator">+</span> n<span class="token punctuation">,</span> cmp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>memo<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>h <span class="token operator">&lt;=</span> <span class="token punctuation">(</span>a <span class="token operator">+</span> b<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> s <span class="token operator">>=</span> memo<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>s<span class="token punctuation">)</span> ans<span class="token operator">++</span><span class="token punctuation">,</span> s <span class="token operator">-</span><span class="token operator">=</span> memo<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>s<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span> <span class="token operator">*</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d"</span><span class="token punctuation">,</span> ans<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="题目7：铺设道路"><a href="#题目7：铺设道路" class="headerlink" title="题目7：铺设道路"></a>题目7：铺设道路</h2><h2 id="题目8：-USACO1-3-混合牛奶-Mixing-Milk"><a href="#题目8：-USACO1-3-混合牛奶-Mixing-Milk" class="headerlink" title="题目8：[USACO1.3]混合牛奶 Mixing Milk"></a>题目8：[USACO1.3]混合牛奶 Mixing Milk</h2><h2 id="题目9：纪念品分组"><a href="#题目9：纪念品分组" class="headerlink" title="题目9：纪念品分组"></a>题目9：纪念品分组</h2><h2 id="题目10：跳跳！"><a href="#题目10：跳跳！" class="headerlink" title="题目10：跳跳！"></a>题目10：跳跳！</h2><h2 id="题目11：分组"><a href="#题目11：分组" class="headerlink" title="题目11：分组"></a>题目11：分组</h2><h2 id="题目12：国王游戏"><a href="#题目12：国王游戏" class="headerlink" title="题目12：国王游戏"></a>题目12：国王游戏</h2><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -693,7 +654,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://astrojoke.github.io/2020/04/23/cgpp-du-shu-bi-ji-di-yi-zhang/">https://astrojoke.github.io/2020/04/23/cgpp-du-shu-bi-ji-di-yi-zhang/</a>
+                    <a href="https://astrojoke.github.io/2020/04/26/luo-gu-guan-fang-ti-dan-tan-xin-ti-jie/">https://astrojoke.github.io/2020/04/26/luo-gu-guan-fang-ti-dan-tan-xin-ti-jie/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -731,8 +692,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">读书笔记</span>
+                                <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">
+                                    <span class="chip bg-color">编程算法题解</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%B4%9B%E8%B0%B7/">
+                                    <span class="chip bg-color">洛谷</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%B4%AA%E5%BF%83/">
+                                    <span class="chip bg-color">贪心</span>
                                 </a>
                             
                         </div>
@@ -898,9 +867,68 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/04/26/luo-gu-guan-fang-ti-dan-tan-xin-ti-jie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="洛谷官方题单——贪心题解">
+                        
+                        <span class="card-title">洛谷官方题单——贪心题解</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            施工中，我个人认为最难的基本算法
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="post-category">
+                                    算法和程序设计
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">
+                        <span class="chip bg-color">编程算法题解</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%B4%9B%E8%B0%B7/">
+                        <span class="chip bg-color">洛谷</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%B4%AA%E5%BF%83/">
+                        <span class="chip bg-color">贪心</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2020/04/25/cgpp-du-shu-bi-ji-di-er-san-zhang/">
                     <div class="card-image">
@@ -918,9 +946,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-25
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -938,67 +966,6 @@
                     
                     <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
                         <span class="chip bg-color">读书笔记</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/04/22/luo-gu-guan-fang-ti-dan-di-tui-he-di-gui-ti-jie/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="洛谷官方题单——递推和递归题解">
-                        
-                        <span class="card-title">洛谷官方题单——递推和递归题解</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            题目还是挺考思维的，至少写题解写到难受
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-22
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="post-category">
-                                    算法和程序设计
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">
-                        <span class="chip bg-color">编程算法题解</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%B4%9B%E8%B0%B7/">
-                        <span class="chip bg-color">洛谷</span>
-                    </a>
-                    
-                    <a href="/tags/%E9%80%92%E6%8E%A8/">
-                        <span class="chip bg-color">递推</span>
-                    </a>
-                    
-                    <a href="/tags/%E9%80%92%E5%BD%92/">
-                        <span class="chip bg-color">递归</span>
                     </a>
                     
                 </div>
