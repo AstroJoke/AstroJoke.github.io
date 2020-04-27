@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://astrojoke.github.io/"/>
-  <updated>2020-04-26T06:50:13.611Z</updated>
+  <updated>2020-04-27T13:54:14.158Z</updated>
   <id>https://astrojoke.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>清华MOOC图形学：理论</title>
+    <link href="https://astrojoke.github.io/2020/04/27/qing-hua-mooc-tu-xing-xue-li-lun/"/>
+    <id>https://astrojoke.github.io/2020/04/27/qing-hua-mooc-tu-xing-xue-li-lun/</id>
+    <published>2020-04-27T13:01:43.000Z</published>
+    <updated>2020-04-27T13:54:14.158Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;这个部分是在寒假学习图形学过程中自己整理的图形学知识，后续会进行精简和删改，也方便自己后续查找概念。&lt;/p&gt;
+&lt;h2 id=&quot;色彩模型&quot;&gt;&lt;a href=&quot;#色彩模型&quot; class=&quot;headerlink&quot; title=&quot;色彩模型&quot;&gt;&lt;/a&gt;色彩模型&lt;/h2&gt;&lt;h3
+        
+      
+    
+    </summary>
+    
+    
+      <category term="图形学" scheme="https://astrojoke.github.io/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+    
+      <category term="图形学" scheme="https://astrojoke.github.io/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+      <category term="基础知识" scheme="https://astrojoke.github.io/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+  </entry>
   
   <entry>
     <title>洛谷官方题单——贪心题解</title>
@@ -260,36 +290,6 @@
       <category term="洛谷" scheme="https://astrojoke.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
     
       <category term="入门" scheme="https://astrojoke.github.io/tags/%E5%85%A5%E9%97%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>计算机图形学知识点整整理（施工未完成）（一）</title>
-    <link href="https://astrojoke.github.io/2020/04/15/ji-suan-ji-tu-xing-xue-zhi-shi-dian-zheng-zheng-li-yi/"/>
-    <id>https://astrojoke.github.io/2020/04/15/ji-suan-ji-tu-xing-xue-zhi-shi-dian-zheng-zheng-li-yi/</id>
-    <published>2020-04-15T15:11:13.000Z</published>
-    <updated>2020-04-24T13:40:17.592Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;这个部分是在寒假学习图形学过程中自己整理的图形学知识，后续会进行精简和删改，也方便自己后续查找概念。&lt;/p&gt;
-&lt;h2 id=&quot;图形学的基本目标&quot;&gt;&lt;a href=&quot;#图形学的基本目标&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="图形学" scheme="https://astrojoke.github.io/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
-    
-    
-      <category term="图形学" scheme="https://astrojoke.github.io/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
-    
-      <category term="基础知识" scheme="https://astrojoke.github.io/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
     
   </entry>
   

@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="计算机图形学知识点整整理（施工未完成）（一）, AleXandrite">
-    <meta name="description" content="图形学知识MOOC版本，施工中">
+    <meta name="keywords" content="清华MOOC图形学：理论, AleXandrite">
+    <meta name="description" content="贯穿图形学的基础理论知识">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>计算机图形学知识点整整理（施工未完成）（一） | AleXandrite</title>
+    <title>清华MOOC图形学：理论 | AleXandrite</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -390,7 +390,7 @@
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = 'w7913WangL';
+        let pwd = '';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误，将返回主页！');
@@ -403,12 +403,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">计算机图形学知识点整整理（施工未完成）（一）</h1>
+                    <h1 class="description center-align post-title">清华MOOC图形学：理论</h1>
                 </div>
             </div>
         </div>
@@ -554,7 +554,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-15
+                    2020-04-27
                 </div>
                 
 
@@ -563,14 +563,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.4k
+                    6.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    19 分
+                    23 分
                 </div>
                 
 				
@@ -587,47 +587,301 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>这个部分是在寒假学习图形学过程中自己整理的图形学知识，后续会进行精简和删改，也方便自己后续查找概念。</p>
-<h2 id="图形学的基本目标"><a href="#图形学的基本目标" class="headerlink" title="图形学的基本目标"></a>图形学的基本目标</h2><p>从虚拟的三位场景以及相机的位置信息中生成二维图像——简单图形直接使用参数描述，而复杂模型需要使用参数曲线和曲面或者更一般的网格模型，而网格模型中又以三角网格最为常用。</p>
-<h2 id="1-色彩模型（Color-Model）"><a href="#1-色彩模型（Color-Model）" class="headerlink" title="1. 色彩模型（Color Model）"></a>1. 色彩模型（Color Model）</h2><h3 id="1-1-色彩视觉"><a href="#1-1-色彩视觉" class="headerlink" title="1.1 色彩视觉"></a>1.1 色彩视觉</h3><p>(1). 色彩：对不同波长的光的能量感知：不同波长对于不同颜色，人可见光为380-760nm之间；</p>
-<p>(2). 光的谱分布：光在各个可见波长的分量的强度分布函数称为光的谱分布函数。与光类似，色彩也可以使用谱分布函数描述，但是由于异谱同色现象，导致描述方法特别复杂且不能一一对应；</p>
-<p>(3). 色彩颜色空间：在所有用于表示色彩的各种颜色空间，以RGB色彩空间最为广泛(存疑)：1. 色彩使用三通道的RGB向量表示；2. 在RGB色彩空间中，有部分的常用操作可以通过对RGB三通道分别处理而进行；3. r,g,b可以用规格化的的float；而使用8bit存储时，取值为[0,255]；4. 色彩被表示为三个基本颜色的线性组合：C=rR+gG+bB。但是可能会有部分的颜色无法表示为正线性组合，(0,0,0)为黑，(1,1,1)为白；</p>
-<p>(4). 其他的颜色空间：<br>a. CMY：青+品红+黄(注意这里和印刷所用的CMYK不一样，K为黑色，这里是颜色空间而不是印刷色彩模式)。其为减色系统，[C,M,T]=[1,1,1]-[R,G,B]，即CMY分别为R,G,B的补色(和补码差不多)，(0,0,0)为白，(1,1,1)为黑；<br>b. HSV：其为圆锥形的色彩空间，Hue色调/色相——根据颜色来，Saturation饱和度/纯度——越低越白，Value of brightness亮度——越低越黑；<br>c. CIE XYZ(1931)：可以感知所有的色彩，色彩基XYZ是色彩基RGB的线性变换。x=X/(X+Y+Z);y=Y/(X+Y+Z)，z=1-x-y。</p>
-<h3 id="1-2-图像和像素"><a href="#1-2-图像和像素" class="headerlink" title="1.2 图像和像素"></a>1.2 图像和像素</h3><p>图像是指的二维离散函数f(x,y)，f的定义域为矩阵中的所有格子，这些格子称之为像素，其值为各个像素的色彩，彩色图像可为RGB(A)，而灰度图像f则为单值。</p>
-<h3 id="补充：三角网格（Mesh）"><a href="#补充：三角网格（Mesh）" class="headerlink" title="补充：三角网格（Mesh）"></a>补充：三角网格（Mesh）</h3><p>在一系列欧式空间中的三位顶点以及连接这些顶点的若干三角面片组成，顶点集合记为V，而面片集合记为F，而F中的每个fi为V中的vai，vbi，vci顶点构成的空间三角形。重点为计算法向量（normal）（定义略，有两种朝向，决定正反面，朝外为+，朝外为-），对于连续可定向的额三角网格整体而言，相邻三角面片需要具备一致的法向量朝向；通过三角网格周围的所有三角面片的法向量加权叠加计算（算数平均，面积加权，角度加权等）。简单绘制方法：每个顶点指定一个色彩属性；基于色彩绘制——模型表面的每点的色彩通过其所在三角面片的顶点色彩插值得到（插值可以用来使模型变得更光滑）；基于光照绘制——需要指定一个虚拟的光照环境，重点问题是计算光照对色彩的影响。</p>
-<h2 id="2-光照模型（illumination-model）"><a href="#2-光照模型（illumination-model）" class="headerlink" title="2. 光照模型（illumination model）"></a>2. 光照模型（illumination model）</h2><p>光照模型用于计算光的强度：局部光照明——物体直接受到光源影响产生的光照效果和全局光照明——阴影效果和所有不是直接与光源位置相关的光照效果（反射折射等）。</p>
-<h3 id="2-1历史："><a href="#2-1历史：" class="headerlink" title="2.1历史："></a>2.1历史：</h3><p>在渲染中加入光照明效果——光强与物体到光源距离成反比（1967） —&gt;第一个光反射模型——Lambert漫反射光+环境光（1970）—&gt;漫反射模型+插值的思想（Lambert diffuse + Bicentric interpolation）（1971）—&gt;Phong模型——Diffuse（漫发射）+ ambient（环境光）+ specular（高光）（顶点法向插值）。</p>
-<h3 id="2-2-光的传播定律"><a href="#2-2-光的传播定律" class="headerlink" title="2.2 光的传播定律"></a>2.2 光的传播定律</h3><p>反射定律——入射角=反射角，入射光线、反射光线，反射面的法向量位于同一平面；折射定律：sin入射角：sin折射角=常数（相对折射系数，记为n折/n入）；能量守恒定律Ii=Id+Is+It+Iv（依次为入射光，漫反射光—diffuse，镜面反射光—specular，折射光—refraction，介质和物体吸收的能量）。</p>
-<h3 id="2-3-光的度量"><a href="#2-3-光的度量" class="headerlink" title="2.3 光的度量"></a>2.3 光的度量</h3><p>立体角——衡量物体相对于某一视点P的视角大小，最大为4π；光通量（辉度）——单位时间间内通过面元dS的光能量，记为dF（或E）；发光强度——单位立体角内的光通量，记为I。</p>
-<h3 id="2-4-Phong模型"><a href="#2-4-Phong模型" class="headerlink" title="2.4 Phong模型"></a>2.4 Phong模型</h3><p>支持点光源和方向光源，是局部光照模型分解为漫反射光，镜面光和环境光效果（相关字母含义见图：待补充）。<br>L是入射光，R是反射光，V是视点方向，N为物体表面的法向量，H是L和V夹角的角平分线；<br>漫反射光效果：（公式），其中Kd是漫反射系数，分别由kdr，kdg，kdb代表R，G，B三个通道的漫反射系数，其与模型自身的色彩紧密相关；<br>镜面光效果：Is=IiKs<em>(RV)n，Ks是镜面反射系数，与物体表面的光滑程度相关，n是反射指数，n越大，高光区越集中；<br>环境光效果Ia=IiKa，Ka是物体对环境光的反射系数；<br>视角方向的发光强度为漫反射光分量、镜面反射光分量和环境反射光分量之和即：I= IiKd</em>(LN)+ IiKs*(RV)n+ IiKa。</p>
-<h2 id="3-明暗处理（Shading）"><a href="#3-明暗处理（Shading）" class="headerlink" title="3 明暗处理（Shading）"></a>3 明暗处理（Shading）</h2><h3 id="3-1-插值的理由和插值方法"><a href="#3-1-插值的理由和插值方法" class="headerlink" title="3.1 插值的理由和插值方法"></a>3.1 插值的理由和插值方法</h3><p>由于物体表面的集合细节往往不规则，为了减缓由模型离散化导致的不光滑的色彩效果，会导致Mach Band效应（产生明亮或黑暗的条纹）。通常需要除了使用光照模型外，还需要插值。一般的处理方式为Gouraud shading——对色彩插值和Phong shading——对法相进行插值。<br>(1). Gouraud shading：计算所有模型顶点的色彩值对任意一点，按照三角面片上顶点的色彩值按重心（Barycentric Interpolation）结果赋值；<br>(2). Phong shading：对点的法向量进行插值，得到连续的法向量场，再利用该法向量场逐点使用光照模型进行色彩计算。</p>
-<h3 id="3-2-视点变换和视点方向"><a href="#3-2-视点变换和视点方向" class="headerlink" title="3.2 视点变换和视点方向"></a>3.2 视点变换和视点方向</h3><p>由几何模型组成的三位场景绘制成高质量的彩色图——通过变换（将空间中的点x映射为点x’的函数）。通过变换，可以设置和编辑3D场景光照位置和视点方向（camera）变换有简单变换（不变，平移，旋转，均衡缩放），常见变换（刚体——保持物质本身的度量，相似——保持角度，线性——保持线性关系l+p，kl的变换，仿射——保持直线即相互平行的直线，投影）。变换的表示，M和t（详见高代）：p’=Mp+t（M为二维），若使用齐次坐标（使用n+1维数组来表示n维空间中的点和向量）时，则p’=Mp（M为三维），具体略（注意Rodrigues公式）。复合变换一般不能交换顺序。在法向量（与曲面正交的单位向量）交换中，我们要通过变换切平面，再计算法向量。vOS变换为vWS则vWS=MvOS，转换为切平面后为vWS=（M-1）TvOS，即法向量的变换矩阵是原变换矩阵的逆和转置。</p>
-<h3 id="3-3-视点和投影模式"><a href="#3-3-视点和投影模式" class="headerlink" title="3.3 视点和投影模式."></a>3.3 视点和投影模式.</h3><p>在投影中<br>(1). 视点变换与camera位置及朝向有关；<br>(2). 投影模式，3D变换为2D，常用正交投影（直接把第三维变0）和透视投影（使用透视投影矩阵）。</p>
-<h2 id="4-材质反射属性模型——双向反射分布函数（BRDF：Bidirectional-Reflectance-Distribution-Function）"><a href="#4-材质反射属性模型——双向反射分布函数（BRDF：Bidirectional-Reflectance-Distribution-Function）" class="headerlink" title="4. 材质反射属性模型——双向反射分布函数（BRDF：Bidirectional Reflectance Distribution Function）"></a>4. 材质反射属性模型——双向反射分布函数（BRDF：Bidirectional Reflectance Distribution Function）</h2><p>BRDF是描述物体表面对光的反射性质。</p>
-<h3 id="4-1-基础知识"><a href="#4-1-基础知识" class="headerlink" title="4.1 基础知识"></a>4.1 基础知识</h3><p>(1). 光照/照明（illumination）：分为局部光照和全局光照（见1.2）；<br>(2). 球面坐标：空间中一个点由向量长度，向量和z轴的夹角，向量在xy面上的投影和x轴的逆时针夹角（极坐标升维）；<br>(3). 立体角：是一个物体对特定点的三维空间的角度，是平面角在三维空间中的类比。它描述的是站在某一点的观察者测量到的物体大小的尺度；<br>(4). 投影面积：字面意思；<br>(5). 光能（光子能量总和），光通量（和磁通量类似）；<br>(6). 辉度E（见P1）：单位面积上的光通量；<br>(7). 光强：单位立体角的光通量；<br>(8). 光亮度：单位投影面积和单位立体角上的光通量（ps辉度和光亮度的数学关系：待补充）。</p>
-<h3 id="4-2-BRDF"><a href="#4-2-BRDF" class="headerlink" title="4.2 BRDF"></a>4.2 BRDF</h3><p>(1). 定义：描述物体表面将光能从任意入射方向反射到任意视点方向的反射特性，是关于入射光方向和反射光方向的四维实函数，其等于反射方向的光亮度和沿入射方向的入射光辉度之比（或入射光的光亮度）；<br>(2). 性质：<br>a. 可逆性（由于光路可逆）；<br>b. 能量守恒；<br>c. 渲染方程（用于计算环境光照明下的反射光光亮度，可写为下述样式的积分（公式略））</p>
-<p>(3). 模型：经验模型，基于物理表达，基于数据表达模型：<br>a. 经验模型中，Lambertain漫反射模型是最基本的反射模型——入射光线被均匀地反射到各个方向，不同方向的BRDF是一个常数。反射率是反射光的辉度和入射光的辉度之比。Phong模型，在Lambert漫反射模型基础上，添加了镜面反射项，以表达镜面反射效果，但是其不具备可逆性，不准确但是简洁高效。Blinn-Phong模型，引入入射方向和反射方向的角平分线h，使用h和法向量n的点积替代原Phong中r和v的点积，以简化运算；</p>
-<p>b. 物理模型中，建立在表面粗糙度的细节几何结构上，通过微平面法向量的统计分布表达；同时在实际应用中，单向反射性存在擦地角附近增大的性质，且入射光的反射光是由麦克斯韦方程组中得到的菲涅尔公式（Fresnel）得到，内容略。Cook-Torrance模型，假设微平面为镜面反射，且假定为V，然后结合Lambertian漫反射项与微平面项结合同时采区Bechmannn分布来描述微平面法向的分布函数；</p>
-<p>c. 数据模型：暂时没有过多的了解。</p>
-<p>(4). BRDF的度量和评价。<br>动机是为了对未知反射属性的材料进行建模，并生产具有高度真实感的结果，恢复BRDF和其他场景属性的过程称之为逆渲染（inverse rendering）。<br>BRDF的度量和评价：a.度量设备——由于BRDF是关于光线和视角的函数，其度量通过对2D光照空间和2D视角空间进行采样获取。故需要sample，source和detector，固定材料或光源或材料（用于已知凸几何体）和光源而移动其他的方式，e.g light stage。</p>
-<h2 id="5-光线追踪"><a href="#5-光线追踪" class="headerlink" title="5. 光线追踪"></a>5. 光线追踪</h2><p>思路和框架：将显示缓存区看成是由空间中的像素组成的矩阵阵列，人眼透过这些像素看到场景中的物体。对于每个像素P计算其色彩值：计算视点链接像素P中心的光线演唱后所碰到的第一个物体交点，然后使用局部光照模型计算交点处的颜色值，然后沿交点处的反射和折射方向队光线进行跟踪。通过光线跟踪，可以很容易的表现出阴影反射折射之类的视觉效果，且更容易适用于复杂的物体表示方法。</p>
-<h3 id="5-1-光线求交（后续修改）"><a href="#5-1-光线求交（后续修改）" class="headerlink" title="5.1 光线求交（后续修改）"></a>5.1 光线求交（后续修改）</h3><p>(1). 光线的表示：</p>
-<p>(2). 平面的表示：</p>
-<p>(3). 点到平面的距离：</p>
-<p>(4) 光线和平面求交：</p>
-<p>(5). 光线和三角形求交：</p>
-<p>(6) 光线和多边形求交： </p>
-<p>(7)．光线和球面相交的球面的表示：</p>
-<h2 id="6-光线追踪加速"><a href="#6-光线追踪加速" class="headerlink" title="6.光线追踪加速"></a>6.光线追踪加速</h2><p>原因：时空复杂度高，主要消耗在于可见性判断和求交测；<br>方法：空间数据结构，比如层次包围体，均匀格点，四叉树八叉树空间二分树。</p>
-<h3 id="6-1-光线求交："><a href="#6-1-光线求交：" class="headerlink" title="6.1 光线求交："></a>6.1 光线求交：</h3><p>(1). 包围盒（比如把一个兔子包到一个长方体里）（多重包围方法比如平行于坐标轴，非平行与坐标盒，OBB）：除非交于长方体，否则不会与兔子相交；后续由Kay和Kajiya 提出，根据景物的实际形状选取n组不同方向的平行平面包裹一个景物或者一组景物来做为层次包围盒——定义一任意平面方程Ax+By+Cz-d=0，则可以得到一个法向量N，且与原点距离为d的平面，令d为自由向量，则定义了一组平面（流形？），故对于任意给定景物，必然存在两平面将景物夹在中间，记为d_i^near 和d_i^far，用几组平面可以构成一个紧致包围盒，取若干统一方向为平面法向，并取n小于5。而对于d_i^near 和d_i^far，显式曲面我们可以将多面体的所有顶点投影到法向量方向，并计算与原点的最大值最小值；隐式曲面体，用条件极值的极大极小值——拉格朗日乘数法。</p>
-<p>(2). 包围球：一个包围球仅包含两组参数，球心和半径。物体转包围盒不转一般极度理想的包围球比较难，采用n个点的近似最优包围球（计算几何相关），一把比理想包围球大5%。方法：遍历所有点找到最大最小的x/y/z的三组六个点，然后计算三组距离，选取最大值，然后作为包围球直径，作为算法的初始值；然后遍历所有的点，若当前点在包围球外，则修改直径（以当前在球外的点与球心相连接，反向延长到之前的交点）</p>
-<p>(3). 层次包围体：给定场景的所有物体的包围体，可以将这些包围体作为叶子节点，构建一个包围体树-HBV，每个内部节点的所有子孙节点对应的包围体并集。从根节点往下层次遍历，计有n个包围盒，则由n降维为logn。</p>
-<p>(4). 均匀格点：存到一个三维格点整列，有相交的则记录到一个list。然后用DDDA算法类似，光线与x和y的交点成规律排布（dy/dx不变），容易建立，但物体分布可能不均匀可能会浪费因此最好为非均匀空间分布。</p>
-<p>(5). 四叉/八叉树：四叉树为二叉树而为推广，每个节点为正方形，递归的将每个正方形分为四个等大的小正方形，叶子节点面片数足够简单时停止扫描；八叉树为四叉树的三维推广，和四叉类似，但是每个节点为立方体，且遍历更复杂，但对非均匀场景更适合。八叉树的构建：将场景用一个最小的平行于坐标轴放置的立方体包围，使用自顶向下的递归划分直到边界条件（深度，面片数之类的）前，将节点划分为八个等大的小立方体，注意到可能会有同一面片存储在不同的叶节点，可能会导致效率下降，可以采用将面片聪姐上分为多个，也可以采用Octree-R方法——通过启发式算法，更为自由的划分面片，从而提速4%-47%。节点寻址：指针或者编号（使用该节点的编号加上1到8作为其suffix）。光线的遍历，每与八叉树的一个内部节点相交，都有可能与至多四个节点相交，因此需要使用空间八叉树剖分技术。</p>
-<p>(6). 空间八叉树剖分技术：一个空间非均匀网格剖分算法：将含有整个场景的空间立方体按三个方向中剖面分割成八个子立方体网格，组织成一棵八叉树，若某一子立方体网格中所含景物面片数大于给定的阈值，则为该子立方体作进一步的剖分，直到面片数目小于阈值；然后利用空间连贯性加速光线追踪。而八叉树的最大深度表示空间分割所能达到的层次，称为空间分配率，同时计八叉树深度为N，则编码为q1q2…qiFF…F（[0,7]的整数序列，F为不同于[0,7]的符号），则可以通过节点编码方式很容易找到任一点所在网格。同时其具备的性质：P(x,y,z)为空间一点，坐标为整数，表示为x=i1i2…inB，y=j1j2…jnB，z=k1k2…kn，i1,j1,k1∈{0,1}，l =1,2,…,N。性质1：P所在的单位立方格编码为q_l=i_l+2j_l+4k_l, l见前提。性质B：P位于一编码为q1q2…qiFF…F的空间网格内，则网格的前左下角坐标为x^’=i_1 i_2…i_i 0…0(y,z则为对应的j、k)</p>
-<p>(7). 通过八叉树的光线跟踪加速：利用性质A求光线起点P0所在的立方网格编码Q，然后位于边界上的起点根据光线前进方向R辨别光线是否射出场景，如果射出，算法结束。其查找结果为是否匹配成功的bool以及没有匹配的位数B——若Q为q1q2…qi，则八叉树中节点含有q1q2…qiFF…F时取T，B则定义为八叉树叶节点表中与Q获得最大程度匹配的节点其编码suf不匹配的位数。T决定是否包含面片，Q和B决定立方体的空间位置和大小。若bool量为T，则光线与该立方体中所含三角形面片求交，若交返回交点，若T为F；则继续搜索，包含起点且不包含任何景物面片的最大空间网格为q1q2…qiq+1FF…F，F为B-1个；或者求交失败为假，应该跨过当前立方体网格。而新的网格前左下角坐标有性质B决定，跨越网格后，先求出当前空间网格上的出口点坐标，重置光线起点——光线和六面求交，且预先计算光线在各个坐标平面上投影线的结局和斜率，快速求解。通过新出发点重复跟踪过程，直至光线射出场景或者求到交点。</p>
-<p>(8). 空间二叉树（BSP）：空间划分结构，起初用于解决图形学中隐藏表面为题，为二分查找树的高维推广，主要有axis-aligned类型和polygon-aligned类型。polygon-aligned BSP. 每次选取一个多边形面片所在的平面，作为空间的划分平面，通常来说，当由多边形组成才是用polygon-aligned BSP。而axis-aligned总是沿着某个坐标轴垂直方向划分平面，且划分平面总是把节点按照空间大小划分为两个相等的子节点（也有部分认为随意划分也可），其大大减少了光线和划分平面间的计算量（33%），建树过程差不多。而在过程中，我们可以根据深度进行规则轮换，这样的话是的层次结构的划分更加规则regular。</p>
-<p>(9). KD树（任意一个BSP都是KD，但是KD不是BSP），其与BSP区别在于划分平面，KD任意，BSP二分划分。</p>
-<p>(10). BSD的遍历：第一次调用函数时，min和max初始化为BSP根节点对应立方体的两个焦点到光线原点的距离。若光线从根节点立方体内部发出，则min为负数。BSP遍历一般比八叉快10%。由于BSP总是从终点开始划分，因此也存在面片跨越多个节点导致遍历变慢。而kd就是为了解决这个问题。<br>一下内容暂略：<br>分布式光线跟踪（随机光线跟踪）；光束追踪（线变锥形，首先将初始光束投向可视空间，由近及远监测光束与场景中物体的交，交点处产生新的反射折射光束，也可以使用光束树），具选择性的光线跟踪结合插值（选择部分，剩余插值）。RPU（可编程光线处理单元）。</p>
+<h2 id="色彩模型"><a href="#色彩模型" class="headerlink" title="色彩模型"></a>色彩模型</h2><h3 id="色彩视觉（Color-Model）"><a href="#色彩视觉（Color-Model）" class="headerlink" title="色彩视觉（Color Model）"></a>色彩视觉（Color Model）</h3><ol>
+<li><p>色彩：对不同波长的光的能量感知：不同波长对于不同颜色，人可见光为380-760nm之间。</p>
+</li>
+<li><p>光的谱分布：光在各个可见波长的分量的强度分布函数称为光的谱分布函数。与光类似，色彩也可以使用谱分布函数描述，但是由于异谱同色现象，导致描述方法特别复杂且不能一一对应。</p>
+</li>
+<li><p>色彩颜色空间：在所有用于表示色彩的各种颜色空间，以RGB色彩空间最为广泛(存疑)：</p>
+<ol>
+<li><p>色彩使用三通道的RGB向量表示；</p>
+</li>
+<li><p>在RGB色彩空间中，有部分的常用操作可以通过对RGB三通道分别处理而进行；</p>
+</li>
+<li><p>r,g,b可以用规格化的的float；而使用8bit存储时，取值为[0,255]；</p>
+</li>
+<li><p>色彩被表示为三个基本颜色的线性组合：<br>$$<br>C=rR+gG+bB<br>$$<br>但是可能会有部分的颜色无法表示为正线性组合，(0,0,0)为黑，(1,1,1)为白。</p>
+</li>
+</ol>
+</li>
+<li><p>其他的颜色空间：</p>
+<ol>
+<li><p>CMY. 青+品红+黄（注意这里和印刷所用的CMYK不一样，K为黑色，这里是颜色空间而不是印刷色彩模式）。其为减色系统，[C,M,T]=[1,1,1]-[R,G,B]，即CMY分别为R,G,B的补色：(0,0,0)为白，(1,1,1)为黑。</p>
+</li>
+<li><p>HSV. 其为圆锥形的色彩空间，含义如下：</p>
+<ol>
+<li>Hue（色调/色相）指的是什么颜色；</li>
+<li>Saturation（饱和度/纯度）值越低，颜色越白；</li>
+<li>Value of brightness（亮度）——越低越黑。</li>
+</ol>
+</li>
+<li><p>CIE XYZ(1931)：可以感知所有的色彩，色彩基XYZ是色彩基RGB的线性变换。<br>$$<br>x=\frac X{(X+Y+Z)},y=\frac Y{(X+Y+Z)},z=1-x-y<br>$$</p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="图像和像素"><a href="#图像和像素" class="headerlink" title="图像和像素"></a>图像和像素</h3><ol>
+<li>图像：二维离散函数$f(x,y)$，$f$的定义域为矩阵中的所有格子；</li>
+<li>这些格子称之为像素，其值为各个像素的色彩，彩色图像可为$RGB(A)$，而灰度图像的$f$则为单值。</li>
+</ol>
+<h3 id="图形学的基本目标"><a href="#图形学的基本目标" class="headerlink" title="图形学的基本目标"></a>图形学的基本目标</h3><p>从虚拟的三位场景以及相机的位置信息中生成二维图像——简单图形直接使用参数描述，而复杂模型需要使用参数曲线和曲面或者更一般的网格模型，而网格模型中又以三角网格最为常用</p>
+<ol>
+<li><p>三角网格：由一系列欧式空间中的三维顶点以及连接这些顶点的若干三角面片组成。其中顶点集合记为$V$，面片集合记为$F$。F中的每个$f_i$为$V$中的$V_ai，V_bi，V_ci$顶点构成的空间三角形。</p>
+</li>
+<li><p>法向量：垂直于平面的直线所表示的<em>向量</em>为该平面的法向量，若朝外为+，朝外为-。对于连续可定向的额三角网格整体而言，相邻三角面片需要具备一致的法向量朝向；</p>
+</li>
+<li><p>计算法向量的方法：通过三角网格周围的所有三角面片的法向量加权叠加计算（算数平均，面积加权，角度加权等）。</p>
+</li>
+<li><p>简单绘制方法：每个顶点指定一个色彩属性：</p>
+<ol>
+<li>基于色彩绘制——模型表面的每点的色彩通过其所在三角面片的顶点色彩插值得到（插值可以用来使模型变得更光滑）；</li>
+<li>基于光照绘制——需要指定一个虚拟的光照环境，重点问题是计算光照对色彩的影响。</li>
+</ol>
+</li>
+</ol>
+<h2 id="光照模型（illumination-Model）"><a href="#光照模型（illumination-Model）" class="headerlink" title="光照模型（illumination Model）"></a>光照模型（illumination Model）</h2><p>光照模型用于计算光的强度，其大致分为</p>
+<ol>
+<li>局部光照明——物体直接受到光源影响产生的光照效果；</li>
+<li>全局光照明——阴影效果和所有不是直接与光源位置相关的光照效果（反射折射等）。</li>
+</ol>
+<h3 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h3><p>在渲染中加入光照明效果：</p>
+<p>1967年：光强与物体到光源距离成反比；</p>
+<p>1970年：第一个光反射模型——Lambert漫反射光+环境光；</p>
+<p>1971年：漫反射模型+插值的思想（Lambert diffuse + Bicentric interpolation）；</p>
+<p>至今：Phong 模型——Diffuse（漫反射）+ ambient（环境光）+ specular（高光）（顶点法向插值）</p>
+<h3 id="光的传播​"><a href="#光的传播​" class="headerlink" title="光的传播​"></a>光的传播​</h3><ol>
+<li><p>反射定律：</p>
+<ol>
+<li>入射角=反射角入射光线；</li>
+<li>反射光线，反射面的法向量位于同一平面。</li>
+</ol>
+</li>
+<li><p>折射定律：<br>$$<br> \frac {sin{入射角}}{sin{折射角}}=c（c为相对折射系数，记为\frac {n_折}{n_入}）<br>$$<br>。</p>
+</li>
+<li><p>能量守恒定律<br>$$<br>I_i=I_d+I_s+I_t+I_v<br>$$<br>公式依次为入射光，漫反射光（diffuse），镜面反射光（specular），折射光（refraction）以及介质和物体吸收的能量</p>
+</li>
+<li><p>光的度量：</p>
+<ol>
+<li>立体角：衡量物体相对于某一视点$P$的视角大小，最大为$4π$；</li>
+<li>光通量（辉度）：单位时间间内通过面元$dS$的光能量，记为$dF$（或$E$）；</li>
+<li>发光强度——单位立体角内的光通量，记为$I$。</li>
+</ol>
+</li>
+<li><p>Phong模型：支持点光源和方向光源，是局部光照模型分解为漫反射光，镜面光和环境光效果的合成。（插入的图片暂时略）具体见下列图片：其中$L$是入射光，$R$是反射光，$V$是视点方向，$N$为物体表面的法向量，$H$是$L$和$V$夹角的角平分线</p>
+<ol>
+<li><p>漫反射光效果：<br>$$<br>I_d=I_iK_dL_N<br>$$<br>其中$K_d$：是漫反射系数，分别由$k_{dr}$，$k_{dg}$，$k_{db}$代表R，G，B三个通道的漫反射系数，其与模型自身的色彩紧密相关。</p>
+</li>
+<li><p>镜面光效果：<br>$$<br>I_s=I_iK_s*(RV)^n<br>$$<br>其中：$K_s$是镜面反射系数，与物体表面的光滑程度相关，$n$是反射指数，$n$越大，高光区越集中。</p>
+</li>
+<li><p>环境光效果：<br>$$<br>I_a=I_iK_a<br>$$<br>其中：$K_a$是物体对环境光的反射系数。</p>
+</li>
+<li><p>故视角方向的发光强度为漫反射光分量、镜面反射光分量和环境反射光分量之和即：<br>$$<br>I= I_iK_dL_N+ I_iK_s*(RV)^n+I_iK_a<br>$$</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="明暗处理（Shading）"><a href="#明暗处理（Shading）" class="headerlink" title="明暗处理（Shading）"></a>明暗处理（Shading）</h2><h3 id="Shading方法"><a href="#Shading方法" class="headerlink" title="Shading方法"></a>Shading方法</h3><p>由于物体表面的集合细节往往不规则，为了减缓由模型离散化导致的不光滑的色彩效果而导致的Mach Band效应（一种主观的边缘对比效应：当观察两块亮度不同的区域时，边界处亮度对比加强，使轮廓/边界表现得特别明显）。并且通常除了需要使用光照模型外，还需要使用插值的方法。</p>
+<ol>
+<li><p>一般的处理方式：</p>
+<ol>
+<li>Flat shading ：逐面片着色的方式，每个多边形都会被指定一个单一且没有变化的颜色（由于十分不真实，因此仅仅是拿来preview使用）；</li>
+<li>Gouraud shading：对所有顶点进行着色的方式，则三角面片上顶点的色彩值按重心坐标（Barycentric Interpolation）结果赋值;</li>
+<li>Phong shading：逐像素着色（或者说逐片元fragment）的方式，每个像素的法向量是通过顶点的法向量插值得到的。</li>
+</ol>
+</li>
+<li><p>重心坐标：重心坐标是由单形顶点定义的坐标，是齐次坐标的一种。平面上的重心坐标可以如下方式表示：<br>$$<br>p=\lambda_1 t_1+\lambda_2 t_2+\lambda_3 t_3, \lambda_1+\lambda_2+\lambda_3=1<br>$$<br>其中，$t_1,t_2,t_3$分别表示他们的向径，则重心坐标为$(\lambda_1,\lambda_2,\lambda_3)$。</p>
+</li>
+<li><p>视点变换和视点方向：由几何模型组成的三维场景绘制成高质量的彩色图——通过变换将空间中的点$x$映射为点$x’$的函数。通过变换，可以设置和编辑3D场景光照位置和视点方向（camera）。</p>
+</li>
+<li><p>简单变换：平移，旋转，均衡缩放（translation，rotate，scale）。</p>
+</li>
+<li><p>常见变换有：</p>
+<ol>
+<li>刚体变换：保持物质本身的度量变换；</li>
+<li>相似变换：保持角度的变换；</li>
+<li>线性变换：保持线性关系$\vec l+\vec p$，$k\vec l$的变换;</li>
+<li>仿射变换：保持直线即相互平行的直线的变换。</li>
+</ol>
+</li>
+<li><p>投影变换的表示：<strong>M</strong>和$\vec t$：$\vec {p’}=$<strong>M</strong>$\vec p+\vec t$（M为二维矩阵），若使用齐次坐标：则$\vec {p’}=$<strong>M</strong>$\vec p$(由于渲染插件原因<strong>M</strong>表示的是矩阵）。</p>
+</li>
+<li><p>复合变换一般不能交换顺序。</p>
+</li>
+<li><p>在法向量（与曲面正交的单位向量）交换中，我们要通过变换切平面，再计算法向量。$\vec {v_{OS}}$变换为$\vec {v_{WS}}$，则$\vec {v_{WS}}=$<strong>M</strong>$\vec{v_{OS}}$，转换为切平面后为$\vec {v_{WS}}=（M^{-1}）^{T}\vec {v_{OS}}$，即法向量的变换矩阵是原变换矩阵的逆的转置。</p>
+</li>
+<li><p>视点和投影模式.</p>
+<ol>
+<li>视点变换与camera位置及朝向有关；</li>
+<li>投影模式，3D变换为2D，常用正交投影（直接把第三维变0）和透视投影（使用透视投影矩阵）。</li>
+</ol>
+</li>
+</ol>
+<h2 id="材质反射属性模型——双向反射分布函数（BRDF：Bidirectional-Reflectance-Distribution-Function）"><a href="#材质反射属性模型——双向反射分布函数（BRDF：Bidirectional-Reflectance-Distribution-Function）" class="headerlink" title="材质反射属性模型——双向反射分布函数（BRDF：Bidirectional Reflectance Distribution Function）"></a>材质反射属性模型——双向反射分布函数（BRDF：Bidirectional Reflectance Distribution Function）</h2><p>BRDF是描述物体表面对光的反射性质。</p>
+<h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><ol>
+<li><p>光照/照明（illumination）：分为局部光照和全局光照（见光的传播的Phong模型中的叙述）；</p>
+</li>
+<li><p>球面坐标：利用球坐标$(r,\theta,\phi)$表示一个点 $p$ 在三维空间的位置的三维正交坐标系。球坐标的几何意义：原点到 $p$点的距离 $r$ ，原点到点 $p$ 的连线与正 z-轴之间的天顶角$\theta$以及原点到点$p$的连线，在$xy$平面的投影线，与正轴之间的方位角$\phi$；</p>
+</li>
+<li><p>立体角：见前文；</p>
+</li>
+<li><p>投影面积：$A’=Acosa$</p>
+</li>
+<li><p>光能：光子能量总和；</p>
+</li>
+<li><p>光通量：和磁通量类似；</p>
+</li>
+<li><p>辉度E（见P1）：单位面积上的光通量；</p>
+</li>
+<li><p>光强：单位立体角的光通量；</p>
+</li>
+<li><p>光亮度：单位投影面积和单位立体角上的光通量；</p>
+</li>
+<li><p>辉度和光亮度的关系：$E=\int_\Omega{L({\omega}){cos{\theta}} d{\omega}}$。其中$\Omega$是入射角形成的半球（Hemisphere），而$L({\omega})$是沿着$\omega$方向的光亮度。</p>
+</li>
+</ol>
+<h3 id="BRDF"><a href="#BRDF" class="headerlink" title="BRDF"></a>BRDF</h3><ol>
+<li><p>定义：描述物体表面将光能从任意入射方向反射到任意视点方向的反射特性，是关于入射光方向和反射光方向的四维实函数，其等于反射方向的光亮度和沿入射方向的入射光辉度之比（或入射光的光亮度）：<br>   $$<br>   f({\omega}_i-{\omega}_r)=\frac {d{L_r}({\omega}_r)}{d{E_i}}=\frac {d{L_r}({\omega}_r)}{L_i(\omega_i)cos\omega_id{\omega}_i}<br>   $$</p>
+</li>
+<li><p>性质：</p>
+<ol>
+<li><p>可逆性：由于光路可逆，故$\omega_i$和$\omega_r$不变；</p>
+</li>
+<li><p>能量守恒：$Q_{in}=Q_{re}+Q_{ab}+Q_{trans}$，即有：<br>$$<br>\int_\Omega{f(\omega_i\rightarrow\omega_r)L(\omega_i)cos\omega_id\omega_i}\leq1<br>$$</p>
+</li>
+</ol>
+</li>
+<li><p>用于计算环境光照下的反射光亮度可以写为：<br>   $$<br>   L_r=\int_\Omega{f(\omega_i\rightarrow\omega_r)L(\omega_i)cos\omega_id\omega_i}<br>   $$</p>
+</li>
+<li><p>模型：经验模型，基于物理表达，基于数据表达</p>
+<ol>
+<li>经验模型：<ol>
+<li>Lambertain漫反射模型是最基本的反射模型：入射光线被均匀地反射到各个方向，不同方向的BRDF是一个常数。反射率是反射光的辉度和入射光的辉度之比；</li>
+<li>Phong模型，在Lambert漫反射模型基础上，添加了镜面反射项，以表达镜面反射效果，但是其不具备可逆性，不准确但是简洁高效；</li>
+<li>Blinn-Phong模型，引入入射方向和反射方向的角平分线<strong>h</strong>，使用<strong>h</strong>和法向量<strong>n</strong>的点积替代原Phong模型的$\vec r \cdot \vec v $，以简化运算。</li>
+</ol>
+</li>
+<li>物理模型中：<ol>
+<li>建立在表面粗糙度的细节几何结构上，通过微平面法向量的统计分布表达；</li>
+<li>同时在实际应用中，单向反射性存在擦地角附近增大的性质，且入射光的反射光是由麦克斯韦方程组中得到的菲涅尔公式（Fresnel）得到；</li>
+<li>Cook-Torrance模型，假设微平面为镜面反射，且假定为V，然后结合Lambertian漫反射项与微平面项结合同时采取Bechmannn分布来描述微平面法向的分布函数。</li>
+</ol>
+</li>
+<li>数据模型（略）</li>
+</ol>
+</li>
+<li><p>BRDF的动机：为了对未知反射属性的材料进行建模，并生产具有高度真实感的结果，恢复BRDF和其他场景属性的过程称之为逆渲染（inverse rendering）。</p>
+</li>
+<li><p>BRDF的度量和评价：由于BRDF是关于光线和视角的函数，其度量通过对2D光照空间和2D视角空间进行采样获取。故需要sample，source和detector，固定材料、固定光源或固定材料（用于已知凸几何体）和光源而移动其他的方式，</p>
+</li>
+</ol>
+<h2 id="光线追踪"><a href="#光线追踪" class="headerlink" title="光线追踪"></a>光线追踪</h2><p>思路和框架：将显示缓存区看成是由空间中的像素组成的矩阵阵列，人眼透过这些像素看到场景中的物体。对于每个像素$P$计算其色彩值：计算视点链接像素$P$中心的光线演唱后所碰到的第一个物体交点，然后使用局部光照模型计算交点处的颜色值，然后沿交点处的反射和折射方向队光线进行跟踪。通过光线跟踪，可以很容易的表现出阴影反射折射之类的视觉效果，且更容易适用于复杂的物体表示方法。</p>
+<h3 id="光线求交"><a href="#光线求交" class="headerlink" title="光线求交"></a>光线求交</h3><ol>
+<li><p>光线的表示：<br>$$<br>P(t)=R_o+t*R_d<br>$$<br>其中$ {R_O}$是光线的原点，$\vec {R_d}$为向量，代表朝向，一般为单位向量，$t$为光线到达的位置，均为正数。</p>
+</li>
+<li><p>平面的表示：显式表示为$P$为平面一点和n为平面的法向量，隐式表示为<br>$$<br>H(P)=Ax+By+Cz+D=\vec n\cdot P+D=0<br>$$</p>
+</li>
+<li><p>点到平面的距离：$\vec n$为单位法向量时，$P$到$H$的距离就是$H(P)$；                          </p>
+</li>
+<li><p>光线和平面求交：联立 $\vec nP+ D=0$，$P(t)=\vec R_O+tR_d$得到<br>$$<br>t=-\frac {D+nR_o}{\vec n \cdot \vec{R_d} }<br>$$<br>最后需要验算$t$是否大于0即可。</p>
+</li>
+<li><p>光线和三角形求交：先验证是否在平面，再验证是否在三角形内，其作用有纹理映射，法向插值，颜色插值。转化为解线性方程组（通过Cramer法则直接求解）。</p>
+</li>
+<li><p>光线和多边形求交：首先计算光线与多边形所在的平面交点，若交点存在，判断是否在多边形内部——为了进行这一判断，我们将交点以及多边形的所有顶点投影到XY-,YZ-,ZX-平面中一个。</p>
+<ol>
+<li>法一（在不进行预处理的情况下最快）：二维情况下采用交点检测算法，基于Jordan曲线定理：平面上一个点位于一个多边形的内部，当且仅当由该点出发任何一条射线与多边形边界有奇数个交点（奇偶检测算法）。我们可以将检测点作为远点，然后用X轴正半轴作为检测焦点的射线，然后逐一比对（多边形某条边两端点同号则无交点，否则若交点在X正半轴则是交点，反之不是交点）;</li>
+<li>法二（稳定但慢）：计算带符号的角，即转化为带符号的弧长，为0则在外，为2$π$则在内部，若为$π$则在边界;</li>
+<li>法三（最快的方法）：以顶点符号为基础的弧长累加，将坐标原点移到被测点，各象限内点的符号对应标准象限，若顶点$p_I$的某个坐标为0，则记为+，若$x，y$均为0，则顶点为被测点，然后定义符号变化转化为弧长变化，若穿越相对（13或24）象限的时候，为$±π$，通过$f=y_{i+1}x_i-x_{i+1} y_i$若为0则穿过原点，大于0为正，小于零为负，判断点在直线的上方还是下方。</li>
+</ol>
+</li>
+<li><p>光线和球面相交——代数法（存在误差和计算量）</p>
+<ol>
+<li>通过球面的表示：$f(P)=||P-P_C ||-r=0$，即解决$||P(t)-P_C ||-r=0$的根，解得$t=-b±\sqrt {b^2-c}$；</li>
+<li>优化方法：<ol>
+<li>首先计算光源指向球心的向量$\vec l =P_c-R_0$，若$\vec l ^2&lt;r^2$则在球的内部，$\vec l ^2&gt;r^2$则在球的外部，$\vec l ^2=r^2$则在球面上（注意光源在球面上的时候退化情况）；</li>
+<li>然后计算球心到光线所在直线的距离，若$d^2=\vec l ^2-t_p^2，d&gt;r$，则光线与球面不相交。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="光线追踪加速"><a href="#光线追踪加速" class="headerlink" title="光线追踪加速"></a>光线追踪加速</h2><ol>
+<li><p>原因：时空复杂度高，主要消耗在于可见性判断和求交测试；</p>
+</li>
+<li><p>方法：空间数据结构，比如层次包围体，均匀格点，四叉树八叉树空间二分树；</p>
+</li>
+<li><p>包围盒：（比如把一个兔子包到一个长方体里）</p>
+<ol>
+<li>多种包围方法：比如平行于坐标轴，非平行与坐标盒，OBB；</li>
+<li>判断方法：除非交于长方体，否则不会与兔子相交；</li>
+<li>后续由Kay和Kajiya 提出，根据景物的实际形状选取$n$组不同方向的平行平面包裹一个景物或者一组景物来做为层次包围盒——定义一任意平面方程$Ax+By+Cz-d=0$，则可以得到一个法向量$\vec N$，且与原点距离为$d$的平面，令$d$为自由向量，则定义了一组平面（流形？），故对于任意给定景物，必然存在两平面将景物夹在中间，记为$d_i^{near}$ 和$d_i^{far}$，用几组平面可以构成一个紧致包围盒，取若干统一方向为平面法向，并取n小于5；</li>
+<li>而对于$d_i^{near}$ 和$d_i^{far} ：<ol>
+<li>显式曲面我们可以将多面体的所有顶点投影到法向量方向，并计算与原点的最大值最小值；</li>
+<li>隐式曲面体，用条件极值的极大极小值——拉格朗日乘数法。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>包围球：一个包围球仅包含两组参数，球心和半径。物体转包围盒不转一般极度理想的包围球比较难，采用$n$个点的近似最优包围球（计算几何相关），一把比理想包围球大5%。方法：遍历所有点找到最大最小的$x/y/z$的三组六个点，然后计算三组距离，选取最大值，然后作为包围球直径，作为算法的初始值；然后遍历所有的点，若当前点在包围球外，则修改直径（以当前在球外的点与球心相连接，反向延长到之前的交点）。</p>
+</li>
+<li><p>层次包围体：给定场景的所有物体的包围体，可以将这些包围体作为叶子节点，构建一个包围体树-HBV，每个内部节点的所有子孙节点对应的包围体并集。从根节点往下层次遍历，计有$n$个包围盒，则由$n$降维为$logn$。</p>
+</li>
+<li><p>均匀格点：存到一个三维格点整列，有相交的则记录到一个list。然后用DDDA算法类似，光线与$x$和$y$的交点成规律排布（$\frac {dy}{dx}$不变）。此方法容易建立，但物体分布不均匀可能会浪费资源，因此最好为非均匀空间分布。</p>
+</li>
+<li><p>四叉/八叉树：</p>
+<ol>
+<li>四叉树为二叉树而为推广，每个节点为正方形，递归的将每个正方形分为四个等大的小正方形，叶子节点面片数足够简单时停止扫描；</li>
+<li>八叉树为四叉树的三维推广，和四叉类似，但是每个节点为立方体，且遍历更复杂，但对非均匀场景更适合；</li>
+<li>八叉树的构建：将场景用一个最小的平行于坐标轴放置的立方体包围，使用自顶向下的递归划分直到边界条件（深度，面片数之类的）前，将节点划分为八个等大的小立方体。注意到可能会有同一面片存储在不同的叶节点，可能会导致效率下降，可以采用将面片分为多个，也可以采用Octree-R方法——通过启发式算法，更为自由的划分面片，从而提速4%-47%。</li>
+<li>节点寻址：指针或者编号（使用该节点的编号加上1到8作为其suffix）。</li>
+<li>光线的遍历，每与八叉树的一个内部节点相交，都有可能与至多四个节点相交，因此需要使用空间八叉树剖分技术。</li>
+</ol>
+</li>
+<li><p>空间八叉树剖分技术：一个空间非均匀网格剖分算法</p>
+<ol>
+<li><p>方法：将含有整个场景的空间立方体按三个方向中剖面分割成八个子立方体网格，组织成一棵八叉树，若某一子立方体网格中所含景物面片数大于给定的阈值，则为该子立方体作进一步的剖分，直到面片数目小于阈值；然后利用空间连贯性加速光线追踪。</p>
+</li>
+<li><p>八叉树的最大深度：表示空间分割所能达到的层次，称为空间分配率;</p>
+</li>
+<li><p>编码方式：计八叉树深度为N，则编码为$q_1q_2…q_iFF…F,（q_i\in[0,7])$的整数序列，$F$为不同于$[0,7]$的符号），则可以通过节点编码方式很容易找到任一点所在网格。</p>
+</li>
+<li><p>性质：$P(x,y,z)$为空间一点，则</p>
+<ol>
+<li><p>坐标为整数表示为<br>$$<br>x=i_1i_2…i_nB，y=j_1j_2…j_nB，z=k_1k_2…k_n，i_l,j_l,k_l∈[0,1]，l\in I<br>$$</p>
+</li>
+<li><p>$P$所在的单位立方格编码为$q_l=i_l+2j_l+4k_l,$ $l$见上面的公式；</p>
+</li>
+<li><p>$P$位于一编码为$q_1q_2…q_iFF…F$的空间网格内，则网格的前左下角坐标为<br>$$<br>x’=i_1 i_2…i_i 0…0<br>$$<br>$y,z$则改为对应的$j,k$；</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>通过八叉树的光线跟踪加速：</p>
+<ol>
+<li>利用性质2求光线起点$P_0$所在的立方网格编码$Q$，然后位于边界上的起点根据光线前进方向$R$辨别光线是否射出场景，如果射出，算法结束。其查找结果为是否匹配成功的$Bool$以及没有匹配的位数$B$；<ol>
+<li>若$Q$为$q_1q_2…q_i$，则八叉树中节点含有$q_1q_2…q_iFF…F$时取$True$，$B$则定义为八叉树叶节点表中与$Q$获得最大程度匹配的节点其编码suffix不匹配的位数。</li>
+<li>$Bool$决定是否包含面片，$Q$和$B$决定立方体的空间位置和大小。若$Bool$量为$True$，则光线与该立方体中所含三角形面片求交，若交返回交点；若$Bool$为$False$，则继续搜索；</li>
+<li>包含起点且不包含任何景物面片的最大空间网格为$q_1q_2…q_iq_{i+1}FF…F$，$F$为$B-1$个；若求交失败为假，应该跨过当前立方体网格；</li>
+<li>而新的网格前左下角坐标由性质3决定，跨越网格后，先求出当前空间网格上的出口点坐标，重置光线起点，然后让光线和六面求交，且预先计算光线在各个坐标平面上投影线的结局和斜率，快速求解。通过新出发点重复跟踪过程，直至光线射出场景或者求到交点。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>空间二叉树（BSP）：一种空间划分结构，起初用于解决图形学中隐藏表面为题，为二分查找树的高维推广，主要有axis-aligned类型和polygon-aligned类型。</p>
+<ol>
+<li>polygon-aligned BSP：每次选取一个多边形面片所在的平面，作为空间的划分平面，通常来说，当由多边形组成才是用polygon-aligned BSP。</li>
+<li>axis-aligned总是沿着某个坐标轴垂直方向划分平面，且划分平面总是把节点按照空间大小划分为两个相等的子节点（也有部分认为随意划分也可），其大大减少了光线和划分平面间的计算量（33%），建树过程差不多。</li>
+<li>而在过程中，我们可以根据深度进行规则轮换，这样的话是的层次结构的划分更加规则regular。</li>
+</ol>
+</li>
+<li><p>KD树（任意一个BSP都是KD，但是KD不是BSP）：其与BSP区别在于划分平面，KD任意，BSP二分划分。</p>
+</li>
+<li><p>BSD的遍历：第一次调用函数时，$min$和$max$初始化为BSP根节点对应立方体的两个焦点到光线原点的距离。若光线从根节点立方体内部发出，则$min$为负数。BSP遍历一般比八叉快10%。由于BSP总是从终点开始划分，因此也存在面片跨越多个节点导致遍历变慢。而KD树就是为了解决这个问题。</p>
+</li>
+<li><p>分布式光线跟踪（随机光线跟踪）；光束追踪（线变锥形，首先将初始光束投向可视空间，由近及远监测光束与场景中物体的交，交点处产生新的反射折射光束，也可以使用光束树）；具选择性的光线跟踪结合插值（选择部分，剩余插值）；RPU（可编程光线处理单元）。</p>
+</li>
+</ol>
+<p>补充，由于清华的光栅图形学为自读内容，因此无整理。下一个part主要是几何造型相关。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -671,7 +925,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://astrojoke.github.io/2020/04/15/ji-suan-ji-tu-xing-xue-zhi-shi-dian-zheng-zheng-li-yi/">https://astrojoke.github.io/2020/04/15/ji-suan-ji-tu-xing-xue-zhi-shi-dian-zheng-zheng-li-yi/</a>
+                    <a href="https://astrojoke.github.io/2020/04/27/qing-hua-mooc-tu-xing-xue-li-lun/">https://astrojoke.github.io/2020/04/27/qing-hua-mooc-tu-xing-xue-li-lun/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -837,7 +1091,7 @@
     <div id="rewardModal" class="modal">
         <div class="modal-content">
             <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <h4 class="reward-title">我觉得没有人会给我打赏</h4>
             <div class="reward-content">
                 <div class="reward-tabs">
                     <ul class="tabs row">
@@ -880,54 +1134,52 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/04/16/luo-gu-guan-fang-ti-dan-han-shu-yu-yu-jie-gou-ru-men-ti-jie-bu-fen-shui-ti-jing-gao/">
+                <a href="/2020/04/27/qing-hua-mooc-tu-xing-xue-li-lun/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="洛谷官方提单——函数与结构入门题解（水题警告）">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="清华MOOC图形学：理论">
                         
-                        <span class="card-title">洛谷官方提单——函数与结构入门题解（水题警告）</span>
+                        <span class="card-title">清华MOOC图形学：理论</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            模块化编程和递归，基本都是水题
+                            贯穿图形学的基础理论知识
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-27
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="post-category">
-                                    算法和程序设计
+                            <a href="/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/" class="post-category">
+                                    图形学
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">
-                        <span class="chip bg-color">编程算法题解</span>
+                    <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
+                        <span class="chip bg-color">图形学</span>
                     </a>
                     
-                    <a href="/tags/%E6%B4%9B%E8%B0%B7/">
-                        <span class="chip bg-color">洛谷</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%85%A5%E9%97%A8/">
-                        <span class="chip bg-color">入门</span>
+                    <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+                        <span class="chip bg-color">基础知识</span>
                     </a>
                     
                 </div>
@@ -941,24 +1193,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/04/15/luo-gu-guan-fang-ti-dan-zi-fu-chuan-ru-men-ti-jie-bu-fen-shui-ti-jing-gao/">
+                <a href="/2020/04/26/luo-gu-guan-fang-ti-dan-tan-xin-ti-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="洛谷官方提单——字符串入门题解（部分水题警告）">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="洛谷官方题单——贪心题解">
                         
-                        <span class="card-title">洛谷官方提单——字符串入门题解（部分水题警告）</span>
+                        <span class="card-title">洛谷官方题单——贪心题解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            毕竟入门，没有水题就怪了
+                            施工中，我个人认为最难的基本算法
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-26
                             </span>
                         <span class="publish-author">
                             
@@ -983,8 +1235,8 @@
                         <span class="chip bg-color">洛谷</span>
                     </a>
                     
-                    <a href="/tags/%E5%85%A5%E9%97%A8/">
-                        <span class="chip bg-color">入门</span>
+                    <a href="/tags/%E8%B4%AA%E5%BF%83/">
+                        <span class="chip bg-color">贪心</span>
                     </a>
                     
                 </div>
@@ -1122,6 +1374,13 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </main>
 
 
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
 
     <footer class="page-footer bg-color">
     <div class="container row center-align" style="margin-bottom: 0px !important;">
@@ -1134,7 +1393,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">47.3k</span>&nbsp;字
+                class="white-color">48.2k</span>&nbsp;字
             
             
             
