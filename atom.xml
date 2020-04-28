@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://astrojoke.github.io/"/>
-  <updated>2020-04-27T13:54:14.158Z</updated>
+  <updated>2020-04-28T15:36:44.363Z</updated>
   <id>https://astrojoke.github.io/</id>
   
   <author>
@@ -17,11 +17,42 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>清华MOOC图形学：几何造型</title>
+    <link href="https://astrojoke.github.io/2020/04/28/qing-hua-mooc-tu-xing-xue-ji-he-zao-xing/"/>
+    <id>https://astrojoke.github.io/2020/04/28/qing-hua-mooc-tu-xing-xue-ji-he-zao-xing/</id>
+    <published>2020-04-28T12:57:13.000Z</published>
+    <updated>2020-04-28T15:36:44.363Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Bezier曲线和曲面&quot;&gt;&lt;a href=&quot;#Bezier曲线和曲面&quot; class=&quot;headerlink&quot; title=&quot;Bezier曲线和曲面&quot;&gt;&lt;/a&gt;Bezier曲线和曲面&lt;/h2&gt;&lt;h3 id=&quot;基本知识&quot;&gt;&lt;a href=&quot;#基本知识&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="图形学" scheme="https://astrojoke.github.io/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+    
+      <category term="图形学" scheme="https://astrojoke.github.io/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+      <category term="基础知识" scheme="https://astrojoke.github.io/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+      <category term="几何" scheme="https://astrojoke.github.io/tags/%E5%87%A0%E4%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>清华MOOC图形学：理论</title>
     <link href="https://astrojoke.github.io/2020/04/27/qing-hua-mooc-tu-xing-xue-li-lun/"/>
     <id>https://astrojoke.github.io/2020/04/27/qing-hua-mooc-tu-xing-xue-li-lun/</id>
     <published>2020-04-27T13:01:43.000Z</published>
-    <updated>2020-04-27T13:54:14.158Z</updated>
+    <updated>2020-04-28T12:58:25.544Z</updated>
     
     <summary type="html">
     
