@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://astrojoke.github.io/"/>
-  <updated>2020-04-29T07:38:05.362Z</updated>
+  <updated>2020-04-29T14:42:02.913Z</updated>
   <id>https://astrojoke.github.io/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>洛谷官方题单——二分查找与二分答案题解</title>
+    <link href="https://astrojoke.github.io/2020/04/29/luo-gu-guan-fang-ti-dan-er-fen-cha-zhao-yu-er-fen-da-an-ti-jie/"/>
+    <id>https://astrojoke.github.io/2020/04/29/luo-gu-guan-fang-ti-dan-er-fen-cha-zhao-yu-er-fen-da-an-ti-jie/</id>
+    <published>2020-04-29T14:41:31.000Z</published>
+    <updated>2020-04-29T14:42:02.913Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;script&gt;
+        document.querySelectorAll(&#39;.github-emoji&#39;)
+          .forEach(el =&gt; {
+            if (!el.dataset.src) { return; }
+       
+        
+      
+    
+    </summary>
+    
+    
+      <category term="算法和程序设计" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+      <category term="编程算法题解" scheme="https://astrojoke.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
+    
+      <category term="洛谷" scheme="https://astrojoke.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
+    
+      <category term="二分" scheme="https://astrojoke.github.io/tags/%E4%BA%8C%E5%88%86/"/>
+    
+  </entry>
   
   <entry>
     <title>清华MOOC图形学基础：真实感和非真实感图形学</title>
@@ -115,7 +150,7 @@
     <link href="https://astrojoke.github.io/2020/04/26/luo-gu-guan-fang-ti-dan-tan-xin-ti-jie/"/>
     <id>https://astrojoke.github.io/2020/04/26/luo-gu-guan-fang-ti-dan-tan-xin-ti-jie/</id>
     <published>2020-04-26T06:40:26.000Z</published>
-    <updated>2020-04-26T06:50:13.611Z</updated>
+    <updated>2020-04-29T14:12:16.772Z</updated>
     
     <summary type="html">
     
@@ -143,38 +178,11 @@
   </entry>
   
   <entry>
-    <title>《CGPP》读书笔记——第二、三章</title>
-    <link href="https://astrojoke.github.io/2020/04/25/cgpp-du-shu-bi-ji-di-er-san-zhang/"/>
-    <id>https://astrojoke.github.io/2020/04/25/cgpp-du-shu-bi-ji-di-er-san-zhang/</id>
-    <published>2020-04-25T02:57:08.000Z</published>
-    <updated>2020-04-25T09:04:15.050Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;第二章：2D图形学简介&quot;&gt;&lt;a href=&quot;#第二章：2D图形学简介&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="图形学" scheme="https://astrojoke.github.io/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
-    
-    
-      <category term="读书笔记" scheme="https://astrojoke.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《CGPP》读书笔记——第一章</title>
-    <link href="https://astrojoke.github.io/2020/04/23/cgpp-du-shu-bi-ji-di-yi-zhang/"/>
-    <id>https://astrojoke.github.io/2020/04/23/cgpp-du-shu-bi-ji-di-yi-zhang/</id>
+    <title>《CGPP》读书笔记</title>
+    <link href="https://astrojoke.github.io/2020/04/23/cgpp-du-shu-bi-ji/"/>
+    <id>https://astrojoke.github.io/2020/04/23/cgpp-du-shu-bi-ji/</id>
     <published>2020-04-23T14:00:40.000Z</published>
-    <updated>2020-04-24T13:40:27.580Z</updated>
+    <updated>2020-04-29T14:38:34.783Z</updated>
     
     <summary type="html">
     

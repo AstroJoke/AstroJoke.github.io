@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="《CGPP》读书笔记——第二、三章, AleXandrite">
-    <meta name="description" content="第二章和第三章，算是本书简介性质的">
+    <meta name="keywords" content="《CGPP》读书笔记, AleXandrite">
+    <meta name="description" content="读一点更新一点，更新ing">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>《CGPP》读书笔记——第二、三章 | AleXandrite</title>
+    <title>《CGPP》读书笔记 | AleXandrite</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -26,12 +26,282 @@
     
     <script src="/libs/jquery/jquery.min.js"></script>
     
-<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="AleXandrite" type="application/atom+xml">
+<style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+        .loading-text{
+            font-size: 1.5rem;
+    }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+</style>
+<script>
+(function () {
+    const loaded = function(){
+        setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+            // document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },1000); 
+        },1000);//强制显示loading page 1s  
+    };
+    loaded();
+})()
+ </script><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="AleXandrite" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
 
 
-<body>
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+        .loading-text{
+            font-size: 1.5rem;
+    }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+</style>
+<script>
+(function () {
+    const loaded = function(){
+        setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+            // document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },1000); 
+        },1000);//强制显示loading page 1s  
+    };
+    loaded();
+})()
+ </script></head>
+
+
+
+ <div id="loading-container">
+     <p class="loading-text">玩命加载中 . . . </p> 
+     <div class="loading-image">
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div> 
+         <div></div>
+     </div>
+ </div><body>
     <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper head-container">
@@ -403,12 +673,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">《CGPP》读书笔记——第二、三章</h1>
+                    <h1 class="description center-align post-title">《CGPP》读书笔记</h1>
                 </div>
             </div>
         </div>
@@ -550,7 +820,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-25
+                    2020-04-23
                 </div>
                 
 
@@ -559,14 +829,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.5k
+                    11.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    20 分
+                    39 分
                 </div>
                 
 				
@@ -582,34 +852,102 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="第二章：2D图形学简介"><a href="#第二章：2D图形学简介" class="headerlink" title="第二章：2D图形学简介"></a>第二章：2D图形学简介</h1><p>在对计算机图形学全面综述后，现在开始结合一定的实际案例来对2D图形学简介，而此处基于WPF（微软的）。</p>
-<h2 id="2-1-2D图形流水线概述"><a href="#2-1-2D图形流水线概述" class="headerlink" title="2.1 2D图形流水线概述"></a>2.1 2D图形流水线概述</h2><p>从第一章我们知道，2D的图形平台是应用程序和显示硬件的中介，它提供的功能与输出和输入相关联。接下来先在宏观角度了解2D图形应用程序。</p>
+                <p>这本书在年前决定要走图形学方向的时候就买了下来，本来是在家过完年就直接回上海看的，但是由于疫情导致现在才开始看，现在可以对于这本书进行整理了。</p>
+<p>首先说说这本书吧《计算机图形学——原理及实践》是机工出版社引进的《Computer Graphic——Principles and practice》的翻译版本（小声BB，外文版本太贵了），但是这本书被分割为基础篇（1-16章）和进阶篇（17-38章），所以到了后面还是得找到原文阅读。<br>另外由于疫情原因，闫令琪dalao的现代计算机图形学也在B站有同步的更新，也是入门的好东西，他的课用的是虎书《Fundamental of Computer Graphic》，也是一本好书，但是这书的最新版是没有中文版的，所以拿着英文版硬啃吧。<br>接下来便是读书笔记。</p>
+<p>绪论本章主要是对计算机图形学相关的内容进行了基本的介绍——图形学应用、图形学研究的各个领域、图形学方法高效的生成图像的工具、了解图形算法和程序规模的一些数字以及编写图形程序的思想等。</p>
+<h2 id="第一章：绪论"><a href="#第一章：绪论" class="headerlink" title="第一章：绪论"></a>第一章：绪论</h2><h3 id="1-1计算机图形学的简介"><a href="#1-1计算机图形学的简介" class="headerlink" title="1.1计算机图形学的简介"></a>1.1计算机图形学的简介</h3><h4 id="1-计算机图形学"><a href="#1-计算机图形学" class="headerlink" title="1. 计算机图形学"></a>1. 计算机图形学</h4><p>是指通过计算机的显示器和交互设备进行视觉交流的科学和艺术（？）。通常来说视觉是从计算机到人，而图形学则是从人到计算机。而且计算机图形学算是多学科交叉的学科，物理学原理对光的传播建模并动画仿真；采用数学方法描述物体的形状；基于人感知能力进行资源配置（即不花时间绘制不受注意的细节上）。</p>
+<p>狭义上，计算机图形学可以定义为：给定场景中的物体模型（对场景中物体几何和它们如何反射光线的描述）和向场景投射光线的光源模型（通过数学描述、辐射方向和光谱分布等），生成该场景的特定视图（即到达场景中虚拟视点或相机的光线）。</p>
+<p>通过这个描述，或许我们可以将图形学视作一堆矩阵的乘法，或者说就拿光照举例子：入射光乘以场景的反射率得到反射光，递归直至计算出充满整个空间的光（有点像Peano曲线的感觉），但是实际上这是不可能的，原因或许是因为计算机采用0/1导致的离散型无法完全模拟现实。同时基于上面所说的“人和计算机的关系”，我们可以将视觉视作矩阵分解（4.24补充：或者说一切需要猜测的东西都可以视作视觉）。</p>
+<h4 id="2-模型的含义"><a href="#2-模型的含义" class="headerlink" title="2. 模型的含义"></a>2. 模型的含义</h4><p>不再是我们传统意义的模型，至少这个模型我们可以指几何模型，也可以指数学模型。</p>
+<p>几何模型就是我们想要呈现在图像中的物体的模型，而所谓的建模就是从一无所有开始，创建这样一个模型的过程，而所得到的对物体的“几何+其他信息”的描述就是模型；</p>
+<p>而数学模型则是物理/数学中计算的模型，例如光照如何反射的模型，物体如何运动的模型之类的，这些模型或许正确，或许错误，需要一定的公理或者一定的现实基础来证明的。</p>
+<h4 id="3-图形学的研究方向"><a href="#3-图形学的研究方向" class="headerlink" title="3. 图形学的研究方向"></a>3. 图形学的研究方向</h4><p>a. 创建几何模型的方法；<br>b. 表面反射率的表示（如表面下浅层的反射率、途径介质之类的反射率）的表示；<br>c. 基于物理定律和近似模型的场景动画；<br>d. 动画控制；<br>e. 与虚拟体之间的交互；<br>f. 非照片真实感表示。</p>
+<p>值得吐槽的是：非仿真领域（nonsimulation area）的研究似难以获得突破，其原因可能是因为定性的描述对于此领域更重要，即“人与人之间是不同的”。</p>
+<h4 id="4-像素"><a href="#4-像素" class="headerlink" title="4. 像素"></a>4. 像素</h4><p>构成图像点阵的基本元素（或者说这里指的是显示像素）。</p>
+<h4 id="5-图形应用"><a href="#5-图形应用" class="headerlink" title="5. 图形应用"></a>5. 图形应用</h4><p>对于日常生活中的图形应用（日常的，不是专业的，因为专业上的图形应用反而更具有针对性）可能最多的便是游戏——每秒钟能够处理几百万格多边形面片（或者说更多的三角形面片）和视频，这些应用的关键是绘制（指将物体/图像呈现在显示器上）性能相关的处理器时间、内存和带宽。</p>
+<p>而对于性能来说，一种实用的指标是每秒可以绘制的基本体（面向应用的基本构形单元，可能是三角mesh，可能是带texture的多边形，可能是对于流场可视化系统中带颜色的箭头）个数。</p>
+<p>每秒可显示的基本体个数等于煤每帧可现实的基本题数乘以每秒的显示帧率，通过动态调整帧率来满足不同应用对资源的需求调整。</p>
+<h3 id="1-2-CG的历史"><a href="#1-2-CG的历史" class="headerlink" title="1.2 CG的历史"></a>1.2 CG的历史</h3><p>最开始的时候，CG的研究中心存在着经典的简化假设：所有物体对光的反射方式与平光乳胶漆大致相当，故光线要么直接照射在表面，要么再场景中多次反射，最终形成泛光照明效果，是的未收到光源直射的物体也有光照。并且，三角形内部各点通过三角形面片的三个顶点值在进行计算（即插值）。<br>而伴随着越来越多的模型例如形状模型、光源模型和反射模型等的加入，但是如今的主流模型中还是包括了泛光。</p>
+<h4 id="1-泛光"><a href="#1-泛光" class="headerlink" title="1. 泛光"></a>1. 泛光</h4><p>泛光是指的是一定量的光线，他们没有确切的起始点，但在场景中无处不在（就我的初步理解就是环境光线？）。泛光保证了场景中的可见物体均可受到一定的光照，将其值设定为经验值，可以用之模拟光能传输中的某些分量。</p>
+<p>后续（第六章）会介绍反射模型，其具备漫射项——对应表面朝向各个方向的均匀反射的光；镜面反射项——模拟一定方向的反射光（包括近乎完美镜面反射和漫反射）和泛光项。</p>
+<h4 id="2-图像显示器"><a href="#2-图像显示器" class="headerlink" title="2. 图像显示器"></a>2. 图像显示器</h4><p>最开始的向量显示设备，随后向光栅显示设备（展示的图像是一个点阵）的转变。</p>
+<p>显示器的一些参数：分辨率——单个点的精细程度；大小（显示器物理尺寸）和动态范围（可显示的像素最亮和最暗光亮度之比）。</p>
+<h4 id="3-CG的飞跃——可编程图形卡"><a href="#3-CG的飞跃——可编程图形卡" class="headerlink" title="3. CG的飞跃——可编程图形卡"></a>3. CG的飞跃——可编程图形卡</h4><p>应用程序不再发送多边形和图像，而是发送小的程序给图形卡，其分别描述了如何接替的使用随后的多边形和图像的显示方式和次序。这些所谓的“着色器”开辟了不需要使用额外的cpu周期就能生成真实感图形的全新领域（虽然GPU在疯狂运行）。</p>
+<h3 id="1-3-一个栗子——有关真实感的讨论"><a href="#1-3-一个栗子——有关真实感的讨论" class="headerlink" title="1.3 一个栗子——有关真实感的讨论"></a>1.3 一个栗子——有关真实感的讨论</h3><p>在黑暗的房间里，一个100W的点光源悬挂在桌子上方约1m处，桌面涂有灰色乳胶漆。我们从2m高处看这个桌子，会看到什么呢?</p>
+<p>先不管灯泡射出的可见光和景物表面的精确反射率是多少，场景中的大致光照分布(在灯下方较为明亮，而远离灯的区域较暗)可由物理学决定。可以做一个思维实验，想象一下该场景的理想“画面”。</p>
+<p>在这里，该书的作者希望绘制该场景的图形系统能生成与之十分逼近的结果。当然结果肯定是很难的鸭，因为标准图形包没有物理的相关量的完整描述，例如，物理学中光强按照距离光源距离平方成反比，但是传统图形学包会存在二次衰减（有部分原因是因为：示器亮度和人眼对光的非线性反馈导致的，且显示器的动态范围被限定了）导致其生成的图片看起来不对或者说不真实。于是这里就讨论了一个重要的领域。</p>
+<p>早期图形学研究十分偏重的的领域，也因此导致了大多数计算并不是基于物理的，而是曲迎合人的视觉系统的注意（主要是因为人的HVS实在是太鲁棒了，导致有点点不像真的你就看得出来）。</p>
+<p>当然现在也在研究非真实感图形学，而且研究的人越来越多了。</p>
+<p>另外吐槽一句：为什么在视频工作者眼里粒子/特效很麻烦而在CGdalao们的眼里粒子/特效很简单的原因，就是因为粒子/特效不注重真实感，反而更容易“随意”写。</p>
+<p>那么问题来了：我们不追求物理那么追求什么呢？不会是去研究人眼吧？答案还真是这样的，当然不是研究人眼，而是去以视觉的方式来呈现信息。就拿我们书上的例子：</p>
+<p>典型的视图是一个光线好的房间，光线方向各异强度相同射入到景物的表面，反射光差异控制在一定的范围（书上是$10^3$）。然后简单的将屏幕像素的显示亮度调整到合理的区间，让其在类似的范围内变化，通过这个方式，无需在视图上模拟真实的物理反射。但是，作为我们“真实感”，我们需要将其表示的颜色表达清楚，否则一眼假。</p>
+<p>这个过程可以当做一个抽象——我们不关心物理性质，但是我们只关心外貌（大小，颜色之类的）。</p>
+<h3 id="1-4-目标、资源和适度的抽象"><a href="#1-4-目标、资源和适度的抽象" class="headerlink" title="1.4 目标、资源和适度的抽象"></a>1.4 目标、资源和适度的抽象</h3><p>在上面的栗子中，我们知道了一个原则——在任何的仿真中，首先应该了解其背后的物理数学过程，然后在给定的时空限制，算力等（或者说资源限制）情况下，确定能够提供结果（或者说目标）的最佳近似方法。</p>
+<h4 id="1-睿智的（非骂人意味）建模原则"><a href="#1-睿智的（非骂人意味）建模原则" class="headerlink" title="1. 睿智的（非骂人意味）建模原则"></a>1. 睿智的（非骂人意味）建模原则</h4><p>对某一现象进行建模的时候，先深入了解需要建模的现象和建模的目标，然后选择一个含义丰富的抽象模型，再在你所限的资源范围内，为期选取合适的表示方法，最后通过测试来验证模型是否合适。</p>
+<h4 id="2-视觉系统的原则"><a href="#2-视觉系统的原则" class="headerlink" title="2. 视觉系统的原则"></a>2. 视觉系统的原则</h4><p>在求解图形学问题和构建模型时考虑人类视觉的影响——看不见太小的，看不见过快的，运动控制系统也有局限性（比如我们要在屏幕用鼠标精确点击某一像素）（你要random那不是随意玩）。</p>
+<p>但是，不要认为感知能够改变我们的所有，毕竟脑壳是拿来结合现实思考的。我们在考虑的时候还是需要基于某些东西的特性做出改变的（比如在光照的时候，只描绘可见光或者只将光和波长描述为双射）</p>
+<h3 id="1-5-图形学中的一些参数和一些参数值的量级"><a href="#1-5-图形学中的一些参数和一些参数值的量级" class="headerlink" title="1.5 图形学中的一些参数和一些参数值的量级"></a>1.5 图形学中的一些参数和一些参数值的量级</h3><h4 id="1-普朗克常量"><a href="#1-普朗克常量" class="headerlink" title="1. 普朗克常量"></a>1. 普朗克常量</h4><p>光是波粒二象性的，对于光子来说，其$E=\frac {hc}{\lambda}$，而$h=6.6\times10^{-34} J\times s$，通过公式可以求解单个典型光子（波长为650nm）的能量为$3\times 10^{-19}J$</p>
+<h4 id="2-白天和黑夜进入眼睛的光能之比"><a href="#2-白天和黑夜进入眼睛的光能之比" class="headerlink" title="2. 白天和黑夜进入眼睛的光能之比"></a>2. 白天和黑夜进入眼睛的光能之比</h4><p>接近为$10^{10}$</p>
+<h4 id="3-显示器和人眼"><a href="#3-显示器和人眼" class="headerlink" title="3. 显示器和人眼"></a>3. 显示器和人眼</h4><p>由于显示器实在是发展太快了，现在已经很难说出一个好的标准了，但是人眼的标准还是可以说出来的，人眼的角分辨率约为$1rad$（这就是我们在PPT旋转一度没啥感觉的原因），等效为距离一千米观察$300mm$的长度（但是现在这么多人戴眼镜，这个东西很堪忧啊）（或者在电脑屏幕1米前观察$0.3mm$的长度）。</p>
+<h4 id="4-复杂应用的处理需求——以游戏为例"><a href="#4-复杂应用的处理需求——以游戏为例" class="headerlink" title="4. 复杂应用的处理需求——以游戏为例"></a>4. 复杂应用的处理需求——以游戏为例</h4><p>为了让游戏场景出现在屏幕上，需要将描述场景的多边形传送给图形处理器，然后将这些多边形的属性（颜色大小等），通过多种技术（反走样，平滑着色等）予以绘制和展现。</p>
+<p>在这个过程中，每个像素都得着色计算，因此每秒的多边形和每秒的像素成为了效率的指标，且时刻变化。</p>
+<h3 id="1-6-图形管线"><a href="#1-6-图形管线" class="headerlink" title="1.6 图形管线"></a>1.6 图形管线</h3><h4 id="1-图形管线（graphics-pipeline）"><a href="#1-图形管线（graphics-pipeline）" class="headerlink" title="1. 图形管线（graphics pipeline）"></a>1. 图形管线（graphics pipeline）</h4><p>标准图形系统的实施通常被叫做图形管线。管线指阿紫数学模型到生成屏幕像素的一系列过程和步骤。</p>
+<p>我们可以将各个应用大概的分为：纹理数据，多边形网格（传递多边形数据），多边形网格顶点（传递网格顶点数据），取景设置，光源数据。然后将这些应用传到图形卡进行几何变换，光栅化和光照计算，然后生成图像再到显示。</p>
+<p>将图形管线看做一个黑盒，我们也能写出来很多好的图形学程序，你只需要知道接口是怎么传递数据的（再怎么复杂也比写游戏的伤害计算传递的参数少）。</p>
+<p>当然由于现在的发展，不怎么用管线了，反而是用图形的API提供可以调整管线中特定参数的实用方法（这样灵活多了），而是使用shader来进行管线中某些功能，</p>
+<p>管线只是一个抽象的概念，一种思考工作流程的方式，和计算机组成的流水线是差不多的，他会让我们关注与最终的结果或者花费的时间，而不没必要在意底层做了啥，电流怎么走之类的对于本课程无关的细节。</p>
+<h4 id="2-纹理映射和近似"><a href="#2-纹理映射和近似" class="headerlink" title="2. 纹理映射和近似"></a>2. 纹理映射和近似</h4><p>纹理映射就是指通过索引的方式将纹理图像映射（贴）到物体的一个多边形或者多个多边形上。可以用这个方法来改变图像某个点的颜色（当然只是其中的一小个功能）。例如通过多边形顶点计算法向量，然后通过法向量结合顶点进行内部各点的插值计算。</p>
+<p>而在这个过程中，我们采用不真实的法向量（或通过插值来模拟），咋对每个多边形的不同点采用不同的法向量，那么这个图像表面会改变。</p>
+<h4 id="3-光栅化"><a href="#3-光栅化" class="headerlink" title="3. 光栅化"></a>3. 光栅化</h4><p>将连续的几何表示转化为面向显示的离散像素表示。</p>
+<h3 id="1-7-图形学与艺术、设计和感知的关系"><a href="#1-7-图形学与艺术、设计和感知的关系" class="headerlink" title="1.7 图形学与艺术、设计和感知的关系"></a>1.7 图形学与艺术、设计和感知的关系</h3><h4 id="1-关于诡异谷理论"><a href="#1-关于诡异谷理论" class="headerlink" title="1. 关于诡异谷理论"></a>1. 关于诡异谷理论</h4><p>指的是人类对一个东西的认知，先是逐渐认识，然后突然什么都不认识，最后猛地认识清楚，而且最后两个阶段相距非常的近，这一小段就是所说的诡异谷（不是有看山是山，看山不是山，看山依旧是山的境界嘛，和这个差不多）。</p>
+<h4 id="2-马赫带效应"><a href="#2-马赫带效应" class="headerlink" title="2. 马赫带效应"></a>2. 马赫带效应</h4><p>是一种主观的边缘对比效应。当观察两块亮度不同的区域时，边界处亮度对比加强，使轮廓表现得特别明显。</p>
+<h3 id="1-8-基本的图形系统"><a href="#1-8-基本的图形系统" class="headerlink" title="1.8 基本的图形系统"></a>1.8 基本的图形系统</h3><h4 id="图形数据"><a href="#图形数据" class="headerlink" title="图形数据"></a>图形数据</h4><p>通常情况下，图形模型会创建于某一个方便的坐标系中：立方体中心为原点，边长为一，这样均位于-0.5到0.5之间，我们称之为模型空间和对象空间坐标系。</p>
+<p>然后将整个立方体放置在场景（由一系列物体和光源组成的模型）中，通过一定的原则，得到一个坐标系，其坐标系的坐标为场景空间坐标。</p>
+<p>而虚拟相机的位置和朝向亦表示为场景空间坐标，虚拟光源的位置和物理特性同样如此。现在我们构造相机空间坐标系（相机坐标系）：原点设置在相机的中心，x轴指向相机右侧（从后往前看）z指向相机后侧。</p>
+<p>然后通过相机坐标转化为规格化坐标，将其坐标表示为-1到1的浮点数就行了。</p>
+<p>最后可见片段就被变换为像素坐标（对应浮点乘以显示器实际尺寸）通过取整和缩放来实现，所得到的的坐标称为图像坐标。</p>
+<h3 id="1-9-1-12略"><a href="#1-9-1-12略" class="headerlink" title="1.9-1.12略"></a>1.9-1.12略</h3><h3 id="1-13-真实感概述"><a href="#1-13-真实感概述" class="headerlink" title="1.13 真实感概述"></a>1.13 真实感概述</h3><h4 id="1-光线"><a href="#1-光线" class="headerlink" title="1. 光线"></a>1. 光线</h4><p>一些光线的基本物理性质的介绍：<br>a. 光在真空中直线传播，直到遇到某一个平面；<br>b. 光线遇到光滑表面发生反射，反射角和入射角相等，或者被表面吸收，或者组合；<br>c. 大多数看起来“光滑”的面从微观上都是粗糙的，所以这种面会发生漫反射；<br>d. 平板针孔只允许一束光线通过，这些光线或直接穿过针孔中心或与之接近；<br>e. 相机的感光像素检测到光的时候，会通过积分在一小段时间内的所有光，积分的值即为传感器对入射到所有光子的反应；<br>f. 可调节显示器上的像素进行调节使之发出指定亮度的光和颜色光。</p>
+<p>同时还有三大挑战：<br>a. 需要构建适当的数据结构来表示场景中的表面、相机和光源；<br>b. 需要一个可计算所有的光反射并集成的算法；<br>c. 也是最重要的DS和算法都必须要高效。</p>
+<h4 id="2-物体和材料"><a href="#2-物体和材料" class="headerlink" title="2. 物体和材料"></a>2. 物体和材料</h4><p>物体：假设在场景中收到光照时，物体表面吸收光或者反射光或者两者都有，而具体的反射和吸收性质取决于物体的材料；同时假设空气既不反射光也不吸收光，而是让光穿过；同时忽略透明材料和半透明材料。</p>
+<p>物体一般表示为表面的几何，而这些表面一般都是用三角形网格表示。而由于各个三角形面之间的网格边没有面积，所以在计算光和表面交互时可以忽略这些边（或者处理为就在三角形内部）（可以处理为不在三角形内部）（自圆其说即可）。</p>
+<p>多面体上每个三角形都有一个平行于这个三角形平面的向量，这个向量为法向量。设其入射方向为l，那么对于理想反射面，反射光线在ln平面上，入射和反射角相同。而对于其他平面，则向多个方向散射。</p>
+<p>而完全散射表面，光将所有方向散射，反射光亮度与|ln|点积的绝对值成正比，即与其夹角余弦值成正比。</p>
+<p>而对于Phong-Blinn模型来说，光泽表面的外观和视角有关，倘若一个明亮房间观看表面，则会形成一个高光，而移动头部，高光也会移动。这个模型中，反射光为n点乘h的k次幂成正比，h是从表面到光源的向量-l和从表面到视点的向量e平分向量，最后进行单位化就是h了。</p>
+<h4 id="3-接受光线"><a href="#3-接受光线" class="headerlink" title="3. 接受光线"></a>3. 接受光线</h4><p>使用数值积分进行近似，同时选取一些位置对被积函数进行采样，然后综合样本估计总的积分值。</p>
+<h4 id="4-图像显示"><a href="#4-图像显示" class="headerlink" title="4. 图像显示"></a>4. 图像显示</h4><p>像素的概念略。</p>
+<p>像素的显示可以使用三元组（R,G,B）每个数字在0-0xff间，最后发出由三个给定颜色的混合光，但是注意，光强和数字没有正比的关系。</p>
+<h4 id="5-人类的视觉系统特点"><a href="#5-人类的视觉系统特点" class="headerlink" title="5. 人类的视觉系统特点"></a>5. 人类的视觉系统特点</h4><p>人眼对亮度的感知不是线性的。假如你在一张白纸上打印若干黑色条纹，使之只剩下20%的空白区域，显然人射在整张纸上的光只有20%被反射出来。但是如果将这张打印过的纸放在一张同一类型的空白纸旁边，然后从足够远的距离来观察它们(远到无法分辨纸上的黑条纹)，那么打印纸的亮度看上丢天约是未打印的空白纸的一半。大致上说，倘若眼睛已适应了某亮度层次的光线， 即使进入人眼的光的强度减少了80%，但感知到的亮度只是减少了一半而已。</p>
+<p>同时对人的视觉系统有很好的适应性：能够从噪声很多的黑白图片识别自己的家之类的。因为这个原因，对于CG来说既是优势又是劣势，即对于某些很糟糕的近似，我们能够辨别出来，但是很精细的近似，我们却又能发现其不现实的地方。</p>
+<h4 id="6-数学相关"><a href="#6-数学相关" class="headerlink" title="6. 数学相关"></a>6. 数学相关</h4><p>三角形、小向量和矩阵操作，微积分，几何和拓扑（连续性，曲面几何，曲率，微分几何等）。</p>
+<h3 id="1-14-总结"><a href="#1-14-总结" class="headerlink" title="1. 14 总结"></a>1. 14 总结</h3><p>实际上第一章就是给了我们一个图形学大概的全貌，由于知识体系的不够所以我们不能够很好的理解其中一些的细节，同时也是为后面的一些内容提前做一个有效铺垫，防止我们突然看到某个概念而一脸懵逼（突然想起来采煤概论的时候老师开场就在那里说上山下山的懵逼感）。</p>
+<h2 id="第二章：2D图形学简介"><a href="#第二章：2D图形学简介" class="headerlink" title="第二章：2D图形学简介"></a>第二章：2D图形学简介</h2><p>在对计算机图形学全面综述后，现在开始结合一定的实际案例来对2D图形学简介，而此处基于WPF（微软的）。</p>
+<h3 id="2-1-2D图形流水线概述"><a href="#2-1-2D图形流水线概述" class="headerlink" title="2.1 2D图形流水线概述"></a>2.1 2D图形流水线概述</h3><p>从第一章我们知道，2D的图形平台是应用程序和显示硬件的中介，它提供的功能与输出和输入相关联。接下来先在宏观角度了解2D图形应用程序。</p>
 <p>很少有一项应用的目的仅仅画一些像素，这些应用通常是将某些数据（称之为应用模型（Application Model，AM））转化为图像，并通过用户交互来进行操控。</p>
 <p>在典型的PC环境中，APP运行时会启用一个窗口管理器，窗口管理器决定了每一个APP在屏幕上的显示区域，并通过窗口浏览器实施显示和交互。而APP调用图形平台API，在窗口内的客户区域进行绘制，图形平台则通过GPU回应调用从而完成绘制。</p>
 <p>一般而言，将APP开设客户区域有两个目标：区域的一部分用于应用程序的用户界面控制，其余部分是视图，用来显示场景绘制的结果，显示内容由APP的场景生成器从AM中提取或导出。生成用户界面的UI生成器与场景生成器不同，操作方式也不同。</p>
 <p>在一些人的眼里，AM上就是一大堆几何数据，但实际上，在某些可视化应用中，可能是完全不包含几何的数据（在B站有很多的数据可视化视频，就是这种类型）。</p>
-<h2 id="2-2-2D图形平台的演变"><a href="#2-2-2D图形平台的演变" class="headerlink" title="2.2 2D图形平台的演变"></a>2.2 2D图形平台的演变</h2><h3 id="2-2-1-从整数到浮点数坐标"><a href="#2-2-1-从整数到浮点数坐标" class="headerlink" title="2.2.1 从整数到浮点数坐标"></a>2.2.1 从整数到浮点数坐标</h3><p>在最开始的2D光栅图形平台中大部分都采用整数坐标系统在矩形画布上绘制像素。而应用程序并非对单个像素进行着色，而是通过调用绘制基元的程序来绘制场景，基元可以是几何形状，也可以是预先读入的矩阵图像（位图）。而以微软的API中，采用画刷的属性来指定基元内区域的填色方式，而画笔的属性则控制基元应呈现的轮廓形状（这里和UE4的画刷有丢丢区别）。</p>
+<h3 id="2-2-2D图形平台的演变"><a href="#2-2-2D图形平台的演变" class="headerlink" title="2.2 2D图形平台的演变"></a>2.2 2D图形平台的演变</h3><h4 id="2-2-1-从整数到浮点数坐标"><a href="#2-2-1-从整数到浮点数坐标" class="headerlink" title="2.2.1 从整数到浮点数坐标"></a>2.2.1 从整数到浮点数坐标</h4><p>在最开始的2D光栅图形平台中大部分都采用整数坐标系统在矩形画布上绘制像素。而应用程序并非对单个像素进行着色，而是通过调用绘制基元的程序来绘制场景，基元可以是几何形状，也可以是预先读入的矩阵图像（位图）。而以微软的API中，采用画刷的属性来指定基元内区域的填色方式，而画笔的属性则控制基元应呈现的轮廓形状（这里和UE4的画刷有丢丢区别）。</p>
 <p>在最初的GDI平台最简单的场景设置方式就是应用程序采用整数坐标，可以一对一直接映射为屏幕像素。</p>
 <p>但是问题来了，在不同的输出设备，相同的代码画出来的东西大小怎么说？这个问题实际上没有具体的答案，显示大小取决于输出设备的分辨率（每英寸点的数目），假设我们考虑的屏幕分辨率为72dpi，然后输出到300dpi，你会发现，这个图像小了特别多。相反，则会大到让人难以结束。</p>
 <p>因此光栅图形领域借鉴了向量图形的方法来解决了这个问题，使用浮点数坐标系统来表达事物，依次将图像和设备隔离看来。</p>
-<h3 id="2-2-2-即时模式（immediate-mode）和保留模式（retained-mode）"><a href="#2-2-2-即时模式（immediate-mode）和保留模式（retained-mode）" class="headerlink" title="2.2.2 即时模式（immediate mode）和保留模式（retained mode）"></a>2.2.2 即时模式（immediate mode）和保留模式（retained mode）</h3><ol start="0">
+<h4 id="2-2-2-即时模式（immediate-mode）和保留模式（retained-mode）"><a href="#2-2-2-即时模式（immediate-mode）和保留模式（retained-mode）" class="headerlink" title="2.2.2 即时模式（immediate mode）和保留模式（retained mode）"></a>2.2.2 即时模式（immediate mode）和保留模式（retained mode）</h4><ol>
 <li>即时模式：</li>
 </ol>
 <p>包括了可高校访问图形输出设备的薄层平台，可以理解为和内存差不多，这些平台不会保留任APP所采用的基元记录。简而言之：当要对绘制图像做任何修改时，让场景生成器遍历AM，重新生成表示场景的基元集合。</p>
 <p>想要竟可能让其编程贴近图形硬件以获取最大化性能的应用程序开发人员，以及想要让产品占用资源非常少的人（这里就和用C/CPP的人感觉差不多）。</p>
-<ol>
+<ol start="2">
 <li>保留模式：</li>
 </ol>
 <p>由于有些用户的希望可以为他们免除尽可能多的开发任务，因此为了满足这些用户，保留模式平台在专用的数据库中保留了需绘制或者观看的场景表示，称之为场景图。由于需要保存整个场景，其还能承担除显示外的与许多用户交互相关的常见任务（比如选择关联等等）。</p>
 <p>基本上所有的RM软件包都可以追溯到Sketchpad，其支持创建标准模板，可以再画布（canvas）实例化一次或者多次来构建场景。</p>
-<ol start="2">
+<ol start="3">
 <li>UI控制器：</li>
 </ol>
 <p>也是一种模板化的对象，作为一题的组合，它具有内在的一致化的外观和“感觉”（指控件的动态行为）。</p>
 <p>同时大多数RM的UI平台还包括了界面布局管理器，将空间安排成美观整齐的形式，是彼此间的大小和间隔保持一致，并能够根据程序或者用户发出更改UI区域大小或者形状的指令，对布局自动进行调整。</p>
-<h3 id="2-2-3-过程语言和描述性语言"><a href="#2-2-3-过程语言和描述性语言" class="headerlink" title="2.2.3 过程语言和描述性语言"></a>2.2.3 过程语言和描述性语言</h3><p>略</p>
-<h2 id="2-3-使用WPF定义2D场景"><a href="#2-3-使用WPF定义2D场景" class="headerlink" title="2.3 使用WPF定义2D场景"></a>2.3 使用WPF定义2D场景</h2><p>实际上我最开始使用Unity来玩一个时钟画画，但是这里拿XAML反而更能够是我们从语法细节往图形学概念集中。</p>
-<h3 id="2-3-1-XAML应用程序结构"><a href="#2-3-1-XAML应用程序结构" class="headerlink" title="2.3.1 XAML应用程序结构"></a>2.3.1 XAML应用程序结构</h3><p>我们采用XML来构造一个简单的XAML应用程序来模拟一个模拟时钟，其和HTML语法差不多，主要是其表示了元素的层次化结构。(有一说一我也不咋会，但是我就是看得懂0 0应为只要会英文就能读懂了。。。)</p>
+<h4 id="2-2-3-过程语言和描述性语言"><a href="#2-2-3-过程语言和描述性语言" class="headerlink" title="2.2.3 过程语言和描述性语言"></a>2.2.3 过程语言和描述性语言</h4><p>略</p>
+<h3 id="2-3-使用WPF定义2D场景"><a href="#2-3-使用WPF定义2D场景" class="headerlink" title="2.3 使用WPF定义2D场景"></a>2.3 使用WPF定义2D场景</h3><p>实际上我最开始使用Unity来玩一个时钟画画，但是这里拿XAML反而更能够是我们从语法细节往图形学概念集中。</p>
+<h4 id="2-3-1-XAML应用程序结构"><a href="#2-3-1-XAML应用程序结构" class="headerlink" title="2.3.1 XAML应用程序结构"></a>2.3.1 XAML应用程序结构</h4><p>我们采用XML来构造一个简单的XAML应用程序来模拟一个模拟时钟，其和HTML语法差不多，主要是其表示了元素的层次化结构。(有一说一我也不咋会，但是我就是看得懂0 0应为只要会英文就能读懂了。。。)</p>
 <p>首先我们建立单独的Canvas</p>
 <pre class="line-numbers language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Canvas</span>
         <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://schemas.microsoft.com/winfx/2006/xaml/presentation<span class="token punctuation">"</span></span>
@@ -618,7 +956,7 @@
         <span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Canvas</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>一般来说都将ClipToBounds设为True表达了画布有界。</p>
-<h3 id="2-3-2-采用抽象坐标系定义场景"><a href="#2-3-2-采用抽象坐标系定义场景" class="headerlink" title="2.3.2 采用抽象坐标系定义场景"></a>2.3.2 采用抽象坐标系定义场景</h3><p>我们来考虑时钟的构成，时钟盘，时针分针秒针，和转动逻辑。</p>
+<h4 id="2-3-2-采用抽象坐标系定义场景"><a href="#2-3-2-采用抽象坐标系定义场景" class="headerlink" title="2.3.2 采用抽象坐标系定义场景"></a>2.3.2 采用抽象坐标系定义场景</h4><p>我们来考虑时钟的构成，时钟盘，时针分针秒针，和转动逻辑。</p>
 <p>钟面很gandan，填充一个椭圆就可，时针分针可能会比较麻烦，秒针也一样。</p>
 <p>回顾在图纸上的笛卡尔坐标系（略），我们虽然在同一个坐标系中，每个坐标都是唯一的，但是一般的图纸坐标系还是在避免二义性方面也有局限性。而这种图纸上的坐标系实际上就是一个抽象坐标系，它不刻画景物在物理世界的位置大小。但是我们在显示的时候就会无法做到真实。但是在做到真实的过程中，我们需要进行真实几何的度量，因此我们先讨论几何描述。</p>
 <p>按照定义顺序，我们应当先画后面，再画前面，故我们先填充一个圆</p>
@@ -633,11 +971,11 @@
 <li>如何根据屏幕形状因素的约束选定绘制后图像的大小和在屏幕上的位置；</li>
 <li>如何在图形平台上给出几何描述以得到正确的结果</li>
 </ol>
-<h3 id="2-3-3-坐标系的选择范围"><a href="#2-3-3-坐标系的选择范围" class="headerlink" title="2.3.3 坐标系的选择范围"></a>2.3.3 坐标系的选择范围</h3><p>要求有2：独立于软件平台，独立于显示器的形状因素</p>
+<h4 id="2-3-3-坐标系的选择范围"><a href="#2-3-3-坐标系的选择范围" class="headerlink" title="2.3.3 坐标系的选择范围"></a>2.3.3 坐标系的选择范围</h4><p>要求有2：独立于软件平台，独立于显示器的形状因素</p>
 <p>坐标系/基的选择原则：始终选择你工作中最为方便的坐标系或基（线代的那个），然后通过变换使得和不同的坐标系联系起来即可。</p>
-<h3 id="2-3-4-WPF画布坐标系"><a href="#2-3-4-WPF画布坐标系" class="headerlink" title="2.3.4 WPF画布坐标系"></a>2.3.4 WPF画布坐标系</h3><p>WPF画布坐标系其特点是：x方向朝向右，y朝向下，画布在四个方向均有边界，且边界严格受限，任何边界外的东西（可视信息）均不会被显示。</p>
+<h4 id="2-3-4-WPF画布坐标系"><a href="#2-3-4-WPF画布坐标系" class="headerlink" title="2.3.4 WPF画布坐标系"></a>2.3.4 WPF画布坐标系</h4><p>WPF画布坐标系其特点是：x方向朝向右，y朝向下，画布在四个方向均有边界，且边界严格受限，任何边界外的东西（可视信息）均不会被显示。</p>
 <p>作为一般情况下，我们一般都是从抽象坐标系，再到物理坐标系，再到设备坐标系场景几何描述的映射顺序，则从一般的无边界坐标系统（就一般我们在画函数图像的十字架），再到WPF在坐标系统（上面写了），再到显示在屏幕上。</p>
-<h3 id="2-3-5-使用显示变换"><a href="#2-3-5-使用显示变换" class="headerlink" title="2.3.5 使用显示变换"></a>2.3.5 使用显示变换</h3><p>在时钟例子的产出中，我们发现了为什么显示出来如此的奇怪（如果你画了的话），是因为WPF的一个单位是0.25英寸还要小，而且圆心在原点，但是WPF只显示第一象限。</p>
+<h4 id="2-3-5-使用显示变换"><a href="#2-3-5-使用显示变换" class="headerlink" title="2.3.5 使用显示变换"></a>2.3.5 使用显示变换</h4><p>在时钟例子的产出中，我们发现了为什么显示出来如此的奇怪（如果你画了的话），是因为WPF的一个单位是0.25英寸还要小，而且圆心在原点，但是WPF只显示第一象限。</p>
 <p>因此我们需要一个显示变换，是的时钟可见，且具备合适尺寸，在数学上使用scale矩阵和translation矩阵即可。当然在这里我们可以附加一个RenderTransform来指定一个或顺序多个几何变换：</p>
 <pre class="line-numbers language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Canvas</span> <span class="token attr-name">....</span><span class="token punctuation">></span></span>
 
@@ -662,7 +1000,7 @@
 <li>这里如果你要先平移再放缩，那么你需要改变参数，至于怎么改变，我就不写了（可以画图来康康关系）</li>
 <li>在变换过程中，如果你将其视作线性变换，那么其变换顺序也是十分重要，包括普通的平移变换，至于为什么，结合一下矩阵的LU分解和矩阵乘法不可交换或许会有一些别样的收获。</li>
 </ol>
-<h3 id="2-3-6-构造并使用模块化模板"><a href="#2-3-6-构造并使用模块化模板" class="headerlink" title="2.3.6 构造并使用模块化模板"></a>2.3.6 构造并使用模块化模板</h3><p>上述的变换工具可市价在可重用模板（控制模板）的复制件，进行重定位和调整，从而创建场景。即我们做一个轮子。这里用一个针来搞个模板（那个NAVY是藏青色）</p>
+<h4 id="2-3-6-构造并使用模块化模板"><a href="#2-3-6-构造并使用模块化模板" class="headerlink" title="2.3.6 构造并使用模块化模板"></a>2.3.6 构造并使用模块化模板</h4><p>上述的变换工具可市价在可重用模板（控制模板）的复制件，进行重定位和调整，从而创建场景。即我们做一个轮子。这里用一个针来搞个模板（那个NAVY是藏青色）</p>
 <pre class="line-numbers language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Polygon</span>
          <span class="token attr-name">points</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>-0.3, -1 -0.2,8 0,9 0.2,8 0.3,-1<span class="token punctuation">"</span></span>
          <span class="token attr-name">Fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Navy<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -692,7 +1030,7 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Control</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>最后将这些代码段合并在一起，那么久可以在画布上显示了。</p>
 <p>当然这只是最简单的单层次层次化模型（和我们写算法题把输入，输出，算法代码写成几个函数然后依次调用感觉差不多）。</p>
-<h2 id="2-4-WPF的2D动画显示"><a href="#2-4-WPF的2D动画显示" class="headerlink" title="2.4 WPF的2D动画显示"></a>2.4 WPF的2D动画显示</h2><p>XAML无需过程代码定义简单动画的能力，有XAML动画元素实现，通过插值是对象动态属性伴随时间而变化。</p>
+<h3 id="2-4-WPF的2D动画显示"><a href="#2-4-WPF的2D动画显示" class="headerlink" title="2.4 WPF的2D动画显示"></a>2.4 WPF的2D动画显示</h3><p>XAML无需过程代码定义简单动画的能力，有XAML动画元素实现，通过插值是对象动态属性伴随时间而变化。</p>
 <p>我们只需要在Hourhand的TransformGroup的RotateTransform修改为</p>
 <pre class="line-numbers language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>RotateTransform</span> <span class="token attr-name"><span class="token namespace">x:</span>Name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ActuralTimeHour<span class="token punctuation">"</span></span> <span class="token attr-name">Angel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>0<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>然后你再搞个</p>
@@ -718,13 +1056,13 @@
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Canvas.Triggers</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Canvas</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>以上就是通过标记语言来搞一个时钟，以此来介绍2D图形学的基本，接下来第三章的内容就是有关一个绘制器</p>
-<h1 id="第三章：一个古老的绘制器"><a href="#第三章：一个古老的绘制器" class="headerlink" title="第三章：一个古老的绘制器"></a>第三章：一个古老的绘制器</h1><h2 id="3-1-一幅丢勒的木刻画"><a href="#3-1-一幅丢勒的木刻画" class="headerlink" title="3.1 一幅丢勒的木刻画"></a>3.1 一幅丢勒的木刻画</h2><ol start="0">
+<h2 id="第三章：一个古老的绘制器"><a href="#第三章：一个古老的绘制器" class="headerlink" title="第三章：一个古老的绘制器"></a>第三章：一个古老的绘制器</h2><h3 id="3-1-一幅丢勒的木刻画"><a href="#3-1-一幅丢勒的木刻画" class="headerlink" title="3.1 一幅丢勒的木刻画"></a>3.1 一幅丢勒的木刻画</h3><ol>
 <li>整个装置</li>
 </ol>
 <p>首先我们先描述下整个装置（原谅我刚接触markdown不久，后续我加个图）</p>
 <p>该装置由几个部分组成。首先是一根很长的细线，它的起点位于一个小指针的针尖，细线穿过附在墙上的环首螺钉的孔眼，其终点处系了一个能维持线张力的小砝码。指针可由人四处移动，从而触及待绘制的物体上的各点。</p>
 <p>其次，还有一个带板的长方形木框（这里称该板为快门），板通过一个合页连在本框上，它可以完全转向一旁（如画中所示)或者部分地旋转以遮盖木框的开口（就好像快门遮挡镜头窗口）。板上覆盖了一张待绘画的纸，在木刻画中，可以看到纸上已部分完成的鲁特琴图。第一个人已将指针移动到琴上一个新位置。细线穿过画框，第二个人拿着铅笔指着穿过点，然后快门被关上，细线被推向一旁，铅笔则在纸上做出一个新的标记。该过程持续进行直至整个画作（以很多铅笔标记点的形式）形成。当然，在整个绘画过程中拿着铅笔的人都必须稳定地手持铅笔。</p>
-<ol>
+<ol start="2">
 <li>该种方式为什么可信？</li>
 </ol>
 <p>主要原因是：</p>
@@ -755,8 +1093,8 @@ foreach object o
 </ol>
 <p>其中第一个问题在后面的章节会有介绍，而第二个问题我们可以采用逼近的方式（采样部分离散点，离散点中间根据“猜测”来进行插值）；而第三点涉及到剔除视域外的采样点，这是图形学中常见的一个操作，可以避免将绘制时间浪费在视域之外，称之为裁剪。</p>
 <p>同时注意我们调整一下这个算法，不再是先固定铅笔再关闭快门，而是在板上直接贴一个绘图纸，然后对于绘图纸的每一个方格，手拿铅笔的人将笔尖放到方格的中心点，然后随着细线一起移动，当细线一端碰到物体的边界或者桌子墙的时候，记录物体；并且在快门关闭的时候，拿铅笔的人根据看到的点的明亮程度涂抹相应的灰度。在这种方式是后面光线追踪的核心，在后面十分重要。</p>
-<h2 id="3-2-可见性"><a href="#3-2-可见性" class="headerlink" title="3.2 可见性"></a>3.2 可见性</h2><p>在后续会有更加详细的介绍，此处略过。</p>
-<h2 id="3-3-实现"><a href="#3-3-实现" class="headerlink" title="3.3 实现"></a>3.3 实现</h2><p>首先我们需要一些几何和代数的知识，有关于几何定义的多边形的情况下，我们对于立方体，我们给出六个顶点位置，并且记下哪些顶点通过边直接相连。因此我们认为其为线框模型。</p>
+<h3 id="3-2-可见性"><a href="#3-2-可见性" class="headerlink" title="3.2 可见性"></a>3.2 可见性</h3><p>在后续会有更加详细的介绍，此处略过。</p>
+<h3 id="3-3-实现"><a href="#3-3-实现" class="headerlink" title="3.3 实现"></a>3.3 实现</h3><p>首先我们需要一些几何和代数的知识，有关于几何定义的多边形的情况下，我们对于立方体，我们给出六个顶点位置，并且记下哪些顶点通过边直接相连。因此我们认为其为线框模型。</p>
 <p>然后我们定义坐标系令墙面为xoy平面，z为垂直于墙面的方向，y为垂直于地面的方向，然后按照左手坐标构造即可。</p>
 <p>令画框在z=1处，然后画框的角点为(xmin,ymin,1)、(xmax,ymax,1)名字即意义，宽度长度即为max-mian。</p>
 <p>然后我们通过原点O到实际点P连接，可以得到P’，然后我们可以轻易的得到一组相似的三角形，故有x’=x/z,y’=y/z，于是有一个简单实现版本</p>
@@ -767,7 +1105,7 @@ initialize drawing to be blank
 foreach object o
     foreach visible point P=(x,y,z) of o
     if xmin&lt;=(x/z)&lt;=xmax and ymin&lt;=(y/z)&lt;=ymax //在画框内的点
-        make a point on the drawing at location (-x/z,y/z)/因为我们是左手坐标系，所以是-的</code></pre><h3 id="3-3-1-绘图"><a href="#3-3-1-绘图" class="headerlink" title="3.3.1 绘图"></a>3.3.1 绘图</h3><p>为了模拟丢勒的风格，我们还需要选择一些重要线段和重要顶点，但是注意，某些重要线段即为点（模拟一下一支笔垂直于你的眼睛看这个笔，你是看到一整支笔还是一个点），或者用影射几何——直线的透视投影任然为直线，但是如果包含中心店的直线束，那么这个透视投影无定义。</p>
+        make a point on the drawing at location (-x/z,y/z)/因为我们是左手坐标系，所以是-的</code></pre><h4 id="3-3-1-绘图"><a href="#3-3-1-绘图" class="headerlink" title="3.3.1 绘图"></a>3.3.1 绘图</h4><p>为了模拟丢勒的风格，我们还需要选择一些重要线段和重要顶点，但是注意，某些重要线段即为点（模拟一下一支笔垂直于你的眼睛看这个笔，你是看到一整支笔还是一个点），或者用影射几何——直线的透视投影任然为直线，但是如果包含中心店的直线束，那么这个透视投影无定义。</p>
 <p>然后我们定义了一个边表（你把正方体视作为一个图即可），在确定了正方体的表达后，我们需要对其进行更新，现在需要在下列两个描述中选择一个描述：</p>
 <ol>
 <li>逐条边迭代，对每一条边分别计算它们的投影位置，然后投影点连接一起；</li>
@@ -791,7 +1129,7 @@ initialize drawing to be blank
     <span class="token keyword">int</span> i1<span class="token operator">=</span>edges<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     Draw a line segment <span class="token keyword">from</span> pictureVertices<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span> to pictureVertices<span class="token punctuation">[</span>i1<span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="3-4-代码"><a href="#3-4-代码" class="headerlink" title="3.4 代码"></a>3.4 代码</h2><p>最后给出了稍微正经的C#代码，由于和算法题习惯不一样，所以这里和我算法题各种压行不一样。</p>
+<h3 id="3-4-代码"><a href="#3-4-代码" class="headerlink" title="3.4 代码"></a>3.4 代码</h3><p>最后给出了稍微正经的C#代码，由于和算法题习惯不一样，所以这里和我算法题各种压行不一样。</p>
 <pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">public</span> <span class="token function">Window1</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
     <span class="token function">InitializeComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -834,7 +1172,7 @@ initialize drawing to be blank
 <li>第三，其扩展性并不怎么好，至少在后续为了重用的时候，可能还需要将其“做”成一个类。</li>
 </ol>
 <p>注意这个代码是拿来给我们实验的，只要能够验证，就好了；其他的后续再优化。</p>
-<h2 id="3-5-局限性"><a href="#3-5-局限性" class="headerlink" title="3.5  局限性"></a>3.5  局限性</h2><ol>
+<h3 id="3-5-局限性"><a href="#3-5-局限性" class="headerlink" title="3.5  局限性"></a>3.5  局限性</h3><ol>
 <li>生成的是线框图没意味着我们同时看到了正面和背面，至少我们还需要一些方法来解决这个问题——将正方体同一面的所有点将投影到一个由该表四个顶点投影所定义的四边形。因此我们只需要保存正方体的面表取代边表就能够初步达到想要的（更通用的方法，反而是直接用法向量会好一些，但是还没讲到）；</li>
 <li>我们没有考虑光线，此例中我们都假定场景内全是光，实际上一点都不睿智；</li>
 <li>我们输入了很多，但是就得到了一个正方体，我们可以转换数学表示的方法使之变得更简单，例如转化为参数方程，或者采用后面的其他参数化方式定义的模型（比如样条）来生成。</li>
@@ -883,7 +1221,7 @@ initialize drawing to be blank
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://astrojoke.github.io/2020/04/25/cgpp-du-shu-bi-ji-di-er-san-zhang/">https://astrojoke.github.io/2020/04/25/cgpp-du-shu-bi-ji-di-er-san-zhang/</a>
+                    <a href="https://astrojoke.github.io/2020/04/23/cgpp-du-shu-bi-ji/">https://astrojoke.github.io/2020/04/23/cgpp-du-shu-bi-ji/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1104,7 +1442,7 @@ initialize drawing to be blank
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            施工中，我个人认为最难的基本算法
+                            我个人认为最难的基本算法(难在证明)
                         
                     </div>
                     <div class="publish-info">
@@ -1149,31 +1487,31 @@ initialize drawing to be blank
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/04/23/cgpp-du-shu-bi-ji-di-yi-zhang/">
+                <a href="/2020/04/22/luo-gu-guan-fang-ti-dan-di-tui-he-di-gui-ti-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="《CGPP》读书笔记——第一章">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="洛谷官方题单——递推和递归题解">
                         
-                        <span class="card-title">《CGPP》读书笔记——第一章</span>
+                        <span class="card-title">洛谷官方题单——递推和递归题解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本来打算三章一起的，但是绪论实在太多了
+                            题目还是挺考思维的，至少写题解写到难受
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-22
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/" class="post-category">
-                                    图形学
+                            <a href="/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="post-category">
+                                    算法和程序设计
                                 </a>
                             
                             
@@ -1183,8 +1521,20 @@ initialize drawing to be blank
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">读书笔记</span>
+                    <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">
+                        <span class="chip bg-color">编程算法题解</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%B4%9B%E8%B0%B7/">
+                        <span class="chip bg-color">洛谷</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%80%92%E6%8E%A8/">
+                        <span class="chip bg-color">递推</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%80%92%E5%BD%92/">
+                        <span class="chip bg-color">递归</span>
                     </a>
                     
                 </div>
@@ -1341,7 +1691,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">53.9k</span>&nbsp;字
+                class="white-color">56.4k</span>&nbsp;字
             
             
             
