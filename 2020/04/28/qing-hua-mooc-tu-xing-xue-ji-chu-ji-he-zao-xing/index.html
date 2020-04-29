@@ -567,7 +567,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.7k
+                    5.6k
                 </div>
                 
 
@@ -595,7 +595,7 @@
 <li>物体的表示方式：显式，隐式，参数（我们应该找到以t的多项式表达的参数形式）。</li>
 </ol>
 <h3 id="Bezier曲线"><a href="#Bezier曲线" class="headerlink" title="Bézier曲线"></a>Bézier曲线</h3><ol>
-<li><p>Bernstein多项式：伯恩斯坦多项式(Bernstein polynomial)是逼近连续函数的一系列多项式：记其中$B_{(i,n)} (t)$是第$i$个$n$阶Bernstein多项式：<br>$$<br>B_{(i,n)} (t)=C_n^i t^i (1-t)^(n-i)=\frac {n!}{i!(n-i)!}t^i(1-t)^{n-i}(i=0,1,…,n)<br>$$</p>
+<li><p>Bernstein多项式：伯恩斯坦多项式(Bernstein polynomial)是逼近连续函数的一系列多项式：记其中$B_{(i,n)} (t)$是第$i$个$n$阶Bernstein多项式：<br>$$<br>B_{(i,n)} (t)=C_n^i t^i (1-t)(n-i)=\frac {n!}{i!(n-i)!}t^i(1-t)^{n-i}(i=0,1,…,n)<br>$$</p>
 </li>
 <li><p>Bernstein多项式的性质：</p>
 <ol>
@@ -629,7 +629,7 @@
 <li>几何不变性：不随坐标系变化。</li>
 </ol>
 </li>
-<li><p>De Casteljau算法：由于<br>$$<br>P(t)=\displaystyle\sum_{t=0}^nP_i B_{i,n} (t)\<br>=\displaystyle\sum_{t=0}^nP_i[(1-t)B_{i,n-1}(t)+tB_{i-1,n-1} (t)]\<br>=\displaystyle\sum_{t=0}^n[(1-t) P_i+tP_{i+1}]B_{i,n-1} (t)<br>$$<br>。故可以得到其递推公式<br>$$<br>P^k=\begin{cases} P_i,    k=0\<br>(1-t)P_i^{k-1}+tP_{i+1}^{k-z}  , k=1,2,…,n;i=0,1,…,n-k<br>\end{cases}<br>$$<br>即可得到所求点。</p>
+<li><p>De Casteljau算法：由于<br>$$<br>P(t)=\displaystyle\sum_{t=0}^nP_i B_{i,n} (t)\<br>=\displaystyle\sum_{t=0}^nP_i[(1-t)B_{i,n-1}(t)+tB_{i-1,n-1} (t)]\<br>=\displaystyle\sum_{t=0}^n[(1-t) P_i+tP_{i+1}]B_{i,n-1} (t)<br>$$<br>故可以得到其递推公式<br>$$<br>P^k=\begin{cases} P_i,    k=0\<br>(1-t)P_i^{k-1}+tP_{i+1}^{k-z}  , k=1,2,…,n;i=0,1,…,n-k<br>\end{cases}<br>$$<br>即可得到所求点。</p>
 </li>
 <li><p>几何连续性：算术连续性在实际运用中存在一些困难和与常识的错误，故引入几何连续性：两个分别由控制点$P_i(i=0,1,…,n)，Q_j(j=0,1,…,n)$定义的两个Bézier曲线，两条曲线共享端点，且$a_i=P_i-P_(i-1),b_j=Q_j-Q_(j-1)$，则称之为一阶几何连续（共线）（二阶要求曲率一样）；</p>
 </li>
@@ -645,7 +645,7 @@
 </li>
 <li><p>B样条曲线及其性质：</p>
 <ol>
-<li>公式：$P(t)=\displaystyle\sum <em>{i=0}^nP_iN</em>{i,k}(t),t\in[0,1]$，</li>
+<li>公式：$P(t)=\sum <em>{i=0}^nP_iN</em>{i,k}(t),t\in[0,1]$</li>
 <li>$P_i(i=0,1,…,n)$是控制点；</li>
 <li>$N_{i,k}(t)(i=0,1,…n)$是第$i$个$k$阶B样条基函数；</li>
 <li>注意的是，B样条基函数是由节点向量唯一决定的分段$k$阶多项式，节点向量是由一组非递减的实数序列：$t_0,t_1,…,t_{k-1},t_k,…,t_n,t_n,t_{n+1},…,t_{n+k-1},t{n+k}$;</li>
@@ -654,22 +654,24 @@
 </li>
 <li><p>B样条基函数定义</p>
 <ol>
-<li><p>de boor-cox递归函数：<br>$$<br>N_{i,1}(t)=\begin{cases}<br>1,t_i&lt;x&lt;t_{i+1}\<br>0,Otherwise<br>\end{cases}\<br>N_{i,k}(t)=\frac {t-t_i}{t_{i+k}-t_i}N_{i,k-1}(t)+\frac{t_{i+k}-t}{t_{i+k}-t_i+1}N_{i+1,k-1}(t)<br>$$</p>
+<li>de boor-cox递归函数：<br>$$<br>N_{i,1}(t)=\begin{cases}<br>1,t_i&lt;x&lt;t_{i+1}\\<br>0,Otherwise<br>\end{cases}<br>$$</li>
+</ol>
 </li>
+</ol>
+<p>$$<br>      N_{i,k}(t)=\frac {t-t_i}{t_{i+k}-t_i}N_{i,k-1}(t)+\frac{t_{i+k}-t}{t_{i+k}-t_i+1}N_{i+1,k-1}(t)<br>      $$</p>
+<ol start="2">
 <li><p>其性质为:</p>
-<ol>
-<li><p>非负性：$N_{i,k}(t)=\begin{cases}\ge0,t\in[t_i,t_{i+k}\=0,otherwise\end{cases}$;</p>
+</li>
+<li><p>非负性：$N_{i,k}(t)=\begin{cases}\ge0,t\in[t_i,t_{i+k}]\\=0,otherwise\end{cases}$;</p>
 </li>
 <li><p>归一性：$\displaystyle\sum_{i=0}^nN_{i,k}(t)=1,t\in(t_{k-1},t_{n+1})$;</p>
 </li>
-<li><p>求导公式：<br>$$<br>N_{i,k}’(t)=\frac {k-1}{t_{i+k-1}-t_i}N_{i,k-1}(t)+\frac {k-1}{t_{i+k}-t_{i+1}.}N_{i+1,k-1}(t)<br>$$<br>//这里有个点是为了防止公式渲染失败</p>
+<li><p>求导公式：<br>   $$<br>   N_{i,k}’(t)=\frac {k-1}{t_{i+k-1}-t_i}N_{i,k-1}(t)+\frac {k-1}{t_{i+k}-t_{i+1}.}N_{i+1,k-1}(t)<br>   $$<br>   这里有个点是为了防止公式渲染失败</p>
 </li>
-<li><p>局部支撑性$（N_{i,k} (t)$是$[t_i,t_{i+k} ]$上的分段非零多项式。</p>
-</li>
-</ol>
+<li><p>局部支撑性：$N_{i,k} (t)$是$[t_i,t_{i+k} ]$上的分段非零多项式。</p>
 </li>
 </ol>
-</li>
+<ol start="5">
 <li><p>均匀B样条：节点为等差数列均匀排布节点分布对应的是均匀B样条基函数。</p>
 </li>
 <li><p>准均匀B样条：均匀B样条不同，准均匀B样条的起始节点和终止节点都具有k的重复度，其并不具有Bézier曲线的端点性质，即均匀B样条起点和重点并不等于第一个和最后一个控制点，但是准均匀B样条具备端点性质。</p>
@@ -690,11 +692,11 @@
 </li>
 <li><p>分段多项式性质：任何一个相邻节点确定的区间上，$P(t)$为一个关于$t$的次数不超过$k$的多项式；</p>
 </li>
-<li><p>导数公式:<br>$$<br>P’(t)=(\displaystyle\sum_{i=0}^nP_iN_{i,k}(t))’=\displaystyle\sum_{i=0}^nP_iN’<em>{i,k}(t)\<br>=(k-1)\displaystyle\sum</em>{i=0}^n(\frac {-P_{i-1}+P_i}{t_{i+k-1}-t_i})N_{i,k-1}(t),t\in[t_{k-1},t_{n+1}]<br>$$</p>
-</li>
-<li><p>变差缩减性：任何一个直线与B样条曲线的交点数目不会超过该直线与该B样条曲线的控制多边形的交点数目；</p>
+<li><p>导数公式:$P’(t)=\sum_{i=0}^n P_i N’<em>{i,k}(t)\\=(k-1)\sum</em>{i=0}^n(\frac{-P_{i-1}+P_i}{t_{i+k-1}-t_i})N_{i,k-1}(t),t\in[t_{k-1},t_{n+1}]$</p>
 </li>
 <li><p>几何不变性：曲线形状和位置相对于控制点的位置而不是坐标系；</p>
+</li>
+<li><p>变差缩减性：任何一个直线与B样条曲线的交点数目不会超过该直线与该B样条曲线的控制多边形的交点数目；</p>
 </li>
 <li><p>仿射不变性：由于<br>$$<br>A[P(t)]=\displaystyle\sum_{i=0}^nA[P_i]N_{i,k}(t),t\in[t_{k-1},t_{n+1}]<br>$$<br>故仿射变换后依旧成立；</p>
 </li>
@@ -708,9 +710,10 @@
 </li>
 <li><p>De boor算法——计算B样条曲线的一点，使用直线段进行割角并不断递归，最终在一定深度后可得到曲线上的某一点（可以理解为数分的闭区间套定理）；</p>
 </li>
-<li><p>节点插入：在不改变一个B样条的几何和阶的条件下增加一个新的节点，以此来增加B样条曲线的可控程度。而在插入新的节点向量后，基函数也会改变，故需要求新的控制顶点，因此有了下述算法</p>
+<li><p>节点插入：在不改变一个B样条的几何形状和阶的条件下增加一个新的节点，以此来增加B样条曲线的可控程度。而在插入新的节点向量后，基函数也会改变，故需要求新的控制顶点，因此有了下述算法</p>
 </li>
-<li><p>Boehm给出的算法公式：<br>$$<br>\begin{cases}<br>P_j^1=P_j,j=0,1,…,i-k+1\<br>P_j^1=(1-\beta_j)P_{j-1}+\beta_jP_j,j=i-k+2,…,i-r\<br>P_j^1=P_{j-1},j=i-r+1,…,n+1\<br>\end{cases}\<br>\beta=\frac {t-t_j}{t_{j+k-1}-t_j}<br>$$<br>简略来说就是$0$到$i-k+1$和$i-r+1$到$n+1$不变，而对中间部分进行改变，$r$为新插入节点在节点序列中的重复度。</p>
+<li><p>Boehm给出的算法公式：<br>$$<br>\begin{cases}<br>P_j^1=P_j,j=0,1,…,i-k+1，\\<br>P_j^1=(1-\beta_j)P_{j-1}+\beta_jP_j,j=i-k+2,…,i-r，\\<br>P_j^1=P_{j-1},j=i-r+1,…,n+1，<br>\end{cases}<br>$$<br>$$<br>\beta=\frac {t-t_j}{t_{j+k-1}-t_j}<br>$$</p>
+<p>简略来说就是$0$到$i-k+1$和$i-r+1$到$n+1$不变，而对中间部分进行改变，$r$为新插入节点在节点序列中的重复度。</p>
 </li>
 <li><p>B样条曲面的数学定义：给定两个节点向量处于$U$和$V$两参数轴有：<br>$$<br>U=[u_0,u_1,…,u_{m+p}],V=[v_0,v_1,…,v_{n+q}]<br>$$<br>则$p\times q$的B样条曲面被定义为：<br>$$<br>P(u,v)=\displaystyle\sum_{i=0}^m\displaystyle\sum_{j=0}^nP_{ij}N_{i,p}(u)N_{j,q}(v)<br>$$<br>其中：</p>
 <p>​    $P_{ij}$是B样条曲面的控制网格（特征网格）</p>
@@ -736,121 +739,92 @@
 </li>
 <li><p>定义：NURBS是由分段有理B样条多项式基函数所定义的曲线，其函数为：<br>$$<br>P(t)=\frac {\displaystyle\sum_{i=0}^n\omega_iP_iN_{i,k}(t)}{\displaystyle\sum_{i=0}^n\omega_iN_{i,k}(t)}=\displaystyle\sum_{i=0}^nP_iR_{i,k}(t)<br>$$<br>其中：<br>$$<br>R_{i,k}(t)=\frac{\omega_iN_{i,k}(t)}{\displaystyle\sum_{i=0}^n\omega_iN_{i,k}(t)}<br>$$</p>
 </li>
+<li><p>曲线性质</p>
+<ol>
+<li><p>仍然具有B样条的性质：</p>
+<ol>
+<li>局部支撑性：$R_{i,k}(t)=0,t\notin[t_i,t_{i+k}]$</li>
+<li>归一性：$\displaystyle\sum_{i=0}^nR_{i,k}(u)=1$</li>
+<li>可微性：若t不是结点，则$P(t)$在结点中间无限可微，否则则只在$C-k+r$阶连续</li>
+<li>若$\omega_i=0$，则$R_{i,k}(t)=0$；</li>
+<li>若$\omega_i=+\infty$，则$R_{i,k}=1$；</li>
+</ol>
+</li>
+<li><p>NURBS曲线有一些和B样条曲线相似的几何性质：</p>
+<ol>
+<li>局部支持性；</li>
+<li>变差缩减性；</li>
+<li>凸包性；</li>
+<li>仿射不变性；</li>
+<li>可微性；</li>
+<li>若控制点的权重为0，则该点不会影响曲线；</li>
+<li>若$\omega_i\rightarrow+\infty$且$t\in[t_i,t_{i+k}]$，则$P(t)=P_i$；</li>
+<li>Non-rational/rational Bezier curves and nonrational B-Spline curves are special cases of NURBS curve.</li>
+</ol>
+</li>
+<li><p>通过齐次坐标表达控制点——即在这个向量末尾增加一维：<br>$$<br>P_i^ω=(ω_i x_i,ω_i y_i,ω_i z_i,ω_i),（i=0,1,…,n)<br>$$<br>其中$\omega_i$为权重，若$P(t)$关于$ω_i$是线性关系，则可以改变图形的形状。$\omega_i$其越大越靠近控制点，越小越远离控制点；</p>
+</li>
+<li><p>圆锥曲线的表示方式：<br>$$<br>P(t)=\frac {(1-t^2)\omega_0P_0+2t(1-t)\omega_1P_1+t^2\omega_2P_2}{(1-t)^2\omega_0+2t(1-t)\omega_1+t^2\omega_2}<br>$$<br>注意其形状因子：<br>$$<br>C_{sf}=\frac {\omega_1^2}{\omega_0 \omega_2}<br>$$<br>其值为$1$则抛物线，大于$1$双曲线，$C_{sf}\in(0,1)$则为椭圆，为$04退化为两条直线，当趋近与正无穷时为直线。</p>
+</li>
+<li><p>修改NURBS曲线：</p>
+<ol>
+<li><p>修改方法：</p>
+<ol>
+<li><p>修改权重：增/减控制点的权重，曲线则会被表现为往远处推/往近处拉；假设我们想要让在曲线上的点$S$发生相对于控制点$P_i$位移距离$d$，则新的权重$\omega^*$有如下公式：<br>$$<br>\omega^i=\omega_i[1+\frac{d}{R_{i,k}(t)(P_i)S-d}]<br>$$</p>
+</li>
+<li><p>修改控制点：则会改变整个曲线的形状；</p>
+</li>
+<li><p>几何约束下的形状修改；其修改描述为计算新的控制点是的曲线上的点$S$变为指定点$T$，假设曲线等式如下：<br>$$<br>P_t=\displaystyle\sum_{i=0}^nP_iR_{i,k}(t),t_{k-1}\leq t \leq t_{n+1}<br>$$<br>其中：<br>$$<br>R_{i,k}(t)=\frac{\omega_iN_{i,k}(t)}{\displaystyle\sum_{i=0}^n\omega_iN_{i,k}(t)}<br>$$</p>
+</li>
+</ol>
+</li>
+<li><p>带约束的优化方法：</p>
+<p>假设前$m-1$个点已经修改，给予其微小形变$ε_i=(\epsilon_i^x,\epsilon_i^y,\epsilon_i^z)^T$。</p>
+<p>然后使用优化方法对修改量计算，则约束为$\widetilde P(t)=\sum_{i=0}^{l-1}P_iR_{i,k}(t)+\sum_{i=l}^{l+m-1}(P_i+\epsilon_i)R_{i,k}(t)+\sum_{i=l+m}^{n}P_iR_{i,k}(t)\\=\sum_{i=0}^{n}P_iR_{i,k}(t)+ \sum_{i=l}^{l+m-1}\epsilon_iR_{i,k}$ ；</p>
+<p>其中$t_{k-1}\leq t \leq t_{n+1};$</p>
+<p>然后令$Min=\displaystyle\sum_{i=l}^{l+m-1}||\epsilon_i||^2$</p>
+<p>使用拉格朗日函数有$L=\displaystyle\sum_{i=l}^{l+m-1}||\epsilon_i||^2+\lambda(T- \widetilde P(t_s))$</p>
+<p>然后我们可以得到下面的方程组<br>$$<br>\begin{cases}<br>T=S+\displaystyle\sum_{i=l}^{l+m-1}\epsilon_iR_{i,k}(t_s),\\<br>\epsilon_i=\frac \lambda2R_{i,k}(t_s),i=l,l+1,…,l+m-1<br>\end{cases}<br>$$<br>可以解得$\epsilon_i=\frac {R_{i,k}(t_s)}{\displaystyle\sum_{i=l}^{l+m-1}R_{j,k}^2(t_s)},i=l,l+1,…,l+m-1$</p>
+<p>若只有唯一的控制点被允许修改：$\epsilon=\frac{T-S}{R_{i,k}(t_s)}$</p>
+</li>
+<li><p>我们也可以使用最小能量法对形状进行修改：</p>
+<ol>
+<li><p>曲面的限制能量<br>$$<br>E(p)=\int k^2ds=\int_0^1(\frac {|P’\times P’’|}{|P’|})^2dt\rightarrow E(p)=\int|P’’|^2dt<br>$$</p>
+</li>
+<li><p>薄板曲面能量<br>$$<br>E(P)=\iint(P_{uu}^2+2P_{uv}^2+P_{vv}^2)dudv<br>$$</p>
+</li>
 </ol>
 </li>
 </ol>
-<pre><code>4. 其曲线性质
-
-   1. 仍然具有B样条的性质：
-
-      1. 局部支撑性：$R_{i,k}(t)=0,t\notin[t_i,t_{i+k}]$
-      2. 归一性：$\displaystyle\sum_{i=0}^nR_{i,k}(u)=1$
-      3. 可微性：若t不是结点，则$P(t)$在结点中间无限可微，否则则只在$C-k+r$阶连续
-      4. 若$\omega_i=0$，则$R_{i,k}(t)=0$；
-      5. 若$\omega_i=+\infin$，则$R_{i,k}=1$；
-
-   2. NURBS曲线有一些和B样条曲线相似的几何性质：
-
-      1. 局部支持性；
-      2. 变差缩减性；
-      3. 凸包性；
-      4. 仿射不变性；
-      5. 可微性；
-      6. 若控制点的权重为0，则该点不会影响曲线；
-      7. 若$\omega_i\rightarrow+\infin$且$t\in[t_i,t_{i+k}]$，则$P(t)=P_i$；
-      8. Non-rational/rational Bezier curves and nonrational B-Spline curves are special cases of NURBS curve.
-
-   3. 通过齐次坐标表达控制点——即在这个向量末尾增加一维：
-      $$
-      P_i^ω=(ω_i x_i,ω_i y_i,ω_i z_i,ω_i),（i=0,1,...,n)
-      $$
-      其中$\omega_i$为权重，若$P(t)$关于$ω_i$是线性关系，则可以改变图形的形状。$\omega_i$其越大越靠近控制点，越小越远离控制点；
-
-   4. 圆锥曲线的表示方式：
-      $$
-      P(t)=\frac {(1-t^2)\omega_0P_0+2t(1-t)\omega_1P_1+t^2\omega_2P_2}{(1-t)^2\omega_0+2t(1-t)\omega_1+t^2\omega_2}
-      $$
-      注意其形状因子：
-      $$
-      C_{sf}=\frac {ω_1^2}{ω_0 ω_2}
-      $$
-      其值为$1$则抛物线，大于$1$双曲线，$C_{sf}\in(0,1)$则为椭圆，为$04退化为两条直线，当趋近与正无穷时为直线。
-
-   5. 修改NURBS曲线：
-
-      1. 修改方法：
-
-         1. 修改权重：增/减控制点的权重，曲线则会被表现为往远处推/往近处拉；假设我们想要让在曲线上的点$S$发生相对于控制点$P_i$位移距离$d$，则新的权重$\omega^*$有如下公式：
-            $$
-            \omega^i=\omega_i[1+\frac{d}{R_{i,k}(t)(P_i)S-d}]
-            $$
-
-         2. 修改控制点：则会改变整个曲线的形状；
-
-         3. 几何约束下的形状修改；其修改描述为计算新的控制点是的曲线上的点$S$变为指定点$T$，假设曲线等式如下：
-            $$
-            P_t=\displaystyle\sum_{i=0}^nP_iR_{i,k}(t),t_{k-1}\leq t \leqt_{n+1}
-            $$
-            其中：
-            $$
-            R_{i,k}(t)=\frac{\omega_iN_{i,k}(t)}{\displaystyle\sum_{i=0}^n\omega_iN_{i,k}(t)}
-            $$
-
-      2. 带约束的优化方法：假设前$m-1$个点已经修改，给予其微小形变$ε_i=(\epsilon_i^x,\epsilon_i^y,\epsilon_i^z)^T$，然后使用优化方法对修改量计算，则约束为：
-         $$
-         \widetilde P(t)=\displaystyle\sum_{i=0}^{l-1}P_iR_{i,k}(t)+\displaystyle\sum_{i=l}^{l+m-1}(P_i+\epsilon_i)R_{i,k}(t)+\displaystyle\sum_{i=l+m}^{n}P_iR_{i,k}(t)\\=\displaystyle\sum_{i=0}^{n}P_iR_{i,k}(t)+ \displaystyle\sum_{i=l}^{l+m-1}\epsilon_iR_{i,k} ，其中t_{k-1}\leq t \leq t_{n+1};
-         $$
-         然后令
-         $$
-         Min=\displaystyle\sum_{i=l}^{l+m-1}||\epsilon_i||^2
-         $$
-         使用拉格朗日函数有
-         $$
-         L=\displaystyle\sum_{i=l}^{l+m-1}||\epsilon_i||^2+\lambda(T- \widetilde P(t_s))
-         $$
-         然后我们可以得到下面的方程组
-         $$
-         \begin{cases}
-         T=S+\displaystyle\sum_{i=l}^{l+m-1}\epsilon_iR_{i,k}(t_s)\\
-         \epsilon_i=\frac \lambda2R_{i,k}(t_s),i=l,l+1,...,l+m-1
-         \end{cases}
-         $$
-         可以解得
-         $$
-         \epsilon_i=\frac {R_{i,k}(t_s)}{\displaystyle\sum_{i=l}^{l+m-1}R_{j,k}^2(t_s)},i=l,l+1,...,l+m-1
-         $$
-         若只有唯一的控制点被允许修改：则
-         $$
-         \epsilon=\frac{T-S}{R_{i,k}(t_s)}
-         $$
-
-      3. 我们也可以使用最小能量法对形状进行修改：
-
-         1. 曲面的限制能量
-            $$
-            E(p)=\int k^2ds=\int_0^1(\frac {|P'\times P''|}{|P'|})^2dt\rightarrow E(p)=\int|P''|^2dt
-            $$
-
-         2. 薄板曲面能量
-            $$
-            E(P)=\iint(P_{uu}^2+2P_{uv}^2+P_{vv}^2)dudv
-            $$</code></pre><ol start="14">
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<ol start="14">
 <li><p>NURBS曲面:</p>
 <ol>
 <li>定义方式：<br>$$<br>P(u,v)=<br>\frac {\displaystyle\sum_{i=0}^{m}\displaystyle\sum_{j=0}^{n}\omega_{ij}P_{ij}N_{i,p}(u)N_{j,q}(v)}<br>{\displaystyle\sum_{i=0}^{m}\displaystyle\sum_{j=0}^{n}\omega_{ij}N_{i,p}(u)N_{j,q}(v)}<br>=\displaystyle\sum_{i=0}^{m}\displaystyle\sum_{j=0}^{n}P_{ij}R_{i,p,j,q}(u,v),u,b\in[0,1]<br>$$<br>其中：<br>$$<br>R_{i,p,j,q}(u,v)=\frac {\omega_{ij}N_{i,p}(u)N_{i,q}(v)}{\displaystyle\sum_{r=0}^{m}\displaystyle\sum_{s=0}^{n}\omega_{rs}P_{ij}N_{r,p}(u)N_{s,q}(v)}<br>$$</li>
 </ol>
+<p>且四个角的权重$\omega_{00}，\omega_{m0}，\omega_{0n}，\omega_{mn}$均为正数，其他权重均为非负数。</p>
+<ol start="2">
+<li><p>性质（和B样条曲面具有类似）</p>
+<ol>
+<li>局部支撑性；</li>
+<li>局部归一;</li>
+<li>可微：<ol>
+<li>在$U$方向有$C-p+r+l$阶连续可微；</li>
+<li>在$V$方向有$C-q+r+1$阶连续可微；</li>
+</ol>
+</li>
+<li>局部极值：若$p,q&gt;1$，则存在局部极大值。</li>
+</ol>
 </li>
 </ol>
-<pre><code>   且四个角的权重$\omega_{00}，\omega_{m0}，\omega_{0n}，\omega_{mn}$均为正数，其他权重均为非负数，
-
-2. 性质(和B样条曲面具有类似):
-
-   1. 局部支撑性；
-   2. 局部归一;
-   3. 可微：
-      1. 在$U$方向有$C-p+r+l$阶连续可微；
-      2. 在$V$方向有$C-q+r+1$阶连续可微；
-   4. 局部极值：若$p,q&gt;1$，则存在局部极大值。</code></pre><h2 id="网格（Mesh）"><a href="#网格（Mesh）" class="headerlink" title="网格（Mesh）"></a>网格（Mesh）</h2><ol>
+</li>
+</ol>
+<h2 id="网格（Mesh）"><a href="#网格（Mesh）" class="headerlink" title="网格（Mesh）"></a>网格（Mesh）</h2><ol>
 <li>网格的描述：一系列的三角形面片$F$和一系列的顶点$V$，而$F$中的每个面片是$V$中的序列组（即$F$由$V$中的元素表示）；</li>
 <li>表示原因：<ol>
 <li>因为图形学中需要一个统一的表示方式；</li>
@@ -861,7 +835,7 @@
 <li>数据来源：文件I/O、程序建模、建模软件、3D扫描仪、照片重构或以上的技术组合；</li>
 <li>两大类的模型：<ol>
 <li>基于实体的（实际加工过程），</li>
-<li>基于表面的（无实体，只考虑表面，但易显示）。<br>​</li>
+<li>基于表面的（无实体，只考虑表面，但易显示）。</li>
 </ol>
 </li>
 <li>网格化（Tessellation）：<ol>
@@ -1192,10 +1166,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return
+                            图形学的真实感和非真实感相关
                         
                     </div>
                     <div class="publish-info">
@@ -1413,7 +1384,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 <script>
     MathJax.Hub.Config({
         tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
@@ -1432,7 +1403,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">54k</span>&nbsp;字
+                class="white-color">53.9k</span>&nbsp;字
             
             
             
