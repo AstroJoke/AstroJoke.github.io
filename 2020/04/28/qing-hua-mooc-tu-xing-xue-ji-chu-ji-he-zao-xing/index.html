@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="清华MOOC图形学：几何造型, AleXandrite">
-    <meta name="description" content="贯穿图形学的基础几何知识">
+    <meta name="keywords" content="清华MOOC图形学基础：几何造型, AleXandrite">
+    <meta name="description" content="图形学的基础几何知识">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>清华MOOC图形学：几何造型 | AleXandrite</title>
+    <title>清华MOOC图形学基础：几何造型 | AleXandrite</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -390,7 +390,7 @@
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = 'jashduasbasboashnfas';
+        let pwd = '';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误，将返回主页！');
@@ -408,7 +408,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">清华MOOC图形学：几何造型</h1>
+                    <h1 class="description center-align post-title">清华MOOC图形学基础：几何造型</h1>
                 </div>
             </div>
         </div>
@@ -567,14 +567,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.5k
+                    5.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    17 分
+                    23 分
                 </div>
                 
 				
@@ -678,39 +678,248 @@
 </li>
 <li><p>非均匀B样条（重点讨论）：</p>
 <ol>
-<li>定义：在满足一般B样条的条件下，起始节点和终止节点的重复度均小于$k$，且其他节点的重复度均小于$k-1$；</li>
-<li>性质：<ol>
-<li>局部性：区间上的曲线仅有至多$k$个控制点决定，而修改控制点$P_i$仅改变对应区间的曲线；</li>
-<li>连续性：$P(t)$在重复的结点$r$有$C^{k-1-r}$连续；</li>
-<li>凸包性：非均匀B样条被包含在控制多边形的凸包内。特别的，若$t$是不同节点段$(t_i,t_{i+1}),k-1\le i \le n$，那么$P(t)$在控制点$P_{i-k+1},…,P_i$所围成的闭包内；</li>
-<li>分段多项式性质：任何一个相邻节点确定的区间上，$P(t)$为一个关于$t$的次数不超过$k$的多项式；</li>
-<li>导数公式略；</li>
-<li>变差缩减性：任何一个直线与B样条曲线的交点数目不会超过该直线与该B样条曲线的控制多边形的交点数目；</li>
-<li>几何不变性：曲线形状和位置相对于控制点的位置而不是坐标系；</li>
-<li>仿射不变性：仿射变换后依旧成立；</li>
-<li>直线保持性：若控制多边形退化为一条直线，则B样条曲线依然在这条直线上；</li>
-<li>灵活性：可以构造出线段，尖点，切线等。</li>
-</ol>
+<li><p>定义：在满足一般B样条的条件下，起始节点和终止节点的重复度均小于$k$，且其他节点的重复度均小于$k-1$；</p>
+</li>
+<li><p>性质：</p>
+<ol>
+<li><p>局部性：区间上的曲线仅有至多$k$个控制点决定，而修改控制点$P_i$仅改变对应区间$(t_i,t_{i+k})$的曲线；</p>
+</li>
+<li><p>连续性：$P(t)$在重复的结点$r$有$C^{k-1-r}$连续；</p>
+</li>
+<li><p>凸包性：非均匀B样条被包含在控制多边形的凸包内。特别的，若$t$是不同节点段$(t_i,t_{i+1}),k-1\le i \le n$，那么$P(t)$在控制点$P_{i-k+1},…,P_i$所围成的闭包内；</p>
+</li>
+<li><p>分段多项式性质：任何一个相邻节点确定的区间上，$P(t)$为一个关于$t$的次数不超过$k$的多项式；</p>
+</li>
+<li><p>导数公式:<br>$$<br>P’(t)=(\displaystyle\sum_{i=0}^nP_iN_{i,k}(t))’=\displaystyle\sum_{i=0}^nP_iN’<em>{i,k}(t)\<br>=(k-1)\displaystyle\sum</em>{i=0}^n(\frac {-P_{i-1}+P_i}{t_{i+k-1}-t_i})N_{i,k-1}(t),t\in[t_{k-1},t_{n+1}]<br>$$</p>
+</li>
+<li><p>变差缩减性：任何一个直线与B样条曲线的交点数目不会超过该直线与该B样条曲线的控制多边形的交点数目；</p>
+</li>
+<li><p>几何不变性：曲线形状和位置相对于控制点的位置而不是坐标系；</p>
+</li>
+<li><p>仿射不变性：由于<br>$$<br>A[P(t)]=\displaystyle\sum_{i=0}^nA[P_i]N_{i,k}(t),t\in[t_{k-1},t_{n+1}]<br>$$<br>故仿射变换后依旧成立；</p>
+</li>
+<li><p>直线保持性：若控制多边形退化为一条直线，则B样条曲线依然在这条直线上；</p>
+</li>
+<li><p>灵活性：可以构造出线段，尖点，切线等。</p>
 </li>
 </ol>
 </li>
-<li><p>De boor算法——计算B样条曲线的一点，其几何解释未割角，用线段不断递归割角，最终在一定深度后可得到曲线上的点</p>
+</ol>
+</li>
+<li><p>De boor算法——计算B样条曲线的一点，使用直线段进行割角并不断递归，最终在一定深度后可得到曲线上的某一点（可以理解为数分的闭区间套定理）；</p>
 </li>
 <li><p>节点插入：在不改变一个B样条的几何和阶的条件下增加一个新的节点，以此来增加B样条曲线的可控程度。而在插入新的节点向量后，基函数也会改变，故需要求新的控制顶点，因此有了下述算法</p>
 </li>
-<li><p>Boehm给出的算法公式，简略来说就是0到i-k+1和i-r+1到n+1不变，而对中间部分进行改变，具体公式略，r为新插入节点在节点序列中的重复度。</p>
+<li><p>Boehm给出的算法公式：<br>$$<br>\begin{cases}<br>P_j^1=P_j,j=0,1,…,i-k+1\<br>P_j^1=(1-\beta_j)P_{j-1}+\beta_jP_j,j=i-k+2,…,i-r\<br>P_j^1=P_{j-1},j=i-r+1,…,n+1\<br>\end{cases}\<br>\beta=\frac {t-t_j}{t_{j+k-1}-t_j}<br>$$<br>简略来说就是$0$到$i-k+1$和$i-r+1$到$n+1$不变，而对中间部分进行改变，$r$为新插入节点在节点序列中的重复度。</p>
 </li>
-<li><p>B样条曲面的数学定义略（需要对应两组向量，然后类似于曲线的方法，对其分别为两个方向求和）。</p>
+<li><p>B样条曲面的数学定义：给定两个节点向量处于$U$和$V$两参数轴有：<br>$$<br>U=[u_0,u_1,…,u_{m+p}],V=[v_0,v_1,…,v_{n+q}]<br>$$<br>则$p\times q$的B样条曲面被定义为：<br>$$<br>P(u,v)=\displaystyle\sum_{i=0}^m\displaystyle\sum_{j=0}^nP_{ij}N_{i,p}(u)N_{j,q}(v)<br>$$<br>其中：</p>
+<p>​    $P_{ij}$是B样条曲面的控制网格（特征网格）</p>
+<p>​    $N_{i,p}(u)$和$N_{j,q}(v)$是B样条的分别对于$p$和$q$的的基础函数，并且对于任意方向，都可以有Boor-    Cox公式计算得到。</p>
+<p>由于B样条曲线和Bezier曲线不能精确表示除了抛物线外的圆锥曲线，因此有了下述的曲线/曲面。</p>
 </li>
-<li><p>由于B样条曲线和Bezier曲线不能精确表示除了抛物线外的圆锥曲线，因此有了下述的曲线/曲面，</p>
+<li><p>非均匀有理B样条：NURBS</p>
+<ol>
+<li><p>其优点为：</p>
+<ol>
+<li>更一般更精确的方法来表达对曲线曲面的设计；</li>
+<li>提供通用的数学形式表示标准的解析曲面/曲线和自由曲线/曲面；</li>
+<li>存在稳定快速的数值计算方法；</li>
+<li>针对非有理和有理的Bézier曲线/曲面均可以看成NURBS的一种特殊形式；</li>
+</ol>
 </li>
-<li><p>NURBS：非均匀有理B样条。其优点为：更一般更精确的方法来表达对曲线曲面的设计，提供通用的数学形式，同时表示标准的解析曲面/曲线和自由曲线/曲面，且存在稳定快速的数值计算方法，针对非有理和有理的bezier曲线/曲面均可以看成NURBS的一种特殊形式；但是其存储空间较大，且若权重不合适，则产生畸变，且不适合曲线重叠。其曲线性质：局部支持，变差缩减，凸包，仿射不变性，可微。通过齐次坐标表达控制点——即在这个向量末尾增加一维：P_i^ω=(ω_i x_i,ω_i y_i,ω_i z_i,ω_i), ω_i为权重，其P(t)关于ω_i是线性关系，则可以改变图形的形状，其越大越靠近控制点，越小越远离控制点圆锥曲线的表示方式略，注意其形状因子C_sf=ω_1^2/ω_1 ω_2，其值为1则抛物线，大于1双曲线，(0,1)椭圆，为0退化为两条直线，当趋近与正无穷时为直线。修改方法：权重，控制点，节点；其修改描述为计算新的控制点是的去县上的点S变为指定点T，修改方法带约束的优化方法，假设m-1个点已经修改，给予其微小形变εi(为一向量)，然后使用优化方法对修改量计算，计算过程的数学推导略（见C7），最后的公式略。</p>
+<li><p>其缺点为：</p>
+<ol>
+<li>其存储空间较大；</li>
+<li>若权重不合适，则会产生畸变；</li>
+<li>不适合曲线重叠。</li>
+</ol>
+</li>
+<li><p>定义：NURBS是由分段有理B样条多项式基函数所定义的曲线，其函数为：<br>$$<br>P(t)=\frac {\displaystyle\sum_{i=0}^n\omega_iP_iN_{i,k}(t)}{\displaystyle\sum_{i=0}^n\omega_iN_{i,k}(t)}=\displaystyle\sum_{i=0}^nP_iR_{i,k}(t)<br>$$<br>其中：<br>$$<br>R_{i,k}(t)=\frac{\omega_iN_{i,k}(t)}{\displaystyle\sum_{i=0}^n\omega_iN_{i,k}(t)}<br>$$</p>
 </li>
 </ol>
-<ol start="15">
-<li>NURBS曲面，定义方式略，其四个角的权重均为正数，其他权重均为非负数，且和B样条曲面具有类似的性质（局部支承，局部归一，可微，局部极值）</li>
+</li>
 </ol>
-<h2 id="网格（Mesh）"><a href="#网格（Mesh）" class="headerlink" title="网格（Mesh）"></a>网格（Mesh）</h2><p>​    网格的描述：一系列的面片F（每个面片都是三角形）和一系列的顶点B，而F中的每个面片是V中的序列组（即F由V中的元素表示）。其表示由来主要是因为图形学中需要一个统一的表示方式，且视觉精度和处理速度需要在可接受的范围内，再有由于图形硬件的快速发展，能快速的井型光栅化（rasterize）和三角网格的渲染（render）。数据来源：文件io、程序建模、建模软件、3D扫描仪、照片重构、以上的技术组合。<br>​    两大类的模型：基于实体的（实际加工过程），基于表面的（无实体，只考虑表面，但易显示）。<br>​    网格化（Tessellation）：二维网格化——多边形表示为多种不同形式并且需要分割成更易于处理的图元的过程。例如多边形分割为三角形称之为三角化（方法多样）。<br>基本的网格化算法：给定多边形，检验其任意两个顶点之间的线段是否与该多边形的边相交或者部分重叠，若相交则不能用来分割，若不相交则分割（不怎么好）。<br>割耳法：找到一个多边形，查看所有具有顶点序列I,i+1,i+2(mod n)的三角形，检查线段i,i2是否与任意边相交。若是，则三角形i+1构成一个ear，割之，然后检验i和i+2的三角形是不是构成ear。<br>T型顶点：当橡胶表面的边缘部分重合，但是不完全共点是出现（理论可行，但是精度过高）。<br>​    拓扑结构：指多边形网格的连接结构；亏格（一个模型上面的孔洞数目）；面片、边或顶点的局部拓扑，指相邻元素的局部连接关系。2D流形（manifold）：若局部拓扑处处等价于一个圆盘，则为一个二维流形；在三角形网格流形拓扑中，恰好仅有两个三角形共用一条边，每个三角形分别与三个响铃的撒娇性共用一条共边。带边界的二维流形：确保边界的边有且仅有一个三角形。<br>​    简化（simplification）：用一个相对简单的，但保持足够几何细节的网格模型近似表示。主要是为了减少几何上的冗余，减小模型大小，提高运行性能。方法：采样，自适应细分，剔除，顶点合并（sampling, adaptive subdivision, decimation, vertex merging）。<br>​    采样（sampling）：通过选取模型表面上的点，简单的对模型进行几何采样，在编程存在困难和复杂，且对高频特征难以精确采样。通常在没有尖角的光滑表面上取得最好的效果。<br>​    自适应细分（adaptive subdivision）：通过寻找一个可以递归细分逼近最初模型的基网格，该算法在基模型易于获取的情况下较为适用；其能够保持模型表面的拓扑细节，因此对模型的大规模简化能力不足。<br>​    细分：给定一个原始网格，通过网格加细产生更光滑的效果。步骤主要为两步，第一部细化阶段，创建新顶点与之前的顶点相连，产生新的更小的三角形（三角形形式多样）；第二步为平滑阶段，计算新顶点的位置（计算方式可以由不同的插值方式生成）。方案为<br>​    loop细分：、基于三角网格的细分方案，它更新每个已有的顶点，并对每条边创建一个新的顶点,然后每个三角形被分割成四个新三角形，n步后生成4n个三角形（准则略）。<br>​    √3细分，他在每个三角形的中间加一个点，从而得到三个新的三角形，而为了更加均匀分布三角形，每个原始三角形的边都被翻转，使之连接两个相邻顶点的中间顶点而不是两个已经存在的旧顶点。（注意这个边翻转），细分规则略。<br>​    去除（Decimation）：迭代去掉网格的顶点或面片，并三角化每次去除后留下的空间，适用于处理共面多边形这种冗余的几何。<br>​    顶点合并（vertex merging）；将模型的两个或多个顶点合并为一个顶点，简单且易于编程，但是需要采用多个技术来确定合并点和合并次序（边坍塌算法）。<br>​    为了解决实时绘制：层次细节简化技术（应用于简化采样密集的多面体网格，激光扫描测距系统扫描真实三维物体，三维场景的存储/传输/绘制）是指的是在不影响画面视觉效果的条件下，通过逐次简化景物的表面细节来减少场景的几何复杂性，从而提高绘制算法的效率。近处精细远处粗糙之间插值保证光滑。方法有顶点删除，边压缩，面片压缩。<br>​    长方体滤波算法：给定一多面体，记K为其拓扑，假设M已经三角化。则首先建立M的长方形包围盒，将其空间均匀剖分成一系列的小长方体子空间，然后采用各长方体子控件对景物定点进行聚类合并，位于同一长方体空间的顶点被归于同一类。最后属于同一类的顶点被合并为一代表点。而这些代表顶点为与暗多面体所示景物的重新采样。基于与暗多面体的K结构和这些采样点和重新产生以多面体，其保持了一定的层次细节模型。其多面体包围盒剖分生成的子空间越小，则层次模型越逼近原多面体。（会丢失部分高频细节）<br>​    顶点删除法：设法减少景物表面的采样点数目。删除不重要的顶点及其有关的所有面片，然后对删除后的空洞进行局部三角剖分。判别准则略。<br>​    渐进的网格简化技术：任一网格M均可表示为一个粗网格以及逐步细化的网格Mi的变化，一张网格定义为一个二元组（K,V）其K为M的顶点，边，面的邻接关系（单纯复形：由顶点集合担单形非空子集构成，0单形为点，1单形边2单形面，K不包含点集的所有子集，仅包含了构造网络M所有面、边、顶点的子集），V为顶点位置的向量集，表达M在R3的形状。同时引入拓扑实现：将顶点i看成Rm的基向量，则定义Rm的几何|K|的拓扑实现为|K|=⋃_(s∈K)▒〖|s|〗，其中s为K的一个单形，|S|为s在Rm空间中顶点的凸包。（后续数学略<br>​    边收缩的合并原则：相邻点+距离小于一定值；二次误差度量（略））</p>
+<pre><code>4. 其曲线性质
+
+   1. 仍然具有B样条的性质：
+
+      1. 局部支撑性：$R_{i,k}(t)=0,t\notin[t_i,t_{i+k}]$
+      2. 归一性：$\displaystyle\sum_{i=0}^nR_{i,k}(u)=1$
+      3. 可微性：若t不是结点，则$P(t)$在结点中间无限可微，否则则只在$C-k+r$阶连续
+      4. 若$\omega_i=0$，则$R_{i,k}(t)=0$；
+      5. 若$\omega_i=+\infin$，则$R_{i,k}=1$；
+
+   2. NURBS曲线有一些和B样条曲线相似的几何性质：
+
+      1. 局部支持性；
+      2. 变差缩减性；
+      3. 凸包性；
+      4. 仿射不变性；
+      5. 可微性；
+      6. 若控制点的权重为0，则该点不会影响曲线；
+      7. 若$\omega_i\rightarrow+\infin$且$t\in[t_i,t_{i+k}]$，则$P(t)=P_i$；
+      8. Non-rational/rational Bezier curves and nonrational B-Spline curves are special cases of NURBS curve.
+
+   3. 通过齐次坐标表达控制点——即在这个向量末尾增加一维：
+      $$
+      P_i^ω=(ω_i x_i,ω_i y_i,ω_i z_i,ω_i),（i=0,1,...,n)
+      $$
+      其中$\omega_i$为权重，若$P(t)$关于$ω_i$是线性关系，则可以改变图形的形状。$\omega_i$其越大越靠近控制点，越小越远离控制点；
+
+   4. 圆锥曲线的表示方式：
+      $$
+      P(t)=\frac {(1-t^2)\omega_0P_0+2t(1-t)\omega_1P_1+t^2\omega_2P_2}{(1-t)^2\omega_0+2t(1-t)\omega_1+t^2\omega_2}
+      $$
+      注意其形状因子：
+      $$
+      C_{sf}=\frac {ω_1^2}{ω_0 ω_2}
+      $$
+      其值为$1$则抛物线，大于$1$双曲线，$C_{sf}\in(0,1)$则为椭圆，为$04退化为两条直线，当趋近与正无穷时为直线。
+
+   5. 修改NURBS曲线：
+
+      1. 修改方法：
+
+         1. 修改权重：增/减控制点的权重，曲线则会被表现为往远处推/往近处拉；假设我们想要让在曲线上的点$S$发生相对于控制点$P_i$位移距离$d$，则新的权重$\omega^*$有如下公式：
+            $$
+            \omega^i=\omega_i[1+\frac{d}{R_{i,k}(t)(P_i)S-d}]
+            $$
+
+         2. 修改控制点：则会改变整个曲线的形状；
+
+         3. 几何约束下的形状修改；其修改描述为计算新的控制点是的曲线上的点$S$变为指定点$T$，假设曲线等式如下：
+            $$
+            P_t=\displaystyle\sum_{i=0}^nP_iR_{i,k}(t),t_{k-1}\leq t \leqt_{n+1}
+            $$
+            其中：
+            $$
+            R_{i,k}(t)=\frac{\omega_iN_{i,k}(t)}{\displaystyle\sum_{i=0}^n\omega_iN_{i,k}(t)}
+            $$
+
+      2. 带约束的优化方法：假设前$m-1$个点已经修改，给予其微小形变$ε_i=(\epsilon_i^x,\epsilon_i^y,\epsilon_i^z)^T$，然后使用优化方法对修改量计算，则约束为：
+         $$
+         \widetilde P(t)=\displaystyle\sum_{i=0}^{l-1}P_iR_{i,k}(t)+\displaystyle\sum_{i=l}^{l+m-1}(P_i+\epsilon_i)R_{i,k}(t)+\displaystyle\sum_{i=l+m}^{n}P_iR_{i,k}(t)\\=\displaystyle\sum_{i=0}^{n}P_iR_{i,k}(t)+ \displaystyle\sum_{i=l}^{l+m-1}\epsilon_iR_{i,k} ，其中t_{k-1}\leq t \leq t_{n+1};
+         $$
+         然后令
+         $$
+         Min=\displaystyle\sum_{i=l}^{l+m-1}||\epsilon_i||^2
+         $$
+         使用拉格朗日函数有
+         $$
+         L=\displaystyle\sum_{i=l}^{l+m-1}||\epsilon_i||^2+\lambda(T- \widetilde P(t_s))
+         $$
+         然后我们可以得到下面的方程组
+         $$
+         \begin{cases}
+         T=S+\displaystyle\sum_{i=l}^{l+m-1}\epsilon_iR_{i,k}(t_s)\\
+         \epsilon_i=\frac \lambda2R_{i,k}(t_s),i=l,l+1,...,l+m-1
+         \end{cases}
+         $$
+         可以解得
+         $$
+         \epsilon_i=\frac {R_{i,k}(t_s)}{\displaystyle\sum_{i=l}^{l+m-1}R_{j,k}^2(t_s)},i=l,l+1,...,l+m-1
+         $$
+         若只有唯一的控制点被允许修改：则
+         $$
+         \epsilon=\frac{T-S}{R_{i,k}(t_s)}
+         $$
+
+      3. 我们也可以使用最小能量法对形状进行修改：
+
+         1. 曲面的限制能量
+            $$
+            E(p)=\int k^2ds=\int_0^1(\frac {|P'\times P''|}{|P'|})^2dt\rightarrow E(p)=\int|P''|^2dt
+            $$
+
+         2. 薄板曲面能量
+            $$
+            E(P)=\iint(P_{uu}^2+2P_{uv}^2+P_{vv}^2)dudv
+            $$</code></pre><ol start="14">
+<li><p>NURBS曲面:</p>
+<ol>
+<li>定义方式：<br>$$<br>P(u,v)=<br>\frac {\displaystyle\sum_{i=0}^{m}\displaystyle\sum_{j=0}^{n}\omega_{ij}P_{ij}N_{i,p}(u)N_{j,q}(v)}<br>{\displaystyle\sum_{i=0}^{m}\displaystyle\sum_{j=0}^{n}\omega_{ij}N_{i,p}(u)N_{j,q}(v)}<br>=\displaystyle\sum_{i=0}^{m}\displaystyle\sum_{j=0}^{n}P_{ij}R_{i,p,j,q}(u,v),u,b\in[0,1]<br>$$<br>其中：<br>$$<br>R_{i,p,j,q}(u,v)=\frac {\omega_{ij}N_{i,p}(u)N_{i,q}(v)}{\displaystyle\sum_{r=0}^{m}\displaystyle\sum_{s=0}^{n}\omega_{rs}P_{ij}N_{r,p}(u)N_{s,q}(v)}<br>$$</li>
+</ol>
+</li>
+</ol>
+<pre><code>   且四个角的权重$\omega_{00}，\omega_{m0}，\omega_{0n}，\omega_{mn}$均为正数，其他权重均为非负数，
+
+2. 性质(和B样条曲面具有类似):
+
+   1. 局部支撑性；
+   2. 局部归一;
+   3. 可微：
+      1. 在$U$方向有$C-p+r+l$阶连续可微；
+      2. 在$V$方向有$C-q+r+1$阶连续可微；
+   4. 局部极值：若$p,q&gt;1$，则存在局部极大值。</code></pre><h2 id="网格（Mesh）"><a href="#网格（Mesh）" class="headerlink" title="网格（Mesh）"></a>网格（Mesh）</h2><ol>
+<li>网格的描述：一系列的三角形面片$F$和一系列的顶点$V$，而$F$中的每个面片是$V$中的序列组（即$F$由$V$中的元素表示）；</li>
+<li>表示原因：<ol>
+<li>因为图形学中需要一个统一的表示方式；</li>
+<li>且视觉精度和处理速度需要在可接受的范围内；</li>
+<li>再有由于图形硬件的快速发展，能快速的并行光栅化（rasterize）和三角网格的渲染（render）。</li>
+</ol>
+</li>
+<li>数据来源：文件I/O、程序建模、建模软件、3D扫描仪、照片重构或以上的技术组合；</li>
+<li>两大类的模型：<ol>
+<li>基于实体的（实际加工过程），</li>
+<li>基于表面的（无实体，只考虑表面，但易显示）。<br>​</li>
+</ol>
+</li>
+<li>网格化（Tessellation）：<ol>
+<li>二维网格化——多边形表示为多种不同形式并且需要分割成更易于处理的图元的过程。例如多边形分割为三角形称之为三角化（方法多样）。</li>
+<li>基本的网格化算法：给定多边形，检验其任意两个顶点之间的线段是否与该多边形的边相交或者部分重叠，若相交则不能用来分割，若不相交则分割（不怎么好）。</li>
+<li>割耳法：找到一个多边形，查看所有具有顶点序列$i,i+1,i+2(mod\space n)$的三角形，检查线段$i,i+2$是否与任意边相交。若是，则三角形$i+1$构成一个ear，割之，然后检验$i$和$i+2$的三角形是不是构成ear，直至遍历所有的顶点</li>
+<li>T型顶点：当相交表面的边缘部分重合，但是不完全共点是出现（理论可行，但是精度过高很难实现）。</li>
+</ol>
+</li>
+<li>简化需要的基础数学知识：<ol>
+<li>拓扑结构：指多边形网格的连接结构；</li>
+<li>亏格（通俗的说一个模型上面的孔洞数目）：面片、边或顶点的局部拓扑，指相邻元素的局部连接关系。</li>
+<li>2D流形（manifold）：若局部拓扑处处等价于一个圆盘，则为一个二维流形；在三角形网格流形拓扑中，恰好仅有两个三角形共用一条边，每个三角形分别与三个相邻的三角形共用一条共边。</li>
+<li>带边界的二维流形：确保边界的边有且仅有一个三角形。（注：这些定义和拓扑学中的定义只是类似，但是拓扑学的定义则更为严谨）</li>
+<li>单纯复形：由顶点集合担单形非空子集构成，$0$单形为点，$1$单形为边，$2$单形面，后续可数学归纳。</li>
+</ol>
+</li>
+<li>简化（simplification）：用一个相对简单的，但保持足够几何细节的网格模型近似表示。<ol>
+<li>目的：主要是为了减少几何上的冗余，减小模型大小，提高运行性能；</li>
+<li>方法：采样，自适应细分，剔除，顶点合并（sampling, adaptive subdivision, decimation, vertex merging）。</li>
+</ol>
+</li>
+<li>采样（sampling）：通过选取模型表面上的点，简单的对模型进行几何采样，在编程存在困难和复杂，且对高频特征难以精确采样。通常在没有尖角的光滑表面上取得最好的效果。</li>
+<li>自适应细分（adaptive subdivision）：通过寻找一个可以递归细分逼近最初模型的基网格，该算法在基模型易于获取的情况下较为适用；虽然其能够保持模型表面的拓扑细节，但对模型的大规模简化能力不足。</li>
+<li>细分：给定一个原始网格，通过网格加细产生更光滑的效果。步骤主要为两步，<ol>
+<li>第一部细化阶段，创建新顶点与之前的顶点相连，产生新的更小的三角形（三角形形式多样）；</li>
+<li>第二步为平滑阶段，计算新顶点的位置（计算方式可以由不同的插值方式生成）。</li>
+<li>方案为<ol>
+<li>loop细分：基于三角网格的细分方案，它更新每个已有的顶点，并对每条边创建一个新的顶点,然后每个三角形被分割成四个新三角形，$4n$步后生成$4n$个三角形。</li>
+<li>$\sqrt3$细分，他在每个三角形的中间加一个点，从而得到三个新的三角形，而为了更加均匀分布三角形，每个原始三角形的边都被翻转，使之连接两个相邻顶点的中间顶点而不是两个已经存在的旧顶点（注意这个边翻转）。</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>去除（Decimation）：迭代去掉网格的顶点或面片，并三角化每次去除后留下的空间，适用于处理共面多边形这种冗余的几何。</li>
+<li>顶点合并（vertex merging）；将模型的两个或多个顶点合并为一个顶点，简单且易于编程，但是需要采用多个技术来确定合并点和合并次序（边坍塌算法）。</li>
+<li>层次细节简化技术<ol>
+<li>应用：简化采样密集的多面体网格，激光扫描测距系统扫描真实三维物体，三维场景的存储/传输/绘制；</li>
+<li>定义：指的是在不影响画面视觉效果的条件下，通过逐次简化景物的表面细节来减少场景的几何复杂性，从而提高绘制算法的效率。近处精细远处粗糙之间插值保证光滑；</li>
+<li>方法有顶点删除，边压缩，面片压缩等。</li>
+</ol>
+</li>
+<li>长方体滤波算法，给定一多面体，记$K$为其拓扑，假设$M$已经三角化：<ol>
+<li>首先建立$M$的长方形包围盒，将其空间均匀剖分成一系列的小长方体子空间；</li>
+<li>然后采用各长方体子控件对景物定点进行聚类合并，位于同一长方体空间的顶点被归于同一类；</li>
+<li>最后属于同一类的顶点被合并为一代表点。</li>
+<li>而这些代表顶点为与暗多面体所示景物的重新采样。</li>
+<li>基于与暗多面体的K结构和这些采样点和重新产生以多面体，其保持了一定的层次细节模型。其多面体包围盒剖分生成的子空间越小，则层次模型越逼近原多面体。（会丢失部分高频细节）</li>
+</ol>
+</li>
+<li>顶点删除法：设法减少景物表面的采样点数目。删除不重要的顶点及其有关的所有面片，然后对删除后的空洞进行局部三角剖分。</li>
+<li>渐进的网格简化技术：任一网格$M$均可表示为一个粗网格以及逐步细化的网格$M_i$的变化，一张网格定义为一个序偶$（K,V）$其中$K$为$M$的顶点，边，面的邻接关系（$K$为不包含点集的所有子集，仅包含了构造网络$M$所有面、边、顶点的子集）。$V$为顶点位置的向量集，表达$M$在$\R^3$的形状。同时引入拓扑实现：将顶点$i$看成$\R^m$的基向量，则定义$\R^m$的几何$|K|$的拓扑实现为$|K|=⋃_{s∈K}|s|$，其中$s$为$K$的一个单形，$|S|$为$s$在$\R^m$空间中顶点的凸包。</li>
+<li>边收缩的合并原则：<ol>
+<li>相邻点+距离小于一定值；</li>
+<li>二次误差度量。</li>
+</ol>
+</li>
+</ol>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -754,7 +963,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://astrojoke.github.io/2020/04/28/qing-hua-mooc-tu-xing-xue-ji-he-zao-xing/">https://astrojoke.github.io/2020/04/28/qing-hua-mooc-tu-xing-xue-ji-he-zao-xing/</a>
+                    <a href="https://astrojoke.github.io/2020/04/28/qing-hua-mooc-tu-xing-xue-ji-chu-ji-he-zao-xing/">https://astrojoke.github.io/2020/04/28/qing-hua-mooc-tu-xing-xue-ji-chu-ji-he-zao-xing/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -967,30 +1176,32 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/04/28/qing-hua-mooc-tu-xing-xue-ji-he-zao-xing/">
+                <a href="/2020/04/29/qing-hua-mooc-tu-xing-xue-ji-chu-zhen-shi-gan-he-fei-zhen-shi-gan-tu-xing-xue/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="清华MOOC图形学：几何造型">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="清华MOOC图形学基础：真实感和非真实感图形学">
                         
-                        <span class="card-title">清华MOOC图形学：几何造型</span>
+                        <span class="card-title">清华MOOC图形学基础：真实感和非真实感图形学</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            贯穿图形学的基础几何知识
+                            
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-28
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-29
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1003,7 +1214,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1013,10 +1223,6 @@
                     
                     <a href="/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
                         <span class="chip bg-color">基础知识</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%87%A0%E4%BD%95/">
-                        <span class="chip bg-color">几何</span>
                     </a>
                     
                 </div>
@@ -1030,13 +1236,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/04/27/qing-hua-mooc-tu-xing-xue-li-lun/">
+                <a href="/2020/04/27/qing-hua-mooc-tu-xing-xue-ji-chu-li-lun/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="清华MOOC图形学：理论">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="清华MOOC图形学基础：理论">
                         
-                        <span class="card-title">清华MOOC图形学：理论</span>
+                        <span class="card-title">清华MOOC图形学基础：理论</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1226,7 +1432,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">52.8k</span>&nbsp;字
+                class="white-color">54k</span>&nbsp;字
             
             
             

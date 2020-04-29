@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://astrojoke.github.io/"/>
-  <updated>2020-04-28T15:36:44.363Z</updated>
+  <updated>2020-04-29T05:54:35.265Z</updated>
   <id>https://astrojoke.github.io/</id>
   
   <author>
@@ -17,11 +17,44 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>清华MOOC图形学：几何造型</title>
-    <link href="https://astrojoke.github.io/2020/04/28/qing-hua-mooc-tu-xing-xue-ji-he-zao-xing/"/>
-    <id>https://astrojoke.github.io/2020/04/28/qing-hua-mooc-tu-xing-xue-ji-he-zao-xing/</id>
+    <title>清华MOOC图形学基础：真实感和非真实感图形学</title>
+    <link href="https://astrojoke.github.io/2020/04/29/qing-hua-mooc-tu-xing-xue-ji-chu-zhen-shi-gan-he-fei-zhen-shi-gan-tu-xing-xue/"/>
+    <id>https://astrojoke.github.io/2020/04/29/qing-hua-mooc-tu-xing-xue-ji-chu-zhen-shi-gan-he-fei-zhen-shi-gan-tu-xing-xue/</id>
+    <published>2020-04-29T05:54:04.000Z</published>
+    <updated>2020-04-29T05:54:35.265Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;script&gt;
+        document.querySelectorAll(&#39;.github-emoji&#39;)
+          .forEach(el =&gt; {
+            if (!el.dataset.src) { return; }
+       
+        
+      
+    
+    </summary>
+    
+    
+      <category term="图形学" scheme="https://astrojoke.github.io/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+    
+      <category term="图形学" scheme="https://astrojoke.github.io/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+      <category term="基础知识" scheme="https://astrojoke.github.io/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>清华MOOC图形学基础：几何造型</title>
+    <link href="https://astrojoke.github.io/2020/04/28/qing-hua-mooc-tu-xing-xue-ji-chu-ji-he-zao-xing/"/>
+    <id>https://astrojoke.github.io/2020/04/28/qing-hua-mooc-tu-xing-xue-ji-chu-ji-he-zao-xing/</id>
     <published>2020-04-28T12:57:13.000Z</published>
-    <updated>2020-04-28T15:36:44.363Z</updated>
+    <updated>2020-04-29T05:54:42.184Z</updated>
     
     <summary type="html">
     
@@ -48,11 +81,11 @@
   </entry>
   
   <entry>
-    <title>清华MOOC图形学：理论</title>
-    <link href="https://astrojoke.github.io/2020/04/27/qing-hua-mooc-tu-xing-xue-li-lun/"/>
-    <id>https://astrojoke.github.io/2020/04/27/qing-hua-mooc-tu-xing-xue-li-lun/</id>
+    <title>清华MOOC图形学基础：理论</title>
+    <link href="https://astrojoke.github.io/2020/04/27/qing-hua-mooc-tu-xing-xue-ji-chu-li-lun/"/>
+    <id>https://astrojoke.github.io/2020/04/27/qing-hua-mooc-tu-xing-xue-ji-chu-li-lun/</id>
     <published>2020-04-27T13:01:43.000Z</published>
-    <updated>2020-04-28T12:58:25.544Z</updated>
+    <updated>2020-04-29T05:54:21.418Z</updated>
     
     <summary type="html">
     
