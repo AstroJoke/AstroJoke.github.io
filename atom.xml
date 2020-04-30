@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://astrojoke.github.io/"/>
-  <updated>2020-04-29T14:42:02.913Z</updated>
+  <updated>2020-04-30T15:29:29.263Z</updated>
   <id>https://astrojoke.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>洛谷官方题单——二分查找与二分答案题解</title>
+    <title>洛谷官方题单——二分搜索和二分答案题解</title>
     <link href="https://astrojoke.github.io/2020/04/29/luo-gu-guan-fang-ti-dan-er-fen-cha-zhao-yu-er-fen-da-an-ti-jie/"/>
     <id>https://astrojoke.github.io/2020/04/29/luo-gu-guan-fang-ti-dan-er-fen-cha-zhao-yu-er-fen-da-an-ti-jie/</id>
-    <published>2020-04-29T14:41:31.000Z</published>
-    <updated>2020-04-29T14:42:02.913Z</updated>
+    <published>2020-04-29T14:29:31.000Z</published>
+    <updated>2020-04-30T15:29:29.263Z</updated>
     
     <summary type="html">
     
@@ -29,11 +29,8 @@
       
         
         
-          &lt;script&gt;
-        document.querySelectorAll(&#39;.github-emoji&#39;)
-          .forEach(el =&gt; {
-            if (!el.dataset.src) { return; }
-       
+          &lt;p&gt;在上一个题解中我就说过，二分的方法一定是需要找到某种单调性。因此只要能找到符合条件的单调性，那么在这一个部分一定可以考虑用二分来解决这部分的问题。&lt;/p&gt;
+&lt;h2 id=&quot;题目0：查找&quot;&gt;&lt;a href=&quot;#题目0：查找&quot; class=&quot;headerlink&quot;
         
       
     
