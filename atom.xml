@@ -55,8 +55,8 @@
     <title>清华MOOC图形学基础：真实感和非真实感图形学</title>
     <link href="https://astrojoke.github.io/2020/04/29/qing-hua-mooc-tu-xing-xue-ji-chu-zhen-shi-gan-he-fei-zhen-shi-gan-tu-xing-xue/"/>
     <id>https://astrojoke.github.io/2020/04/29/qing-hua-mooc-tu-xing-xue-ji-chu-zhen-shi-gan-he-fei-zhen-shi-gan-tu-xing-xue/</id>
-    <published>2020-04-29T05:54:04.000Z</published>
-    <updated>2020-04-29T07:38:05.362Z</updated>
+    <published>2020-04-29T05:54:04.311Z</published>
+    <updated>2020-04-30T03:44:01.972Z</updated>
     
     <summary type="html">
     
@@ -64,23 +64,14 @@
       
         
         
-          &lt;script&gt;
-        document.querySelectorAll(&#39;.github-emoji&#39;)
-          .forEach(el =&gt; {
-            if (!el.dataset.src) { return; }
-       
+          &lt;hr&gt;
+&lt;p&gt;title： 清华MOOC图形学基础：真实感和非真实感图形学&lt;br&gt;top： false&lt;br&gt;cover： false&lt;br&gt;toc： true&lt;br&gt;mathjax： true&lt;br&gt;date： 2020-04-29
         
       
     
     </summary>
     
     
-      <category term="图形学" scheme="https://astrojoke.github.io/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
-    
-    
-      <category term="图形学" scheme="https://astrojoke.github.io/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
-    
-      <category term="基础知识" scheme="https://astrojoke.github.io/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
     
   </entry>
   
