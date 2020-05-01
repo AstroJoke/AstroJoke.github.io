@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://astrojoke.github.io/"/>
-  <updated>2020-04-30T15:29:29.263Z</updated>
+  <updated>2020-05-01T14:56:39.806Z</updated>
   <id>https://astrojoke.github.io/</id>
   
   <author>
@@ -17,11 +17,44 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>洛谷官方题单——搜索题解</title>
+    <link href="https://astrojoke.github.io/2020/05/01/luo-gu-guan-fang-ti-dan-sou-suo-ti-jie/"/>
+    <id>https://astrojoke.github.io/2020/05/01/luo-gu-guan-fang-ti-dan-sou-suo-ti-jie/</id>
+    <published>2020-05-01T09:20:35.000Z</published>
+    <updated>2020-05-01T14:56:39.806Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;搜索一般我们都分为DFS和BFS，其中设计到回溯，剪枝的技巧。&lt;/p&gt;
+&lt;p&gt;但是一般我们都将搜索视作暴力，但是比纯粹的暴力会快不少，并且可以通过搜索获得小规模问题从而帮助推导后续的问题。&lt;/p&gt;
+&lt;p&gt;最后提醒一下，DFS是存在最大值性质的，BFS是存在最小值性质的，因此
+        
+      
+    
+    </summary>
+    
+    
+      <category term="算法和程序设计" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+      <category term="编程算法题解" scheme="https://astrojoke.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
+    
+      <category term="洛谷" scheme="https://astrojoke.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
+    
+      <category term="搜索" scheme="https://astrojoke.github.io/tags/%E6%90%9C%E7%B4%A2/"/>
+    
+  </entry>
+  
+  <entry>
     <title>洛谷官方题单——二分搜索和二分答案题解</title>
     <link href="https://astrojoke.github.io/2020/04/29/luo-gu-guan-fang-ti-dan-er-fen-cha-zhao-yu-er-fen-da-an-ti-jie/"/>
     <id>https://astrojoke.github.io/2020/04/29/luo-gu-guan-fang-ti-dan-er-fen-cha-zhao-yu-er-fen-da-an-ti-jie/</id>
     <published>2020-04-29T14:29:31.000Z</published>
-    <updated>2020-04-30T15:29:29.263Z</updated>
+    <updated>2020-05-01T08:53:34.570Z</updated>
     
     <summary type="html">
     

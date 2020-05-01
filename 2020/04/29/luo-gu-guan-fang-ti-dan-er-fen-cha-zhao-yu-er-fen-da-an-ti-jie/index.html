@@ -837,14 +837,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.3k
+                    2.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    12 分
                 </div>
                 
 				
@@ -1107,7 +1107,64 @@ bool <span class="token function">check</span><span class="token punctuation">(<
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span> <span class="token operator">*</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> left<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="题目9：银行贷款"><a href="#题目9：银行贷款" class="headerlink" title="题目9：银行贷款"></a>题目9：银行贷款</h2><h2 id="题目10：kotori的设备（蓝题预警）"><a href="#题目10：kotori的设备（蓝题预警）" class="headerlink" title="题目10：kotori的设备（蓝题预警）"></a>题目10：kotori的设备（蓝题预警）</h2><script>
+<h2 id="题目9：银行贷款"><a href="#题目9：银行贷款" class="headerlink" title="题目9：银行贷款"></a>题目9：银行贷款</h2><p>实际上锁定一个收益率区间然后二分答案就行了（注意存在低于1的收益率）。</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;math.h></span></span>
+using namespace std<span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">double</span> n<span class="token punctuation">,</span> m<span class="token punctuation">,</span> k<span class="token punctuation">,</span> left <span class="token operator">=</span> <span class="token number">0.0</span><span class="token punctuation">,</span> right <span class="token operator">=</span> <span class="token number">10.0</span><span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%lf%lf%lf"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">,</span> <span class="token operator">&amp;</span>m<span class="token punctuation">,</span> <span class="token operator">&amp;</span>k<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>right <span class="token operator">-</span> left <span class="token operator">>=</span> <span class="token number">0.0001</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">double</span> mid <span class="token operator">=</span> <span class="token punctuation">(</span>left <span class="token operator">+</span> right<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">pow</span><span class="token punctuation">(</span><span class="token number">1.0</span> <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token number">1.0</span> <span class="token operator">+</span> mid<span class="token punctuation">)</span><span class="token punctuation">,</span> k<span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">-</span> n <span class="token operator">/</span> m <span class="token operator">*</span> mid<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> right <span class="token operator">=</span> mid<span class="token punctuation">;</span>
+        <span class="token keyword">else</span> left <span class="token operator">=</span> mid<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span> <span class="token operator">*</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%.1lf\n"</span><span class="token punctuation">,</span> left <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="题目10：kotori的设备（蓝题预警）"><a href="#题目10：kotori的设备（蓝题预警）" class="headerlink" title="题目10：kotori的设备（蓝题预警）"></a>题目10：kotori的设备（蓝题预警）</h2><p>二分时间：</p>
+<ol>
+<li><p>验证的设备使用时间，若设备已有的能量大于使用时间需要的能量，忽略该设备；</p>
+</li>
+<li><p>否则充电，设备已有的能量等于使用时间需要的能量，并减去移动电源里设备需要的能量；</p>
+</li>
+<li><p>最后比较需要的能量总和和充电器最多提供的能量。</p>
+</li>
+</ol>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">pragma</span> warning(disable:4996)</span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;stdio.h></span></span>
+using namespace std<span class="token punctuation">;</span>
+<span class="token keyword">int</span> n<span class="token punctuation">;</span>
+<span class="token keyword">double</span> a_sum<span class="token punctuation">,</span> a<span class="token punctuation">[</span><span class="token number">100050</span><span class="token punctuation">]</span><span class="token punctuation">,</span> b<span class="token punctuation">[</span><span class="token number">100050</span><span class="token punctuation">]</span><span class="token punctuation">,</span> p<span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">check</span><span class="token punctuation">(</span><span class="token keyword">double</span> temp_ans<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">double</span> temp_all <span class="token operator">=</span> temp_ans <span class="token operator">*</span> p<span class="token punctuation">,</span> temp_sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">*</span> temp_ans <span class="token operator">&lt;=</span> b<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">continue</span><span class="token punctuation">;</span>
+        temp_sum <span class="token operator">+</span><span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">*</span> temp_ans <span class="token operator">-</span> b<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> temp_sum <span class="token operator">&lt;=</span> temp_all<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">double</span> left <span class="token operator">=</span> <span class="token number">0.0</span><span class="token punctuation">,</span> right <span class="token operator">=</span> <span class="token number">1e10</span><span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d%lf"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">,</span> <span class="token operator">&amp;</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%lf%lf"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>b<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        a_sum <span class="token operator">+</span><span class="token operator">=</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> 
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>a_sum <span class="token operator">&lt;=</span> p<span class="token punctuation">)</span><span class="token keyword">return</span> <span class="token number">0</span> <span class="token operator">*</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"-1\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>right <span class="token operator">-</span> left <span class="token operator">>=</span> <span class="token number">1e-6</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">double</span> mid <span class="token operator">=</span> <span class="token punctuation">(</span>right <span class="token operator">+</span> left<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">check</span><span class="token punctuation">(</span>mid<span class="token punctuation">)</span><span class="token punctuation">)</span> left <span class="token operator">=</span> mid<span class="token punctuation">;</span>
+        <span class="token keyword">else</span> right <span class="token operator">=</span> mid<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token number">0</span> <span class="token operator">*</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%.5lf\n"</span><span class="token punctuation">,</span> left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>吐槽下最后一道题的坑，这精度卡的。</p>
+<ol>
+<li>在九十分卡了十来分钟的a_sum必须是double，否则你必然WA两个点；</li>
+<li>然后二分区间1E10，少了就会95分= =。</li>
+</ol>
+<p>实际上二分还是很好写的，如果是二分搜索直接写，二分答案就是需要写出一个合适的check函数，然后就可以开心做好二分了。</p>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1363,30 +1420,29 @@ bool <span class="token function">check</span><span class="token punctuation">(<
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/04/29/luo-gu-guan-fang-ti-dan-er-fen-cha-zhao-yu-er-fen-da-an-ti-jie/">
+                <a href="/2020/05/01/luo-gu-guan-fang-ti-dan-sou-suo-ti-jie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="洛谷官方题单——二分搜索和二分答案题解">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="洛谷官方题单——搜索题解">
                         
-                        <span class="card-title">洛谷官方题单——二分搜索和二分答案题解</span>
+                        <span class="card-title">洛谷官方题单——搜索题解</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            寻找单调性之旅
+                            没有非搜索不能解决，若有，则搜twice（滑稽）
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-29
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-01
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1399,7 +1455,6 @@ bool <span class="token function">check</span><span class="token punctuation">(<
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1411,8 +1466,8 @@ bool <span class="token function">check</span><span class="token punctuation">(<
                         <span class="chip bg-color">洛谷</span>
                     </a>
                     
-                    <a href="/tags/%E4%BA%8C%E5%88%86/">
-                        <span class="chip bg-color">二分</span>
+                    <a href="/tags/%E6%90%9C%E7%B4%A2/">
+                        <span class="chip bg-color">搜索</span>
                     </a>
                     
                 </div>
@@ -1607,7 +1662,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">66.4k</span>&nbsp;字
+                class="white-color">70.2k</span>&nbsp;字
             
             
             
