@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://astrojoke.github.io/"/>
-  <updated>2020-05-01T14:56:39.806Z</updated>
+  <updated>2020-05-02T02:42:43.770Z</updated>
   <id>https://astrojoke.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>清华MOOC图形学基础：真实感和非真实感</title>
+    <link href="https://astrojoke.github.io/2020/05/02/qing-hua-mooc-tu-xing-xue-ji-chu-zhen-shi-gan-he-fei-zhen-shi-gan/"/>
+    <id>https://astrojoke.github.io/2020/05/02/qing-hua-mooc-tu-xing-xue-ji-chu-zhen-shi-gan-he-fei-zhen-shi-gan/</id>
+    <published>2020-05-02T02:41:24.000Z</published>
+    <updated>2020-05-02T02:42:43.770Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;真实感图形学&quot;&gt;&lt;a href=&quot;#真实感图形学&quot; class=&quot;headerlink&quot; title=&quot;真实感图形学&quot;&gt;&lt;/a&gt;真实感图形学&lt;/h2&gt;&lt;h3 id=&quot;纹理（Texture）&quot;&gt;&lt;a href=&quot;#纹理（Texture）&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="图形学" scheme="https://astrojoke.github.io/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+    
+      <category term="图形学" scheme="https://astrojoke.github.io/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+      <category term="基础知识" scheme="https://astrojoke.github.io/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+  </entry>
   
   <entry>
     <title>洛谷官方题单——搜索题解</title>
@@ -78,30 +107,6 @@
       <category term="洛谷" scheme="https://astrojoke.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
     
       <category term="二分" scheme="https://astrojoke.github.io/tags/%E4%BA%8C%E5%88%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>清华MOOC图形学基础：真实感和非真实感图形学</title>
-    <link href="https://astrojoke.github.io/2020/04/29/qing-hua-mooc-tu-xing-xue-ji-chu-zhen-shi-gan-he-fei-zhen-shi-gan-tu-xing-xue/"/>
-    <id>https://astrojoke.github.io/2020/04/29/qing-hua-mooc-tu-xing-xue-ji-chu-zhen-shi-gan-he-fei-zhen-shi-gan-tu-xing-xue/</id>
-    <published>2020-04-29T05:54:04.311Z</published>
-    <updated>2020-04-30T03:44:01.972Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;hr&gt;
-&lt;p&gt;title： 清华MOOC图形学基础：真实感和非真实感图形学&lt;br&gt;top： false&lt;br&gt;cover： false&lt;br&gt;toc： true&lt;br&gt;mathjax： true&lt;br&gt;date： 2020-04-29
-        
-      
-    
-    </summary>
-    
-    
     
   </entry>
   
