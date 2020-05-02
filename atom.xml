@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://astrojoke.github.io/"/>
-  <updated>2020-05-02T13:21:06.647Z</updated>
+  <updated>2020-05-02T15:01:10.555Z</updated>
   <id>https://astrojoke.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>洛谷官方提单——线性表题解</title>
+    <link href="https://astrojoke.github.io/2020/05/02/luo-gu-guan-fang-ti-dan-xian-xing-biao-ti-jie/"/>
+    <id>https://astrojoke.github.io/2020/05/02/luo-gu-guan-fang-ti-dan-xian-xing-biao-ti-jie/</id>
+    <published>2020-05-02T13:59:40.000Z</published>
+    <updated>2020-05-02T15:01:10.555Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;题目0：询问学号&quot;&gt;&lt;a href=&quot;#题目0：询问学号&quot; class=&quot;headerlink&quot; title=&quot;题目0：询问学号&quot;&gt;&lt;/a&gt;题目0：询问学号&lt;/h2&gt;&lt;p&gt;简单到不能简单的题目，无解释。&lt;/p&gt;
+&lt;pre class=&quot;line-numbers
+        
+      
+    
+    </summary>
+    
+    
+      <category term="算法和程序设计" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+      <category term="编程算法题解" scheme="https://astrojoke.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
+    
+      <category term="洛谷" scheme="https://astrojoke.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
+    
+      <category term="线性表" scheme="https://astrojoke.github.io/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>GAMES-101：Modern Computer Graphics</title>
