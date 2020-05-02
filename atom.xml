@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://astrojoke.github.io/"/>
-  <updated>2020-05-02T02:42:43.770Z</updated>
+  <updated>2020-05-02T13:21:06.647Z</updated>
   <id>https://astrojoke.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GAMES-101：Modern Computer Graphics</title>
+    <link href="https://astrojoke.github.io/2020/05/02/overview-of-computer-graphics/"/>
+    <id>https://astrojoke.github.io/2020/05/02/overview-of-computer-graphics/</id>
+    <published>2020-05-02T06:02:50.000Z</published>
+    <updated>2020-05-02T13:21:06.647Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;GAMES101是闫令琪老师的现代图形学入门，本文是二刷这个mooc的小总结，（flag）拟三天内完成。&lt;/p&gt;
+&lt;h2 id=&quot;0-Overview-of-Computer-Graphics&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="图形学" scheme="https://astrojoke.github.io/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+    
+      <category term="图形学" scheme="https://astrojoke.github.io/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+      <category term="基础知识" scheme="https://astrojoke.github.io/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+  </entry>
   
   <entry>
     <title>清华MOOC图形学基础：真实感和非真实感</title>
