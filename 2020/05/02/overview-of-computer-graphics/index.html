@@ -673,7 +673,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/CGPP_cover.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -833,14 +833,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    5.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    18 分
+                    34 分
                 </div>
                 
 				
@@ -856,7 +856,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>GAMES101是闫令琪老师的现代图形学入门，本文是二刷这个mooc的小总结，（flag）拟三天内完成。</p>
+                <p>GAMES101是闫令琪老师的现代图形学入门，本文是二刷这个mooc的小总结，（flag）拟<del>三天</del>五天内完成。</p>
+<p>另：封面图取自“MapleStory”（国服为“冒险岛”）的Arcana主城区的游戏内截图，若涉嫌侵权，请联系本人更换封面图。</p>
 <h2 id="0-Overview-of-Computer-Graphics"><a href="#0-Overview-of-Computer-Graphics" class="headerlink" title="0. Overview of Computer Graphics"></a>0. Overview of Computer Graphics</h2><h3 id="What-is-Computer-Graphics"><a href="#What-is-Computer-Graphics" class="headerlink" title="What is Computer Graphics?"></a>What is Computer Graphics?</h3><p>The use of computers to synthesize and manipulate visual information.</p>
 <h3 id="Why-Study-Computer-Graphics"><a href="#Why-Study-Computer-Graphics" class="headerlink" title="Why Study Computer Graphics?"></a>Why Study Computer Graphics?</h3><h4 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h4><ol start="0">
 <li><p>Video Games: e.g. “<em>SEKIRO: Shadows Die Twice</em>“,  “<em>Borderlands 3</em>“;</p>
@@ -1030,7 +1031,7 @@
 </li>
 <li><p>Orthonormal bases and coordinate frames</p>
 <p>it is important for representing points, positions, locations, and many sets of coordinate systems such as Clobal, local ,world, etc. And critical issue is transforming between these systems/bases.</p>
-<p>Any set of 3 vectors (in 3D) that （$\vec p$ is projection）<br>$$<br>||\vec u||=||\vec v||=||\vec w||=1\\<br>\vec u \cdot \vec v=\vec v\cdot \vec w=\vec  u \cdot \vec w=0\\<br>\vec w=\vec u \times \vec v（right\space handed）\\<br>\vec p=(\vec p \cdot \vec u)\vec u+(\vec p \cdot \vec v)\vec v+(\vec p \cdot \vec w)\vec w<br>$$</p>
+<p>Any set of 3 vectors （in 3D） that （$\vec p$ is projection）<br>$$<br>||\vec u||=||\vec v||=||\vec w||=1\\<br>\vec u \cdot \vec v=\vec v\cdot \vec w=\vec  u \cdot \vec w=0\\<br>\vec w=\vec u \times \vec v（right\space handed）\\<br>\vec p=(\vec p \cdot \vec u)\vec u+(\vec p \cdot \vec v)\vec v+(\vec p \cdot \vec w)\vec w<br>$$</p>
 </li>
 </ol>
 <h3 id="Matrices"><a href="#Matrices" class="headerlink" title="Matrices"></a>Matrices</h3><p>In Graphics, pervasively used to represent transformations （include Translation, Rotation, Shear, Scale）.</p>
@@ -1045,9 +1046,9 @@
 </ol>
 </li>
 <li><p>Matrix-Matrix Multiplication</p>
-<p>if$A\times B$, then the columns in A must =rows in B, namely $(M\times N)(N\times P)=(M\times P)$.</p>
+<p>if$A\times B$, then the columns in A must =rows in B, namely $（M\times N）（N\times P）=（M\times P）$.</p>
 <ol start="0">
-<li><p>Element $(i,j)$ in the product is the dot product of row i from A and column j from B.</p>
+<li><p>Element $（i,j）$ in the product is the dot product of row i from A and column j from B.</p>
 </li>
 <li><p>propertise:</p>
 <ol start="0">
@@ -1055,11 +1056,11 @@
 </li>
 <li><p>Associative and distributive</p>
 <ol start="0">
-<li><p>$(AB)C=A(BC)$;（can accelarate the speed by dp）</p>
+<li><p>$（AB）C=A（BC）$;（can accelarate the speed by dp）</p>
 </li>
-<li><p>$A(B+C)=AB+AC$;</p>
+<li><p>$A（B+C）=AB+AC$;</p>
 </li>
-<li><p>$(A+B)C=AC+BC$.</p>
+<li><p>$（A+B）C=AC+BC$.</p>
 </li>
 </ol>
 </li>
@@ -1069,7 +1070,7 @@
 </li>
 <li><p>Matrix-VectorMultiplication</p>
 <ol start="0">
-<li><p>Treat vector as a column matrix($m\times 1$)</p>
+<li><p>Treat vector as a column matrix（$m\times 1$）</p>
 </li>
 <li><p>Key for transforming points.</p>
 </li>
@@ -1081,7 +1082,7 @@
 <ol start="0">
 <li><p>Switch rows and columns（$（i,j）\rightarrow（j,i）$）;</p>
 </li>
-<li><p>$(AB)^T=B^TA^T$.</p>
+<li><p>$（AB）^T=B^TA^T$.</p>
 </li>
 </ol>
 </li>
@@ -1095,7 +1096,7 @@
 <ol start="0">
 <li><p>$AA^{-1}=A^{-1}A=I$;</p>
 </li>
-<li><p>$(AB)^{-1}=B^{-1}A^{-1}$.</p>
+<li><p>$（AB）^{-1}=B^{-1}A^{-1}$.</p>
 </li>
 </ol>
 </li>
@@ -1115,12 +1116,12 @@
 </li>
 <li><p>The matrix</p>
 <ol start="0">
-<li><p>Rotation：Suppose rotate about the origin $(0,0)$ ,  anticlockwise by default and rotate angel is $\theta$.So the matrix is :<br>$$<br>R_{\theta}=\left[ \begin {matrix} cos\theta&amp;-sin\theta\\sin\theta&amp;cos\theta\end{matrix}\right]<br>$$<br>$proof:$</p>
+<li><p>Rotation：Suppose rotate about the origin $（0,0）$ ,  anticlockwise by default and rotate angel is $\theta$.So the matrix is :<br>$$<br>R_{\theta}=\left[ \begin {matrix} cos\theta&amp;-sin\theta\\sin\theta&amp;cos\theta\end{matrix}\right]<br>$$<br>$proof:$</p>
 <p>​    Get a Cartesian Coordinates $Oxy$, all the vectors, begin from origin, write as $V$.</p>
-<p>​    Suppose  we want $\vec {OP}=(x,y)$ rotate to $\vec {OP’}=(x’,y’)$, and $\angle {xOP}=\alpha, \angle{POP’}=\theta$ and $||\vec OP||=r$, we can get the following equations<br>$$<br>\begin{cases}<br>x=rcos\alpha\\<br>y=rsin\alpha\\<br>x’=rcos(\alpha+\theta)\\<br>y’=rsin(\alpha+\theta)<br>\end{cases}<br>$$<br>and then we can get<br>$$<br>\begin{cases}<br>x’=xcos\theta-ysin\theta\\<br>y’=xsin\theta+xcos\theta<br>\end {cases}<br>$$<br>and get the coefficient to the matrix is $R_{\theta}$.</p>
+<p>​    Suppose  we want $\vec {OP}=（x,y）$ rotate to $\vec {OP’}=（x’,y’）$, and $\angle {xOP}=\alpha, \angle{POP’}=\theta$ and $||\vec OP||=r$, we can get the following equations<br>$$<br>\begin{cases}<br>x=rcos\alpha\\<br>y=rsin\alpha\\<br>x’=rcos(\alpha+\theta)\\<br>y’=rsin(\alpha+\theta)<br>\end{cases}<br>$$<br>and then we can get<br>$$<br>\begin{cases}<br>x’=xcos\theta-ysin\theta\\<br>y’=xsin\theta+xcos\theta<br>\end {cases}<br>$$<br>and get the coefficient to the matrix is $R_{\theta}$.</p>
 <p>And we can get the<br>$$<br>R_{-\theta}=\left[ \begin {matrix} cos\theta&amp;sin\theta\\-sin\theta&amp;cos\theta\end{matrix}\right]=R_\theta^T<br>$$<br>Infact, if the $detM=1or-1$, we called $M$ is *<em>Orthogonality Matrix *</em>, and $M^{-1}=M^t$</p>
 </li>
-<li><p>Scale(Non uniform)：Suppose $k_{axis}$ is the scale ratio, so the scale matrix is<br>$$<br>\left[ \begin {matrix}x’\\y’ \end{matrix}\right]=<br>\left[ \begin {matrix} k_x&amp;0\\0&amp;k_y\end{matrix}\right]<br>\left[ \begin {matrix} x\\y\end{matrix}\right]<br>$$</p>
+<li><p>Scale（Non uniform）：Suppose $k_{axis}$ is the scale ratio, so the scale matrix is<br>$$<br>\left[ \begin {matrix}x’\\y’ \end{matrix}\right]=<br>\left[ \begin {matrix} k_x&amp;0\\0&amp;k_y\end{matrix}\right]<br>\left[ \begin {matrix} x\\y\end{matrix}\right]<br>$$</p>
 </li>
 <li><p>Shear：Suppose horizontal shift is $0$ at $y=0$, horizontal shift is $a$ at $y=1$ and vertical shift is always $0$, so the shear matrix is<br>$$<br>\left[ \begin {matrix}x’\\y’ \end{matrix}\right]=<br>\left[ \begin {matrix} 1&amp;a\\0&amp;1\end{matrix}\right]<br>\left[ \begin {matrix} x\\1\end{matrix}\right]<br>$$</p>
 </li>
@@ -1130,7 +1131,7 @@
 </li>
 </ol>
 </li>
-<li><p><strong>Linear Transforms = Matrices (of the same dimension)</strong></p>
+<li><p><strong>Linear Transforms = Matrices （of the same dimension）</strong></p>
 </li>
 <li><p>Homogeneous coordinates</p>
 <ol start="0">
@@ -1144,7 +1145,7 @@
 </li>
 <li><p>But we don’t want to be this special case. So we import the homogeneous coordinates</p>
 <ol start="0">
-<li><p>Add an extra coodinate (w-coordinate): 2D point =$(x,y,1)^T$ and 2D vector =$(x,y,0)^T$</p>
+<li><p>Add an extra coodinate （w-coordinate）: 2D point =$（x,y,1）^T$ and 2D vector =$（x,y,0）^T$</p>
 </li>
 <li><p>the the Matrix Representation of translations is<br>$$<br>\left[ \begin {matrix}x’\\y’\\w’ \end{matrix}\right]=<br>\left[ \begin {matrix} 1&amp;0&amp;t_x\\0&amp;1&amp;t_y\\0&amp;0&amp;1\end{matrix}\right]<br>\left[ \begin {matrix} x\\y\\1\end{matrix}\right]=<br>\left[ \begin {matrix} x+t_x\\y+t_y\\1\end{matrix}\right]<br>$$</p>
 </li>
@@ -1154,8 +1155,8 @@
 </li>
 </ol>
 </li>
-<li><p>To distinguish the vector and the point( coordinate ).</p>
-<p>we have introduced the homogeneous coordinates, but why we should put the extra dimension to $1$ (in point) or $0$ (in vector)?</p>
+<li><p>To distinguish the vector and the point（ coordinate ）.</p>
+<p>we have introduced the homogeneous coordinates, but why we should put the extra dimension to $1$ （in point） or $0$ （in vector）?</p>
 <p>Because the vector have the property — translation invariance. So we want, after the transformation, the vector won’t be change.</p>
 <p>And the Valid operation if w-coordinate of result is 1 or 0</p>
 <ol start="0">
@@ -1167,7 +1168,7 @@
 </li>
 <li><p>point + point = Special Case</p>
 </li>
-<li><p>Special Case: if the w-coordinate is not both 0 or 1, we let the point normalization. After the normalization, we can get a point. (In the Num 3 operation, we will get the mid point between 2 points).<br>$$<br>\left[ \begin {matrix}x\\y\\w \end{matrix}\right]=\left[ \begin {matrix}\frac xw\\ \frac yw\\1 \end{matrix}\right],w\neq0<br>$$</p>
+<li><p>Special Case: if the w-coordinate is not both 0 or 1, we let the point normalization. After the normalization, we can get a point. （In the Num 3 operation, we will get the mid point between 2 points）.<br>$$<br>\left[ \begin {matrix}x\\y\\w \end{matrix}\right]=\left[ \begin {matrix}\frac xw\\ \frac yw\\1 \end{matrix}\right],w\neq0<br>$$</p>
 </li>
 </ol>
 </li>
@@ -1179,7 +1180,7 @@
 </ol>
 <p>$$<br>\left[ \begin {matrix}x’\\y’\\w’ \end{matrix}\right]=<br>\left[ \begin {matrix} a&amp;b&amp;t_x\\c&amp;d&amp;t_y\\0&amp;0&amp;1\end{matrix}\right]<br>\left[ \begin {matrix} x\\y\\1\end{matrix}\right]<br>$$</p>
 <ol>
-<li>Transformation by homogeneous coordinates：Add another column and let the column assignment $(0,0,…,0,1)$</li>
+<li>Transformation by homogeneous coordinates：Add another column and let the column assignment $（0,0,…,0,1）$</li>
 <li>Invers Transform $M^-1$, it map to the inverse matrix</li>
 </ol>
 </li>
@@ -1190,7 +1191,7 @@
 <li><p>Suppose we want to rotate and translate the picture, we can get the 2 ways: The first is translation then rotation, the other is rotation then translation. <strong>But</strong> compare the two picture, we get the difference picture. So we should know that the transformation sequence/ordering is <strong>matters</strong>.</p>
 <p>Associate the matrix multiple and we can easily understand it. But note that martices are applied <strong>right to left</strong>.</p>
 </li>
-<li><p>We can pre-multiply $n$ matrixs to obtain a single matrix representing combined transform, wich are important for performance (pre-multiply is faster).</p>
+<li><p>We can pre-multiply $n$ matrixs to obtain a single matrix representing combined transform, wich are important for performance （pre-multiply is faster）.</p>
 </li>
 </ol>
 </li>
@@ -1198,15 +1199,15 @@
 </li>
 <li><p>3D Transformation</p>
 <ol start="0">
-<li><p>Use homogeneous coordinates: 3D point =$(x,y,z,1)^T$ and 3D vector =$(x,y,z,0)^T$</p>
+<li><p>Use homogeneous coordinates: 3D point =$（x,y,z,1）^T$ and 3D vector =$（x,y,z,0）^T$</p>
 </li>
-<li><p>In general $(x,y,z,w),w\neq0$ is the 3D point<br>$$<br>(\frac xw,\frac yw,\frac zw)<br>$$</p>
+<li><p>In general $（x,y,z,w）,w\neq0$ is the 3D point<br>$$<br>(\frac xw,\frac yw,\frac zw)<br>$$</p>
 </li>
 <li><p>And use $4\times4$ matrices for affine transformations（Other transformation is simliar to this case）<br>$$<br>\cdot \left[ \begin {matrix} x’\\y’\\z’\\1\end{matrix}\right]=<br>\left[ \begin {matrix} a&amp;b&amp;c&amp;t_x\\d&amp;e&amp;f&amp;t_y\\g&amp;h&amp;i&amp;t_z\\0&amp;0&amp;0&amp;1\end{matrix}\right]<br>\cdot \left[ \begin {matrix} x\\y\\z\\1\end{matrix}\right]<br>$$</p>
 </li>
 <li><p>Be careful this transformation is linear transformation then translation.</p>
 </li>
-<li><p>Rotate matrices around $x-$, $y-$ or $z-axis$  are<br>$$<br>R_x(\theta)=\left[<br>\begin {matrix}<br>1&amp;0&amp;0&amp;0<br>\\0&amp;cos\theta&amp;-sin\theta&amp;0<br>\\0&amp;sin\theta&amp;cos\theta&amp;0<br>\\0&amp;0&amp;0&amp;1<br>\end{matrix}\right]<br>\\<br>R_y(\theta)=\left[<br>\begin {matrix} cos\theta&amp;0&amp;sin\theta&amp;0<br>\\0&amp;1&amp;0&amp;0<br>\\-sin\theta&amp;0&amp;cos\theta&amp;0<br>\\0&amp;0&amp;0&amp;1<br>\end{matrix}\right]<br>\\<br>R_z(\theta)=\left[<br>\begin {matrix} cos\theta&amp;-sin\theta&amp;0&amp;0<br>\\sin\theta&amp;cos\theta&amp;0&amp;0<br>\\0&amp;0&amp;1&amp;0<br>\\0&amp;0&amp;0&amp;1<br>\end{matrix}\right]<br>$$<br>we can notice a fact that the $R_y(\theta)$ is special, if you want to know more, review the “<em>coss product</em>“ and you will know why this phenomenon will occur. </p>
+<li><p>Rotate matrices around $x-$, $y-$ or $z-axis$  are<br>$$<br>R_x(\theta)=\left[<br>\begin {matrix}<br>1&amp;0&amp;0&amp;0<br>\\0&amp;cos\theta&amp;-sin\theta&amp;0<br>\\0&amp;sin\theta&amp;cos\theta&amp;0<br>\\0&amp;0&amp;0&amp;1<br>\end{matrix}\right]<br>\\<br>R_y(\theta)=\left[<br>\begin {matrix} cos\theta&amp;0&amp;sin\theta&amp;0<br>\\0&amp;1&amp;0&amp;0<br>\\-sin\theta&amp;0&amp;cos\theta&amp;0<br>\\0&amp;0&amp;0&amp;1<br>\end{matrix}\right]<br>\\<br>R_z(\theta)=\left[<br>\begin {matrix} cos\theta&amp;-sin\theta&amp;0&amp;0<br>\\sin\theta&amp;cos\theta&amp;0&amp;0<br>\\0&amp;0&amp;1&amp;0<br>\\0&amp;0&amp;0&amp;1<br>\end{matrix}\right]<br>$$<br>We can notice a fact that the $R_y（\theta）$ is special, if you want to know more, review the “<em>coss product</em>“ and you will know why this phenomenon will occur. </p>
 </li>
 <li><p>Euler angles: To compose any 3D rotation from $R_x,R_y,R_z$<br>$$<br>R_{xyz}(\alpha,\beta,\gamma)=R_x（\alpha）R_y（\beta）R_z（\gamma）<br>$$<br>And we often used in flight simulators : roll, pitch, yaw.（中文：偏航、俯仰和滚转）</p>
 <p>Althou the Euler angles can’t avoid the Gimbal Lock（ a kind of deadlock ）, and it can’t finish the smooth interpolation of sphere, but it can easily sovle the 3D rotation problem. So we omit it. （If you want to know more, you can google it） .</p>
@@ -1226,14 +1227,14 @@
 <li><p>What is view transformation — associate the photo when we take.</p>
 <p>Generally, when we take a photo, we always do as follows:</p>
 <ol start="0">
-<li>Find a good place and arrange the elments(Model transformation)</li>
-<li>Find a good <em>angle</em> to put the camera(View transformation)</li>
-<li>Cheese(Projection transformation)</li>
+<li>Find a good place and arrange the elments（Model transformation）</li>
+<li>Find a good <em>angle</em> to put the camera（View transformation）</li>
+<li>Cheese（Projection transformation）</li>
 </ol>
 </li>
 <li><p>How to perform view transformation?</p>
 <ol start="0">
-<li><p>Define the camera: mark $\vec e$ as position, $\hat g$ as look-at/gaze direction and $\hat t$ as up direction(assuming perp. to look at)</p>
+<li><p>Define the camera: mark $\vec e$ as position, $\hat g$ as look-at/gaze direction and $\hat t$ as up direction（assuming perp. to look at）</p>
 </li>
 <li><p>Key observation: If the camera and all objects move together, the photo will be the same. So we always transform the camera to the origin, up at $Y$, look at the $-Z$, and transform the objects along with the camera.</p>
 </li>
@@ -1247,8 +1248,8 @@
 </li>
 <li><p>Rotatse $\hat g \times \hat t$ to $X$</p>
 </li>
-<li><p>And we write $M_{view}=R_{view}T_{view}$, then translate $\vec e$ to origin<br>$$<br>T_{view}=\left[\begin{matrix}<br>1&amp;0&amp;0&amp;-x_e<br>\\<br>0&amp;1&amp;0&amp;-y_e<br>\\<br>0&amp;0&amp;1&amp;-z_e<br>\\<br>0&amp;0&amp;0&amp;1<br>\end{matrix}\right]<br>$$<br>Then rotate $\hat g$  to $-Z$, $\hat t$ to $Y$, $(g\times t)$ to $X$, we find that it hard to caculate, consider the Orthogonality Matrix, we can find the $R_{view}^{-1}$ is easy to caculate.</p>
-<p>Just inverse the rotation $X$ to $(g\times t)$, $Y$ to $\hat t$ and $Z$ to $-\hat g$, then<br>$$<br>R_{view}^{-1}=\left[\begin{matrix}<br>x_{\hat g\times \hat t}&amp;x_t&amp;x_{-g}&amp;0<br>\\<br>y_{\hat g\times \hat t}&amp;y_t&amp;y_{-g}&amp;0<br>\\<br>z_{\hat g\times \hat t}&amp;z_t&amp;z_{-g}&amp;0<br>\\<br>0&amp;0&amp;0&amp;1<br>\end{matrix}\right]<br>$$<br>Because of the property $M^{-1}=M^t$, we can get<br>$$<br>R_{view}=<br>\left[\begin{matrix}<br>x_{\hat g\times \hat t}&amp;y_{\hat g\times \hat t}&amp;z_{\hat g\times \hat t}&amp;0<br>\\<br>x_t&amp;y_t&amp;z_t&amp;0<br>\\<br>x_{-g}&amp;y_{-g}&amp;z_{-g}&amp;0<br>\\<br>0&amp;0&amp;0&amp;1<br>\end{matrix}\right]<br>$$<br>So this is View Transformation Matrix.</p>
+<li><p>And we write $M_{view}=R_{view}T_{view}$, then translate $\vec e$ to origin<br>$$<br>T_{view}=\left[\begin{matrix}<br>1&amp;0&amp;0&amp;-x_e<br>\\<br>0&amp;1&amp;0&amp;-y_e<br>\\<br>0&amp;0&amp;1&amp;-z_e<br>\\<br>0&amp;0&amp;0&amp;1<br>\end{matrix}\right]<br>$$<br>Then rotate $\hat g$  to $-Z$, $\hat t$ to $Y$, $（g\times t）$ to $X$, we find that it hard to caculate, consider the Orthogonality Matrix, we can find the $R_{view}^{-1}$ is easy to caculate.</p>
+<p>Just inverse the rotation $X$ to $（g\times t）$, $Y$ to $\hat t$ and $Z$ to $-\hat g$, then<br>$$<br>R_{view}^{-1}=\left[\begin{matrix}<br>x_{\hat g\times \hat t}&amp;x_t&amp;x_{-g}&amp;0<br>\\<br>y_{\hat g\times \hat t}&amp;y_t&amp;y_{-g}&amp;0<br>\\<br>z_{\hat g\times \hat t}&amp;z_t&amp;z_{-g}&amp;0<br>\\<br>0&amp;0&amp;0&amp;1<br>\end{matrix}\right]<br>$$<br>Because of the property $M^{-1}=M^t$, we can get<br>$$<br>R_{view}=<br>\left[\begin{matrix}<br>x_{\hat g\times \hat t}&amp;y_{\hat g\times \hat t}&amp;z_{\hat g\times \hat t}&amp;0<br>\\<br>x_t&amp;y_t&amp;z_t&amp;0<br>\\<br>x_{-g}&amp;y_{-g}&amp;z_{-g}&amp;0<br>\\<br>0&amp;0&amp;0&amp;1<br>\end{matrix}\right]<br>$$<br>So this is View Transformation Matrix.</p>
 </li>
 </ol>
 </li>
@@ -1265,15 +1266,410 @@
 </ol>
 </li>
 <li><p>Projection transformation: 3D to 2D</p>
+<p>We can identity orthographic projection and perspective projection by the property: Orthographic projection don’t change parallel lines to intersect, but perspective will.  For example, I know the truth, but why are pigeons so big. </p>
 <ol start="0">
 <li><p>Orthographic projection</p>
+<ol start="0">
+<li><p>A simple way of at orgin, looking at $-Z$, up at $Y$ ; <font color="red">Drop $Z$ coordinate</font> and Translate and scale the resultig rectangle to $[-1,1]^2$. （In fact ,the “<em>CGPP</em>“ have the similar descaibe in Chapter 3. But it illustrate the “<em>Durer Image</em>“）;</p>
 </li>
+<li><p>But in general, we want to map a cubioid $[l,r]\times[b,t]\times[f,n]$ to the “canonical（正则、规范，标准）” cube in $\mathbb R^3$ or $[-1,1]^3$;</p>
+</li>
+<li><p>Slightly different orders, we center cuboid by translating then scale into “canonical” cube;</p>
+</li>
+<li><p>And we can get the transformation matrix by （we use right-hand system, if use left-hand system, the forth cow of the second matrix are positive）<br>$$<br>M_{ortho}=<br>\left[\begin{matrix}<br>\frac 2{r-l}&amp;0&amp;0&amp;0<br>\\<br>0&amp;\frac 2{t-b}&amp;0&amp;0<br>\\<br>0&amp;0&amp;\frac 2{n-f}&amp;0<br>\\<br>0&amp;0&amp;0&amp;1<br>\end{matrix}\right]<br>\left[\begin{matrix}<br>1&amp;0&amp;0&amp;-\frac {r+l}2<br>\\<br>0&amp;1&amp;0&amp;-\frac {t+b}2<br>\\<br>0&amp;0&amp;1&amp;-\frac {n+f}2<br>\\<br>0&amp;0&amp;0&amp;1<br>\end{matrix}\right]<br>$$</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<ol>
 <li><p>Perspective（透视） projection</p>
+<ol start="0">
+<li><p>Some preview</p>
+<ol start="0">
+<li>It is the most common in CG, art, visual system and etc. </li>
+<li>The further objects are smaller</li>
+<li>And parallel lines not parallel, it will converge to single point</li>
+</ol>
+</li>
+<li><p>How to do perspective projection </p>
+<ol start="0">
+<li><p>First “squish” the frustum into a cuboid （$n\rightarrow n,f\rightarrow f$）（$M_{persp\rightarrow ortho}$）（In fact, if you get some Topology knowledge, you will easy to understand it,  just see the  $persp$ </p>
+<p>homeomorphic $ortho$）</p>
+<p>![pers_to_ortho]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/pers_to_ortho.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/pers_to_ortho.png）</a></p>
+</li>
+<li><p>Do orthographic projection （Because we have known the $M_{ortho}$）</p>
+<ol start="0">
+<li><p>In order to find a transformation, we should find the relationship betwwn transformed points $（x’,y’,z’）$ and the original points $（x,y,z）$</p>
+<p> ![similar]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/similar.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/similar.png）</a></p>
+<p> And acording to the similar triangle we will get<br> $$<br> y’=\frac nz y，x’=\frac nz x<br> $$<br> So in homogeneous coordinatse<br> $$<br> \left(\begin{matrix}x\\y\\z\\1\end{matrix}\right)\rightarrow<br> \left(\begin{matrix}\frac {nx}z\\\frac {ny}z\\unkown\\1\end{matrix}\right)==<br>\left(\begin{matrix} nx\\ ny\\unkown\\z\end{matrix}\right)<br> $$</p>
+</li>
+<li><p>So the “squish” projection （ persp to ortho） does this<br>$$<br>M_{persp\rightarrow ortho}^{(4\times 4)}\left(\begin{matrix}x\\y\\z\\1\end{matrix}\right)<br>=\left(\begin{matrix} nx\\ ny\\unkown\\z\end{matrix}\right)<br>$$<br>Already good enought to figure out part of $M_{persp \rightarrow ortho}$, and（By using matrices multyple）<br>$$<br>M_{persp \rightarrow ortho}=<br>\left(\begin{matrix}<br>n     &amp;   0  &amp;    0  &amp;  0<br>\\<br>0     &amp;   n  &amp;    0  &amp;  0<br>\\<br>?     &amp;   ?  &amp;    ?  &amp;  ?<br>\\<br>0     &amp;   0  &amp;    1  &amp;  0<br>\end{matrix}\right)<br>$$</p>
+</li>
+<li><p>Observation: the third row is responsible for $z’$</p>
+<ol start="0">
+<li><p>Any point on the near plane will not change<br>$$<br>M_{persp\rightarrow ortho}^{(4\times 4)}\left(\begin{matrix}x\\y\\z\\1\end{matrix}\right)<br>=\left(\begin{matrix} nx\\ ny\\unkown\\z\end{matrix}\right)<br>by\space replace \space z \space with \space n\space<br>\left(\begin{matrix}x\\y\\z\\1\end{matrix}\right)\rightarrow<br>\left(\begin{matrix}x\\y\\n\\1\end{matrix}\right)==<br>\left(\begin{matrix} nx\\ ny\\n^2\\n\end{matrix}\right)<br>$$<br>So the third row must be of the form $（0\space 0\space A\space B）$ and<br>$$<br>（0\space 0\space A\space B）<br>\left（\begin{matrix}x\\y\\z\\1\end{matrix}\right）=n^2<br>$$<br> $n^2$ has nothing to do with $x$ and $y$ . Then we will get the equation $An+B=n^2$</p>
+</li>
+<li><p>Any point’s $z$ on the far plane will not change: We will know that<br>$$<br>\left（\begin{matrix}0\\0\\f\\1\end{matrix}\right）\rightarrow\left（\begin{matrix}0\\0\\f\\1\end{matrix}\right）==\left（\begin{matrix}0\\0\\f^2\\f\end{matrix}\right）<br>$$<br>Then we will get the equation $Af+B=f^2$.</p>
+</li>
+<li><p>We will get a linear equations, by Cramer method ,we will solve this equations, and the answer are $A=n+f\space ,\space B=-nf$</p>
+</li>
+<li><p>Finally, every coefficient we will know the matrix $M_{persp\rightarrow ortho}$ </p>
 </li>
 </ol>
 </li>
 </ol>
-<h2 id="2-Rasterization"><a href="#2-Rasterization" class="headerlink" title="2. Rasterization"></a>2. Rasterization</h2><h2 id="3-Shading"><a href="#3-Shading" class="headerlink" title="3. Shading"></a>3. Shading</h2><h2 id="4-Geometry"><a href="#4-Geometry" class="headerlink" title="4. Geometry"></a>4. Geometry</h2><h2 id="5-Ray-Tracing"><a href="#5-Ray-Tracing" class="headerlink" title="5. Ray Tracing"></a>5. Ray Tracing</h2><h2 id="6-Materials-and-Appearances"><a href="#6-Materials-and-Appearances" class="headerlink" title="6. Materials and Appearances"></a>6. Materials and Appearances</h2><h2 id="7-Advanced-Topics-in-rendering"><a href="#7-Advanced-Topics-in-rendering" class="headerlink" title="7. Advanced Topics in rendering"></a>7. Advanced Topics in rendering</h2><h2 id="8-Cameras-Lenses-and-Light-Fields"><a href="#8-Cameras-Lenses-and-Light-Fields" class="headerlink" title="8. Cameras, Lenses and Light Fields"></a>8. Cameras, Lenses and Light Fields</h2><h2 id="9-Color-and-Perception"><a href="#9-Color-and-Perception" class="headerlink" title="9. Color and Perception"></a>9. Color and Perception</h2><h2 id="10-Animation"><a href="#10-Animation" class="headerlink" title="10. Animation"></a>10. Animation</h2><script>
+</li>
+<li><p>What’s near plane’s $l,r,b,t$ then </p>
+<ol start="0">
+<li><p>If explicitily specified, good</p>
+</li>
+<li><p>Sometimes perople prefer: vertical <strong>field-of-view</strong> （fov$Y$）and <strong>aspect ratio</strong>（Assume symmetry）</p>
+</li>
+<li><p>How to convert from fov$Y$ and aspect $l,r,b,t$？— Trivial</p>
+<p>![fovY]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/fovY.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/fovY.png）</a><br>$$<br>tan\frac {fovY}2=\frac t{|n|},aspect=\frac rt<br>$$</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="2-Rasterization"><a href="#2-Rasterization" class="headerlink" title="2. Rasterization"></a>2. Rasterization</h2><h3 id="What’s-after-MVP"><a href="#What’s-after-MVP" class="headerlink" title="What’s after MVP?"></a>What’s after <strong>MVP</strong>?</h3><p><strong>M</strong>odel transformation to place objects</p>
+<p><strong>V</strong>iew transformation to place camera</p>
+<p><strong>P</strong>rojection transformation by Orthograpihc projection（cuboid to “canonical” cube $[-1,1]^3$ ）and Perspective projection （ frustum to “ canonical “ cube）</p>
+<ol start="0">
+<li><p>we should put Canonical Cube to Screen</p>
+<ol start="0">
+<li><p>What is a screen?</p>
+<ol start="0">
+<li><p>An array of pixels</p>
+</li>
+<li><p>Size of the array: resolution</p>
+</li>
+<li><p>A typical kind of raster display</p>
+</li>
+</ol>
+</li>
+<li><p>Raster == Screen in German</p>
+<p>Rasterize == drawing onto the screen</p>
+</li>
+<li><p>Pixel（FYI, short for “picture element”）</p>
+<ol start="0">
+<li><p>For now: A pixel is a little square with uniform color</p>
+</li>
+<li><p>Color is a mixture of （<font color="red">red</font>, <font color="green">green</font>, <font color="blue">blue</font>）</p>
+</li>
+</ol>
+</li>
+<li><p>Defining the screen: Slightly different from the text “Tiger book”</p>
+<ol start="0">
+<li><p>Pixels’ indices are in the form of $（x,y）$ where both $x$ and $y$ are integers</p>
+</li>
+<li><p>Pixels’ indices are from $（0,0）$ to $（width-1,height-1）$</p>
+</li>
+<li><p>But for every pixel （x,y）, the center of them are at $（x+0.5,y+0.5）$</p>
+</li>
+<li><p>The screen covers range $（0,0）$ to $（width,height）$</p>
+</li>
+<li><p>Irrelevant to $Z$</p>
+</li>
+<li><p>Transform in $xy$ plane: $[-1,1]^2$ to $[0,width]\times [0,height]$, by using viewport transform<br>$$<br>M_{viewport}=<br>\left(\begin{matrix}<br>\frac {width}2     &amp;   0  &amp;    0  &amp;\frac  {width}2<br>\\<br>0     &amp;   \frac {height}2  &amp;    0  &amp;  \frac{height}2<br>\\<br>0    &amp;   0  &amp;   1  &amp;  0<br>\\<br>0     &amp;   0  &amp;    0  &amp;  1<br>\end{matrix}\right)<br>$$</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="Rasterizing-Triangles-into-Pixels"><a href="#Rasterizing-Triangles-into-Pixels" class="headerlink" title="Rasterizing Triangles into Pixels"></a>Rasterizing Triangles into Pixels</h3><ol start="0">
+<li><p>Some Drawing Machine and Different Raster Displays</p>
+<ol start="0">
+<li><p>CNC sharpie Drawing Machine</p>
+</li>
+<li><p>Oscilloscope（示波器）</p>
+<ol start="0">
+<li>The principle: Cathode Ray Tube（阴极射线管）</li>
+<li>Televison: Raster Scan to get the image</li>
+<li>And it have some treat: Raster Scan Pattern of Interlaced Display（隔行扫描）</li>
+</ol>
+</li>
+<li><p>Frame Buffer: Memory for a Raster Display</p>
+</li>
+<li><p>Flat Panel Displays</p>
+<ol start="0">
+<li><p>LCD（Liquid Crystal Display） Pixel</p>
+<p>Principle : </p>
+<ol start="0">
+<li>block or transmit light by twisting polarization </li>
+<li>Illumination from backlight</li>
+<li>Intermediate intensity levels by partial twist</li>
+</ol>
+</li>
+<li><p>LED（Light emitting diode）</p>
+</li>
+<li><p>Electrophoretic（Electronic ink）Display</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Rasterization: Drawing to Raster Displays</p>
+<p><strong>Triangles - Fundamental Shape Primitives.</strong></p>
+<ol start="0">
+<li><p>Why Triangles? </p>
+<ol start="0">
+<li>Most basic polygon —— Break up other polygons</li>
+<li>Unique properties —— Guaranteed to be plannar, well-defined interior and well-defined method for interpolation values at vertices over triangle （Barycentric interpolation）</li>
+</ol>
+</li>
+<li><p>What Pixel Values Approximate a Triangle?</p>
+<p>Input position of triangle vertices projected on screen, how to outpoot?</p>
+<ol start="0">
+<li><p>Sampling a Function: Evaluating a function at a point is sampling. We can discretize a function by sampling</p>
+<pre class="line-numbers language-c"><code class="language-c"> <span class="token keyword">for</span> （<span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>xmax<span class="token punctuation">;</span>x<span class="token operator">++</span>） 
+     output<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token operator">=</span> f（x）<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+</ol>
+</li>
+<li><p>Samplng is a core idea in graphics: We sample time（1D）, area（2D）, direction（2D）,volume（3D）and etc.</p>
+<ol start="2">
+<li><p>Sample if Each Pixel Center is Inside Triangle - Define binary function </p>
+<pre class="line-numbers language-c"><code class="language-c">bool inside（tri t<span class="token punctuation">,</span> Point p）<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//struct Point {</span>
+<span class="token comment" spellcheck="true">//    Elementtype x, y;</span>
+<span class="token comment" spellcheck="true">//};</span>
+<span class="token comment" spellcheck="true">//x,y not necessarily integers</span>
+<span class="token comment" spellcheck="true">//if Point p（x,y） in the t,return true</span>
+<span class="token comment" spellcheck="true">//else return false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>Rasterization = Sampling A 2D Indicator Function（The main code as follow）</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">for</span> （<span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> x <span class="token operator">&lt;</span> xmax<span class="token punctuation">;</span> <span class="token operator">++</span>x）
+    <span class="token keyword">for</span>（<span class="token keyword">int</span> y <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> y<span class="token operator">&lt;</span> ymax<span class="token punctuation">;</span> <span class="token operator">++</span>y）
+        image<span class="token punctuation">[</span>x<span class="token punctuation">]</span><span class="token punctuation">[</span>y<span class="token punctuation">]</span><span class="token operator">=</span>inside（tri<span class="token punctuation">,</span>
+                           x <span class="token operator">+</span> <span class="token number">0.5</span><span class="token punctuation">,</span>
+                           y <span class="token operator">+</span> <span class="token number">0.5</span>）<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>Another way to judge a point whether in the triangle: Use <strong>Cross Product</strong>:</p>
+<p>Suppose $3$ points $A,B,C$,  the point $Q$ we want to judge</p>
+<p>We can get $3$ vectors $\vec {AQ},\vec {BQ},\vec {CQ}$</p>
+<p>If all the $\vec {AB}\times \vec {AQ},\vec {CA} \times \vec {CQ},\vec {BC}\times \vec {BQ}$  are positive or negative, the point in the triangle.</p>
+<p>Else not in the triangle.</p>
+</li>
+<li><p>Edge Cases : We omit it. But if you want to make some special check, you should treatment it special.</p>
+</li>
+<li><p>We can take some method to decrease some calculate like bounding box and etc. </p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Rasterization on Real Displays</p>
+<ol start="0">
+<li><p>Example: Real LCD Screen Pixels （Closeup）（The second called Bayer Pattern）![Real_LCD（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Real_LCD（closeup）.png）]（C:\Users\Y\Desktop\Real_LCD（closeup）.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Real_LCD（closeup）.png）]（C:\Users\Y\Desktop\Real_LCD（closeup）.png）</a></p>
+<p>We can see that the <font color="green">green</font> part more than <font color="red">red</font> and <font color="blue">blue</font>, because of  the more sensitive to green for our eyes.</p>
+</li>
+<li><p>Other Display Methods</p>
+<p>![other_method]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/other_method.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/other_method.png）</a></p>
+</li>
+</ol>
+</li>
+<li><p>Assume Display Pixels Emit Square of Light</p>
+<p>![LCD_pixel]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/LCD_pixel.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/LCD_pixel.png）</a></p>
+</li>
+</ol>
+<h3 id="Antialiasing"><a href="#Antialiasing" class="headerlink" title="Antialiasing"></a>Antialiasing</h3><ol start="0">
+<li><p>Sampling theory</p>
+<p>   <strong>Sampling is Ubiquitous in CG</strong></p>
+<ol start="0">
+<li><p>Rasterization = Sample 2D Positions</p>
+</li>
+<li><p>Photograph = Sample Image Sensor Plane</p>
+</li>
+<li><p>Video = Sample Time</p>
+</li>
+</ol>
+<p>   <strong>Sampling <font color="red">Artifacts</font>（Erros / Mistakes / Inaccuracies ） in CG</strong></p>
+<ol start="0">
+<li><p>Jaggies （Stair case Pattern）</p>
+<p>![Jaggies]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Jaggies.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Jaggies.png）</a></p>
+</li>
+<li><p>Moire Patterns in Imaging</p>
+<p>![Moire_Patterns]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Moire_Patterns.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Moire_Patterns.png）</a></p>
+</li>
+<li><p>Wagon Wheel Illusion （False Motion）</p>
+</li>
+<li><p>And Many More</p>
+<p>Behind the Aliasing Artifacts: </p>
+</li>
+</ol>
+<p>   <strong>Signals are <font color="blue">changing too fast</font> （ high frequency ）but <font color="red"> sampled too slowly</font>.</strong></p>
+</li>
+<li><p>Antialiasing Idea: Blurring （Pre - Filtering） Before Sampling</p>
+<ol start="0">
+<li>Rasterization: Point Sampling in Space</li>
+</ol>
+<p>![tri_sample]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/tri_sample.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/tri_sample.png）</a></p>
+<p>This is <strong>Regular Samping</strong>, Note jaggies in rasterized triangle where pixel value are <strong>pure red or white</strong></p>
+<ol>
+<li><p>Pre-Filter</p>
+<p>![pre_filter_tri_sample]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/pre_filter_tri_sample.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/pre_filter_tri_sample.png）</a></p>
+<p>This is *<em>Antialiased Sampling *</em>. Note antialiased edges in rasterized triangle wher pixel values take intermediate values.</p>
+</li>
+<li><p>But we can’t sample then filter will lead to “<em>Blurred Aliasing</em>“</p>
+<p>![sample_then_filter]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/sample_then_filter.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/sample_then_filter.png）</a></p>
+<p>The first is sample then filter, the second is right.</p>
+<ol start="0">
+<li><p>Why undersampling introduces aliasing and why pre-filtering then sampling can do antialiasing?</p>
+<ol start="0">
+<li><p>Frequency Domain</p>
+<ol start="0">
+<li><p>$sin\omega x$ and $cos\omega x$： well-know periodic functions, the periodic, $f$ is frequency.<br>$$<br>f=\frac \omega {2\pi}<br>$$</p>
+</li>
+<li><p>Fourier Series Expansion: For every periodic functions, it can be written as a linear combination of sine and cosine.</p>
+</li>
+<li><p>Fourier Transform: spatial domain function $f（x）$ can be transform by Fourier transform $F（\omega）=\int_{-\infty}^{\infty}f（x）e^{-2\pi i\omega x}dx$ to frequency domain $F（\omega）$, and according to Euler Formular $e^{ix}=cosx+isinx$.</p>
+</li>
+<li><p>Inverse transform: From $F（\omega）$ by  $f（x）=\int_{-\infty}^{\infty}F（\omega）e^{2\pi i \omega x}d\omega$ to $f（x）$</p>
+</li>
+</ol>
+</li>
+<li><p>Sampling emulation: Higher Frequencies Need Faster Sampling </p>
+<p>Undersampling Creates Frequency Aliases: High-frequency signal is insufficiently sampled: samples erroneously appear to be from a low-frequency signal.</p>
+<p>Two frequencies that are indistinguishable at a given sampling  $f$ are called “aliases”（混叠）</p>
+</li>
+<li><p>Filtering = Getting rid of certain frequency contents</p>
+<ol start="0">
+<li><p>Example: Visualizing Image Frequency Content</p>
+<p>![Fourio_Trans]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Fourio_Trans.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Fourio_Trans.png）</a></p>
+<p>We can know that the lowest frequency information are gathered in the center of the image, and the brighter the color, the more information there is. So this image has many low frequency information. The frequency around are the detail of the image.（Many natural picture like this.）</p>
+</li>
+<li><p>Filter out Low Frequencies Only（Edges）</p>
+<p>![filt_low_f]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/filt_low_f.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/filt_low_f.png）</a></p>
+</li>
+<li><p>Filter Out High Frequencies（Blur）</p>
+<p>![filt_high_f]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/filt_high_f.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/filt_high_f.png）</a></p>
+</li>
+<li><p>Filter Out Low and High Frequencies</p>
+<p>![filt_high_and_low]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/filt_high_and_low.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/filt_high_and_low.png）</a></p>
+</li>
+</ol>
+</li>
+<li><p>Filtering = Convolution = Average</p>
+<p>In a word, convolution can see it as <strong>the “<em>average</em>“ in frequency domain</strong> and the average can see it as <strong>the average in spatial domain</strong></p>
+<ol start="0">
+<li><p>Convolution</p>
+<p>Given a signal sequence $S=[1,3,5,3,7,1,3,8,6,4$ , and a filter $F=[\frac 14,\frac 12,\frac 14]$, the result of the convolution about signal and filter can get a sequence $R$. The $i-th$ element in the result sequence can be caculate by<br>$$<br>R[i]=S[i-1]\times F[1]+S[i]\times F[2]+S[i+1]\times F[3]<br>$$<br>The procesion of it is convolution.</p>
+</li>
+<li><p>Convolution Theorem: Convolution in the spatial domain is equal to mulitiplication in the frequency domain , and vice versa</p>
+<ol start="0">
+<li><p>Filter by convolution in the spatial domain</p>
+</li>
+<li><p>Thansform to frequency domain（Fourier tansform）, multiply by Fourier transform of convolution kernel and Transform back to spatial domain（Inverse Fourier）</p>
+</li>
+<li><p>Example: </p>
+<p>![convolution]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/convolution.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/convolution.png）</a></p>
+</li>
+<li><p>Box Filter = “Low Pass Filter”<br>$$<br>\frac 19 \left[ \begin{matrix}1&amp;1&amp;1\\1&amp;1&amp;1\\1&amp;1&amp;1\end{matrix}\right]<br>$$</p>
+</li>
+<li><p>Wider Filter Kernel = Lower Frequencies</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Sampling = Repeating Frequency Contents</p>
+</li>
+<li><p>Aliasing = Mixed Frequency Contents</p>
+<p>![alias]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/alias.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/alias.png）</a></p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Reduce Aliasing Error</p>
+<ol start="0">
+<li><p>Increase sampling rate</p>
+<ol start="0">
+<li><p>Essentially increasing the distance Essentially increasing the distance between replicas in the Fourier domain</p>
+</li>
+<li><p>Higher resolution displays, sensors, framebuffers…</p>
+</li>
+<li><p>But: costly &amp; may need very high resolution</p>
+</li>
+</ol>
+</li>
+<li><p>Antialiasing: making Fourier contents “narrower” brfore repeating</p>
+<ol start="0">
+<li><p>Antialiasing = Limiting then repeating </p>
+</li>
+<li><p>Antialiasing By Averaging Values in Pixel Area</p>
+<p>Solution: <font color="red">Convolve</font> $f（x,y）$ by a $1$-pixel box-blur, <font color="red">Then sample</font> at every pixel’s center</p>
+</li>
+<li><p>Example: Antialiasing by Computing Average Pixel Value</p>
+<p>In rasterizing one triangle, the average value inside a pixel area of $f（x,y）= $inside（triangle,point） is equal to the area of the pixel covered by the triangle.</p>
+<p>![an_triangle]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/an_triangle.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/an_triangle.png）</a></p>
+</li>
+</ol>
+</li>
+<li><p>Antialiasing By Supersampling （MSAA）</p>
+<ol start="0">
+<li><p>Supersampling</p>
+<p>Approximate the effect of the 1-pixel box filter by sampling multiple locations within a pixel and averaging their values</p>
+</li>
+<li><p>Example</p>
+<ol start="0">
+<li><p>Beginning</p>
+<p>![begin]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/begin.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/begin.png）</a></p>
+</li>
+<li><p>First Step: Take $N\times N$ samples in each pixel</p>
+<p>![first]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/first.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/first.png）</a></p>
+</li>
+<li><p>Second Step: Average the $N\times N$ samples “inside” each pixel</p>
+<p>![second]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/second.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/second.png）</a></p>
+</li>
+<li><p>then</p>
+<p>![last]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/last.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/last.png）</a></p>
+</li>
+<li><p>Result: This is the corresponding signal emitted by the display, but MSAA doesn’t increase the dpi</p>
+<p>![Result]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Result.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Result.png）</a></p>
+</li>
+</ol>
+</li>
+<li><p>No free lunch!</p>
+<p>What’s the cost of MSAA? More calculate and more buffer.</p>
+</li>
+<li><p>Milestones</p>
+<ol start="0">
+<li><p>FXAA（Fast Approximate AA）（快速近似反走样）</p>
+<p>No relationship with add more sample, it is the post-processing of the image. It changes the edge with jaggies to non-jaggy edge . It is quickly.</p>
+</li>
+<li><p>TAA（Temporal AA） /tem’pərəl/ </p>
+<p>To get the post frame information and change some of this frame’s value.</p>
+</li>
+</ol>
+</li>
+<li><p>Super resolution（超分辨率） / super sampling </p>
+<ol start="0">
+<li>From low resolution to high resolution</li>
+<li>Essentially still “not enough samples” problem</li>
+<li>DLSS（Deep Learning Super Sampling）</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="Visibility-occlusion-Z-Buffer"><a href="#Visibility-occlusion-Z-Buffer" class="headerlink" title="Visibility / occlusion - Z-Buffer"></a>Visibility / occlusion - Z-Buffer</h3><ol start="0">
+<li><p>Painter’s Algorithm - Inspired by how painters paint.</p>
+<p>Paint from back to front, <font color="red">overwrite</font> in the framebuffer</p>
+</li>
+</ol>
+<h2 id="3-Shading"><a href="#3-Shading" class="headerlink" title="3. Shading"></a>3. Shading</h2><h3 id="Illumilation"><a href="#Illumilation" class="headerlink" title="Illumilation"></a>Illumilation</h3><h3 id="Shading"><a href="#Shading" class="headerlink" title="Shading"></a>Shading</h3><h3 id="Graphics-Pipeline"><a href="#Graphics-Pipeline" class="headerlink" title="Graphics Pipeline"></a>Graphics Pipeline</h3><h3 id="Texture-Mappng"><a href="#Texture-Mappng" class="headerlink" title="Texture Mappng"></a>Texture Mappng</h3><h2 id="4-Geometry"><a href="#4-Geometry" class="headerlink" title="4. Geometry"></a>4. Geometry</h2><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><h3 id="curves"><a href="#curves" class="headerlink" title="curves"></a>curves</h3><h3 id="surfaces"><a href="#surfaces" class="headerlink" title="surfaces"></a>surfaces</h3><h2 id="5-Ray-Tracing"><a href="#5-Ray-Tracing" class="headerlink" title="5. Ray Tracing"></a>5. Ray Tracing</h2><h2 id="6-Materials-and-Appearances"><a href="#6-Materials-and-Appearances" class="headerlink" title="6. Materials and Appearances"></a>6. Materials and Appearances</h2><h2 id="7-Advanced-Topics-in-rendering"><a href="#7-Advanced-Topics-in-rendering" class="headerlink" title="7. Advanced Topics in rendering"></a>7. Advanced Topics in rendering</h2><h2 id="8-Cameras-Lenses-and-Light-Fields"><a href="#8-Cameras-Lenses-and-Light-Fields" class="headerlink" title="8. Cameras, Lenses and Light Fields"></a>8. Cameras, Lenses and Light Fields</h2><h2 id="9-Color-and-Perception"><a href="#9-Color-and-Perception" class="headerlink" title="9. Color and Perception"></a>9. Color and Perception</h2><h2 id="10-Animation"><a href="#10-Animation" class="headerlink" title="10. Animation"></a>10. Animation</h2><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1782,7 +2178,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">74.2k</span>&nbsp;字
+                class="white-color">76.7k</span>&nbsp;字
             
             
             
