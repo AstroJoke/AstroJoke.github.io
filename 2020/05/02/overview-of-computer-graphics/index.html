@@ -1309,8 +1309,26 @@
 </li>
 <li><p>Observation: the third row is responsible for $z’$</p>
 <ol start="0">
-<li>Any point on the near plane will not change<br> $$<br> M_{persp\rightarrow ortho}^{(4\times 4)}\left(\begin{matrix}x\\y\\z\\1\end{matrix}\right)<br> =\left(\begin{matrix} nx\\ ny\\unkown\\z\end{matrix}\right)<br> by\space replace \space z \space with \space n\space<br> \left(\begin{matrix}x\\y\\z\\1\end{matrix}\right)\rightarrow<br> \left(\begin{matrix}x\\y\\n\\1\end{matrix}\right)==<br> \left(\begin{matrix} nx\\ ny\\n^2\\n\end{matrix}\right)<br> $$<br> So the third row must be of the form $（0\space 0\space A\space B）$ and<br> $$<br> （0\space 0\space A\space B）<br> \left(\begin{matrix}x\\y\\z\\1\end{matrix}\right)=n^2​<br> $$<br> $n^2$ has nothing to do with $x$ and $y$ . Then we will get the equation $An+B=n^2$</li>
+<li><p>Any point on the near plane will not change<br> $$<br> M_{persp\rightarrow ortho}^{(4\times 4)}\left(\begin{matrix}x\\y\\z\\1\end{matrix}\right)<br> =\left(\begin{matrix} nx\\ ny\\unkown\\z\end{matrix}\right)<br> by\space replace \space z \space with \space n\space<br> \left(\begin{matrix}x\\y\\z\\1\end{matrix}\right)\rightarrow<br> \left(\begin{matrix}x\\y\\n\\1\end{matrix}\right)==<br> \left(\begin{matrix} nx\\ ny\\n^2\\n\end{matrix}\right)<br> $$<br> So the third row must be of the form $（0\space 0\space A\space B）$ and<br> $$<br> （0\space 0\space A\space B）<br> \left(\begin{matrix}x\\y\\z\\1\end{matrix}\right)=n^2​<br> $$<br> $n^2$ has nothing to do with $x$ and $y$ . Then we will get the equation $An+B=n^2$</p>
+<p> Any point’s $z$ on the far plane will not change: We will know that<br>$$<br>\left(\begin{matrix}0\\0\\f\\1\end{matrix}\right)\rightarrow\left(\begin{matrix}0\\0\\f\\1\end{matrix}\right)==\left(\begin{matrix}0\\0\\f^2\\f\end{matrix}\right)<br>$$</p>
+<p>Then we will get the equation $Af+B=f^2$ .</p>
+</li>
+<li><p>We will get a linear equations, by Cramer method ,we will solve this equations, and the answer are $A=n+f\space ,\space B=-nf$</p>
+</li>
+<li><p>Finally, every coefficient we will know the matrix $M_{persp\rightarrow ortho}$ </p>
+</li>
 </ol>
+</li>
+</ol>
+</li>
+<li><p>What’s near plane’s $l,r,b,t$ then </p>
+<ol start="0">
+<li><p>If explicitily specified, good</p>
+</li>
+<li><p>Sometimes perople prefer: vertical <strong>field-of-view</strong> （fov$Y$）and <strong>aspect ratio</strong>（Assume symmetry）</p>
+</li>
+<li><p>How to convert from fov$Y$ and aspect $l,r,b,t$？— Trivial</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/fovY.png" alt="fovY"><br>$$<br>tan\frac {fovY}2=\frac t{|n|},aspect=\frac rt<br>$$</p>
 </li>
 </ol>
 </li>
@@ -1319,32 +1337,7 @@
 </ol>
 </li>
 </ol>
-<pre><code>               Any point's $z$ on the far plane will not change: We will know that
-           $$
-           \left(\begin{matrix}0\\\\0\\\\f\\\\1\end{matrix}\right)\rightarrow\left(\begin{matrix}0\\\\0\\\\f\\\\1\end{matrix}\right)==\left(\begin{matrix}0\\\\0\\\\f^2\\\\f\end{matrix}\right)
-           $$
-
-
-              Then we will get the equation $Af+B=f^2$.
-
-              Then we will get the equation $Af+B=f^2$.
-
-           2. We will get a linear equations, by Cramer method ,we will solve this equations, and the answer are $A=n+f\space ,\space B=-nf$
-
-           3. Finally, every coefficient we will know the matrix $M_{persp\rightarrow ortho}$ 
-
-     2. What's near plane's $l,r,b,t$ then 
-
-        0. If explicitily specified, good
-
-        1. Sometimes perople prefer: vertical **field-of-view** （fov$Y$）and **aspect ratio**（Assume symmetry）
-
-        2. How to convert from fov$Y$ and aspect $l,r,b,t$？— Trivial
-
-           ![fovY](https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/fovY.png)
-           $$
-           tan\frac {fovY}2=\frac t{|n|},aspect=\frac rt
-           $$</code></pre><h2 id="2-Rasterization"><a href="#2-Rasterization" class="headerlink" title="2. Rasterization"></a>2. Rasterization</h2><h3 id="What’s-after-MVP"><a href="#What’s-after-MVP" class="headerlink" title="What’s after MVP?"></a>What’s after <strong>MVP</strong>?</h3><p><strong>M</strong>odel transformation to place objects</p>
+<h2 id="2-Rasterization"><a href="#2-Rasterization" class="headerlink" title="2. Rasterization"></a>2. Rasterization</h2><h3 id="What’s-after-MVP"><a href="#What’s-after-MVP" class="headerlink" title="What’s after MVP?"></a>What’s after <strong>MVP</strong>?</h3><p><strong>M</strong>odel transformation to place objects</p>
 <p><strong>V</strong>iew transformation to place camera</p>
 <p><strong>P</strong>rojection transformation by Orthograpihc projection（cuboid to “canonical” cube $[-1,1]^3$ ）and Perspective projection （ frustum to “ canonical “ cube）</p>
 <ol start="0">
