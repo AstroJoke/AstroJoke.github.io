@@ -833,14 +833,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.5k
+                    5.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    34 分
+                    32 分
                 </div>
                 
 				
@@ -1297,38 +1297,20 @@
 <ol start="0">
 <li><p>First “squish” the frustum into a cuboid （$n\rightarrow n,f\rightarrow f$）（$M_{persp\rightarrow ortho}$）（In fact, if you get some Topology knowledge, you will easy to understand it,  just see the  $persp$ </p>
 <p>homeomorphic $ortho$）</p>
-<p>![pers_to_ortho]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/pers_to_ortho.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/pers_to_ortho.png）</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/pers_to_ortho.png" alt="pers_to_ortho"></p>
 </li>
 <li><p>Do orthographic projection （Because we have known the $M_{ortho}$）</p>
 <ol start="0">
 <li><p>In order to find a transformation, we should find the relationship betwwn transformed points $（x’,y’,z’）$ and the original points $（x,y,z）$</p>
-<p> ![similar]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/similar.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/similar.png）</a></p>
+<p> <img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/similar.png" alt="similar"></p>
 <p> And acording to the similar triangle we will get<br> $$<br> y’=\frac nz y，x’=\frac nz x<br> $$<br> So in homogeneous coordinatse<br> $$<br> \left(\begin{matrix}x\\y\\z\\1\end{matrix}\right)\rightarrow<br> \left(\begin{matrix}\frac {nx}z\\\frac {ny}z\\unkown\\1\end{matrix}\right)==<br>\left(\begin{matrix} nx\\ ny\\unkown\\z\end{matrix}\right)<br> $$</p>
 </li>
 <li><p>So the “squish” projection （ persp to ortho） does this<br>$$<br>M_{persp\rightarrow ortho}^{(4\times 4)}\left(\begin{matrix}x\\y\\z\\1\end{matrix}\right)<br>=\left(\begin{matrix} nx\\ ny\\unkown\\z\end{matrix}\right)<br>$$<br>Already good enought to figure out part of $M_{persp \rightarrow ortho}$, and（By using matrices multyple）<br>$$<br>M_{persp \rightarrow ortho}=<br>\left(\begin{matrix}<br>n     &amp;   0  &amp;    0  &amp;  0<br>\\<br>0     &amp;   n  &amp;    0  &amp;  0<br>\\<br>?     &amp;   ?  &amp;    ?  &amp;  ?<br>\\<br>0     &amp;   0  &amp;    1  &amp;  0<br>\end{matrix}\right)<br>$$</p>
 </li>
 <li><p>Observation: the third row is responsible for $z’$</p>
 <ol start="0">
-<li><p>Any point on the near plane will not change<br>$$<br>M_{persp\rightarrow ortho}^{(4\times 4)}\left(\begin{matrix}x\\y\\z\\1\end{matrix}\right)<br>=\left(\begin{matrix} nx\\ ny\\unkown\\z\end{matrix}\right)<br>by\space replace \space z \space with \space n\space<br>\left(\begin{matrix}x\\y\\z\\1\end{matrix}\right)\rightarrow<br>\left(\begin{matrix}x\\y\\n\\1\end{matrix}\right)==<br>\left(\begin{matrix} nx\\ ny\\n^2\\n\end{matrix}\right)<br>$$<br>So the third row must be of the form $（0\space 0\space A\space B）$ and<br>$$<br>（0\space 0\space A\space B）<br>\left（\begin{matrix}x\\y\\z\\1\end{matrix}\right）=n^2<br>$$<br> $n^2$ has nothing to do with $x$ and $y$ . Then we will get the equation $An+B=n^2$</p>
-</li>
-<li><p>Any point’s $z$ on the far plane will not change: We will know that<br>$$<br>\left（\begin{matrix}0\\0\\f\\1\end{matrix}\right）\rightarrow\left（\begin{matrix}0\\0\\f\\1\end{matrix}\right）==\left（\begin{matrix}0\\0\\f^2\\f\end{matrix}\right）<br>$$<br>Then we will get the equation $Af+B=f^2$.</p>
-</li>
-<li><p>We will get a linear equations, by Cramer method ,we will solve this equations, and the answer are $A=n+f\space ,\space B=-nf$</p>
-</li>
-<li><p>Finally, every coefficient we will know the matrix $M_{persp\rightarrow ortho}$ </p>
-</li>
+<li>Any point on the near plane will not change<br> $$<br> M_{persp\rightarrow ortho}^{(4\times 4)}\left(\begin{matrix}x\\y\\z\\1\end{matrix}\right)<br> =\left(\begin{matrix} nx\\ ny\\unkown\\z\end{matrix}\right)<br> by\space replace \space z \space with \space n\space<br> \left(\begin{matrix}x\\y\\z\\1\end{matrix}\right)\rightarrow<br> \left(\begin{matrix}x\\y\\n\\1\end{matrix}\right)==<br> \left(\begin{matrix} nx\\ ny\\n^2\\n\end{matrix}\right)<br> $$<br> So the third row must be of the form $（0\space 0\space A\space B）$ and<br> $$<br> （0\space 0\space A\space B）<br> \left(\begin{matrix}x\\y\\z\\1\end{matrix}\right)=n^2​<br> $$<br> $n^2$ has nothing to do with $x$ and $y$ . Then we will get the equation $An+B=n^2$</li>
 </ol>
-</li>
-</ol>
-</li>
-<li><p>What’s near plane’s $l,r,b,t$ then </p>
-<ol start="0">
-<li><p>If explicitily specified, good</p>
-</li>
-<li><p>Sometimes perople prefer: vertical <strong>field-of-view</strong> （fov$Y$）and <strong>aspect ratio</strong>（Assume symmetry）</p>
-</li>
-<li><p>How to convert from fov$Y$ and aspect $l,r,b,t$？— Trivial</p>
-<p>![fovY]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/fovY.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/fovY.png）</a><br>$$<br>tan\frac {fovY}2=\frac t{|n|},aspect=\frac rt<br>$$</p>
 </li>
 </ol>
 </li>
@@ -1337,7 +1319,32 @@
 </ol>
 </li>
 </ol>
-<h2 id="2-Rasterization"><a href="#2-Rasterization" class="headerlink" title="2. Rasterization"></a>2. Rasterization</h2><h3 id="What’s-after-MVP"><a href="#What’s-after-MVP" class="headerlink" title="What’s after MVP?"></a>What’s after <strong>MVP</strong>?</h3><p><strong>M</strong>odel transformation to place objects</p>
+<pre><code>               Any point's $z$ on the far plane will not change: We will know that
+           $$
+           \left(\begin{matrix}0\\\\0\\\\f\\\\1\end{matrix}\right)\rightarrow\left(\begin{matrix}0\\\\0\\\\f\\\\1\end{matrix}\right)==\left(\begin{matrix}0\\\\0\\\\f^2\\\\f\end{matrix}\right)
+           $$
+
+
+              Then we will get the equation $Af+B=f^2$.
+
+              Then we will get the equation $Af+B=f^2$.
+
+           2. We will get a linear equations, by Cramer method ,we will solve this equations, and the answer are $A=n+f\space ,\space B=-nf$
+
+           3. Finally, every coefficient we will know the matrix $M_{persp\rightarrow ortho}$ 
+
+     2. What's near plane's $l,r,b,t$ then 
+
+        0. If explicitily specified, good
+
+        1. Sometimes perople prefer: vertical **field-of-view** （fov$Y$）and **aspect ratio**（Assume symmetry）
+
+        2. How to convert from fov$Y$ and aspect $l,r,b,t$？— Trivial
+
+           ![fovY](https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/fovY.png)
+           $$
+           tan\frac {fovY}2=\frac t{|n|},aspect=\frac rt
+           $$</code></pre><h2 id="2-Rasterization"><a href="#2-Rasterization" class="headerlink" title="2. Rasterization"></a>2. Rasterization</h2><h3 id="What’s-after-MVP"><a href="#What’s-after-MVP" class="headerlink" title="What’s after MVP?"></a>What’s after <strong>MVP</strong>?</h3><p><strong>M</strong>odel transformation to place objects</p>
 <p><strong>V</strong>iew transformation to place camera</p>
 <p><strong>P</strong>rojection transformation by Orthograpihc projection（cuboid to “canonical” cube $[-1,1]^3$ ）and Perspective projection （ frustum to “ canonical “ cube）</p>
 <ol start="0">
@@ -1467,16 +1474,19 @@
 </li>
 <li><p>Rasterization on Real Displays</p>
 <ol start="0">
-<li><p>Example: Real LCD Screen Pixels （Closeup）（The second called Bayer Pattern）![Real_LCD（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Real_LCD（closeup）.png）]（C:\Users\Y\Desktop\Real_LCD（closeup）.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Real_LCD（closeup）.png）]（C:\Users\Y\Desktop\Real_LCD（closeup）.png）</a></p>
+<li><p>Example: Real LCD Screen Pixels （Closeup）（The second called Bayer Pattern）</p>
+</li>
+<li><p>Real_LCD</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Real_LCD(closeup).png" alt=""></p>
 <p>We can see that the <font color="green">green</font> part more than <font color="red">red</font> and <font color="blue">blue</font>, because of  the more sensitive to green for our eyes.</p>
 </li>
 <li><p>Other Display Methods</p>
-<p>![other_method]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/other_method.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/other_method.png）</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/other_method.png" alt="other_method"></p>
 </li>
 </ol>
 </li>
 <li><p>Assume Display Pixels Emit Square of Light</p>
-<p>![LCD_pixel]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/LCD_pixel.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/LCD_pixel.png）</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/LCD_pixel.png" alt="LCD_pixel"></p>
 </li>
 </ol>
 <h3 id="Antialiasing"><a href="#Antialiasing" class="headerlink" title="Antialiasing"></a>Antialiasing</h3><ol start="0">
@@ -1493,10 +1503,10 @@
 <p>   <strong>Sampling <font color="red">Artifacts</font>（Erros / Mistakes / Inaccuracies ） in CG</strong></p>
 <ol start="0">
 <li><p>Jaggies （Stair case Pattern）</p>
-<p>![Jaggies]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Jaggies.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Jaggies.png）</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Jaggies.png" alt="Jaggies"></p>
 </li>
 <li><p>Moire Patterns in Imaging</p>
-<p>![Moire_Patterns]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Moire_Patterns.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Moire_Patterns.png）</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Moire_Patterns.png" alt="Moire_Patterns"></p>
 </li>
 <li><p>Wagon Wheel Illusion （False Motion）</p>
 </li>
@@ -1510,15 +1520,15 @@
 <ol start="0">
 <li>Rasterization: Point Sampling in Space</li>
 </ol>
-<p>![tri_sample]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/tri_sample.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/tri_sample.png）</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/tri_sample.png" alt="tri_sample"></p>
 <p>This is <strong>Regular Samping</strong>, Note jaggies in rasterized triangle where pixel value are <strong>pure red or white</strong></p>
 <ol>
 <li><p>Pre-Filter</p>
-<p>![pre_filter_tri_sample]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/pre_filter_tri_sample.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/pre_filter_tri_sample.png）</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/pre_filter_tri_sample.png" alt="pre_filter_tri_sample"></p>
 <p>This is *<em>Antialiased Sampling *</em>. Note antialiased edges in rasterized triangle wher pixel values take intermediate values.</p>
 </li>
 <li><p>But we can’t sample then filter will lead to “<em>Blurred Aliasing</em>“</p>
-<p>![sample_then_filter]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/sample_then_filter.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/sample_then_filter.png）</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/sample_then_filter.png" alt="sample_then_filter"></p>
 <p>The first is sample then filter, the second is right.</p>
 <ol start="0">
 <li><p>Why undersampling introduces aliasing and why pre-filtering then sampling can do antialiasing?</p>
@@ -1542,17 +1552,17 @@
 <li><p>Filtering = Getting rid of certain frequency contents</p>
 <ol start="0">
 <li><p>Example: Visualizing Image Frequency Content</p>
-<p>![Fourio_Trans]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Fourio_Trans.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Fourio_Trans.png）</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Fourio_Trans.png" alt="Fourio_Trans"></p>
 <p>We can know that the lowest frequency information are gathered in the center of the image, and the brighter the color, the more information there is. So this image has many low frequency information. The frequency around are the detail of the image.（Many natural picture like this.）</p>
 </li>
 <li><p>Filter out Low Frequencies Only（Edges）</p>
-<p>![filt_low_f]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/filt_low_f.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/filt_low_f.png）</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/filt_low_f.png" alt="filt_low_f"></p>
 </li>
 <li><p>Filter Out High Frequencies（Blur）</p>
-<p>![filt_high_f]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/filt_high_f.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/filt_high_f.png）</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/filt_high_f.png" alt="filt_high_f"></p>
 </li>
 <li><p>Filter Out Low and High Frequencies</p>
-<p>![filt_high_and_low]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/filt_high_and_low.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/filt_high_and_low.png）</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/filt_high_and_low.png" alt="filt_high_and_low"></p>
 </li>
 </ol>
 </li>
@@ -1569,7 +1579,7 @@
 <li><p>Thansform to frequency domain（Fourier tansform）, multiply by Fourier transform of convolution kernel and Transform back to spatial domain（Inverse Fourier）</p>
 </li>
 <li><p>Example: </p>
-<p>![convolution]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/convolution.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/convolution.png）</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/convolution.png" alt="convolution"></p>
 </li>
 <li><p>Box Filter = “Low Pass Filter”<br>$$<br>\frac 19 \left[ \begin{matrix}1&amp;1&amp;1\\1&amp;1&amp;1\\1&amp;1&amp;1\end{matrix}\right]<br>$$</p>
 </li>
@@ -1582,7 +1592,7 @@
 <li><p>Sampling = Repeating Frequency Contents</p>
 </li>
 <li><p>Aliasing = Mixed Frequency Contents</p>
-<p>![alias]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/alias.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/alias.png）</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/alias.png" alt="alias"></p>
 </li>
 </ol>
 </li>
@@ -1609,7 +1619,7 @@
 </li>
 <li><p>Example: Antialiasing by Computing Average Pixel Value</p>
 <p>In rasterizing one triangle, the average value inside a pixel area of $f（x,y）= $inside（triangle,point） is equal to the area of the pixel covered by the triangle.</p>
-<p>![an_triangle]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/an_triangle.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/an_triangle.png）</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/an_triangle.png" alt="an_triangle"></p>
 </li>
 </ol>
 </li>
@@ -1621,19 +1631,19 @@
 <li><p>Example</p>
 <ol start="0">
 <li><p>Beginning</p>
-<p>![begin]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/begin.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/begin.png）</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/begin.png" alt="begin"></p>
 </li>
 <li><p>First Step: Take $N\times N$ samples in each pixel</p>
-<p>![first]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/first.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/first.png）</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/first.png" alt="first"></p>
 </li>
 <li><p>Second Step: Average the $N\times N$ samples “inside” each pixel</p>
-<p>![second]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/second.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/second.png）</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/second.png" alt="second"></p>
 </li>
 <li><p>then</p>
-<p>![last]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/last.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/last.png）</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/last.png" alt="last"></p>
 </li>
 <li><p>Result: This is the corresponding signal emitted by the display, but MSAA doesn’t increase the dpi</p>
-<p>![Result]（<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Result.png）" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Result.png）</a></p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Result.png" alt="Result"></p>
 </li>
 </ol>
 </li>
@@ -2178,7 +2188,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">76.7k</span>&nbsp;字
+                class="white-color">76.5k</span>&nbsp;字
             
             
             
