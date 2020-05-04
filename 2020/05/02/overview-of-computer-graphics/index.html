@@ -833,14 +833,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.3k
+                    7.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    32 分
+                    48 分
                 </div>
                 
 				
@@ -1669,10 +1669,541 @@
 </ol>
 <h3 id="Visibility-occlusion-Z-Buffer"><a href="#Visibility-occlusion-Z-Buffer" class="headerlink" title="Visibility / occlusion - Z-Buffer"></a>Visibility / occlusion - Z-Buffer</h3><ol start="0">
 <li><p>Painter’s Algorithm - Inspired by how painters paint.</p>
-<p>Paint from back to front, <font color="red">overwrite</font> in the framebuffer</p>
+<p>Paint from back to front, <font color="red">overwrite</font> in the framebuffer. It requires sorting in depth （$O(nlogn)$） for n triangles. But it can have unresolvable depth order, for example</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/paiting_exception.png" alt="paiting_exception"></p>
 </li>
 </ol>
-<h2 id="3-Shading"><a href="#3-Shading" class="headerlink" title="3. Shading"></a>3. Shading</h2><h3 id="Illumilation"><a href="#Illumilation" class="headerlink" title="Illumilation"></a>Illumilation</h3><h3 id="Shading"><a href="#Shading" class="headerlink" title="Shading"></a>Shading</h3><h3 id="Graphics-Pipeline"><a href="#Graphics-Pipeline" class="headerlink" title="Graphics Pipeline"></a>Graphics Pipeline</h3><h3 id="Texture-Mappng"><a href="#Texture-Mappng" class="headerlink" title="Texture Mappng"></a>Texture Mappng</h3><h2 id="4-Geometry"><a href="#4-Geometry" class="headerlink" title="4. Geometry"></a>4. Geometry</h2><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><h3 id="curves"><a href="#curves" class="headerlink" title="curves"></a>curves</h3><h3 id="surfaces"><a href="#surfaces" class="headerlink" title="surfaces"></a>surfaces</h3><h2 id="5-Ray-Tracing"><a href="#5-Ray-Tracing" class="headerlink" title="5. Ray Tracing"></a>5. Ray Tracing</h2><h2 id="6-Materials-and-Appearances"><a href="#6-Materials-and-Appearances" class="headerlink" title="6. Materials and Appearances"></a>6. Materials and Appearances</h2><h2 id="7-Advanced-Topics-in-rendering"><a href="#7-Advanced-Topics-in-rendering" class="headerlink" title="7. Advanced Topics in rendering"></a>7. Advanced Topics in rendering</h2><h2 id="8-Cameras-Lenses-and-Light-Fields"><a href="#8-Cameras-Lenses-and-Light-Fields" class="headerlink" title="8. Cameras, Lenses and Light Fields"></a>8. Cameras, Lenses and Light Fields</h2><h2 id="9-Color-and-Perception"><a href="#9-Color-and-Perception" class="headerlink" title="9. Color and Perception"></a>9. Color and Perception</h2><h2 id="10-Animation"><a href="#10-Animation" class="headerlink" title="10. Animation"></a>10. Animation</h2><script>
+<ol>
+<li><p>Z-Buffer- This is the algorithm that eventually won,</p>
+<ol start="0">
+<li><p>Idea:</p>
+<ol start="0">
+<li>Store current min.z-value <font color="red">for each sample（pixel）</font></li>
+<li>Needs an additional buffer for depth values<ol start="0">
+<li>Frame buffer stores color values</li>
+<li>Depth buffer（z-buffer）stores depth</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>IMPORTANT: </p>
+<p>For simplicity we suppose, <font color="red">z is always positive</font>（smaller z$\rightarrow$closer, larger z$\rightarrow$further）</p>
+</li>
+<li><p>Example</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/z_buffer_eg.png" alt="z_buffer_eg"></p>
+</li>
+<li><p>Pseudocode</p>
+<p>Initialize depth buffer to $\infty$, and during rasterization</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">for</span><span class="token punctuation">(</span>each triangle T<span class="token punctuation">)</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span>each <span class="token function">sample</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> z<span class="token punctuation">)</span> in T<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>z <span class="token operator">&lt;</span> zbuffer<span class="token punctuation">[</span>x<span class="token punctuation">,</span>y<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>       <span class="token comment" spellcheck="true">// closest sample so far</span>
+            framebuffer<span class="token punctuation">[</span>x<span class="token punctuation">,</span>y<span class="token punctuation">]</span> <span class="token operator">=</span> rgb<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// update color</span>
+            zbuffer<span class="token punctuation">[</span>x<span class="token punctuation">,</span>y<span class="token punctuation">]</span> <span class="token operator">=</span> z<span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">// update depth</span>
+        <span class="token punctuation">}</span> 
+        <span class="token keyword">else</span> <span class="token punctuation">;</span><span class="token comment" spellcheck="true">// do nothing, this sample is occluded</span>
+    <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>Complexity</p>
+<ol start="0">
+<li>$O(n)$ for $n$ triangles (assuming constant coverage).</li>
+<li>“Sort” $n$ triangles in linear times, because we just find the minimum value, </li>
+</ol>
+</li>
+<li><p>Triangles in different orders, it will have same appearance.</p>
+</li>
+<li><p>Most important visibility algorithm - Implemented in hardware for all GPUs</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="3-Shading"><a href="#3-Shading" class="headerlink" title="3. Shading"></a>3. Shading</h2><p>The <strong>definition</strong> of the shading in Merriam-Webster Dictionary is that <strong>the darkening or coloring of an illustration or diagram with parallel lines or a block of color</strong>. </p>
+<p>In this course, the process of <font color="red">applying a meterial</font> to an object is shading </p>
+<h3 id="A-Simple-Shading-Model-Blinn-Phong-Reflectance-Model"><a href="#A-Simple-Shading-Model-Blinn-Phong-Reflectance-Model" class="headerlink" title="A Simple Shading Model - Blinn-Phong Reflectance Model"></a>A Simple Shading Model - Blinn-Phong Reflectance Model</h3><ol start="0">
+<li><p>Perceptual Observation</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Lamberts_cosine_law.png" alt="Perceptual_blinn_phong"></p>
+</li>
+<li><p>Shading in Local: </p>
+<p>Compute light reflected toward camera at a specific <font color="red">shading point</font></p>
+<ol start="0">
+<li><p>Inputs:</p>
+<p><img src="C:%5CUsers%5CY%5CDesktop%5Cblog_pic%5COOCG%5Cshang_poit_im.png" alt="shang_poit_im"></p>
+<ol start="0">
+<li>Viewer direction $\vec v$</li>
+<li>Surface normal $\vec n$</li>
+<li>Light directions $\vec L_i$</li>
+<li>Surface parameters such as color, shininess and etc</li>
+</ol>
+</li>
+<li><p><font color="red">No shadows</font> will be generated!（ <strong>shading  $\neq$ shadow</strong> ）</p>
+</li>
+<li><p>Diffuse Reflection（Blinn-Phong）</p>
+<ol start="0">
+<li><p>Light is scattered uniformly in all directions - Surface color is the same for all viewing directions</p>
+</li>
+<li><p>Lambert’s cosine law</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Lamberts_cosine_law.png" alt="Lamberts_cosine_law"></p>
+</li>
+<li><p>Light Falloff</p>
+<p>Assume there is a loop with $r=1$,  the light source in the center, then the intensity here is $I$.</p>
+<p>If when suppose the distance of the center and a point is $r$, then the intensity here is<br>$$<br>\frac I{r^2}<br>$$</p>
+</li>
+<li><p>Lambertian（Diffuse）Shading</p>
+<p>Shading independent of view direction, we will have<br>$$<br>L_d=k_d\frac I{r^2} max(0,\vec n \cdot \vec l)<br>$$<br>where </p>
+<p>​    $L_d$ is diffusely reflected light</p>
+<p>​    $k_d$ is diffuse coefficient（color）</p>
+<p>​    $max(0,\vec n \cdot \vec l)$ is energy received by the shading point, 0 can avoid the negative value</p>
+</li>
+</ol>
+</li>
+<li><p>Specular Term（Blinn-Phong）</p>
+<ol start="0">
+<li><p>Intensity <font color="red">depends</font> on view direction - Bright near mirror reflection direction</p>
+</li>
+<li><p>$V$ close to mirror direction == <font color="red"><strong>half vector</strong> near normal</font></p>
+<p><img src="C:%5CUsers%5CY%5CDesktop%5Cblog_pic%5COOCG%5CSpecular_Term.png" alt="Specular_Term"></p>
+<p>Measure “near” by dot product of unit vectors, and we get this vector<br>$$<br>\vec h = bisector(\vec v, \vec l)=\frac{\vec v + \vec l}{||\vec v + \vec l||}\\<br>L_s=k_s\frac I{r^2}max(0,\vec n \cdot\vec h)^p<br>$$<br>Where </p>
+<p>​    $L_s$ is secularly reflected light</p>
+<p>​    $k_s$ is specular coefficient</p>
+<p>Be care for that $max(0,\vec n \cdot\vec h)^p$ have pow $p$, because the cosine function have a property that increasing p narrows the refection lobe.</p>
+</li>
+</ol>
+</li>
+<li><p>Ambient Term</p>
+<p>Shading that does not depend on anything</p>
+<ol start="0">
+<li><p>Add constant color to account for disregarded illumination and fill in black shadows</p>
+</li>
+<li><p>This is approximate / fake<br>$$<br>L_a=k_aI_a<br>$$<br>Where </p>
+<p>​    $L_a$ is reflected ambient light </p>
+<p>​    $k_a$ is ambient coefficient</p>
+</li>
+</ol>
+</li>
+<li><p>Blinn-Phong Reflection Model</p>
+<p><img src="C:%5CUsers%5CY%5CDesktop%5Cblog_pic%5COOCG%5CB_P_M.png" alt="B_P_M"><br>$$<br>L=L_a+L_d+L_s<br>=k_aI_a+L_d=k_d\frac I{r^2} max(0,\vec n \cdot \vec l)+k_s\frac I{r^2}max(0,\vec n \cdot\vec h)^p<br>$$</p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="Shading-Frequencies"><a href="#Shading-Frequencies" class="headerlink" title="Shading Frequencies"></a>Shading Frequencies</h3><ol start="0">
+<li><p>Shade each triangle（<strong>Flat</strong> shading）</p>
+<ol start="0">
+<li>Triangle face is flat - one normal vector</li>
+<li>Not good for smooth surfaces</li>
+</ol>
+</li>
+<li><p>Shade each vertex（<strong>Gouraud</strong> shading）</p>
+<ol start="0">
+<li><font color="red">Interpolate</font> colors from vertices across triangle</li>
+<li>Each vertex has a normal vector</li>
+</ol>
+</li>
+<li><p>Shade each pixel（Phong shading）</p>
+<ol start="0">
+<li>Interpolate normal vectors across each triangle</li>
+<li>Compute full shading model at each pixel </li>
+<li><font color="red">Not the <strong>Blinn-Phong Reflectance Model</strong></font></li>
+</ol>
+</li>
+<li><p>Defining Per-Vertex Normal Vectors</p>
+<ol start="0">
+<li><p>Best to get vertex normals from the underlying geometry.</p>
+</li>
+<li><p>Otherwise have to infer vertex normals from triangle faces, such like<br>$$<br>N_v=\frac {\sum _iN_i}{||\sum_iN_i||}<br>$$</p>
+<img src="C:\Users\Y\Desktop\blog_pic\OOCG\vertex_normal.png" alt="vertex_normal" style="zoom:50%;">
+</li>
+<li><p><font color="red">Barycentric interpolation</font> of vertex normals</p>
+<img src="C:\Users\Y\Desktop\blog_pic\OOCG\BC_VP.png" alt="BC_VP" style="zoom:50%;">
+</li>
+<li><p>Don’t forget to <font color="red">normalize</font> the interpolated directions</p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="Barycentric-Coordinates-Interpolation-Across-Triangles"><a href="#Barycentric-Coordinates-Interpolation-Across-Triangles" class="headerlink" title="Barycentric Coordinates - Interpolation Across Triangles"></a>Barycentric Coordinates - Interpolation Across Triangles</h3><ol start="0">
+<li><p>Some Problems</p>
+<ol start="0">
+<li><p>Why do we want to inerpolate</p>
+<p>Specify values <strong>at vertices</strong> and Obtain smoothly varying values <strong>across triangles</strong></p>
+</li>
+<li><p>Wahat do we want to interpolate</p>
+<p>Texture coordinates, colors, normal vectors. …</p>
+</li>
+<li><p>How do we interpolation</p>
+</li>
+</ol>
+</li>
+<li><p>Barycentric Coordinates</p>
+<p>A coordinate system for triangles $(\alpha, \beta,\gamma)$. For any triangle $ABC$ , assume there is a point $p(x,y)$, then we will get this equation（<font color="red"><strong>Inside the triangle if all three condinates are non-negative</strong></font>）<br>$$<br>(x,y)=\alpha A+\beta B+ \gamma C\\<br>\alpha +\beta +\gamma = 1<br>$$<br>And in the formula, we can get follows accoding to the picture</p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/B_C_T_T.png" alt="B_C_T_T" style="zoom: 33%;">
+
+<p>Then<br>$$<br>\alpha =\frac {A_A}{A_A+A_B+A_C}<br>\\<br>\beta =\frac {A_B}{A_A+A_B+A_C}<br>\\<br>\gamma=\frac {A_C}{A_A+A_B+A_C}<br>$$</p>
+</li>
+<li><p>Barycentric Coordinates：$\alpha =\beta =\gamma = \frac 13$</p>
+</li>
+<li><p>Barycentric Coordinates： Fomulas<br>$$<br>\alpha=\frac{-(x-x_B)(y_C-y_B)+(y-y_B)(x_C-x_B)}{-(x_A-x_B)(y_C-y_B)+(y_A-y_B)(x_C-x_B)}<br>\\<br>\beta=\frac{-(x-x_C)(y_A-y_C)+(y-y_C)(x_A-x_C)}{-(x_B-x_C)(y_A-y_C)+(y_B-y_C)(x_A-x_C)}<br>\\<br>\gamma=1-\alpha -\beta<br>$$</p>
+</li>
+<li><p>Using interpolate values at vertices<br>$$<br>V=\alpha V_A+\beta V_B+\gamma V_C<br>$$<br>where $V_A,V_B,V_C$ can be positions, texture coordinates, color, normal, depth, material attributes…</p>
+<p>But <strong>barycentric coordinates are not invariant under projection!</strong></p>
+</li>
+</ol>
+<h3 id="Graphics-（Real-time-Rendering）Pipeline"><a href="#Graphics-（Real-time-Rendering）Pipeline" class="headerlink" title="Graphics （Real-time Rendering）Pipeline"></a>Graphics （Real-time Rendering）Pipeline</h3><p>A picture can conclude it briefly。</p>
+<p><img src="C:%5CUsers%5CY%5CDesktop%5Cblog_pic%5COOCG%5Cpipeline_CG.png" alt="pipeline_CG"></p>
+<p>Shader Programs</p>
+<ol start="0">
+<li><p>Program vertex and fragment processing stages</p>
+</li>
+<li><p>Describe operation on a single vertex（or fragment）</p>
+</li>
+<li><p>Example GLSL fragment shader program</p>
+<pre class="line-numbers language-c"><code class="language-c">uniform sampler2D myTexture<span class="token punctuation">;</span>
+uniform vec3 lightDir<span class="token punctuation">;</span>
+varying vec2 uv<span class="token punctuation">;</span>
+varying vec3 norm<span class="token punctuation">;</span>
+
+<span class="token keyword">void</span> <span class="token function">diffuseShader</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    vec3 kd<span class="token punctuation">;</span>
+    kd <span class="token operator">=</span> <span class="token function">texture2d</span><span class="token punctuation">(</span>myTexture<span class="token punctuation">,</span> uv<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    kd <span class="token operator">*</span><span class="token operator">=</span> <span class="token function">clamp</span><span class="token punctuation">(</span><span class="token function">dot</span><span class="token punctuation">(</span><span class="token operator">-</span>lightDir<span class="token punctuation">,</span> norm<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    gl_FragColor <span class="token operator">=</span> <span class="token function">vec4</span><span class="token punctuation">(</span>kd<span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>Some tips</p>
+<ol start="0">
+<li>Shader function executes once per fragment</li>
+<li>Output color of surface at the current fragements screen sample position</li>
+<li>This shader perform a texture lookup to abtain the surface’s material color at this point, then performs a diffuse lighting calculation</li>
+</ol>
+</li>
+</ol>
+<h3 id="Texture-Mapping"><a href="#Texture-Mapping" class="headerlink" title="Texture Mapping"></a>Texture Mapping</h3><ol start="0">
+<li><p>Surfaces are 2D</p>
+<p>Surface lives in 3D world space, but every 3D surface point also has a place where it goes in the 2D image（<strong>Texture</strong>）</p>
+</li>
+<li><p>Visualization of Texture Coordinates</p>
+<p>Each triangle vertex is assigned a texture coordinate $（u,v）,u,v\in [0,1]$</p>
+</li>
+<li><p>Apllying Textures</p>
+<ol start="0">
+<li><p>Simple Texture Mapping - Diffuse Color</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">for</span> each raterized screen <span class="token function">sample</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span><span class="token punctuation">:</span>   <span class="token comment" spellcheck="true">//Usually a pixel's center</span>
+    <span class="token punctuation">(</span>u<span class="token punctuation">,</span>v<span class="token punctuation">)</span> <span class="token operator">=</span> evaluate texture coordinate <span class="token function">at</span> <span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">//using barycentric coordinates</span>
+     texcolor <span class="token operator">=</span> texture<span class="token punctuation">.</span><span class="token function">sample</span><span class="token punctuation">(</span>u<span class="token punctuation">,</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     set sample's color to texcolor<span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//Usually the diffuse albedo Kd</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>Texture Magnification</p>
+<ol start="0">
+<li><p>Easy Case</p>
+<p>Generally don’t want this — insufficient texture resolution, a pixel on a texture — a texel（纹理元素), and look at the picture</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/T_M_EG.png" alt="T_M_EG"></p>
+</li>
+<li><p>Bilinear Interpolation</p>
+<p>If we want to sample textture value $f(x,y)$ at a point. and there are some points ${P_{blacki}}$ indicate texture sample locations.</p>
+<p>We can take 4 nearest sample locations, with texture valus as labeled ${u_{0i}}$, and fractional offsets $(s,t)$ as $(distance(u_{00},x),distance(u_{00},y))$</p>
+<p><strong>Linear interpolation（1D）</strong><br>$$<br>lerp(x,v_0,v_1)=v_0+x(v_1-v_0)<br>$$<br><strong>Two helper lerps</strong><br>$$<br>u_0=lerp(s,u_{00},u_{10})<br>\\<br>u_1=lerp(s,u_{01},u_{11})<br>$$<br><strong>Find vertical lerp, to get result:</strong><br>$$<br>f(x,y)=lep(t,u_0,u_1)<br>$$<br>Bilinear interpolation usually gives pretty good results at reasonable costs.</p>
+</li>
+<li><p>Hard Case</p>
+<p>![hard_case_in _tm](<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/hard_case_in" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/hard_case_in</a> _tm.png)</p>
+<ol start="0">
+<li><p>Screen Pixel “Foortprint” in Texture</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/F_i_T_sp.png" alt="F_i_T_sp"></p>
+</li>
+<li><p>Will supersampling Do Antialiasing? </p>
+<p><strong>Yes! But costly</strong></p>
+<ol start="0">
+<li>When highly minified, many texels in pixel footprint</li>
+<li>Signal frequency too large in a pixel</li>
+<li>Need even higher sampling frequency</li>
+</ol>
+</li>
+<li><p>So what if we don’t sample?</p>
+<p> Just need to <strong>get the average value within a range</strong>！</p>
+</li>
+</ol>
+</li>
+<li><p>Mipmap</p>
+<ol start="0">
+<li><p>Mipmap - Allowing （<font color="red">fast, approx., square</font>）range queries</p>
+<p>“Mip” comes from the Latin “Multum in parvo”, meaning a multitude in a small space, for example</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/mipmap.png" alt="mipmap"></p>
+<p>and we will get “Mip hierarchy（level = D）”</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Mip_hierarchy.png" alt="Mip_hierarchy"></p>
+<p>The buffer we need is about 1.33 times than before.</p>
+</li>
+<li><p>Computing Mipmap Level D</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/compure_mipmap.png" alt="compure_mipmap"></p>
+<p>then </p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/mip_map_step_2.png" alt="mip_map_step_2"></p>
+<p>We will get<br>$$<br>D=log_2L\\L=max\left(\sqrt{(\frac {du}{dx})^2+(\frac {dv}{dx})^2}, \sqrt{(\frac {du}{dy})^2+(\frac {dv}{dy})^2}\right)<br>$$<br>and then use square approximate the origin area</p>
+<p><img src="C:%5CUsers%5CY%5CDesktop%5Cblog_pic%5COOCG%5Capproximate_the_area.png" alt="approximate_the_area"></p>
+</li>
+<li><p><strong>Trilinear Interpolation = Bilinear result（in the same level）+Bilinear result（In the adjacent level）</strong></p>
+</li>
+<li><p>Mipmap Limitations - Overblur </p>
+<p>Anisotropic Filtering: Ripmaps and summed area tables</p>
+<ol start="0">
+<li>Can look up axis-aligned rectangulare zones</li>
+<li>Diagonal footprintfs still a problem</li>
+</ol>
+<p>EWA filtering</p>
+<ol start="0">
+<li>Use multiple lookups</li>
+<li>Weighted average</li>
+<li>Mipmap hierarchy still helps</li>
+<li>Can handle irregular footprints</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="Applications-of-textures"><a href="#Applications-of-textures" class="headerlink" title="Applications of textures"></a>Applications of textures</h3><p>In modern GPUs, texture = memory + range query（Filtering）. And General method to bring data to fragment calculations.</p>
+<p>So it have many usages</p>
+<ol start="0">
+<li><p>Environment lighting: Spherical Map then Cube Map</p>
+</li>
+<li><p>Store microgeometry: <strong>Fake</strong> the detailed gemoetry by bump / normal mapping</p>
+<ol start="0">
+<li><p>Bump Mapping: Adding surface detail without adding more triangles</p>
+<p>Note that this is in <strong>local coordinate!</strong> </p>
+<ol start="0">
+<li><p>Perturb surface normal per pixel（For shading computations only）</p>
+<p>Original surface normal $n(p)=(0,1)$</p>
+<p>Derivative at $p$ is $dp=c\times [ h(p+1)-h(p)]$</p>
+<p>Pertubed normal is then $n(p)=(-dp,1).normalized()$</p>
+</li>
+<li><p>In 3D</p>
+<p>Original surface normal $n(p)=(0,0,1)$</p>
+<p>Derivative at $p$ are $\frac {dp}{du}=c_1\times [ h(u+1)-h(u)]$; $\frac {dp}{dv}=c_1\times [ h(v+1)-h(v)]$</p>
+<p>Pertubed normal is then $n(p)=(-\frac {dp}{du},-\frac {dp}{dv},1).normalized()$</p>
+</li>
+<li><p>“Height shift” per texel defined by a texture</p>
+</li>
+<li><p>Modify normal vector</p>
+</li>
+</ol>
+</li>
+<li><p>Displacement mapping - a more advanced approach</p>
+<p>Uses the same texture as in bumping mapping</p>
+<p>Acturally move the vertices</p>
+</li>
+</ol>
+</li>
+<li><p>Procedural textures</p>
+</li>
+<li><p>Solid modeling</p>
+<p>Example: 3D Procedural Nosie + Solid Modeling (Perlin Noise)</p>
+</li>
+<li><p>Volume rendering </p>
+</li>
+<li><p>Provide Precomputed Shading</p>
+</li>
+<li><p>And etc.</p>
+</li>
+</ol>
+<h2 id="4-Geometry"><a href="#4-Geometry" class="headerlink" title="4. Geometry"></a>4. Geometry</h2><h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><ol start="0">
+<li><p>Examples of Geometry</p>
+</li>
+<li><p>Rresent Geometry</p>
+<ol start="0">
+<li><p>Implicit: Based on lassifying points</p>
+<ol start="0">
+<li><p>method: </p>
+<ol start="0">
+<li><p>Algebraic surfaces,</p>
+</li>
+<li><p>Level sets</p>
+<ol start="0">
+<li>Closed-form equations are hard to describe complex shapes </li>
+<li>Alternative: store a grid of values approximating function</li>
+<li>Surface is found where interpolated values equal zero</li>
+<li>Provides much more explicit control over shape (like a texture)</li>
+</ol>
+</li>
+<li><p>Distance functions</p>
+<p>Giving minimum distance （could be distance） from anywhere to object</p>
+</li>
+<li><p>Constructive Solid Geometry</p>
+<p>Bool operate among some geometry.</p>
+</li>
+<li><p>Fractals（分形）</p>
+</li>
+<li><p>and etc</p>
+</li>
+</ol>
+</li>
+<li><p>Points satisfy some specified relationshp, example $x^2+y^2+z^2=1$ is a ball. More generally, $f(x,y,z)=0$</p>
+</li>
+<li><p>Disadvantage is sampling can be hard</p>
+</li>
+<li><p>Advantage is easy to judge a point inside/outside </p>
+</li>
+</ol>
+</li>
+<li><p>Explicit: All points are <strong>given directly</strong> or <strong>via parameter mapping</strong></p>
+<ol start="0">
+<li><p>method: </p>
+<ol start="0">
+<li><p>point cloud: Easiest representation: list of points $(x,y,z)$, it can easily represent any kind of geometry. It usually useful for large datasets, often converted into polygon mesh and difficult to draw in undersampled regions.</p>
+</li>
+<li><p>polygon mesh: Store vertices &amp; polygons （often triangles or quads）. It is easier to do processing / simulation, adaptive sampling, more complicated data structures. Perhaps most common representation in graphic.</p>
+<p>The Wavefront Object File (.obj) Format, a commonly used in Graphics research.  Just a text file that specifies vertices, normals, texture coordinates and their connectivities. </p>
+</li>
+<li><p>subdivision, NURBS </p>
+</li>
+<li><p>and etc</p>
+</li>
+</ol>
+</li>
+<li><p>Example: $f: \mathbb R^2 \rightarrow \mathbb R^3；(u,v)\mapsto (x,y,z) $</p>
+</li>
+<li><p>Disadvantage is hard to judge a point inside/outside</p>
+</li>
+<li><p>Advantage is sampling is easy</p>
+</li>
+</ol>
+</li>
+<li><p>Each choice best suited to a different task / type of geometry</p>
+</li>
+<li><p>Best Representation Depends on the Task</p>
+</li>
+</ol>
+</li>
+<li><p>Implicit Representations</p>
+<ol start="0">
+<li>Pro<ol start="0">
+<li>compact description （ such like a function）</li>
+<li>certain queries easy （inside object, distance to surface）</li>
+<li>good for ray-to-surface intersection（more later）</li>
+<li>for simple shapes, exact description / no sampling error</li>
+<li>easy to handle changes in topology (e.g. fluid)</li>
+</ol>
+</li>
+<li>Cons<ol start="0">
+<li>difficult to model complex shapes</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="curves"><a href="#curves" class="headerlink" title="curves"></a>curves</h3><ol start="0">
+<li><p>Bezier Curves： Defining Cubic Bezier Curve With Tangents</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Bezier_curv.png" alt="Bezier_curv"></p>
+<p>We can easy know that the beginning and ending is $p_0$ and $p_3$.</p>
+</li>
+<li><p>Evaluating Bezier Curves（de Casteljau Algorithm）</p>
+<p>Consider three points（quadratic Bezier）, insert a point using linear interpolation and recursively.</p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/B_C_D_C_ALOG.png" alt="B_C_D_C_ALOG" style="zoom:67%;">
+
+<p>and then link the point smoothly and you will get</p>
+<p><img src="C:%5CUsers%5CY%5CDesktop%5Cblog_pic%5COOCG%5Cb_c_c_d_a_r_a.png" alt="b_c_c_d_a_r_a"></p>
+<p>It can be use in more points.</p>
+</li>
+<li><p>Evaluating Bezier Curves Alegbraic Formula</p>
+<ol start="0">
+<li><p>de Casteljau algorithm gives a pyramid of coefficients</p>
+<img src="C:\Users\Y\Desktop\blog_pic\OOCG\pyirmid_coefficient.png" alt="pyirmid_coefficient" style="zoom:50%;">
+
+<p>then we will get some formulas<br>$$<br>b_0^1(t)=(1-t)b_0+tb_1\\<br>b_1^1(t)=(1-t)b_1+tb_2\\<br>b_0^2(t)=(1-t)b_0^1+tn_1^1<br>=(1-t)^2b_0+2t(1-t)b_1+t^2b_2<br>$$<br>It is Bernstei form of a Bezier cureve of order n:<br>$$<br>b^n(t)=b_0^n(t)=\displaystyle\sum_{j=0}^nb_jB_j^n(t)<br>$$<br>where</p>
+<p>​    $b^n(t)$ is bezier curve order $n$（vector polynomial of degree $n$）</p>
+<p>​    $b_j$ is Bezier control points（vector in $\mathbb R^n$）</p>
+<p>​    $B_j^n(t)$ is Bernsterin polynomial（scalar polynomial of degree $n$）</p>
+<p>And Bernstein polynomials<br>$$<br>B_i^n(t)= {n\choose i}t^i(1-t)^{n-i}<br>$$<br>So the Bernstein form of a Bezier curve of order $n$<br>$$<br>b^n(t)=\displaystyle\sum_{j=0}^nb_jB_j^n(t)<br>$$<br>For example, in $\mathbb R^3$ and $n=3$, $b_0=(0,2,3), b_1=(2,3,5), b_2=(6,7,9),b_3=(3,4,5)$</p>
+<p>These points define a Bezier curve in 3D that is a cubic polynomial in $t$<br>$$<br>b^n(t)=b_0(1-t)^3+b_13t(1-t)^2+b_23t^2(1-t)+b_3t^3<br>$$</p>
+</li>
+<li><p>Bernstein Polynomials</p>
+<p><img src="C:%5CUsers%5CY%5CDesktop%5Cblog_pic%5COOCG%5CBernstein_Poly.png" alt="Bernstein_Poly"></p>
+</li>
+<li><p>Properties of Bezier Curves</p>
+<ol start="0">
+<li><p>Interpolates endpoints</p>
+<p>$b(0)=b_0,b(1)=b_{end}$</p>
+</li>
+<li><p>Tangent to end segments</p>
+<p>$b’(0)=k(b_1-b_0);b’(1)=k(b_{end}-b_{end-1})$</p>
+</li>
+<li><p>Affine transformation property</p>
+<p>Transform curve by transforming contro points</p>
+</li>
+<li><p>Convex hull property</p>
+<p>Curve is within convex hull of control points</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/convex.png" alt="convex"></p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Piecewise Bezier Curves</p>
+<p>If $n$ is big, it will very hard to control. Instead, chain many low-order Bezier curve.</p>
+<p><strong>Piecewise cubic Bezier</strong> the most common technique</p>
+<ol start="0">
+<li><p>Continuity</p>
+<p><img src="C:%5CUsers%5CY%5CDesktop%5Cblog_pic%5COOCG%5CTB_CSA.png" alt="TB_CSA"></p>
+<p>$C^0$ continuity: $a_n=b_0$</p>
+<p>$C^1$ continuity:$a_n=b_0=\frac 12(a_{n-1}+b_1)$</p>
+</li>
+</ol>
+</li>
+<li><p>Spline </p>
+<p>A continuous curve constructed so as to pass through a given set of points and have a certain number of continuous derivatives. In short, a curve under control </p>
+</li>
+<li><p>B-splines</p>
+<p>Short for basis splines</p>
+<p>Require more information than Bezier curves</p>
+<p>Satisfy all important properties that Bezier curves have (i.e. superset)</p>
+<p>It’s hard to explain, if you want to know more, you can see my article “清华MOOC图形学基础：几何造型”</p>
+</li>
+</ol>
+<h3 id="surfaces"><a href="#surfaces" class="headerlink" title="surfaces"></a>surfaces</h3><ol start="0">
+<li><p>Bezier Surfaces</p>
+<ol start="0">
+<li><p>Bicubic Bezier Surface Patch : Use Bezier Curve in two direction.</p>
+</li>
+<li><p>Evaluating Bezier Surfaces: </p>
+<p>For bicubic Bezier surface patch</p>
+<p>​    Input ：$4\times 4$ control points</p>
+<p>​    Output：2D surface parameterized by $(u,v)$ in $[0,1]^2$</p>
+<p>​    Goal: Evaluate surface position corresponding to $(u,v)$</p>
+<p>​    $(u,v)$-separable application of de Casteljau algorithm</p>
+<ol start="0">
+<li>Use de Casteljau to evaluate point u on each of the 4 Bezier curves in $u$. This gives 4 control points for the “moving” Bezier curve.</li>
+<li>Use 1D de Casteljau to evaluate point $v$ on the “moving” curve</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Mesh Operations：Geometry Processing</p>
+<ol start="0">
+<li><p>Mesh subdivision - Increase resolution</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/subdivision_triansge.png" alt="subdivision_triansge"></p>
+<ol start="0">
+<li><p>Loop Subdivision（Loop is a person）</p>
+<p>Common subdivision rule <font color="red">for triangle meshs</font>.</p>
+<p>First, create more triangles（vertices）, second, tune their positions</p>
+<p>Split each triangle into four, then assign new vertex positions according to weights（New / old vertices updated differently）</p>
+</li>
+<li><p>Loop subdivision - Update</p>
+<p>For new vertices: we name 2 equilateral triangles’ vertices as $A,B,C$ and $A,B,D$. Then, we find a new vertex in $AB$, and the position should follow $\frac 38\times(A+B)+\frac 18\times (C+D)$</p>
+<p>For old vertices: the point in the center of the degree 6 vertices will update to the point which follow the rule ($u$ is the old vertices )$(1-n\times u)\times original_position+u\times neighbor_position_sum$</p>
+</li>
+<li><p><font color="red">Catmull</font>-Clark Subdivision（<font color="red">General Mesh</font>）</p>
+</li>
+</ol>
+</li>
+<li><p>Mesh simplification - Decrease resolution; try to preserve shape / appearance</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/simlication_tiangle.png" alt="simlication_tiangle"></p>
+</li>
+<li><p>Mesh regularization - modify sample distribution to improve quality</p>
+<p><img src="C:%5CUsers%5CY%5CDesktop%5Cblog_pic%5COOCG%5Cmesh_regularization.png" alt="mesh_regularization"></p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="5-Ray-Tracing"><a href="#5-Ray-Tracing" class="headerlink" title="5. Ray Tracing"></a>5. Ray Tracing</h2><h2 id="6-Materials-and-Appearances"><a href="#6-Materials-and-Appearances" class="headerlink" title="6. Materials and Appearances"></a>6. Materials and Appearances</h2><h2 id="7-Advanced-Topics-in-rendering"><a href="#7-Advanced-Topics-in-rendering" class="headerlink" title="7. Advanced Topics in rendering"></a>7. Advanced Topics in rendering</h2><h2 id="8-Cameras-Lenses-and-Light-Fields"><a href="#8-Cameras-Lenses-and-Light-Fields" class="headerlink" title="8. Cameras, Lenses and Light Fields"></a>8. Cameras, Lenses and Light Fields</h2><h2 id="9-Color-and-Perception"><a href="#9-Color-and-Perception" class="headerlink" title="9. Color and Perception"></a>9. Color and Perception</h2><h2 id="10-Animation"><a href="#10-Animation" class="headerlink" title="10. Animation"></a>10. Animation</h2><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -2181,7 +2712,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">76.5k</span>&nbsp;字
+                class="white-color">79k</span>&nbsp;字
             
             
             
