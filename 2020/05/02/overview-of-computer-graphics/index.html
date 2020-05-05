@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="GAMES-101：Modern Computer Graphics, AleXandrite">
+    <meta name="keywords" content="Overview-of-Computer-Graphics, AleXandrite">
     <meta name="description" content="持续更新中">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>GAMES-101：Modern Computer Graphics | AleXandrite</title>
+    <title>Overview-of-Computer-Graphics | AleXandrite</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -678,7 +678,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">GAMES-101：Modern Computer Graphics</h1>
+                    <h1 class="description center-align post-title">Overview-of-Computer-Graphics</h1>
                 </div>
             </div>
         </div>
@@ -833,14 +833,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    7.8k
+                    11.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    48 分
+                    71 分
                 </div>
                 
 				
@@ -1297,12 +1297,13 @@
 <ol start="0">
 <li><p>First “squish” the frustum into a cuboid （$n\rightarrow n,f\rightarrow f$）（$M_{persp\rightarrow ortho}$）（In fact, if you get some Topology knowledge, you will easy to understand it,  just see the  $persp$ </p>
 <p>homeomorphic $ortho$）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/pers_to_ortho.png" alt="pers_to_ortho"></p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/pers_to_ortho.png" alt="pers_to_ortho" style="zoom:50%;">
 </li>
 <li><p>Do orthographic projection （Because we have known the $M_{ortho}$）</p>
 <ol start="0">
 <li><p>In order to find a transformation, we should find the relationship betwwn transformed points $（x’,y’,z’）$ and the original points $（x,y,z）$</p>
-<p> <img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/similar.png" alt="similar"></p>
+ <img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/similar.png" alt="similar" style="zoom:50%;">
+
 <p> And acording to the similar triangle we will get<br> $$<br> y’=\frac nz y，x’=\frac nz x<br> $$<br> So in homogeneous coordinatse<br> $$<br> \left(\begin{matrix}x\\y\\z\\1\end{matrix}\right)\rightarrow<br> \left(\begin{matrix}\frac {nx}z\\\frac {ny}z\\unkown\\1\end{matrix}\right)==<br>\left(\begin{matrix} nx\\ ny\\unkown\\z\end{matrix}\right)<br> $$</p>
 </li>
 <li><p>So the “squish” projection （ persp to ortho） does this<br>$$<br>M_{persp\rightarrow ortho}^{(4\times 4)}\left(\begin{matrix}x\\y\\z\\1\end{matrix}\right)<br>=\left(\begin{matrix} nx\\ ny\\unkown\\z\end{matrix}\right)<br>$$<br>Already good enought to figure out part of $M_{persp \rightarrow ortho}$, and（By using matrices multyple）<br>$$<br>M_{persp \rightarrow ortho}=<br>\left(\begin{matrix}<br>n     &amp;   0  &amp;    0  &amp;  0<br>\\<br>0     &amp;   n  &amp;    0  &amp;  0<br>\\<br>?     &amp;   ?  &amp;    ?  &amp;  ?<br>\\<br>0     &amp;   0  &amp;    1  &amp;  0<br>\end{matrix}\right)<br>$$</p>
@@ -1470,16 +1471,20 @@
 <li><p>Example: Real LCD Screen Pixels （Closeup）（The second called Bayer Pattern）</p>
 </li>
 <li><p>Real_LCD</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Real_LCD(closeup).png" alt=""></p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Real_LCD(closeup).png" style="zoom:50%;">
+
 <p>We can see that the <font color="green">green</font> part more than <font color="red">red</font> and <font color="blue">blue</font>, because of  the more sensitive to green for our eyes.</p>
 </li>
 <li><p>Other Display Methods</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/other_method.png" alt="other_method"></p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/other_method.png" alt="other_method" style="zoom:50%;">
 </li>
 </ol>
 </li>
 <li><p>Assume Display Pixels Emit Square of Light</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/LCD_pixel.png" alt="LCD_pixel"></p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/LCD_pixel.png" alt="LCD_pixel" style="zoom:50%;">
+
+
+
 </li>
 </ol>
 <h3 id="Antialiasing"><a href="#Antialiasing" class="headerlink" title="Antialiasing"></a>Antialiasing</h3><ol start="0">
@@ -1496,10 +1501,10 @@
 <p>   <strong>Sampling <font color="red">Artifacts</font>（Erros / Mistakes / Inaccuracies ） in CG</strong></p>
 <ol start="0">
 <li><p>Jaggies （Stair case Pattern）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Jaggies.png" alt="Jaggies"></p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Jaggies.png" alt="Jaggies" style="zoom:50%;">
 </li>
 <li><p>Moire Patterns in Imaging</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Moire_Patterns.png" alt="Moire_Patterns"></p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Moire_Patterns.png" alt="Moire_Patterns" style="zoom:50%;">
 </li>
 <li><p>Wagon Wheel Illusion （False Motion）</p>
 </li>
@@ -1513,15 +1518,18 @@
 <ol start="0">
 <li>Rasterization: Point Sampling in Space</li>
 </ol>
-<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/tri_sample.png" alt="tri_sample"></p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/tri_sample.png" alt="tri_sample" style="zoom:67%;">
+
 <p>This is <strong>Regular Samping</strong>, Note jaggies in rasterized triangle where pixel value are <strong>pure red or white</strong></p>
 <ol>
 <li><p>Pre-Filter</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/pre_filter_tri_sample.png" alt="pre_filter_tri_sample"></p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/pre_filter_tri_sample.png" alt="pre_filter_tri_sample" style="zoom:67%;">
+
 <p>This is *<em>Antialiased Sampling *</em>. Note antialiased edges in rasterized triangle wher pixel values take intermediate values.</p>
 </li>
 <li><p>But we can’t sample then filter will lead to “<em>Blurred Aliasing</em>“</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/sample_then_filter.png" alt="sample_then_filter"></p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/sample_then_filter.png" alt="sample_then_filter" style="zoom:50%;">
+
 <p>The first is sample then filter, the second is right.</p>
 <ol start="0">
 <li><p>Why undersampling introduces aliasing and why pre-filtering then sampling can do antialiasing?</p>
@@ -1585,7 +1593,7 @@
 <li><p>Sampling = Repeating Frequency Contents</p>
 </li>
 <li><p>Aliasing = Mixed Frequency Contents</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/alias.png" alt="alias"></p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/alias.png" alt="alias" style="zoom:67%;">
 </li>
 </ol>
 </li>
@@ -1624,19 +1632,19 @@
 <li><p>Example</p>
 <ol start="0">
 <li><p>Beginning</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/begin.png" alt="begin"></p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/begin.png" alt="begin" style="zoom:33%;">
 </li>
 <li><p>First Step: Take $N\times N$ samples in each pixel</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/first.png" alt="first"></p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/first.png" alt="first" style="zoom:50%;">
 </li>
 <li><p>Second Step: Average the $N\times N$ samples “inside” each pixel</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/second.png" alt="second"></p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/second.png" alt="second" style="zoom:50%;">
 </li>
 <li><p>then</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/last.png" alt="last"></p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/last.png" alt="last" style="zoom:50%;">
 </li>
 <li><p>Result: This is the corresponding signal emitted by the display, but MSAA doesn’t increase the dpi</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Result.png" alt="Result"></p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Result.png" alt="Result" style="zoom:50%;">
 </li>
 </ol>
 </li>
@@ -1670,7 +1678,10 @@
 <h3 id="Visibility-occlusion-Z-Buffer"><a href="#Visibility-occlusion-Z-Buffer" class="headerlink" title="Visibility / occlusion - Z-Buffer"></a>Visibility / occlusion - Z-Buffer</h3><ol start="0">
 <li><p>Painter’s Algorithm - Inspired by how painters paint.</p>
 <p>Paint from back to front, <font color="red">overwrite</font> in the framebuffer. It requires sorting in depth （$O(nlogn)$） for n triangles. But it can have unresolvable depth order, for example</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/paiting_exception.png" alt="paiting_exception"></p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/paiting_exception.png" alt="paiting_exception" style="zoom:67%;">
+
+
+
 </li>
 </ol>
 <ol>
@@ -1690,7 +1701,7 @@
 <p>For simplicity we suppose, <font color="red">z is always positive</font>（smaller z$\rightarrow$closer, larger z$\rightarrow$further）</p>
 </li>
 <li><p>Example</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/z_buffer_eg.png" alt="z_buffer_eg"></p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/z_buffer_eg.png" alt="z_buffer_eg" style="zoom:67%;">
 </li>
 <li><p>Pseudocode</p>
 <p>Initialize depth buffer to $\infty$, and during rasterization</p>
@@ -1720,13 +1731,13 @@
 <p>In this course, the process of <font color="red">applying a meterial</font> to an object is shading </p>
 <h3 id="A-Simple-Shading-Model-Blinn-Phong-Reflectance-Model"><a href="#A-Simple-Shading-Model-Blinn-Phong-Reflectance-Model" class="headerlink" title="A Simple Shading Model - Blinn-Phong Reflectance Model"></a>A Simple Shading Model - Blinn-Phong Reflectance Model</h3><ol start="0">
 <li><p>Perceptual Observation</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Lamberts_cosine_law.png" alt="Perceptual_blinn_phong"></p>
 </li>
 <li><p>Shading in Local: </p>
 <p>Compute light reflected toward camera at a specific <font color="red">shading point</font></p>
 <ol start="0">
 <li><p>Inputs:</p>
-<p><img src="C:%5CUsers%5CY%5CDesktop%5Cblog_pic%5COOCG%5Cshang_poit_im.png" alt="shang_poit_im"></p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/shang_poit_im.png" alt="shang_poit_im" style="zoom: 67%;">
+
 <ol start="0">
 <li>Viewer direction $\vec v$</li>
 <li>Surface normal $\vec n$</li>
@@ -1741,7 +1752,7 @@
 <li><p>Light is scattered uniformly in all directions - Surface color is the same for all viewing directions</p>
 </li>
 <li><p>Lambert’s cosine law</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Lamberts_cosine_law.png" alt="Lamberts_cosine_law"></p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Lamberts_cosine_law.png" alt="Lamberts_cosine_law" style="zoom: 50%;">
 </li>
 <li><p>Light Falloff</p>
 <p>Assume there is a loop with $r=1$,  the light source in the center, then the intensity here is $I$.</p>
@@ -1760,7 +1771,8 @@
 <li><p>Intensity <font color="red">depends</font> on view direction - Bright near mirror reflection direction</p>
 </li>
 <li><p>$V$ close to mirror direction == <font color="red"><strong>half vector</strong> near normal</font></p>
-<p><img src="C:%5CUsers%5CY%5CDesktop%5Cblog_pic%5COOCG%5CSpecular_Term.png" alt="Specular_Term"></p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/sular_term.png" alt="sular_term" style="zoom:50%;">
+
 <p>Measure “near” by dot product of unit vectors, and we get this vector<br>$$<br>\vec h = bisector(\vec v, \vec l)=\frac{\vec v + \vec l}{||\vec v + \vec l||}\\<br>L_s=k_s\frac I{r^2}max(0,\vec n \cdot\vec h)^p<br>$$<br>Where </p>
 <p>​    $L_s$ is secularly reflected light</p>
 <p>​    $k_s$ is specular coefficient</p>
@@ -1907,7 +1919,7 @@ varying vec3 norm<span class="token punctuation">;</span>
 <p>![hard_case_in _tm](<a href="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/hard_case_in" target="_blank" rel="noopener">https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/hard_case_in</a> _tm.png)</p>
 <ol start="0">
 <li><p>Screen Pixel “Foortprint” in Texture</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/F_i_T_sp.png" alt="F_i_T_sp"></p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/F_i_T_sp.png" alt="F_i_T_sp" style="zoom:50%;">
 </li>
 <li><p>Will supersampling Do Antialiasing? </p>
 <p><strong>Yes! But costly</strong></p>
@@ -2179,7 +2191,7 @@ varying vec3 norm<span class="token punctuation">;</span>
 <li><p>Mesh Operations：Geometry Processing</p>
 <ol start="0">
 <li><p>Mesh subdivision - Increase resolution</p>
-<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/subdivision_triansge.png" alt="subdivision_triansge"></p>
+<p> <img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/subdivision_triansge.png" alt="subdivision_triansge"></p>
 <ol start="0">
 <li><p>Loop Subdivision（Loop is a person）</p>
 <p>Common subdivision rule <font color="red">for triangle meshs</font>.</p>
@@ -2191,19 +2203,542 @@ varying vec3 norm<span class="token punctuation">;</span>
 <p>For old vertices: the point in the center of the degree 6 vertices will update to the point which follow the rule ($u$ is the old vertices )$(1-n\times u)\times original_position+u\times neighbor_position_sum$</p>
 </li>
 <li><p><font color="red">Catmull</font>-Clark Subdivision（<font color="red">General Mesh</font>）</p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/MesH_CCSUB.png" alt="MesH_CCSUB" style="zoom:50%;">
+
+<p>Each subdivision step: Add vertex in each face. Add midpoint on each edge and connect all new vertices. </p>
+<p>After one subdivision: There have 4 extraordinary vertices, and their degrees are 3（new） or 5（old）and there have no non-quad faces.</p>
+<p><strong>FYI</strong>： Catmull-Clark Vertex Update Rules（Quad Mesh）</p>
+<p>Face point：<br>$$<br>f=\frac {v_1+v_2+v_3+v_4}4<br>$$<br>Edge point:<br>$$<br>e=\frac {v_1+v_2+f_1+f_2}4<br>$$<br>Vertex point<br>$$<br>e=\frac {f_1+f_2+f_3+f_4+2(m_1+m_2+m_3+m_4)+4p}{16}<br>$$<br>The convergence of Catmull-Clark Subdivition can overall shape and creases.</p>
 </li>
 </ol>
 </li>
 <li><p>Mesh simplification - Decrease resolution; try to preserve shape / appearance</p>
 <p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/simlication_tiangle.png" alt="simlication_tiangle"></p>
+<ol start="0">
+<li>Gold：Reduce number of mesh elements while maintaing the overall shape</li>
+<li>Method：Collapsing An Edge - Suppose we simplify a mesh using <font colo="red">edge collapsing</font><ol start="0">
+<li>Quadric Error Metrices: New vertex ahould minimize its <font color="red">sum of square distance（L2 distance）</font> to previously related triangle planes.</li>
+<li>How ie cost to collapse an edge: computing edge midpoint, measure quadric error</li>
+<li>Simplification via Quadric Error：Iteratively collapse edges<ol start="0">
+<li>approximate distance to surface as sum of distances to planes containing tricangles.</li>
+<li>iteratively collapse edge <font color="red">with smallest score</font></li>
+<li>use priority queue and some greedy algorithm</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
 </li>
 <li><p>Mesh regularization - modify sample distribution to improve quality</p>
 <p><img src="C:%5CUsers%5CY%5CDesktop%5Cblog_pic%5COOCG%5Cmesh_regularization.png" alt="mesh_regularization"></p>
 </li>
 </ol>
 </li>
+<li><p>Shadow mapping </p>
+<ol start="0">
+<li><p>An Image-space Algorithm</p>
+<ol start="0">
+<li><p>no knowledge of scene’s gfeometry during shadow computation</p>
+</li>
+<li><p>must deal with aliasing artifacts</p>
+</li>
 </ol>
-<h2 id="5-Ray-Tracing"><a href="#5-Ray-Tracing" class="headerlink" title="5. Ray Tracing"></a>5. Ray Tracing</h2><h2 id="6-Materials-and-Appearances"><a href="#6-Materials-and-Appearances" class="headerlink" title="6. Materials and Appearances"></a>6. Materials and Appearances</h2><h2 id="7-Advanced-Topics-in-rendering"><a href="#7-Advanced-Topics-in-rendering" class="headerlink" title="7. Advanced Topics in rendering"></a>7. Advanced Topics in rendering</h2><h2 id="8-Cameras-Lenses-and-Light-Fields"><a href="#8-Cameras-Lenses-and-Light-Fields" class="headerlink" title="8. Cameras, Lenses and Light Fields"></a>8. Cameras, Lenses and Light Fields</h2><h2 id="9-Color-and-Perception"><a href="#9-Color-and-Perception" class="headerlink" title="9. Color and Perception"></a>9. Color and Perception</h2><h2 id="10-Animation"><a href="#10-Animation" class="headerlink" title="10. Animation"></a>10. Animation</h2><script>
+</li>
+<li><p>Key idea</p>
+<p>The points Not in shadow must be seen both <strong>by the light</strong> and <strong>by the camera</strong></p>
+</li>
+<li><p>Step 1：Render from Light：Depth image from light source</p>
+</li>
+<li><p>Step 2A：Render from eye：standard image （with depth） from eye </p>
+</li>
+<li><p>Step 2B：Project to light：Project visible points in eye vie back to light source</p>
+<p><font color="red">Note: Reprojected depths from light and eye may not the same, so in some cases, we should BLOCKED it</font></p>
+</li>
+<li><p>The example you can see the BV1X7411F744?t=1323&amp;p=12 beginning with 60’10’’</p>
+</li>
+<li><p>Problem with shadow maps</p>
+<ol start="0">
+<li><p>Hard shadows（points lights only）</p>
+<p>Be care for that if the light source have volume, it can be generate soft shadows by other methods, but if it is a point ,it can only generate hard shadows</p>
+</li>
+<li><p>Quality depends on shadow map resolution（general problm with image-based techniques）</p>
+</li>
+<li><p>Involves equality comparison of floating point depth values means issues of scale, bias, tolerance</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="5-Ray-Tracing"><a href="#5-Ray-Tracing" class="headerlink" title="5. Ray Tracing"></a>5. Ray Tracing</h2><p>Why Ray Tracing?</p>
+<ol start="0">
+<li><p>Becase rasterization couldn’t handle global effects well, like（soft） shadows and especially when the light bounces more than once</p>
+</li>
+<li><p>Rasterization is fast, but quality is relatively low</p>
+</li>
+<li><p>Ray tracing is accurate, but is <font color="red">very slow</font></p>
+<p>Rasterization：<font color="red">real-time</font>, but ray tracing is <font color="blue">offline</font>, and it will use about 10K CPU core hours to render <font color="red">one frame</font> in production.</p>
+</li>
+</ol>
+<p>Light Rays - Three ideas about light rays</p>
+<ol start="0">
+<li>Light travels in straight lines（though this is wrong）</li>
+<li>Light rays do not “collide” with each other if they cross（though this is still wrong）</li>
+<li>Light rays travel from the light sources to the eye （but the physics is invariant under path reversal - reciprocity）</li>
+</ol>
+<p>Ray casting</p>
+<ol start="0">
+<li>Generate an image by casting one ray per pixel</li>
+<li>Check for shadows by sending a ray to the light（《CGPP》chapter3 have some illustrate about it）</li>
+</ol>
+<h3 id="Whitted-Style（Recursive）-Ray-Tracing"><a href="#Whitted-Style（Recursive）-Ray-Tracing" class="headerlink" title="Whitted-Style（Recursive） Ray Tracing"></a>Whitted-Style（Recursive） Ray Tracing</h3><p>A picture <strong>may</strong> illustrate it clearly</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/whited_ray_tracing.png" alt="whited_ray_tracing"></p>
+<ol start="0">
+<li><p>Ray-Surface Intersection </p>
+<ol start="0">
+<li><p>Ray Equatiom </p>
+<p> Ray is defined by its origin and a direction vector<br>$$<br>r(t)=O+t\vec d,0\leq t &lt;\infty<br>$$<br>where $r$ is int, along ray, $t$ is “time”, $O$ is origin and $\vec t$ is normalized direction.</p>
+</li>
+<li><p>Ray Intersection With Sphere</p>
+<p>Suppose the equation of sphere is $p:(p-c)^2-R^2=0$， <font color="red">the intersection $p$ must satisfy both equations（ray and sphere）</font></p>
+<p>Solve for intersection $(O+t\vec d - c)^2-R^2=0$, by using the quadratic formula ,we can get<br>$$<br>t=\frac {-b\pm \sqrt{b^2-4ac}}{2a}<br>$$</p>
+</li>
+<li><p>Ray Intersection With Implicit Surface</p>
+<p>Firstly, we get a generay implicit surface $p:f(p)=0$</p>
+<p>then substitute ray equation: $f(O+t\vec d)=0$</p>
+<p>Solve the <strong>real,postive</strong> roots</p>
+</li>
+<li><p>Ray Intersection With Triangle Mesh（Be careful that the genus should be $0$）</p>
+<ol start="0">
+<li><p>Why?</p>
+<ol start="0">
+<li>Rendering: visibility, shadows, lighting …</li>
+<li>Geometry: inside/outside test</li>
+</ol>
+</li>
+<li><p>How?</p>
+<ol start="0">
+<li>Simple idea：just intersect ray with each triangle. But it slow.</li>
+<li>Note：Can have 0, 1 intersections（ignoring multiple intersections）</li>
+</ol>
+<p>Triangle is a plane, Ray-plane intersection. Test if hit point is inside triangle</p>
+</li>
+<li><p>Plane Equation</p>
+<p>Plane is defined by normal vector and a point on plane：a normal, $\vec N$, and a point, $p’$, not in the normal. So the equation is<br>$$<br>p:(p-p’)\cdot \vec N=0 , or \space ax+by+cz+d=0<br>$$</p>
+</li>
+<li><p>Solve for intersection<br>$$<br>Set\space r=r(t)\\<br>(p-p’)\cdot \vec N=(O+td-p’)\cdot \vec N=0\\<br>t=\frac {(p’-O)\cdot \vec N}{\vec d \cdot \vec N}\space and \space Check:0\leq t\leq \infty<br>$$</p>
+</li>
+</ol>
+</li>
+<li><p>Moller Trumbore Algorithm</p>
+<p>A faster approach, giving barycentric coordinate directyly.</p>
+<p>Derivation in the discussion section!（By cramer）<br>$$<br>\vec O+t\vec D=(1-b_1-b_2)\vec P_0+b_1\vec P_1+b_2\vec P_2\\<br>\left[\begin{matrix} t\\b_1\\b_2 \end{matrix}\right]=\frac 1{\vec S_1 \cdot \vec E_1}\left[\begin{matrix} \vec S_2\cdot \vec E_2\\\vec S_1\cdot \vec S\\\vec S_2\cdot \vec D \end{matrix}\right]<br>$$<br>where<br>$$<br>\vec E_1=\vec P_1 - \vec P_0\\<br>\vec E_2=\vec P_2 - \vec P_0\\<br>\vec S=\vec O -\vec P_0\\<br>\vec S_1=\vec D \times \vec E_2\\<br>\vec S_2=\vec S \times \vec E_1<br>$$</p>
+</li>
+<li><p>Accelerating Ray-Surface Intersection</p>
+<ol start="0">
+<li><p>Simple ray-scene intersection</p>
+<p>Exhaustively test ray-intersection with every objecy and should find the closet hit（with minimum $t$）. The problem：Naive algorithem =  pixels $\times$ objects（$\times$ bounces） and it  is very slow</p>
+</li>
+</ol>
+</li>
+<li><p>Bounding Volume</p>
+<p>Quick way to avoid intersections：bound complex object with a simple volume, which object is fully contained in the volum. It can be easy know that the ray doesn’t hit the volume, it doesn’t hit the object. So test BVol first, then test object if it hits</p>
+<ol start="0">
+<li><p>Ray-Intersection With Box</p>
+<p>Understanding：<strong>box is the itersection of 3 pairs of slabs</strong></p>
+<p>Specifically：We often use an <strong>Axis-Aligned Bounding Box（AABB）</strong></p>
+</li>
+<li><p>Ray Intersection with Axis-Aligned Box</p>
+<p>2D example; 3D is the same.</p>
+<p>We compute intersections with slabs and take intersection of $t_{min}/t_{max}$ intervals</p>
+<p>The following picture showed the Intersection with $x$ plane</p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/AABB_RA.png" alt="AABB_RA" style="zoom:67%;">
+
+<p>The following picture showed the Intersection with $y$ plane</p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/AABB_RAY.png" alt="AABB_RAY" style="zoom:50%;">
+
+<p>The following picture showed the Final Intersection result</p>
+<img src="C:\Users\Y\Desktop\blog_pic\OOCG\AABB_RA_FINAL.png" alt="AABB_RA_FINAL" style="zoom:50%;">
+</li>
+<li><p>Recall：a box（3D）= three pairs of infintely large slabs</p>
+<ol start="0">
+<li><p>Key ideas：The ray enters the box <font color="blue"><strong>only when</strong></font> it enters all pairs of slabs and exits the box <font color="red"><strong>as long as</strong></font> it exits any pair of slabs.</p>
+<p>For each pair, caculate the $t_{min}$ and $t_{max}$（negative is fine）So, for the 3D box, $t_{enter}=max(t_{min}),t_{exit}=min(t_{max})$</p>
+</li>
+<li><p>If $t_{enter}&lt;t_{exit}$, we know the ray <font color="Orange"> stays a while</font> in the box（So they must intersect！）（not done yet, see the next slide）</p>
+</li>
+<li><p>However, ray is not a line, it should check whether $t$ is   negative for physical coreectness</p>
+</li>
+<li><p>What if $t_{exit}&lt;0$? It means that the box is “behind” the ray  - no inersection！</p>
+</li>
+<li><p>What if $t_{exit}\geq 0$ and $t_{enter}&lt; 0$? It means the rays orgin is inside the box - have intersection</p>
+</li>
+<li><p>In a nutshell, ray and AABB intersect if and only if<br>$$<br>t_{enter}&lt;t_{exit} &amp;&amp; \space t_{exit}\geq 0<br>$$</p>
+</li>
+</ol>
+</li>
+<li><p>Why Axis-Aligned?</p>
+<p>General model, the $t$ we should have 3 subtractions, 6 multiplies and i division; but the slabs perpendicular to x-axis just need 1 subtraction and 1 division（recall the fomula from the foregoing)</p>
+</li>
+<li><p>Using AABBs to accelerate ray tracing </p>
+<ol start="0">
+<li><p>Uniform grids</p>
+<ol start="0">
+<li>Preprocess - Build Acceleration Grid<ol start="0">
+<li>Find bounding box</li>
+<li>Create grid</li>
+<li>Store each object in overlapping cells</li>
+<li>Step through grid in ray traversal order - For each grid cell：Test intersection with all objects stored at that cell</li>
+</ol>
+</li>
+<li>Grid Resolution<ol start="0">
+<li>One cell - no spped up</li>
+<li>Too many cells - Inefficiency due to extraneous grid traversal</li>
+<li>Heuristic - cells = $C\times objs$ ,$C\approx 27$ in 3D</li>
+</ol>
+</li>
+<li>When They Work Well on large collection of objects that are distributed evenly in size and space</li>
+<li>When they Fail that “Teapot in a stadium”  problem</li>
+</ol>
+</li>
+<li><p>Spatial Partitions - example by KD-Tree</p>
+<img src="C:\Users\Y\Desktop\blog_pic\OOCG\spacetial_pation.jpg" alt="spacetial_pation" style="zoom: 67%;">
+
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/KD_TREE1.png" alt="KD_TREE1"></p>
+<ol start="0">
+<li><p>Bilud: Internal nodes store</p>
+<ol start="0">
+<li>Split axis: $x,y$ or $z$ axis</li>
+<li>Split position: coordinate of split plane along axis</li>
+<li>childrenL pointers to child nodes</li>
+<li><strong>No ovjects are stored in internal nodes</strong></li>
+<li>Leaf nodes store list of objects</li>
+</ol>
+</li>
+<li><p>Traversing a KD-Tree</p>
+<p>If the ray have intersect with the <strong>leaf</strong> node, the program will check whether the ray intersect with all objects. </p>
+</li>
+</ol>
+</li>
+<li><p>Object Partitions - Volume Hierarchy（BVH）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/BVH_EXAMPLE.png" alt="BVH_EXAMPLE"></p>
+<p>Find bounding box, then recursively split set of objects in two subsets. Then <strong>recompute</strong> the bounding box of the subsets.</p>
+<p>Stop when necessary and store objects in each leaf node</p>
+<ol start="0">
+<li><p>Building</p>
+<ol start="0">
+<li><p>Choose a dimension to split</p>
+</li>
+<li><p>Heuristic #1： Always choose the longest axis in node</p>
+<p>​                 #2：Split node at location of <font color="red">median</font> object（keep balance）</p>
+<p>Be careful that in a random sequence, if you want to find the $n-th$ number, it just need $O(n)$</p>
+</li>
+<li><p>Termination criteria: stop when node contains few elements</p>
+</li>
+</ol>
+</li>
+<li><p>BVH Traversal’s’ pseudocode</p>
+<pre class="line-numbers language-pseudocode"><code class="language-pseudocode">Intersect(Ray ray, BVH node){
+    if (ray misses node.bbox) return;
+    if (node is a leaf node)
+        test intersection with all objs;
+        return closeest intersection;
+
+    hit1 = Intersect(ray, node.childl);
+    hit2 = Intersect(ray, node.childr);
+
+    return the closer of hit1, hit2;
+} <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+</li>
+<li><p>Spatial vs Object Partions</p>
+<ol start="0">
+<li>Spatial<ol start="0">
+<li>Partition space into non-overlapping regions</li>
+<li>An  object can be contained in multiple regions</li>
+</ol>
+</li>
+<li>Object partition<ol start="0">
+<li>Partition set of objects into disjoint subsets</li>
+<li>Bounding boxes fore each set may overlap in space</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="Basic-radiometry"><a href="#Basic-radiometry" class="headerlink" title="Basic radiometry"></a>Basic radiometry</h3><p>Advertisement：new topic from now on, scarcely covered in other graphics courses</p>
+<ol start="0">
+<li><p>Motivation</p>
+<p>In assignment 3, we implement the Blinn-Phong model. The light intensity $I=10$ for example, but what is $10$? But the Whitted style ray tracing doesn’t give you CORRECT results if just “$I=10$”</p>
+<p>All the answers can be found in radiometry</p>
+</li>
+<li><p>Radiometry</p>
+<p>Measurement system and units for illumination. And it can accurately measure the spatial properties of light. The radiometry can perform lighting calculations in a physically correct manner</p>
+<ol start="0">
+<li><p>Radiant flux</p>
+<ol start="0">
+<li><p>Radiant Energy - the energy of electromagenetic radiation. It is measured in units of joules, and denoted by the symbol：$Q[J=Joule]$</p>
+</li>
+<li><p>Radiant flux（power） is the ennergy emitted, reflected, trransmitted or received, per unit time<br>$$<br>\Phi \equiv\frac {dQ}{dt}[W=Watt][lm=lumen]<br>$$</p>
+</li>
+</ol>
+</li>
+<li><p>Intensity</p>
+<ol start="0">
+<li><p>The radiant （luminous） intensity is the power per unit <strong>solid angle（立体角）</strong> emitted by a point light source<br>$$<br>I(\omega)\equiv\frac {d\Phi}{d\omega}[\frac W{sr}][\frac {lm}{sr}=cd=candela]<br>$$<br>The candela is one of the seven SI base units</p>
+</li>
+<li><p>Angles and Solid Angles</p>
+<ol start="0">
+<li><p>Angles：ratio of subtended arc length on circle to radius $\theta = \frac lr$, circle has $2 \pi$ radians</p>
+</li>
+<li><p>Solid angle：ratio of subtended area on sphere to radius squared $\Omega=\frac A{r^2}$, sphere has $4\pi$ steradians</p>
+</li>
+<li><p>Differential Solid Angles：</p>
+<p>$dA=(rd\theta)(d\sin\theta d\phi)=r^2\sin\theta d\theta d\phi$</p>
+<p>$d\omega=\frac {dA}{r^2}=\sin\theta d\theta d\phi$</p>
+<p>$\Omega=\int_{S^2}d\omega=\int_0^{2\pi}\int_0^{\pi}\sin\theta d\theta d\phi=4\pi$</p>
+</li>
+<li><p>$\omega$ as a direction vector </p>
+</li>
+<li><p>Isotropic Point Source<br>$$<br>\Phi c= \int_{S^2}Id\omega=4\pi I,then\space I=\frac {\Phi}{4\pi}<br>$$</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Irradiance</p>
+<p>The irradiance is the power per（perpendicular/projected） unit area incident on a surface point<br>$$<br>E(x)\equiv\frac {d\Phi(x)}{dA}[\frac W{m^2}][\frac {lm}{m^2}=lux]<br>$$<br>Review Lambert’s Cosine Law, the irradiance at surface is proportional to cosine of angle between light direction and surface normal</p>
+<p><strong>Correction：Irradiance Falloff</strong></p>
+<p>Assume light is emitting power $\Phi$ in a uniform angular distributition, Compare irradiance st surface of two shperes:</p>
+<ol start="0">
+<li>$r=1:E=\frac {\Phi}{4\pi}$</li>
+<li>$r=x$：$E’=\frac {\Phi}{4\pi r^2}=\frac E{r^2}$</li>
+</ol>
+</li>
+<li><p>Radiance</p>
+<p>Radiance is the fundamental field quantity that describes the distribution of light in an environment</p>
+<ol start="0">
+<li>Radiance is the quantity associated with a ray</li>
+<li>Rendering is all about computin radiance</li>
+</ol>
+<p>The radiance （luminance）is the power emitted, reflected, transmitted or received by a surfac, <font color="red">per unit solid angle</font>, <font color="blue">per projected unit area</font></p>
+<p><img src="C:%5CUsers%5CY%5CDesktop%5Cblog_pic%5COOCG%5Cradiance.jpg" alt="radiance"><br>$$<br>L(p,\omega)\equiv \frac {d^2\Phi(p,\omega)}{d\omega dA\cos \theta}[\frac W{sr \space m^2}][\frac {cd}{m^2}=\frac{lm}{sr\space m^2}=nit]<br>$$<br>where $\cos \theta$ account for projected surface area</p>
+<p>Recall</p>
+<ol start="0">
+<li>Irradiance ：power per projected unit area</li>
+<li>Intensity：power per solid angle</li>
+</ol>
+<p>So</p>
+<ol start="0">
+<li>Radiance ：Irradiance per solid angle</li>
+<li>Radiance ：Intensity per projected unit area</li>
+</ol>
+</li>
+<li><p>Irradiance vs. Radiance</p>
+<p>Irradiance：total power received by area $dA$</p>
+<p>Radiance：power ceceived by area $dA$ from “direction” $d\omega$</p>
+<p>and we have $H^2$ is a unit Hemisphere<br>$$<br>dE(p,\omega)=L_i(p,\omega)\cos\theta d\omega\\<br>E(p)=\int_{H^2}L_i(p,\omega)\cos \theta d\omega<br>$$</p>
+</li>
+</ol>
+</li>
+<li><p>Bidirectional Reflectance Distribution Function（双向反射分布函数：BRDF）</p>
+<ol start="0">
+<li><p>Reflection at a Point</p>
+<img src="C:\Users\Y\Desktop\blog_pic\OOCG\reflection_at_a_point.png" alt="reflection_at_a_point" style="zoom:50%;">
+
+<p>Radiance from direction $\omega_i$ turns into the power $E$ that $dA$ receives, then power $E$ will become the radiance to any other direction $\omega_i$</p>
+<p>The differential irradiance incoming is $dE(\omega_i)=L(\omega_i)\cos\theta_id\omega_i$, the differential radiance exiting （due to $dE(\omega_i)$）： $dL_r(\omega_r)$</p>
+</li>
+<li><p><strong>BRDF’s</strong> Definetion</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/BRDF.png" alt="BRDF"></p>
+<p>The Bidirectional Reflectance Distribution Function（BRDF） represents how much light is reflected into each outgoing direction $\omega_r$ from each incoming direction<br>$$<br>f_r(\omega_i \rightarrow \omega_r)=\frac {dL_r(\omega_r)}{dE_i(\omega_i)}=\frac{dL_r(\omega_r)}{L_i(\omega_i)\cos\theta_id\omega_i }[\frac1{sr}]<br>$$<br>Emit the mathematical and physical analysis, the BRDF is illustrate the interact  object with the light,. So it can determine the material of the object.</p>
+</li>
+<li><p>The Reflection Equation:<br>$$<br>L_r(p,\omega_r)=\int_{H^2}f_r(p,\omega_i \rightarrow\omega_r)L_i(p,\omega_i)\cos\theta_id\omega_i<br>$$</p>
+</li>
+<li><p>Recursive Equation</p>
+<p>Reflected radiance depends on incoming radiance, but incoming radiance depends on reflected radiance（at another point in the scene）</p>
+</li>
+<li><p>The Rendering Equation</p>
+<p>Re-write the reflection equation<br>$$<br>L_r(p,\omega_r)=\int_{H^2}f_r(p,\omega_i \rightarrow\omega_r)L_i(p,\omega_i)\cos\theta_id\omega_i<br>$$<br>by adding an Emission term to make it general. So the Rendering Equation is<br>$$<br>L_o(p,\omega_o)=L_e(p,\omega_o)+\int_{\Omega^+}L_i(p,\omega_i)f_r(p,\omega_i,\omega_o)(n\cdot\omega_i)d\omega_i<br>$$<br>Node that we assume that all directions are pointing <font color="red">outwards</font> now</p>
+</li>
+<li><p>Reflection Equation</p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Reflection_equatrion.png" alt="Reflection_equatrion" style="zoom: 67%;">
+$$
+L_r(x,\omega_r)=L_e(x,\omega_r)+L_i(x,\omega_i)f(x,\omega_i,\omega_r)(\omega_i.n)
+$$
+Where $L_r$ is Reflected Light（output image）, $L_e$ is Emiision, $L_i$ is incident light (from light source) , $(\omega_i,n)$ is cosine of incident angel and $f$ is BRDF, then we add some extra light source
+
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Reflection_equations.png" alt="Reflection_equations" style="zoom: 67%;">
+
+<p>the Equation now change to<br>$$<br>L_r(x,\omega_r)=L_e(x,\omega_r)+\sum L_i(x,\omega_i)f(x,\omega_i,\omega_r)(\omega_i.n)<br>$$<br>Then change an area to light source area </p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Reflection_equation_area.png" alt="Reflection_equation_area" style="zoom:67%;">
+
+<p>the equation change to<br>$$<br>L_r(x,\omega_r)=L_e(x,\omega_r)+\int_{\Omega} L_i(x,\omega_i)f(x,\omega_i,\omega_r)(\omega_i.n)d\omega_i<br>$$<br>But some of light comes from other object by reflecting, so the pic would change </p>
+<img src="C:\Users\Y\Desktop\blog_pic\OOCG\Comes_from_reflect.png" alt="Comes_from_reflect" style="zoom:67%;">
+
+<p>and the equation becomes to<br>$$<br>L_r(X,\omega_r)=L_e(X,\omega_r)+\int_{\Omega} L_r(X’,-\omega_i)f(x,\omega_i,\omega_r)(\omega_i.n)d\omega_i<br>$$<br>where $L_r$ there is reflected light.</p>
+</li>
+<li><p>Rendering Equation as Intergral Equation<br>$$<br>L_r(X,\omega_r)=L_e(X,\omega_r)+\int_{\Omega} L_r(X’,-\omega_i)f(x,\omega_i,\omega_r)(\omega_i.n)d\omega_i<br>$$<br>is a Fredholm Intergral Equation of second kind [extensively studied numerically] with canonical form<br>$$<br>L(u)=e (u)+\int L(v)K(u,v)dv<br>$$<br>even we can write it as linear operator equation<br>$$<br>l(u)=e(u)+\int l(v)K(u,v)dv<br>$$<br>where $K(u,v)$ is kernel of equation Light transport operator, and it can be write as<br>$$<br>L=E+KL<br>$$<br>It can be sicretized to a simple matrix equation[or system of simultaneous linear equations]（$L$,$E$ are vectors, $K$ is the light transport matrix）. Then it can general class numberucak Monte Carlo methids and approximate set of all paths of light in scene<br>$$<br>L=E+KL\\IL-KL=E\\(I-K)=E\\L=(I-K)^{-1}E<br>$$<br>According to binomia theorem（二项式定理）<br>$$<br>L=(I+K+K^2+K^3+…)E\\L=E+KE+K^2E+K^3E+…<br>$$<br>then the $E$s of last equation, from the left to right, we can illustrate them ase Emission directly from light sources, direct illumination on surfaces, indirect illumiantion（one bounce indirect[Mirrors, Refraction]） and Twoi bounce indirect illumation and etc.</p>
+<p>We can shading in rasterization on $E$ and $KE$, but the follows are hard to shade</p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="Probability-Review"><a href="#Probability-Review" class="headerlink" title="Probability Review"></a>Probability Review</h3><p>Review some <strong>easy</strong> probability knowledge which will use in the following content</p>
+<ol start="0">
+<li><p>Random Variables</p>
+<p>$X$：random variable. Represents a distribution of potential values</p>
+<p>$X\sim p(x)$：probability density function（PDF）. Describles relative probability of a random process choosing value $x$</p>
+</li>
+<li><p>Probabilities</p>
+<p>n discrete value $x_i$, With probability $p_i$, Requirements of a probability distribution：$p_i\geq0$, $\sum p_i=1$</p>
+</li>
+<li><p>Expected Value of a Random Variable</p>
+<p>The average value that one obtains if repeatedly drawing samples from the random distribution. $X$drawn from distribution with $n$ discrete values $x_i$ with probabilities $p_i$, the expected value of $X: E(x)=\sum x_ip_i$</p>
+</li>
+<li><p>Continuous Case：<font color="red"> Probability Distribution Function（PDF)</font></p>
+<p>A random variable $X$ that can take any of a continuos set of values. where the relative probability of a particular value is given by a continuous probability density function $p(x)$.</p>
+<p>Condition on $p(x)\geq0\ and\ \int p(x)dx=1$</p>
+<p>Expected value of $X：E(X)=\int xp(x)dx$</p>
+</li>
+<li><p>Function of a Random Variable</p>
+<p>A function $Y$ of a random variabvle $X$ is also a random variable: $X\sim p(x)$ and $Y=f(X)$, the expected value oif a function of a random variable $E(Y)=E(f(x))=\int f(x)p(x)dx$</p>
+</li>
+<li><p>Monte Carlo Intergration</p>
+<p><strong>Why</strong>：We want to solve an intergral, but it can be too difficult to solve annalyticcally</p>
+<p><strong>How</strong>：estimate the integral of a function by averraging random samples of the function’s value</p>
+<ol start="0">
+<li><p>Some definetion of it</p>
+<ol start="0">
+<li>Deinite integral： $\int_a^bf(x)dx$</li>
+<li>Random variable：$X_i\sim p(x)$</li>
+</ol>
+<p>Then the Monte Carlo estimator is<br>$$<br>F_N=\frac 1N\displaystyle\sum_{i=1}^N\frac {f(X_i)}{p(X_i)}<br>$$</p>
+</li>
+<li><p>Example Uniform Monte Carlo Estimator</p>
+<p>Assume $f(x)=C$</p>
+<ol start="0">
+<li><p>Deinite integral： $\int_a^bf(x)dx$</p>
+</li>
+<li><p>Uniform Random variable：$X_i\sim p(x)=\frac 1{b-a}$</p>
+</li>
+</ol>
+<p>Then the basic Monte Carlo estimator<br>$$<br>F_N=\frac {b-a}N\displaystyle\sum_{i=1}^Nf(X_i)<br>$$</p>
+</li>
+<li><p>Some notes</p>
+<ol start="0">
+<li>The more samples, the less variance</li>
+<li>Sample on $x$, intergrate on $x$</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="Path-Tracing"><a href="#Path-Tracing" class="headerlink" title="Path Tracing"></a>Path Tracing</h3><ol start="0">
+<li><p>Motibation：Whitted-Style Ray Tracing</p>
+<ol start="0">
+<li><p>Whitted-style ray tracing：</p>
+<ol start="0">
+<li>Always perform specular reflections / refractions</li>
+<li>Stop bouncing at diffuse surfaces</li>
+</ol>
+<p>But it may not reasonable , so let’s progressively improve upon Whitted-Style Ray Tracing and lead to our path tracing algorithm!</p>
+</li>
+<li><p>Problem of Whitted-Style Ray Tracing</p>
+<ol start="0">
+<li>Glossy reflection</li>
+<li>Diffuse materials</li>
+</ol>
+</li>
+<li><p>So it seems that Whitted-Style ray tracing is <strong>Wrong</strong>, but the rendering equation is corret</p>
+<p>But it involves：Solving an integral over the hemisphere and recursive execution</p>
+</li>
+</ol>
+</li>
+<li><p>A Simple Monte Carlo Solution</p>
+<p>Suppose we want to render <strong>one pixle（point）</strong>in the followingf scene for <strong>direct illumination</strong> only</p>
+<p> <img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/EXAMPLE_IN_PATHTRA.png" alt="EXAMPLE_IN_PATHTRA"></p>
+<p>Abuse the concept of Reflection Equation a little bit<br>$$<br>L_o(p,\omega_o)=\int_{\Omega^+}L_i(p_i,\omega_i)f_r(p,\omega_i,\omega_o)( n\cdot \omega_i)d\omega_i<br>$$<br>Note again that we assume all direction are <font color="red">pointing outwards</font>. Fancy as it is , it’s still just an integration over directions. So, of course, we can solve it using Monte Carlo integration.</p>
+<p>We want to comput the radiance at $p$ towards the camera<br>$$<br>L_o(p,\omega_o)=\int_{\Omega^+}L_i(p_i,\omega_i)f_r(p,\omega_i,\omega_o)( n\cdot \omega_i)d\omega_i\\<br>\int_a^bf(x)dx\approx\frac 1N\displaystyle\sum_{i=1}^N\frac {f(X_i)}{pdf(X_i)}\ X_k\sim p(x)<br>$$</p>
+<p>$$<br>f(x)=L_i(p_i,\omega_i)f_r(p,\omega_i,\omega_o)( n\cdot \omega_i)<br>$$</p>
+<p>So, what’s our PDF?</p>
+<p>We assume uniformly sampling the hemisphere, the PDF is $p(\omega_i)=\frac 1{2\pi}$</p>
+<p>So, in general<br>$$<br>L_o(p,\omega_o)=\int_{\Omega^+}L_i(p_i,\omega_i)f_r(p,\omega_i,\omega_o)( n\cdot \omega_i)d\omega_i\\\approx \frac 1N\displaystyle\sum_{i=1}^N\frac{L_i(p_i,\omega_i)f_r(p,\omega_i,\omega_o)( n\cdot \omega_i)}{pdf(\omega_i)}<br>$$<br>Note abuse notation a little bit for $i$</p>
+<p>Then we will write pseudocode</p>
+<pre class="line-numbers language-pseudocode"><code class="language-pseudocode">shade(p, wo)
+    Randomly choose N direcytions wi~pdf
+    L0 = 0.0
+    For each wi
+        Trace a ray r(p,wi)
+        If ray r hit the light
+            Lo += ( 1 / N ) * L_i * f_r * cosine / pdf(wi)
+    return Lo<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>Introduction Global Illumination</p>
+<ol start="0">
+<li><p>One more step forwad - What if a ray hits an object?</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Questyion_in_global.png" alt="Questyion_in_global"></p>
+<p>We can know that $Q$ also reflects light to $P$. </p>
+<p>How much? The dir.illum. at Q</p>
+<p>So the pseudocode can revise</p>
+<pre class="line-numbers language-pseudocode"><code class="language-pseudocode">shade(p, wo)
+    Randomly choose N direcytions wi~pdf
+    L0 = 0.0
+    For each wi
+        Trace a ray r(p,wi)
+        If ray r hit the light
+            Lo += ( 1 / N ) * L_i * f_r * cosine / pdf(wi)
+        //new here
+        Else If ray r hit an object at q
+            Lo += ( 1 / N ) * shade(q, -wi) * f_r * cosine / pdf(wi)
+    return Lo<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>But we doesn’t sovle it. Because</p>
+<ol start="0">
+<li><p>Explosion of rays as bounces go up：$num_{RAY}=N^{bounces}$</p>
+<p>We observation：rays will not explode if and only if $N=1$, So the</p>
+<pre class="line-numbers language-pseudocode"><code class="language-pseudocode">shade(p, wo)
+    Randomly choose only ONE direcytions wi~pdf
+    Trace a ray r(p,wi)
+    If ray r hit the light
+        return L_i * f_r * cosine / pdf(wi)
+    Else If ray r hit an object at q
+        return shade(q, -wi) * f_r * cosine / pdf(wi)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>This is <font color="red"> path tracing</font>! （FYI, Distributed Ray Tracing if N != $1$）</p>
+</li>
+<li><p>Ray Generation</p>
+<p>Maybe some readers will think that this will be nosiy! But don’t be worry, just trace more paths through each pixel and average their radiance</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/rAY_GENERATION_PATH.png" alt="rAY_GENERATION_PATH"></p>
+<p>Then, about this ,it is very similar to ray casting in ray tracing</p>
+<pre class="line-numbers language-pseudocode"><code class="language-pseudocode">ray_ generation (camPos, pixel)
+    Uniformly choose N sample positions within the pixel
+    pixel_ radiance = 0.0
+    For each sample in the pixel
+        Shoot a ray r(camPos, cam_ to_ sample)
+        If ray r hit the scene at p
+            pixel_ radiance += 1 / N * shade(P, sample_to cam)
+        Return pixel_ radiance    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>Path Tracing</p>
+<p>But their have some other problems in shade()？The recursive algorithm will never stop!</p>
+<p>Dilemma: the light does not strop bouncing indeed</p>
+<p>Cutting #bounces == cutting energy</p>
+<p>Solution：Russian Roulette（RR）- all about probability</p>
+<p>​                   With probability $0&lt;P&lt;1$, you are fine</p>
+<p>​                   With probability $1-P$, otherwise</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="6-Materials-and-Appearances"><a href="#6-Materials-and-Appearances" class="headerlink" title="6. Materials and Appearances"></a>6. Materials and Appearances</h2><h2 id="7-Advanced-Topics-in-rendering"><a href="#7-Advanced-Topics-in-rendering" class="headerlink" title="7. Advanced Topics in rendering"></a>7. Advanced Topics in rendering</h2><h2 id="8-Cameras-Lenses-and-Light-Fields"><a href="#8-Cameras-Lenses-and-Light-Fields" class="headerlink" title="8. Cameras, Lenses and Light Fields"></a>8. Cameras, Lenses and Light Fields</h2><h2 id="9-Color-and-Perception"><a href="#9-Color-and-Perception" class="headerlink" title="9. Color and Perception"></a>9. Color and Perception</h2><h2 id="10-Animation"><a href="#10-Animation" class="headerlink" title="10. Animation"></a>10. Animation</h2><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -2712,7 +3247,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">79k</span>&nbsp;字
+                class="white-color">82.8k</span>&nbsp;字
             
             
             
