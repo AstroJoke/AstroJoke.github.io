@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Overview-of-Computer-Graphics, AleXandrite">
+    <meta name="keywords" content="GAMES-101：Modern Computer Graphics, AleXandrite">
     <meta name="description" content="持续更新中">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Overview-of-Computer-Graphics | AleXandrite</title>
+    <title>GAMES-101：Modern Computer Graphics | AleXandrite</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -678,7 +678,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Overview-of-Computer-Graphics</h1>
+                    <h1 class="description center-align post-title">GAMES-101：Modern Computer Graphics</h1>
                 </div>
             </div>
         </div>
@@ -833,14 +833,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    11.6k
+                    14.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    71 分
+                    90 分
                 </div>
                 
 				
@@ -856,7 +856,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>GAMES101是闫令琪老师的现代图形学入门，本文是二刷这个mooc的小总结，（flag）拟<del>三天</del>五天内完成。</p>
+                <p>GAMES101是闫令琪老师的现代图形学入门，本文是二刷这个mooc的小总结，（flag）拟<del>三天</del>五天<del>（咕咕咕）</del>七天内完成。</p>
+<p>如果在阅读过程中发现存在错误，欢迎指出（包括但不限于内容错误和语法错误）。</p>
 <p>另：封面图取自“MapleStory”（国服为“冒险岛”）的Arcana主城区的游戏内截图，若涉嫌侵权，请联系本人更换封面图。</p>
 <h2 id="0-Overview-of-Computer-Graphics"><a href="#0-Overview-of-Computer-Graphics" class="headerlink" title="0. Overview of Computer Graphics"></a>0. Overview of Computer Graphics</h2><h3 id="What-is-Computer-Graphics"><a href="#What-is-Computer-Graphics" class="headerlink" title="What is Computer Graphics?"></a>What is Computer Graphics?</h3><p>The use of computers to synthesize and manipulate visual information.</p>
 <h3 id="Why-Study-Computer-Graphics"><a href="#Why-Study-Computer-Graphics" class="headerlink" title="Why Study Computer Graphics?"></a>Why Study Computer Graphics?</h3><h4 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h4><ol start="0">
@@ -2373,7 +2374,7 @@ varying vec3 norm<span class="token punctuation">;</span>
 </li>
 <li><p>What if $t_{exit}\geq 0$ and $t_{enter}&lt; 0$? It means the rays orgin is inside the box - have intersection</p>
 </li>
-<li><p>In a nutshell, ray and AABB intersect if and only if<br>$$<br>t_{enter}&lt;t_{exit} &amp;&amp; \space t_{exit}\geq 0<br>$$</p>
+<li><p>In a nutshell, ray and AABB intersect if and only if<br>$$<br>t_{enter}&lt;t_{exit}\ and \space t_{exit}\geq 0<br>$$</p>
 </li>
 </ol>
 </li>
@@ -2529,7 +2530,7 @@ varying vec3 norm<span class="token punctuation">;</span>
 <li>Rendering is all about computin radiance</li>
 </ol>
 <p>The radiance （luminance）is the power emitted, reflected, transmitted or received by a surfac, <font color="red">per unit solid angle</font>, <font color="blue">per projected unit area</font></p>
-<p><img src="C:%5CUsers%5CY%5CDesktop%5Cblog_pic%5COOCG%5Cradiance.jpg" alt="radiance"><br>$$<br>L(p,\omega)\equiv \frac {d^2\Phi(p,\omega)}{d\omega dA\cos \theta}[\frac W{sr \space m^2}][\frac {cd}{m^2}=\frac{lm}{sr\space m^2}=nit]<br>$$<br>where $\cos \theta$ account for projected surface area</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/radiance.jpg" alt="radiance"><br>$$<br>L(p,\omega)\equiv \frac {d^2\Phi(p,\omega)}{d\omega dA\cos \theta}[\frac W{sr \space m^2}][\frac {cd}{m^2}=\frac{lm}{sr\space m^2}=nit]<br>$$<br>where $\cos \theta$ account for projected surface area</p>
 <p>Recall</p>
 <ol start="0">
 <li>Irradiance ：power per projected unit area</li>
@@ -2670,7 +2671,7 @@ Where $L_r$ is Reflected Light（output image）, $L_e$ is Emiision, $L_i$ is in
 <p>$$<br>f(x)=L_i(p_i,\omega_i)f_r(p,\omega_i,\omega_o)( n\cdot \omega_i)<br>$$</p>
 <p>So, what’s our PDF?</p>
 <p>We assume uniformly sampling the hemisphere, the PDF is $p(\omega_i)=\frac 1{2\pi}$</p>
-<p>So, in general<br>$$<br>L_o(p,\omega_o)=\int_{\Omega^+}L_i(p_i,\omega_i)f_r(p,\omega_i,\omega_o)( n\cdot \omega_i)d\omega_i\\\approx \frac 1N\displaystyle\sum_{i=1}^N\frac{L_i(p_i,\omega_i)f_r(p,\omega_i,\omega_o)( n\cdot \omega_i)}{pdf(\omega_i)}<br>$$<br>Note abuse notation a little bit for $i$</p>
+<p>So, in general<br>$$<br>L_o(p,\omega_o)=\int_{\Omega^+}L_i(p_i,\omega_i)f_r(p,\omega_i,\omega_o)( n\cdot \omega_i)d\omega_i<br>\\\approx \frac 1N\displaystyle\sum_{i=1}^N\frac{L_i(p_i,\omega_i)f_r(p,\omega_i,\omega_o)( n\cdot \omega_i)}{pdf(\omega_i)}<br>$$<br>Note abuse notation a little bit for $i$</p>
 <p>Then we will write pseudocode</p>
 <pre class="line-numbers language-pseudocode"><code class="language-pseudocode">shade(p, wo)
     Randomly choose N direcytions wi~pdf
@@ -2732,13 +2733,538 @@ Where $L_r$ is Reflected Light（output image）, $L_e$ is Emiision, $L_i$ is in
 <p>Solution：Russian Roulette（RR）- all about probability</p>
 <p>​                   With probability $0&lt;P&lt;1$, you are fine</p>
 <p>​                   With probability $1-P$, otherwise</p>
+<p>Previously, we always shoot a ray at a shading point and get the shading result $L_o$, suppose we manually set a probability $P(0&lt;P&lt;1)$</p>
+<p>With probability $P$, shoot a ray and return the **shading result divided by P：$L_o/P$</p>
+<p> With probability $1-P$, don’t shoot a ray and you’ll get <font color="red">0</font> </p>
+<p>In this way, you can still <strong>expect</strong> to get $L_o$：$E=P\times(\frac {L_o}{P}+(1-P)\times 0)=L_o$</p>
+<p>Now we revise the API</p>
+<pre class="line-numbers language-pseudocode"><code class="language-pseudocode">shade(p, wo)
+    Manually specify a probability P_RR
+    Randomly select ksi in a uniform dist. in[0,1]
+    If (ksi>P_RR) return 0.0;
+
+    Randomly choose only ONE direcytions wi~pdf
+    Trace a ray r(p,wi)
+    If ray r hit the light
+        return L_i * f_r * cosine / pdf(wi) / P_RR
+    Else If ray r hit an object at q
+        return shade(q, -wi) * f_r * cosine / pdf(wi) / P_RR<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>Path Tracing</p>
+<p>Now we already have a correct version of path tracing, but it’s not really efficient. The lower samples per pixel（SPP） , the  more noisy . Before we make it better, we shoule understand the reason of being inefficient.</p>
+<ol start="0">
+<li><p>Sampling the Light</p>
+<p>Consider the same point, the volume of the light source will change. In one case, only 5 rays can meet the light. But in the specail case that 50,000 rays but only one meet the light. </p>
+<p>In the latter, <strong>a lot of rays are “wasted”</strong>, if we uniformly sample the hemisphere at the shading point.</p>
+</li>
+<li><p>Pure math method</p>
+<p>Monte Carlo methods allows any sampling methods, so we can sample the light（therefore no rays are “wasted”）</p>
+<p>Assume uniformly sampling on the light, $pdf=\frac 1A$, beacuse $\int pdf dA=1$</p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/MthPathtraci.png" alt="MthPathtraci" style="zoom:50%;">
+
+<p>But the rendering equation intergrates on the solid angle:$L_o=\int L_ifr \cos\theta d\omega$</p>
+<p>Recall Monte Carlo Intergration：sample on $x$ &amp; integrate on $x$.</p>
+<p>We change it to <strong>sapmle on $dA$ and intergral of $A$</strong>, which we just need the relationship between $d\omega$ and $dA$.</p>
+<p>Acoording to the picture above, we can easy get that<br>$$<br>d\omega=\frac {dA\cos \theta ’}{||x’-x||^2}<br>$$<br>Note the $\theta ‘$ not the $\theta$, then rewrite the rendering equation as<br>$$<br>L_o(x,\omega)=\int _A L_i(x,\omega_i)f_r(x,\omega_i,\omega_o)\frac {\cos \theta\cos \theta ’}{||x’-x||^2}dA<br>$$<br>Now an intergration on the light ! Monte Carlo intergration：$f(x)$ everything inside $pdf :\frac 1A$</p>
+</li>
+<li><p>What’s more</p>
+<p>Previously, we assume the light is “accidentally” shot by uniform hemisphere sampling</p>
+<p>Now we consider the radiance coming from two parts</p>
+<ol start="0">
+<li><font color="blue">light source</font> （direct, no need to have RR）</li>
+<li><font color="orange">other reflections</font>（indirect, RR）</li>
+</ol>
+<pre class="line-numbers language-pseudocode"><code class="language-pseudocode">shade(p,wo)
+    # contribution from the light source
+    Uniformly sample the light at x'' (pdf_light = 1 / A)               
+    L_dir = L_i * f_r * cos θ * cos θ''  |x'' - p|^2 / pdf_light
+
+    # contribution from other reflectors
+    L_indir = 0.0
+    Test Russian Roulette with probability P_RR
+    Uniformly sample the hemisphere toward wi (pdf_hemi = 1 /2pi)
+    Trace a ray r(p, wi)
+    if ray r hit a non-emmiting object at q
+        L_indir =  shade (q,-wi)=f_r * cos θ /pdf_hemi/ P_RR
+    Return L_dir + L_indir<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>At last</p>
+<p>One final thing：how do we know  if the sample on the light is not blocked or not？</p>
+<p>Just revise the shade a little </p>
+<pre class="line-numbers language-pseudocode"><code class="language-pseudocode">L_dir = 0.0
+Uniformly sample the light at x'' (pdf_light = 1 / A) 
+shoot a ray from p to x''
+if the ray is not blocked in the middle
+    L_dir =....<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Some Side Notes</p>
+<ol start="0">
+<li>Consider if the most challenging in undergrad CS</li>
+<li>Why? Physic, probability, calculus, coding </li>
+<li>Learning PT will help you understand deeper in these</li>
+</ol>
+<p>Maybe the PT is not “introduction”, but it’s modern. And learning it will be rewarding also because it is almost 100% correct. </p>
+</li>
+<li><p>Ray tracing ： Previous vs. Modern Concepts</p>
+<p>Previous ：Ray tracing  == Whitted-style ray tracing</p>
+<p>Modern：<strong>The general solution of light transport</strong>, include （Unidirectional &amp; bidirectional）path tracing, photon mapping（光子映射）, Metropolis light transport ,VCM/UPBP  and etc</p>
+</li>
+<li><p>Something hasn’t covered / won’t cover</p>
+<ol start="0">
+<li>Uniformly sampling the hemisphere</li>
+<li>Monte Carlo integration allows arbitrary pdfs - important sampling</li>
+<li>Random numbers matter - low discrepancy sequences</li>
+<li>can combine sample the hemisphere and the light - multiple imp.samplig</li>
+<li>The radiance of a pixel is the average of radiance on all paths passing through it - pixel  reconstruction filter</li>
+<li>The radiance of a pixel isn’t the color of a pixel - gamma correction, curves, color space</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="6-Materials-and-Appearances"><a href="#6-Materials-and-Appearances" class="headerlink" title="6. Materials and Appearances"></a>6. Materials and Appearances</h2><p><strong>What is Material in Computer Graphics?</strong></p>
+<p><strong>Material == BRDF!</strong></p>
+<ol start="0">
+<li><p>Diffuse / Lambertian Material：</p>
+</li>
+<li><p>Light is equally reflected in each output direction. Suppose the incident lighting is <font color="red">uniform</font></p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/DiffusAlsaaisd.png" alt="DiffusAlsaaisd"></p>
+</li>
+</ol>
+<p>$$<br>L_o(\omega_o)=\int_{H^2}f_rL_i(\omega_i)\cos\theta_id\omega_i\\<br>=f_rL_i\int_{H^2}\cos\theta_id\omega_i\\<br>=\pi f_rL_i\\<br>f_r=\frac \rho \pi<br>$$</p>
+<ol>
+<li><p>Glossy material（BRDF）</p>
+<p>Ideal reflective / refractive material（BSDF*）</p>
+<p>Perfect Specular Reflection</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Perfect_specular_reflection.png" alt="Perfect_specular_reflection"></p>
+<p>and then<br>$$<br>\omega _o+\omega _i=2\cos\theta \vec n = 2(\omega \cdot \vec n)\vec n\\<br>\omega _o=-\omega _i+2(\omega _i\cdot \vec n)\vec n<br>$$</p>
+</li>
+<li><p>Specular Refraction</p>
+<p>In addition to reflecting off surface, light may be transmitted through surface.</p>
+<p>Light refracts when it enters a new medium.   （Ocean：caustics)</p>
+<p><strong>Snell’s Law</strong></p>
+<p>Transmitted angle depends on </p>
+<ol start="0">
+<li><p>index of refraction （IOR） for incident ray</p>
+</li>
+<li><p>index of refraction （IOR） for exiting ray<br>$$<br>\eta_i\sin\theta_i=\eta_t\sin\theta_t\\<br>\phi_t=\phi_i\pm \pi<br>$$</p>
+</li>
+</ol>
+<p><strong>Law of Refraction</strong><br>$$<br>\cos\theta_t=\sqrt {1-(\frac  {\eta_i}{\eta_t})^2(1-\cos^2\theta)i}<br>$$<br><strong>Total internal reflection</strong></p>
+<p>When light is moving from a more optically dense medium to a less optically dense medium $\eta_i /\eta_t&gt;1$</p>
+<p>Light incident on boundary from large enough angle will not exit medium</p>
+<p><strong>Fresnel Reflection / Term</strong></p>
+<p>Reflectance depends on incident angle（and polarization of light）</p>
+<p>The formulae of it are<br>$$<br>R_s=\left|\frac {n_1\cos\theta_i-n_2\cos\theta_t}{n_1\cos\theta_i+n_2\cos\theta_t} \right|^2=<br>\left|<br>\frac {n_1\cos\theta_i-n_2 \sqrt {1-(<br>\frac  {\eta_1}{\eta_2})^2(1-\cos^2\theta)}<em>i<br>}<br>{n_1\cos\theta_i+n_2\sqrt {1-(\frac  {\eta_1}{\eta_2})^2(1-\cos^2\theta)}_i}<br>\right|^2<br>\\<br>R_p=\left|\frac {n_1\cos\theta_t-n_2\cos\theta_i}<br>{n_1\cos\theta_t+n_2\cos\theta_i} \right|^2=<br>\left|<br>\frac<br>{n_1\sqrt {1-(\frac  {\eta_1}{\eta_2})^2(1-\cos^2\theta_i)}-n_2\cos\theta_i}<br>{n_1\sqrt {1-(\frac  {\eta_1}{\eta_2})^2(1-\cos^2\theta_i)}+n_2\cos\theta_1}<br>\right|^2\\<br>R</em>{eff}=\frac 12(R_s+R_p)<br>$$<br>It’s too difficult, there is an approximate - Schlick’s approximation<br>$$<br>R(\theta)=R_0+(1-R_0)(1-\cos\theta)^5\ ,\ R_0=(\frac {n_1-n_2}{n_1+n_2})<br>$$<br><strong>Microfacet Material</strong></p>
+<p>Microfacet Theory</p>
+<ol start="0">
+<li><p>Rough surface - Macroscale is flat &amp; rough and microscale is bumpy &amp; <font color="red">specular</font></p>
+</li>
+<li><p>Individual elements of surface act like mirrors</p>
+<p>Known as Microfacets and each microfacet has its own normal</p>
+</li>
+<li><p>Microfacet BRDF</p>
+<p>Key：the <font color="red">distribution</font> of microfacets’ normals</p>
+<ol start="0">
+<li>Concentrated &lt;==&gt; glossy</li>
+<li>Spread &lt;==&gt; diffuse</li>
+</ol>
+<p>The formula</p>
+<p><img src="C:%5CUsers%5CY%5CDesktop%5Cblog_pic%5COOCG%5CBRDF_MACUOFACTES.png" alt="BRDF_MACUOFACTES"><br>$$<br>f(i,o)=\frac {F(i,h)G(i,o,h)D(h)}{4(n,i)(n,o)}<br>$$<br>where $F$ is Fresnel term,  $G$ is shadowing-masking term and the $D$ is distribution of normals</p>
+</li>
+</ol>
+<p><strong>Isotropic / Anisotropic Materials（BRDFs）</strong> 各向同性和各向异性</p>
+<p>Key: <font color="red">directionality</font> of underlying surface</p>
+<p>Anisotropic BRDFs: Reflection depends on azimuthal angle $\phi$ $f_r(\theta_i,\phi_i,\theta_r,\phi_r)\neq f_r(\theta_i,\theta_r,\phi_r-\phi_i)$</p>
+<p>Results from oriented microstructure of surface.</p>
+</li>
+<li><p>Properties of BRDFs</p>
+<ol start="0">
+<li><p>Non-negativity: $f_r(\omega_i\rightarrow\omega_r)\geq0$</p>
+</li>
+<li><p>Linearity: $L_r(p,\omega_r)=\int_{H^2}f_r(p,\omega_i\rightarrow\omega_r)L_i(p,\omega_i)\cos\theta_id\omega_i$</p>
+</li>
+<li><p>Reciprocity principle: $f_r(\omega_r\rightarrow\omega_i)=f_r(\omega_i\rightarrow\omega_r)$</p>
+</li>
+<li><p>Energy conservation:$\forall\omega_r\int_{H^2}f_r(\omega_i\rightarrow\omega_r)\cos\theta_id\omega_i\leq1$</p>
+</li>
+<li><p>Isotropic vs. anisotropic</p>
+<p>If isotropic $f_r(\theta_i,\phi_i,\theta_r,\phi_r)= f_r(\theta_i,\theta_r,\phi_r-\phi_i)$ . </p>
+<p>Then from reciprocity $f_r(\theta_i,\theta_r,\phi_r-\phi_i)=f_r(\theta_i,\theta_r,\phi_i-\phi_r)=f_r(\theta_i,\theta_r,|\phi_r-\phi_i|)$</p>
+</li>
+</ol>
+</li>
+<li><p>Measuring BRDFs</p>
+<ol start="0">
+<li><p>Motivation:</p>
+<p>Avoid need to develop / derive model - Automatically includes all of the scattering effects present</p>
+<p>Can accurately render with real-world materials - Useful for product design, special effects …</p>
+</li>
+<li><p>Image-Based Measurement</p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/BRDFMEASUREBASEDIMAGE.png" alt="BRDFMEASUREBASEDIMAGE" style="zoom:50%;">
+</li>
+<li><p>General approach</p>
+<pre class="line-numbers language-pseudocode"><code class="language-pseudocode">for each outgoing direction wo
+    move light to illuminate surface with a thin beam from wo
+    for each incoming direction wi 
+        move sencor to be at direction wi from surface
+        measure incident radiance<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>Improving efficiency</p>
+<ol start="0">
+<li>Isotropic surfaces reduce dimensionality from 4D to 3D</li>
+<li>Reciprocity reduces # of measurements by half</li>
+<li>Clever optical systems</li>
+</ol>
+</li>
+<li><p>Representing  Measured BRDFs</p>
+<ol start="0">
+<li><p>Compact representation</p>
+</li>
+<li><p>Accurate representation of measured data</p>
+</li>
+<li><p>Efficient evaluation for arbitrary pairs of directions</p>
+</li>
+<li><p>Good distributions available for importance sampling</p>
+</li>
+<li><p>Tabular Representation - store regularly-spaced samples in $(\theta_i,\theta_o,|\phi_i-\phi_o|)$( Better: reparameterize angles to better match  specularities) </p>
+<p>Generally need to resample measured values to table. But it have very high storage requirements</p>
 </li>
 </ol>
 </li>
 </ol>
 </li>
 </ol>
-<h2 id="6-Materials-and-Appearances"><a href="#6-Materials-and-Appearances" class="headerlink" title="6. Materials and Appearances"></a>6. Materials and Appearances</h2><h2 id="7-Advanced-Topics-in-rendering"><a href="#7-Advanced-Topics-in-rendering" class="headerlink" title="7. Advanced Topics in rendering"></a>7. Advanced Topics in rendering</h2><h2 id="8-Cameras-Lenses-and-Light-Fields"><a href="#8-Cameras-Lenses-and-Light-Fields" class="headerlink" title="8. Cameras, Lenses and Light Fields"></a>8. Cameras, Lenses and Light Fields</h2><h2 id="9-Color-and-Perception"><a href="#9-Color-and-Perception" class="headerlink" title="9. Color and Perception"></a>9. Color and Perception</h2><h2 id="10-Animation"><a href="#10-Animation" class="headerlink" title="10. Animation"></a>10. Animation</h2><script>
+<h2 id="7-Advanced-Topics-in-rendering"><a href="#7-Advanced-Topics-in-rendering" class="headerlink" title="7. Advanced Topics in rendering"></a>7. Advanced Topics in rendering</h2><h3 id="Advanced-Light-Transport"><a href="#Advanced-Light-Transport" class="headerlink" title="Advanced Light Transport"></a>Advanced Light Transport</h3><ol start="0">
+<li><p>Biased vs. Unbiased Monte Carlo Estimators</p>
+<ol start="0">
+<li><p>An unbiased Monte Carlo technique does not have any systematic error </p>
+<p>The expected value of an unbiased estimator will always be the correct value, no matter how many samples are used</p>
+</li>
+<li><p>Otherwise, biased</p>
+<p>One special case, the expected value converges to the correct value as infinite #samples are used - <font color="red">consistent</font></p>
+</li>
+</ol>
+</li>
+<li><p>Unbiased light transport methods </p>
+<ol>
+<li><p>Bidirectional path tracing（BDPT）</p>
+<ol start="0">
+<li>Recall: a path connects the camera and the light</li>
+<li>BDPT<ol start="0">
+<li>Traces sub-paths from both the camera and the light</li>
+<li>Connects the end points from both sub-paths</li>
+<li>Suitable if the light transport is complex on the light’s side</li>
+<li>Difficult to implement &amp; quite slow</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Metropolis light transport （MLT）</p>
+<ol start="0">
+<li><p>Idea: Jumping from the current sample to the next with some PDF</p>
+</li>
+<li><p>It is good at locally exploring difficult light paths</p>
+</li>
+<li><p>Key: Locally perturb an existing path to get a new path</p>
+<p><img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Metropolis_light_transport.png" alt="Metropolis_light_transport"></p>
+</li>
+<li><p>It works great with difficult light paths but also unbiased</p>
+</li>
+<li><p>Disadvantage</p>
+<ol start="0">
+<li>Difficult to estimate the convergence rate</li>
+<li>Does not guarantee equal convergence rate per pixel</li>
+<li>So usually produces “dirty” results</li>
+<li>Therefore, usually not used to render animations</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Biased light transport methods</p>
+<ol>
+<li><p>Photon Mapping</p>
+<p>A biased approach &amp; a two-stage method and very good at handling Specular-Diffuse-Specular(SDS) paths and generating <font color="red">caustics</font></p>
+<p><strong>Stage 0 - photon tracing</strong></p>
+<p>Emitting photons from the light source, bouncing them around, then recording photons on diffuse surfaces</p>
+<p><strong>Stage 1 - photon collection ( final gathering)</strong></p>
+<p>Shoot sub-paths from the camera, bouncing them around, until they hit diffuse surfaces</p>
+<p><strong>Calculation - <font color="red">local density estimation</font></strong></p>
+<p><strong>idea</strong>: area with more photons should be brighter</p>
+<p>For each shading point, find the nearest $N$ photons. Take the surface area that over</p>
+<p><strong>Why biased?</strong></p>
+<p>Because local Density estimation<br>$$<br>\frac {dN}{dA}\neq\frac{\Delta N}{\Delta A}<br>$$<br>But in the sense of limit, more photons emitted -&gt;The same $N$ photos covers a smaller $\Delta A$ , and the $\Delta A$ is  closer to $dA$. So, biased but consistent.</p>
+<p><strong>An easier understanding bias in rendering</strong></p>
+<p>Biased == blurry and consistent == not blurry with infinite #samples</p>
+<p>*<em>not do a “const range” *</em></p>
+</li>
+<li><p>Vertex connection and merging</p>
+<p>A combination of BDPT and Photon Mapping</p>
+<p><strong>Key idea</strong></p>
+<p>Let’s not waste the sub-paths in BDPT if their end points cannot be connected but can be merged and use photon mapping to handle the merging of nearby “photons”</p>
+</li>
+</ol>
+</li>
+<li><p>Instant radiosity (VPL / many light methods)</p>
+<p>Sometimes also called many-light approaches</p>
+<p><strong>Key idea</strong>: Lit surfaces can be treated as light sources</p>
+<p><strong>Approach</strong>: Shoot light sub-paths and assume the end point of each sub-path is a Virtual Point Light (VPL), then render the scene as usual using these VPLs .</p>
+<p><strong>Pro</strong> fast and usually gibes good results on diffuse scenes</p>
+<p><strong>Cons</strong> Spikes will emerge when VPLs are close to shading points and cannot handle glossy materials</p>
+</li>
+</ol>
+<h3 id="Advanced-Appearance-Modeling"><a href="#Advanced-Appearance-Modeling" class="headerlink" title="Advanced Appearance Modeling"></a>Advanced Appearance Modeling</h3><ol start="0">
+<li><p>Non-surface models</p>
+<p>Such like cloud or fog, at any point as light travels through a participating medium, it can be (partially) absorbed and scattered.</p>
+<ol start="0">
+<li><p>Participating media</p>
+<p>Use Phase Function to describe the angular distribution of light scattering at any point $x$ with participating media.</p>
+<p>Rendering</p>
+<ol start="0">
+<li>Randomly choose a direction to bounce</li>
+<li>Randomly choose a distance to go straight </li>
+<li>At each ‘shading pointy’, connect to the light</li>
+</ol>
+</li>
+<li><p>Hair / fur / fiber (BCSDF)</p>
+<ol start="0">
+<li>Kajiaya-Kay Model</li>
+</ol>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Kajiaya-Ka_Model.png" alt="Kajiaya-Ka_Model" style="zoom:50%;">
+
+<ol>
+<li><p>Marschner Model</p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Granular_material.png" alt="Granular_material" style="zoom:50%;">
+
+<p>Glass-like cylinder: 3 types of light interactions: R, TT, TRT (reflection = R, transmission =T )</p>
+<ol start="2">
+<li>Fur - Double Cylinder Model - Lobes</li>
+</ol>
+<img src="C:\Users\Y\Desktop\blog_pic\OOCG\Double_Cylinder_ModeLobes.png" alt="Double_Cylinder_ModeLobes" style="zoom:50%;">
+</li>
+</ol>
+</li>
+<li><p>Granular material（颗粒材质）</p>
+<p>With<font color="red"> procedural</font> definition, we can avoid explicit modeling of all granules</p>
+</li>
+</ol>
+</li>
+<li><p>Surface models</p>
+<ol start="0">
+<li><p>Translucent material (BSSRDF)</p>
+<p>Subsurface Scattering - Visual characteristics of many surfaces caused by light exiting at different points than it enters which violates a fundamental assumption of the BRDF.</p>
+<p>BSSRDF: generalization of BRDF; exitant radiance at one point due to incident differential irradiance at another point: $S(x_i,\omega_i,x_o,\omega_o)$</p>
+<p>Generalization of rendering equation: integrating over all points on the surface and all directions<br>$$<br>L(x_o,\omega_o)=\int_A \int_{H^2} (x_i,\omega_i,x_o,\omega_o)L_i(x_i,\omega_i)\cos \theta_id\omega_idA<br>$$<br><strong>Dipole Approximation</strong> - Approximate light diffusion by introducing two points sources.</p>
+</li>
+<li><p>cloth</p>
+<p><strong>A collection of twisted fibers</strong></p>
+<p>Given the weaving pattern, calculate the overall behavior and render using a BRDF.</p>
+<p><strong>Render as Participating Media</strong></p>
+<p>Properties of individual fibers &amp; their distribution -&gt; scattering parameters, render as a participating medium</p>
+<p><strong>Render as Actual Fibers</strong></p>
+</li>
+<li><p>Detailed material (non-statistical BRDF)</p>
+<p><strong>Difficult</strong> Path sampling problem</p>
+<p><strong>Solution</strong> BRDF over a pixel</p>
+<p>p-NDFs have sharp features</p>
+</li>
+</ol>
+</li>
+<li><p>Procedural appearance - We can define details without textures by computing a noise function on the fly. 3D noise -&gt; internal structure if cut or broken</p>
+<pre class="line-numbers language-pseudocode"><code class="language-pseudocode">if noise(x, y, z) > threshold reflectance = 1
+else reflectance = 0;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>complex noise function can be very powerful, such like mountain, ocean sea face of wood texture.</p>
+</li>
+</ol>
+<h2 id="8-Cameras-Lenses-and-Light-Fields"><a href="#8-Cameras-Lenses-and-Light-Fields" class="headerlink" title="8. Cameras, Lenses and Light Fields"></a>8. Cameras, Lenses and Light Fields</h2><p><strong>Imaging = Synthesis +Capture. but how to capture? By cameras!</strong></p>
+<h3 id="Pinholes-amp-Lenses-Form-Image-on-Sensor"><a href="#Pinholes-amp-Lenses-Form-Image-on-Sensor" class="headerlink" title="Pinholes &amp; Lenses Form Image on Sensor"></a>Pinholes &amp; Lenses Form Image on Sensor</h3><img src="C:\Users\Y\Desktop\blog_pic\OOCG\Pinhole_camera.png" alt="Pinhole_camera" style="zoom:67%;">
+
+<ol start="0">
+<li><p>Composition</p>
+<ol start="0">
+<li>shutter: exposes sensor for precise duration </li>
+<li>Sensor Accumulates irradiance during exposure</li>
+</ol>
+</li>
+<li><p>Why Not Sensors Without Lense</p>
+<p>Each sensor point would integrate light all points on the object, so all pixel values would be similar.</p>
+</li>
+</ol>
+<h3 id="Field-of-View-FOV-视场"><a href="#Field-of-View-FOV-视场" class="headerlink" title="Field of View (FOV) 视场"></a>Field of View (FOV) 视场</h3><ol start="0">
+<li><p>Effect of Focal Length on FOV</p>
+<img src="C:\Users\Y\Desktop\blog_pic\OOCG\FOV_EFFECT.png" alt="FOV_EFFECT" style="zoom:50%;">
+
+<p>for a fixed sensor size, decreasing the focal length increases the field of view.<br>$$<br>FOV = 2\arctan(\frac h{2f})<br>$$</p>
+</li>
+<li><p>Focal Length v. Field of View</p>
+<ol start="0">
+<li>For historical reasons, it is common to refer to angular field of view by focal length of a lens used on a 35mm-format film (36 x 24mm)</li>
+<li>Careful! When we say current cell phones have approximately 28mm “equivalent” focal length, this uses the above convention.</li>
+</ol>
+</li>
+<li><p>To maintain FOV, decrease focal length of lens in proportion to width/height of sensor</p>
+</li>
+</ol>
+<h3 id="Exposure"><a href="#Exposure" class="headerlink" title="Exposure"></a>Exposure</h3><ol start="0">
+<li><p>Basic</p>
+<ol start="0">
+<li>$H=T\times E$</li>
+<li>Exposure = time $\times$ irradiance</li>
+<li>Exposure time $T$ - Controlled by shutter</li>
+<li>Irradiance $E$<ol start="0">
+<li>Power of light falling on a unit area of sensor</li>
+<li>Controlled by lens aperture and focal length</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Exposure Controls in Photography</p>
+<ol start="0">
+<li><p>Aperture size</p>
+<p>Change the f-stop by opening / closing the aperture (if camera has iris control)</p>
+</li>
+<li><p>Shutter speed</p>
+<ol start="0">
+<li><p>Definition:</p>
+<p>Change the duration the sensor pixels integrate light</p>
+</li>
+<li><p>Side Effect of Shutter Speed:</p>
+<ol start="0">
+<li>Motion blur: handshake, subject movement - Doubling shutter time doubles motion blur</li>
+<li>Rolling shutter: different parts of photo taken at different times</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>ISO gain (感光度)</p>
+<p>Change the amplification (analog and/or digital) between sensor values and digital image values</p>
+</li>
+</ol>
+</li>
+<li><p>ISO(Gain)</p>
+<p>Third variable for exposure;</p>
+<p>Film: trade sensitivity for grain</p>
+<p>Digital: trade sensitivity for noise</p>
+<pre><code>   0. Multiply signal before analog-to-digital conversion
+     1. Linear effect (ISO 200 needs half the light as ISO 100)</code></pre></li>
+<li><p>F-Number (F-stop): Exposure Levels</p>
+<p>Written as FN or F/N. N is the f-number, the understanding is that the inverse-diameter of a round aperture</p>
+</li>
+<li><p>Constant Exposure: F-Stop vs Shutter Speed</p>
+<p>If the exposure is too bright/dark, may need to adjust f-stop and/or shutter up/down.</p>
+<p>Photographers must trade off depth of field（景深） and motion blur for moving subjects</p>
+</li>
+<li><p>High-Speed Photography</p>
+<p>Normal exposure = extremely fast shutter speed $\times$ (large aperture and/or high ISO)</p>
+</li>
+<li><p>Long-Exposure Photography</p>
+</li>
+</ol>
+<h3 id="Thin-Lens-Approximation"><a href="#Thin-Lens-Approximation" class="headerlink" title="Thin Lens Approximation"></a>Thin Lens Approximation</h3><p>We just illustrate the ideal thin lens - focal point, and there have 3 properties </p>
+<p>a. All parallel rays entering a lens pass through its focal point</p>
+<p>b. All rays through a focal point will be in parallel after passing the lens.</p>
+<p>c. Focal length can be arbitrarily changed </p>
+<ol start="0">
+<li><p>The Thin Lens Equation</p>
+<img src="C:\Users\Y\Desktop\blog_pic\OOCG\The_Thin_Lens_Equation.png" alt="The_Thin_Lens_Equation" style="zoom:50%;">
+$$
+\frac 1f=\frac 1{z_i}+\frac 1{z_o}
+$$
+</li>
+<li><p>Defocus Blur</p>
+<ol start="0">
+<li><p>Circle of Confusion (CoC) Size</p>
+<img src="C:\Users\Y\Desktop\blog_pic\OOCG\Circle_OF_Clin.png" alt="Circle_OF_Clin" style="zoom:50%;">
+
+<p>Circle of confusion is <font color="red"> proportional to the size of the aperture</font> because of<br>$$<br>\frac CA=\frac {d’}{z_i}=\frac {|z_s-z_i|}{z_i}<br>$$</p>
+</li>
+<li><p>CoC vs. Aperture Size</p>
+<ol start="0">
+<li><p>Revisiting F-Number </p>
+<ol start="0">
+<li>Formal definition: The f-number of a lens is defined as the focal length divided by the diameter of the aperture</li>
+<li>Common f-stops on real lenses: 1.4,2, 2.8, 4.0, 5.6, 8, 11, 16, 22, 32</li>
+<li>An f-stop of 2 is sometimes written f/2, reflecting the fact that the absolute aperture diameter (A) can be computed by dividing focal length (f) by the relative aperture (N).</li>
+</ol>
+</li>
+<li><p>Size of CoC is inversely Proportional to F-stop<br>$$<br>C=A\frac {|z_s-z_i|}{z_i}=\frac fN\frac {|z_s-z_i|}{z_i}<br>$$</p>
+</li>
+</ol>
+</li>
+<li><p>Ray Tracing ideal Thin Lenses</p>
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Ray_Tracing_ideal_Thin_Lenses.png" alt="Ray_Tracing_ideal_Thin_Lenses" style="zoom:50%;">
+
+<ol start="0">
+<li><p>(One possible) Setup:</p>
+<ol start="0">
+<li><p>Choose sensor size, lens focal length and aperture size</p>
+</li>
+<li><p>Choose depth of subject of interest $z_o$</p>
+</li>
+<li><p>Calculate corresponding depth of sensor $z$; from thin lens equation(focusing)</p>
+</li>
+</ol>
+</li>
+<li><p>Rendering</p>
+<ol start="0">
+<li>For each pixel x’ on the sensor (actually film)</li>
+<li>Sample random points x’’ on lens plane</li>
+<li>You know the ray passing through the lens will hit x’’’（using the thin lens formula） </li>
+<li>estimate radiance on ray x’’-&gt;x’’’</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Depth of Field</p>
+<p>Set circle of confusion as the maximum permissible blur spot on the image plane that will appear sharp under final viewing conditions</p>
+<ol start="0">
+<li><p>Depth of Field (FYI)</p>
+<p><img src="C:%5CUsers%5CY%5CDesktop%5Cblog_pic%5COOCG%5CFVI.png" alt="FVI"><br>$$<br>D_F=\frac {D_sf^2}{f^2-NC(D_S-f)},D_N=\frac {D_sf^2}{f^2+NC(D_S-f)}<br>$$</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="Light-Field-Lumigraph-Temporary-omission"><a href="#Light-Field-Lumigraph-Temporary-omission" class="headerlink" title="Light Field / Lumigraph(Temporary omission)"></a>Light Field / Lumigraph(Temporary omission)</h3><h2 id="9-Color-and-Perception"><a href="#9-Color-and-Perception" class="headerlink" title="9. Color and Perception"></a>9. Color and Perception</h2><ol start="0">
+<li><p>The Visible Spectrum of Light</p>
+<p>Electromagnetic radiation  </p>
+</li>
+<li><p>Spectral Power Distribution(SPD) - Salient property in measuring light</p>
+<ol start="0">
+<li>The amount of light present at each wavelength</li>
+<li>Units<ol start="0">
+<li>radiometric units / nanometer (e.g. watts / nm)</li>
+<li>Can also be unit-less</li>
+</ol>
+</li>
+<li>Often use “relative units” scaled to maximum wavelength for comparison across wavelengths when absolute units are not important</li>
+</ol>
+</li>
+<li><p>What is Color?</p>
+<ol start="0">
+<li><p>Preconcepts</p>
+<ol start="0">
+<li><p>Color is a phenomenon of human perception; it is not a universal property of light</p>
+</li>
+<li><p>Different wavelengths of light are not “colors”</p>
+</li>
+</ol>
+</li>
+<li><p>About Human Eye(omission)</p>
+</li>
+<li><p>Tristimulus Theory of Color</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="10-Animation"><a href="#10-Animation" class="headerlink" title="10. Animation"></a>10. Animation</h2><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -3247,7 +3773,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">82.8k</span>&nbsp;字
+                class="white-color">85.9k</span>&nbsp;字
             
             
             
