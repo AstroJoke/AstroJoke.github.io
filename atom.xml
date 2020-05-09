@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://astrojoke.github.io/"/>
-  <updated>2020-05-07T15:28:31.041Z</updated>
+  <updated>2020-05-09T15:10:44.360Z</updated>
   <id>https://astrojoke.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>UE4 SlateAiCourse 个人向项目总结</title>
+    <link href="https://astrojoke.github.io/2020/05/09/ue4-slateaicourse-ge-ren-xiang-xiang-mu-zong-jie/"/>
+    <id>https://astrojoke.github.io/2020/05/09/ue4-slateaicourse-ge-ren-xiang-xiang-mu-zong-jie/</id>
+    <published>2020-05-09T09:32:58.000Z</published>
+    <updated>2020-05-09T15:10:44.360Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;这个教程是梁迪老师的&amp;lt;&amp;lt;UE4纯C++与Slate开发沙盒游戏&amp;gt;&amp;gt;的个人向总结，其视频在腾讯课堂可以轻易搜到。由于个人比较懒，所以就不截图了，基本上此篇内容是纯文字的。&lt;/p&gt;
+&lt;p&gt;这个视频也是我的第一个项目了，但是由于一些原因这次二次重做也碰到了
+        
+      
+    
+    </summary>
+    
+    
+      <category term="项目" scheme="https://astrojoke.github.io/categories/%E9%A1%B9%E7%9B%AE/"/>
+    
+      <category term="UE4" scheme="https://astrojoke.github.io/categories/%E9%A1%B9%E7%9B%AE/UE4/"/>
+    
+    
+      <category term="游戏项目" scheme="https://astrojoke.github.io/tags/%E6%B8%B8%E6%88%8F%E9%A1%B9%E7%9B%AE/"/>
+    
+      <category term="UE4" scheme="https://astrojoke.github.io/tags/UE4/"/>
+    
+  </entry>
   
   <entry>
     <title>洛谷官方提单——线性表题解</title>
@@ -608,34 +640,6 @@
       <category term="洛谷" scheme="https://astrojoke.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
     
       <category term="入门" scheme="https://astrojoke.github.io/tags/%E5%85%A5%E9%97%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>新的开始</title>
-    <link href="https://astrojoke.github.io/2020/04/07/xin-de-kai-shi/"/>
-    <id>https://astrojoke.github.io/2020/04/07/xin-de-kai-shi/</id>
-    <published>2020-04-07T14:31:16.000Z</published>
-    <updated>2020-04-24T13:40:25.503Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;欢迎来到我的blog，这是我的第一篇博客，这里进行下自己的规划以及本博客主要分享的东西。&lt;/p&gt;
-&lt;h2 id=&quot;接下来对自己的规划&quot;&gt;&lt;a href=&quot;#接下来对自己的规划&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="哔哔叨" scheme="https://astrojoke.github.io/categories/%E5%93%94%E5%93%94%E5%8F%A8/"/>
-    
-    
-      <category term="随笔" scheme="https://astrojoke.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
