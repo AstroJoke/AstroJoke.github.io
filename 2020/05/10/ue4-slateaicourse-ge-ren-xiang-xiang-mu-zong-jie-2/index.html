@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="UE4 SlateAiCourse 个人向项目总结, AleXandrite">
-    <meta name="description" content="之前跟随的网上视频做的项目进行再总结，施工中">
+    <meta name="keywords" content="UE4-SlateAiCourse项目总结（游戏内UI）, AleXandrite">
+    <meta name="description" content="之前跟随网上视频做的项目总结，内容是游戏内界面UI，施工中">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>UE4 SlateAiCourse 个人向项目总结 | AleXandrite</title>
+    <title>UE4-SlateAiCourse项目总结（游戏内UI） | AleXandrite</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -156,9 +156,9 @@
     };
     loaded();
 })()
- </script><meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><link rel="alternate" href="/atom.xml" title="AleXandrite" type="application/atom+xml">
-<style type="text/css" lang="css">
+ </script><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="AleXandrite" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><style type="text/css" lang="css">
     #loading-container{
         position: fixed;
         top: 0;
@@ -660,7 +660,7 @@
 <script src="/libs/cryptojs/crypto-js.min.js"></script>
 <script>
     (function() {
-        let pwd = '';
+        let pwd = 'ahdapisihgsaicbzuxc';
         if (pwd && pwd.length > 0) {
             if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
                 alert('密码错误，将返回主页！');
@@ -673,12 +673,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">UE4 SlateAiCourse 个人向项目总结</h1>
+                    <h1 class="description center-align post-title">UE4-SlateAiCourse项目总结（游戏内UI）</h1>
                 </div>
             </div>
         </div>
@@ -803,6 +803,10 @@
                                 <span class="chip bg-color">UE4</span>
                             </a>
                         
+                            <a href="/tags/UI/">
+                                <span class="chip bg-color">UI</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -828,7 +832,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-09
+                    2020-05-10
                 </div>
                 
 
@@ -837,14 +841,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    52
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    1 分
                 </div>
                 
 				
@@ -860,259 +864,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>这个教程是梁迪老师的&lt;&lt;UE4纯C++与Slate开发沙盒游戏&gt;&gt;的个人向总结，其视频在腾讯课堂可以轻易搜到。由于个人比较懒，所以就不截图了，基本上此篇内容是纯文字的。</p>
-<p>这个视频也是我的第一个项目了，但是由于一些原因这次二次重做也碰到了很多坑，而且也忘了不少，后期有问题我也会更改。</p>
-<h2 id="0-使用Slate开发Menu"><a href="#0-使用Slate开发Menu" class="headerlink" title="0 使用Slate开发Menu"></a>0 使用Slate开发Menu</h2><h3 id="几个基本的概念"><a href="#几个基本的概念" class="headerlink" title="几个基本的概念"></a>几个基本的概念</h3><p>我们都知道UE4的所有东西都来自“UObject”，而由“UObject”所提供的元数据（metadata），反射生成，GC垃圾回收，序列化，编辑器可见，Class Default Object等此处不介绍，因为这些是我们暂时不需要的东西，或者说是可以通过其他的项目可以了解的东西。以下是针对我认为在初期应当了解的东西：</p>
-<ol start="0">
-<li>Actor：一开始个人对Actor的定义就是这个游戏除了UObject的所有，但是由于后面的Component ，因此我认为的Actor就是我们所有的非“技能”元素，他不仅包括可见的“树”，“水”等，也包括了“camera”“air”等不可见的东西；</li>
-<li>Component，我这里通常将其理解为“技能”类的东西，至于更多的暂时不多过于介绍；</li>
-<li>Pawn：属于“Actor”，是世界的代理人，我们通过controller对其进行控制；</li>
-<li>Play State：顾名思义游戏状态，就好比你打一场网球，你的积分就是状态的一部分（也包括人在哪里，球在哪里，怎么运动等）</li>
-<li>Game Mode：指的是你想要写的游戏的定义（类似于你想写的是MMORPG或者MOBA类这种，需要你指定规则）</li>
-<li>Game Controller：指的是指挥Pawn的Actor。分为两种，一种是我们将会写的Play Controller，是玩家用来控制这个Pawn的接口（当然整个part你将会看到我么是拿来写UI与人的交互）；而AI Controller 是提前通过一些方法模拟成了“人”，在此part几乎不会涉及。</li>
-<li>HUD：我将其理解为只能看不能动的一个屏幕</li>
-<li>Widget：指可以与人发生交互的控件</li>
-<li>Level：指的是你对应某个阶段的场景，一个工程文件内可以有多个level</li>
-</ol>
-<p>有了以上的基本概念，基本上可以对UI进行开发了。</p>
-<p>下载完资源包之后，我们需要右键uproject文件然后生成VS项目文件（我第一次做直接就对着做导致后面第一次编译都各种出错，当然这是小白错误）。</p>
-<p>另外由于这个项目在4.18做的，所以建议4.18,（因为使用的4.23而导致各种奇怪错误，询问课程主讲人告诉我4.23有很多的函数接口已经改变，因此建议还是4.18，另外4.18不自持VS2019，因此我还多下了个VS2017）。</p>
-<h3 id="UI的开始：新建level，添加控件等C-类"><a href="#UI的开始：新建level，添加控件等C-类" class="headerlink" title="UI的开始：新建level，添加控件等C++类"></a>UI的开始：新建level，添加控件等C++类</h3><p><strong>新建level</strong></p>
-<p>首先我们要做的是UI，因此先添加一个level用来当做主界面的场景，然后在项目设置中将地图/模式中的Editor Startup Map和Game Default Map设置为刚才的新建的level（此处取名为MenuMap）</p>
-<p><strong>添加Slate控件</strong></p>
-<p>在“Source\SlAiCourse”内的对应代码添加新的组件</p>
-<pre class="line-numbers language-c"><code class="language-c">PublicDependencyModuleNames<span class="token punctuation">.</span><span class="token function">AddRange</span><span class="token punctuation">(</span>new string<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">{</span> 
-    <span class="token string">"Core"</span><span class="token punctuation">,</span>
-    <span class="token string">"CoreUObject"</span><span class="token punctuation">,</span>
-    <span class="token string">"Engine"</span><span class="token punctuation">,</span>
-    <span class="token string">"InputCore"</span> <span class="token punctuation">,</span>
-    <span class="token comment" spellcheck="true">//follows should be add</span>
-    <span class="token string">"Slate"</span><span class="token punctuation">,</span>
-    <span class="token string">"SlateCore"</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>新建的C++类</strong></p>
-<p>在保证项目管理的情况下，添加以下几个C++类（</p>
-<ol start="0">
-<li>Game Mode Base：放在/Public/GamePlay,，命名为SlAiMenuGameMode</li>
-<li>Player Controller：放在/Public/GamePlay，命名为SlAiMenuController</li>
-<li>HUD：放为/Public/UI/HUD，命名为SlAiMenuHUD</li>
-<li>Slate Widget：放在/Public/UI/Widget，命名为SlAiMenuHUDWidget和SlAiMenuWidget。（在创建完后UE4会自动给你加上S前缀，用来表示他是Slate的）</li>
-</ol>
-<p><strong>相关代码</strong></p>
-<p>首先先告知两个构造函数宏定义的区别</p>
-<pre class="line-numbers language-c"><code class="language-c">\\下述的宏定义需要在<span class="token punctuation">.</span>h文件内声明，然后在<span class="token punctuation">.</span>cpp文件内写一个构造函数
-\\但是写的构造函数是不需要自己额外加参数的
-<span class="token function">GENERATED_BODY</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-\\若使用下列的宏定义，不需要在<span class="token punctuation">.</span>h文件中声明，但是在<span class="token punctuation">.</span>cpp文件内比较麻烦
-\\以SlAiMenuGameMode<span class="token punctuation">.</span>cpp为例
-<span class="token function">GENERATED_UCLASS_BODY</span><span class="token punctuation">(</span><span class="token punctuation">)</span>    
-ASlAiMenuGameMode<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">ASlAiMenuGameMode</span><span class="token punctuation">(</span><span class="token keyword">const</span> FObjectInitialize<span class="token operator">&amp;</span> ObjectInitializer<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token function">Super</span><span class="token punctuation">(</span>ObjectInitializer<span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
-\\在此个项目中我们统一使用上面的方法<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>然后几个文件的代码我就不放上来了，但是这里阐述下几个函数的作用</p>
-<pre class="line-numbers language-c"><code class="language-c">ASlAiMenuGameMode<span class="token punctuation">:</span><span class="token punctuation">:</span>ASlAiMenuGameMode（）<span class="token punctuation">{</span>
-    PlayerControllerClass <span class="token operator">=</span> ASlAiMenuController<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">StaticClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    HUDClass <span class="token operator">=</span> ASlAiMenuHUD<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">StaticClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>StaticClass函数是返回这个类的一个反射（至于反射自己百度，我才不会告诉你我暂时都有点摸不着头脑）（反射：一种计算机处理方式。有程序可以访问、检测和修改它本身状态或行为的这种能力。能提供封装程序集、类型的对象。（程序集包含模块，而模块包含类型，类型又包含成员。））以此来操作这个类。</p>
-<p>在Controller对应的源代码中，我们首先先显示鼠标</p>
-<pre class="line-numbers language-c"><code class="language-c">ASlAiMenuController<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">ASlAiMenuController</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//设置显示鼠标</span>
-    bShowMouseCursor <span class="token operator">=</span> true<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">void</span> ASlAiMenuController<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">BeginPlay</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    FInputModeUIOnly InputMode<span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//将鼠标锁在界面里</span>
-    InputMode<span class="token punctuation">.</span><span class="token function">SetLockMouseToViewportBehavior</span><span class="token punctuation">(</span>EMouseLockMode<span class="token punctuation">:</span><span class="token punctuation">:</span>LockAlways<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//将这个Controller和这个InputMode绑定在一起</span>
-    <span class="token function">SetInputMode</span><span class="token punctuation">(</span>InputMode<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>跟着做完之后，你单独窗口运行的时候，你就会发现鼠标无法离开对应的黑框；</p>
-<p>然后我们处理HUD和Widget。</p>
-<p>在HUD类里面进行操作，创建这个Widget并at viewport方法（这里有红线不着急，因为UE4还是有点奇妙）</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"SlAiMenuHUD.h"</span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"SSlAiMenuHUDWidget.h"</span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"SlateBasics.h"</span></span>
-ASlAiMenuHUD<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">ASlAiMenuHUD</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>GEngine <span class="token operator">&amp;&amp;</span>GEngine<span class="token operator">-&gt;</span>GameViewport<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">SAssignNew</span><span class="token punctuation">(</span>MenuHUDWidget<span class="token punctuation">,</span> SSlAiMenuHUDWidget<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        GEngine<span class="token operator">-&gt;</span>GameViewport<span class="token operator">-&gt;</span><span class="token function">AddViewportWidgetContent</span><span class="token punctuation">(</span><span class="token function">SNew</span><span class="token punctuation">(</span>SWeakWidget<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">PossiblyNullContent</span><span class="token punctuation">(</span>MenuHUDWidget<span class="token punctuation">.</span><span class="token function">ToSharedRef</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>这里涉及到SAssignNew()和SNew()函数的不同</p>
-<pre class="line-numbers language-c"><code class="language-c">TSharedRef <span class="token function">SNew</span><span class="token punctuation">(</span>Class A<span class="token punctuation">)</span><span class="token punctuation">;</span>
-TSharedPtr <span class="token function">SAssignNew</span><span class="token punctuation">(</span>TSharePtr ptr<span class="token punctuation">,</span>Class A<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//且只能用来创建继承于SlateWidget的类</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h3 id="Widget的粗略开发"><a href="#Widget的粗略开发" class="headerlink" title="Widget的粗略开发"></a>Widget的粗略开发</h3><p>首先我们对SSlAiMenuHUDWidget.cpp的代码改为</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"SSlAiMenuHUDWidget.h"</span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"SlateOptMacros.h"</span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"SButton.h"</span></span>
-
-BEGIN_SLATE_FUNCTION_BUILD_OPTIMIZATION
-<span class="token keyword">void</span> SSlAiMenuHUDWidget<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">Construct</span><span class="token punctuation">(</span><span class="token keyword">const</span> FArguments<span class="token operator">&amp;</span> InArgs<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-
-    ChildSlot
-    <span class="token punctuation">[</span>
-        <span class="token function">SNew</span><span class="token punctuation">(</span>SButton<span class="token punctuation">)</span>
-    <span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-<span class="token punctuation">}</span>
-END_SLATE_FUNCTION_BUILD_OPTIMIZATION<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>运行后会获得一个窗口大小的Button，但是一个这么大的button没有什么X用，因此需要进行新的操作</p>
-<p><strong>新建部分C++类</strong></p>
-<ol start="0">
-<li>在Source\SlAiCourse\Public\UI\Style内创建一个Widget Style，命名为SlAiMenuWidgetStyle</li>
-<li>在Source\SlAiCourse\Public\UI\Style内创建一个普通的C++类，命名为SlAiStyle.h</li>
-</ol>
-<p>其中第一个类里面生成了一个构造体和一个类，到时候我们直接在里面添加元素即可；而第二个类的目的是获取Widget Stlye，蓝图编辑器等的样式并加载进游戏。</p>
-<p><strong>相关代码</strong></p>
-<p>SlAiStyle.h里面需要提前声明以下内容</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">// Fill out your copyright notice in the Description page of Project Settings.</span>
-<span class="token macro property">#<span class="token directive keyword">pragma</span> once</span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"CoreMinimal.h"</span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"SlateBasics.h"</span></span>
-class SLAICOURSE_API SlAiStyle
-<span class="token punctuation">{</span>
-public<span class="token punctuation">:</span>
-    <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Initialize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">static</span> FName <span class="token function">GetStyleName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">ShutDown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">static</span> <span class="token keyword">const</span> ISlateStyle<span class="token operator">&amp;</span> <span class="token function">Get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-private<span class="token punctuation">:</span>
-    <span class="token keyword">static</span> TSharedPtr<span class="token operator">&lt;</span>class FSlateStyleSet<span class="token operator">&gt;</span> <span class="token function">Create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">static</span> TSharedPtr<span class="token operator">&lt;</span>FSlateStyleSet<span class="token operator">&gt;</span> SlAiStyleInstance<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>同时在对应的.cpp文档中有以下</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">// Fill out your copyright notice in the Description page of Project Settings.</span>
-
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"SlAiStyle.h"</span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"SlateGameResources.h"</span></span>
-<span class="token comment" spellcheck="true">//单例指针必须提前设置为NULL，不然会产生错误</span>
-TSharedPtr<span class="token operator">&lt;</span>FSlateStyleSet<span class="token operator">&gt;</span> SlAiStyle<span class="token punctuation">:</span><span class="token punctuation">:</span>SlAiStyleInstance <span class="token operator">=</span> <span class="token constant">NULL</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//注册样式</span>
-<span class="token keyword">void</span> SlAiStyle<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">Initialze</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>SlAiStyleInstance<span class="token punctuation">.</span><span class="token function">IsValid</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> 
-    <span class="token punctuation">{</span>
-        SlAiStyleInstance <span class="token operator">=</span> <span class="token function">Create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        FSlateStyleRegistry<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">RegisterSlateStyle</span><span class="token punctuation">(</span><span class="token operator">*</span>SlAiStyleInstance<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">//获取样式名</span>
-FName SlAiStyle<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">GetStyleSetName</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">static</span> FName <span class="token function">StyleSetName</span><span class="token punctuation">(</span><span class="token function">TEXT</span><span class="token punctuation">(</span><span class="token string">"SlAiStyle"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> StyleSetName<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">//对样式取消注册</span>
-<span class="token keyword">void</span> SlAiStyle<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">ShutDown</span><span class="token punctuation">(</span><span class="token punctuation">)</span> 
-<span class="token punctuation">{</span>
-    FSlateStyleRegistry<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">UnRegisterSlateStyle</span><span class="token punctuation">(</span><span class="token operator">*</span>SlAiStyleInstance<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">ensure</span><span class="token punctuation">(</span>SlAiStyleInstance<span class="token punctuation">.</span><span class="token function">IsUnique</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    SlAiStyleInstance<span class="token punctuation">.</span><span class="token function">Reset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">//通过这个方法获得样式</span>
-<span class="token keyword">const</span> ISlateStyle<span class="token operator">&amp;</span> SlAiStyle<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">Get</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token operator">*</span>SlAiStyleInstance<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">//创建一个GetStyleSet</span>
-TSharedRef<span class="token operator">&lt;</span>class FSlateStyleSet<span class="token operator">&gt;</span> SlAiStyle<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">Create</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    TSharedRef<span class="token operator">&lt;</span>FSlateStyleSet<span class="token operator">&gt;</span> StyleRef <span class="token operator">=</span> FSlateGameResources<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">New</span><span class="token punctuation">(</span>SlAiStyle<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">GetStyleSetName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"/Game/UI/Style"</span><span class="token punctuation">,</span> <span class="token string">"/Game/UI/Style"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//创建文件夹</span>
-    StyleRef<span class="token operator">-&gt;</span><span class="token function">Set</span><span class="token punctuation">(</span><span class="token string">"MenuItemFont"</span><span class="token punctuation">,</span> <span class="token function">FSlateFontInfo</span><span class="token punctuation">(</span><span class="token string">"Roboto-Regular.ttf"</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> StyleRef<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>这里牵扯到了FName，FString和FText的区别</p>
-<ol start="0">
-<li>FName：在UE4中系统类的命名</li>
-<li>FString：最消耗资源的可编辑字符串</li>
-<li>FText：本地化和所有显示在UI上的文字</li>
-</ol>
-<p>然后将SlAiCourse.h添加以下的内容</p>
-<pre class="line-numbers language-c"><code class="language-c">class FSlAiCourceModule <span class="token punctuation">:</span>public FDefaultGameModuleImpl
-<span class="token punctuation">{</span>
-public<span class="token punctuation">:</span>
-    virtual <span class="token keyword">void</span> <span class="token function">StartupModule</span><span class="token punctuation">(</span><span class="token punctuation">)</span> override<span class="token punctuation">;</span>
-    virtual <span class="token keyword">void</span> <span class="token function">ShutdownModule</span><span class="token punctuation">(</span><span class="token punctuation">)</span> override<span class="token punctuation">;</span>
-
-<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>然后.cpp文件</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"SlAiCourse.h"</span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"Modules/ModuleManager.h"</span></span>
-<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"SlAiStyle.h"</span></span>
-<span class="token function">IMPLEMENT_PRIMARY_GAME_MODULE</span><span class="token punctuation">(</span>FSlAiCourceModule<span class="token punctuation">,</span> SlAiCourse<span class="token punctuation">,</span> <span class="token string">"SlAiCourse"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">void</span> FSlAiCourceModule<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">ShutdownModule</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    SlAiStyle<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">ShutDown</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">void</span> FSlAiCourceModule<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">StartupModule</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//初始化样式</span>
-    FSlateStyleRegistry<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">UnRegisterSlateStyle</span><span class="token punctuation">(</span>SlAiStyle<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">GetStyleSetName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//避免重复加载</span>
-    SlAiStyle<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">Initialize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>接下来我们来对SlAiMenuWidgetStyle.h进行操作，要对一个level进行增减物品的时候，我们一般都会采用BSD方式来添加，因此在.h文档中</p>
-<pre class="line-numbers language-c"><code class="language-c">    <span class="token comment" spellcheck="true">//....以上不变</span>
-virtual <span class="token keyword">const</span> FName <span class="token function">GetTypeName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">const</span> override <span class="token punctuation">{</span> <span class="token keyword">return</span> TypeName<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token keyword">static</span> <span class="token keyword">const</span> FSlAiMenuStyle<span class="token operator">&amp;</span> <span class="token function">GetDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//以下不变</span>
-    <span class="token function">UPROPERTY</span><span class="token punctuation">(</span>EditAnywhere<span class="token punctuation">,</span> Category <span class="token operator">=</span> Menu<span class="token punctuation">)</span>
-        FSlateBrush MenuHUDBackgroundBrush<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>t同时</p>
-<p>然后我们要在HUD里面弄图片，因此SSlAiMenuHUDWidget.h里面需要进行如下的操作</p>
-<pre class="line-numbers language-c"><code class="language-c">private<span class="token punctuation">:</span>
-    <span class="token comment" spellcheck="true">//获取Menu样式</span>
-    <span class="token keyword">const</span> <span class="token keyword">struct</span> FSlAiMenuStyle <span class="token operator">*</span>MenuStyle<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>同时SSlAiMenuHUDWidget.cpp</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> SSlAiMenuHUDWidget<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">Construct</span><span class="token punctuation">(</span><span class="token keyword">const</span> FArguments<span class="token operator">&amp;</span> InArgs<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//获取编辑器的MenuStyle</span>
-    MenuStyle <span class="token operator">=</span> <span class="token operator">&amp;</span>SlAiStyle<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">Get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>GetWidgetStyle<span class="token operator">&lt;</span>FSlAiMenuStyle<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token string">"BPSlAiMenuStyle"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//BSP一般指的是笔刷</span>
-    ChildSlot
-        <span class="token punctuation">[</span>
-            <span class="token function">SNew</span><span class="token punctuation">(</span>SImage<span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">Image</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>MenuStyle<span class="token operator">-&gt;</span>MenuHUDBackgroundBrush<span class="token punctuation">)</span>
-        <span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>注意头文件有generate字样的一定放在最下面</p>
-<h3 id="dpi适配"><a href="#dpi适配" class="headerlink" title="dpi适配"></a>dpi适配</h3><p>为了达到这个目的，我们需要添加SOverlay.h文件。实际上就是在写blog的layout文档类似，就创建slot然后“画”就行了。</p>
-<pre class="line-numbers language-c"><code class="language-c">    <span class="token comment" spellcheck="true">//获取编辑器的MenuStyle</span>
-    MenuStyle <span class="token operator">=</span> <span class="token operator">&amp;</span>SlAiStyle<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">Get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>GetWidgetStyle<span class="token operator">&lt;</span>FSlAiMenuStyle<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token string">"BPSlAiMenuStyle"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">//BSP一般指的是笔刷,图片是在SlAiMenuWidgetStyle.h中声明在哪里的</span>
-    ChildSlot
-        <span class="token punctuation">[</span>
-            <span class="token function">SNew</span><span class="token punctuation">(</span>SOverlay<span class="token punctuation">)</span>
-            <span class="token operator">+</span>SOverlay<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">Slot</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token function">HAlign</span><span class="token punctuation">(</span>HAlign_Fill<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//水平方向充满</span>
-        <span class="token punctuation">.</span><span class="token function">VAlign</span><span class="token punctuation">(</span>VAlign_Fill<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//垂直方向充满</span>
-        <span class="token punctuation">.</span><span class="token function">Padding</span><span class="token punctuation">(</span><span class="token function">FMargin</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">.</span>f<span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token punctuation">[</span>
-            <span class="token function">SNew</span><span class="token punctuation">(</span>SImage<span class="token punctuation">)</span>
-            <span class="token punctuation">.</span><span class="token function">Image</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>MenuStyle<span class="token operator">-&gt;</span>MenuHUDBackgroundBrush<span class="token punctuation">)</span>
-        <span class="token punctuation">]</span>
-            <span class="token operator">+</span>SOverlay<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">Slot</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token function">HAlign</span><span class="token punctuation">(</span>HAlign_Center<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//水平方向充满</span>
-        <span class="token punctuation">.</span><span class="token function">VAlign</span><span class="token punctuation">(</span>VAlign_Center<span class="token punctuation">)</span><span class="token comment" spellcheck="true">//垂直方向放在正中间</span>
-        <span class="token punctuation">[</span>
-        <span class="token function">SNew</span><span class="token punctuation">(</span>SImage<span class="token punctuation">)</span>
-        <span class="token punctuation">.</span><span class="token function">Image</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>MenuStyle<span class="token operator">-&gt;</span>MenuBackgroundBrush<span class="token punctuation">)</span>
-        <span class="token punctuation">]</span>
-        <span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>然后之后我们需要在本地调试器运行一遍，设置部分参数。</p>
-<p>包括</p>
-<ol start="0">
-<li>Contend/UI/Style内的笔刷需要设置</li>
-</ol>
-<hr>
-<p>施工中</p>
-<script>
+                <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1155,7 +907,7 @@ virtual <span class="token keyword">const</span> FName <span class="token functi
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://astrojoke.github.io/2020/05/09/ue4-slateaicourse-ge-ren-xiang-xiang-mu-zong-jie/">https://astrojoke.github.io/2020/05/09/ue4-slateaicourse-ge-ren-xiang-xiang-mu-zong-jie/</a>
+                    <a href="https://astrojoke.github.io/2020/05/10/ue4-slateaicourse-ge-ren-xiang-xiang-mu-zong-jie-2/">https://astrojoke.github.io/2020/05/10/ue4-slateaicourse-ge-ren-xiang-xiang-mu-zong-jie-2/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1199,6 +951,10 @@ virtual <span class="token keyword">const</span> FName <span class="token functi
                             
                                 <a href="/tags/UE4/">
                                     <span class="chip bg-color">UE4</span>
+                                </a>
+                            
+                                <a href="/tags/UI/">
+                                    <span class="chip bg-color">UI</span>
                                 </a>
                             
                         </div>
@@ -1369,24 +1125,24 @@ virtual <span class="token keyword">const</span> FName <span class="token functi
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2020/05/09/ue4-slateaicourse-ge-ren-xiang-xiang-mu-zong-jie/">
+                <a href="/2020/05/10/ue4-slateaicourse-ge-ren-xiang-xiang-mu-zong-jie-2/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="UE4 SlateAiCourse 个人向项目总结">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="UE4-SlateAiCourse项目总结（游戏内UI）">
                         
-                        <span class="card-title">UE4 SlateAiCourse 个人向项目总结</span>
+                        <span class="card-title">UE4-SlateAiCourse项目总结（游戏内UI）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            之前跟随的网上视频做的项目进行再总结，施工中
+                            之前跟随网上视频做的项目总结，内容是游戏内界面UI，施工中
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-10
                             </span>
                         <span class="publish-author">
                             
@@ -1416,6 +1172,10 @@ virtual <span class="token keyword">const</span> FName <span class="token functi
                         <span class="chip bg-color">UE4</span>
                     </a>
                     
+                    <a href="/tags/UI/">
+                        <span class="chip bg-color">UI</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1427,31 +1187,35 @@ virtual <span class="token keyword">const</span> FName <span class="token functi
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/02/luo-gu-guan-fang-ti-dan-xian-xing-biao-ti-jie/">
+                <a href="/2020/05/09/ue4-slateaicourse-ge-ren-xiang-xiang-mu-zong-jie-1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="洛谷官方提单——线性表题解">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="UE4 SlateAiCourse项目总结（游戏目录UI）">
                         
-                        <span class="card-title">洛谷官方提单——线性表题解</span>
+                        <span class="card-title">UE4 SlateAiCourse项目总结（游戏目录UI）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            基本的线性表运用
+                            之前跟随网上视频做的项目总结，内容是游戏主界面UI
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-09
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/" class="post-category">
-                                    算法和程序设计
+                            <a href="/categories/%E9%A1%B9%E7%9B%AE/" class="post-category">
+                                    项目
+                                </a>
+                            
+                            <a href="/categories/%E9%A1%B9%E7%9B%AE/UE4/" class="post-category">
+                                    UE4
                                 </a>
                             
                             
@@ -1461,16 +1225,16 @@ virtual <span class="token keyword">const</span> FName <span class="token functi
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/">
-                        <span class="chip bg-color">编程算法题解</span>
+                    <a href="/tags/%E6%B8%B8%E6%88%8F%E9%A1%B9%E7%9B%AE/">
+                        <span class="chip bg-color">游戏项目</span>
                     </a>
                     
-                    <a href="/tags/%E6%B4%9B%E8%B0%B7/">
-                        <span class="chip bg-color">洛谷</span>
+                    <a href="/tags/UE4/">
+                        <span class="chip bg-color">UE4</span>
                     </a>
                     
-                    <a href="/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8/">
-                        <span class="chip bg-color">线性表</span>
+                    <a href="/tags/UI/">
+                        <span class="chip bg-color">UI</span>
                     </a>
                     
                 </div>
@@ -1627,7 +1391,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">91.6k</span>&nbsp;字
+                class="white-color">95.8k</span>&nbsp;字
             
             
             

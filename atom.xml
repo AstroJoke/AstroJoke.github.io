@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://astrojoke.github.io/"/>
-  <updated>2020-05-09T15:10:44.360Z</updated>
+  <updated>2020-05-10T14:53:13.442Z</updated>
   <id>https://astrojoke.github.io/</id>
   
   <author>
@@ -17,11 +17,48 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>UE4 SlateAiCourse 个人向项目总结</title>
-    <link href="https://astrojoke.github.io/2020/05/09/ue4-slateaicourse-ge-ren-xiang-xiang-mu-zong-jie/"/>
-    <id>https://astrojoke.github.io/2020/05/09/ue4-slateaicourse-ge-ren-xiang-xiang-mu-zong-jie/</id>
+    <title>UE4-SlateAiCourse项目总结（游戏内UI）</title>
+    <link href="https://astrojoke.github.io/2020/05/10/ue4-slateaicourse-ge-ren-xiang-xiang-mu-zong-jie-2/"/>
+    <id>https://astrojoke.github.io/2020/05/10/ue4-slateaicourse-ge-ren-xiang-xiang-mu-zong-jie-2/</id>
+    <published>2020-05-10T14:51:21.000Z</published>
+    <updated>2020-05-10T14:53:13.442Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;script&gt;
+        document.querySelectorAll(&#39;.github-emoji&#39;)
+          .forEach(el =&gt; {
+            if (!el.dataset.src) { return; }
+       
+        
+      
+    
+    </summary>
+    
+    
+      <category term="项目" scheme="https://astrojoke.github.io/categories/%E9%A1%B9%E7%9B%AE/"/>
+    
+      <category term="UE4" scheme="https://astrojoke.github.io/categories/%E9%A1%B9%E7%9B%AE/UE4/"/>
+    
+    
+      <category term="游戏项目" scheme="https://astrojoke.github.io/tags/%E6%B8%B8%E6%88%8F%E9%A1%B9%E7%9B%AE/"/>
+    
+      <category term="UE4" scheme="https://astrojoke.github.io/tags/UE4/"/>
+    
+      <category term="UI" scheme="https://astrojoke.github.io/tags/UI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UE4 SlateAiCourse项目总结（游戏目录UI）</title>
+    <link href="https://astrojoke.github.io/2020/05/09/ue4-slateaicourse-ge-ren-xiang-xiang-mu-zong-jie-1/"/>
+    <id>https://astrojoke.github.io/2020/05/09/ue4-slateaicourse-ge-ren-xiang-xiang-mu-zong-jie-1/</id>
     <published>2020-05-09T09:32:58.000Z</published>
-    <updated>2020-05-09T15:10:44.360Z</updated>
+    <updated>2020-05-10T14:53:06.790Z</updated>
     
     <summary type="html">
     
@@ -45,6 +82,8 @@
       <category term="游戏项目" scheme="https://astrojoke.github.io/tags/%E6%B8%B8%E6%88%8F%E9%A1%B9%E7%9B%AE/"/>
     
       <category term="UE4" scheme="https://astrojoke.github.io/tags/UE4/"/>
+    
+      <category term="UI" scheme="https://astrojoke.github.io/tags/UI/"/>
     
   </entry>
   
@@ -595,37 +634,6 @@
         
           &lt;p&gt;依旧水题警告，不多BB，直接上。&lt;/p&gt;
 &lt;h2 id=&quot;题目0：数的性质&quot;&gt;&lt;a href=&quot;#题目0：数的性质&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="算法和程序设计" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-      <category term="编程算法题解" scheme="https://astrojoke.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
-    
-      <category term="洛谷" scheme="https://astrojoke.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
-    
-      <category term="入门" scheme="https://astrojoke.github.io/tags/%E5%85%A5%E9%97%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>洛谷官方题单——顺序结构题解（超级水题警告）</title>
-    <link href="https://astrojoke.github.io/2020/04/10/luo-gu-guan-fang-ti-dan-shun-xu-jie-gou-ti-jie-chao-ji-shui-jing-gao/"/>
-    <id>https://astrojoke.github.io/2020/04/10/luo-gu-guan-fang-ti-dan-shun-xu-jie-gou-ti-jie-chao-ji-shui-jing-gao/</id>
-    <published>2020-04-09T17:24:09.000Z</published>
-    <updated>2020-04-24T13:40:04.576Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;最近洛谷直接更新之前的试炼场模式，现在直接就采用题单了，虽然题目多了不少，但是实际上就是把类似于EX之类的放在了一起，虽然题目多，但是感觉在后面可能会导致一个题单难度会存在飞跃。&lt;br&gt;这是第一期水题集锦，我尽量一日到两日更。另外我记得某本书告诉我们，没有循环的题目实际上某
         
       
     
