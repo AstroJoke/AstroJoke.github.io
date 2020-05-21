@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://astrojoke.github.io/"/>
-  <updated>2020-05-12T05:13:09.500Z</updated>
+  <updated>2020-05-21T08:17:45.128Z</updated>
   <id>https://astrojoke.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>UE4网络编程（UE4++）</title>
+    <link href="https://astrojoke.github.io/2020/05/21/ue4-wang-luo-bian-cheng-ue4/"/>
+    <id>https://astrojoke.github.io/2020/05/21/ue4-wang-luo-bian-cheng-ue4/</id>
+    <published>2020-05-21T08:15:53.000Z</published>
+    <updated>2020-05-21T08:17:45.128Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;首先阐述下，UE4的网络编程是典型的（标准的）C/S模型，这就意味着服务器才是权威，并且所有的数据都必须&lt;strong&gt;首先&lt;/strong&gt;从客户端送到数据，接下来服务器会判断那些数据可用并且根据编写的代码对对应数据进行反应。&lt;/p&gt;
+&lt;p&gt;同时，&lt;strong&gt;永远&lt;/
+        
+      
+    
+    </summary>
+    
+    
+      <category term="UE4" scheme="https://astrojoke.github.io/categories/UE4/"/>
+    
+    
+      <category term="UE4" scheme="https://astrojoke.github.io/tags/UE4/"/>
+    
+  </entry>
   
   <entry>
     <title>UE4-SlateAiCourse项目总结（背包，敌人AI和小地图）</title>
@@ -598,38 +626,6 @@
         
           &lt;p&gt;今天之后，题目会开始变得困难了一些，但是就现在为止还是抵挡不住我们的刷题节奏。废话不多说，直接开搞。&lt;/p&gt;
 &lt;h2 id=&quot;题目0：小鱼比可爱&quot;&gt;&lt;a href=&quot;#题目0：小鱼比可爱&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="算法和程序设计" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-      <category term="编程算法题解" scheme="https://astrojoke.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
-    
-      <category term="洛谷" scheme="https://astrojoke.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
-    
-      <category term="入门" scheme="https://astrojoke.github.io/tags/%E5%85%A5%E9%97%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>洛谷官方题单——循环结构题解（水题警告）</title>
-    <link href="https://astrojoke.github.io/2020/04/13/luo-gu-guan-fang-ti-dan-xun-huan-jie-gou-ti-jie-shui-ti-jing-gao/"/>
-    <id>https://astrojoke.github.io/2020/04/13/luo-gu-guan-fang-ti-dan-xun-huan-jie-gou-ti-jie-shui-ti-jing-gao/</id>
-    <published>2020-04-13T15:20:45.000Z</published>
-    <updated>2020-04-24T13:39:59.525Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;今天虽然还是水题，但是实际上已经有部分需要一定的基础才能做出来。下面是代码和部分解释。&lt;/p&gt;
-&lt;h2 id=&quot;题目0：找最小值&quot;&gt;&lt;a href=&quot;#题目0：找最小值&quot; class=&quot;headerlink&quot;
         
       
     
