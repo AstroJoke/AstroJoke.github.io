@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="UE4网络编程（UE4++）, AleXandrite">
-    <meta name="description" content="施工中">
+    <meta name="description" content="有关UE4网络编程的一些基础知识">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -673,7 +673,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/cover7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -820,7 +820,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-21
+                    2020-05-20
                 </div>
                 
 
@@ -829,14 +829,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.8k
+                    12.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    50 分
                 </div>
                 
 				
@@ -852,7 +852,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>首先阐述下，UE4的网络编程是典型的（标准的）C/S模型，这就意味着服务器才是权威，并且所有的数据都必须<strong>首先</strong>从客户端送到数据，接下来服务器会判断那些数据可用并且根据编写的代码对对应数据进行反应。</p>
+                <p>许久未见我又开始开工了，这次主要是近期在学习的UE4网络编程，注意此篇文章是翻译自某个PPT，但是是我自己读完后结合自己的理解翻译的，中间可能会有错误（比如map翻译为映射但是实际是地图等类似错误），欢迎大家指正。</p>
+<h2 id="Precontext"><a href="#Precontext" class="headerlink" title="Precontext"></a>Precontext</h2><p>首先阐述下，UE4的网络编程是典型的（标准的）C/S模型，这就意味着服务器才是权威，并且所有的数据都必须<strong>首先</strong>从客户端送到数据，接下来服务器会判断那些数据可用并且根据编写的代码对对应数据进行反应。</p>
 <p>同时，<strong>永远</strong>不要相信客户端，因为一旦你相信了他，那么服务器就不会对客户端裁决（反应）前进行检查，这将会导致外挂等欺骗服务器的行为。</p>
 <h2 id="Framework-amp-Network"><a href="#Framework-amp-Network" class="headerlink" title="Framework &amp; Network"></a>Framework &amp; Network</h2><p>一般来说，在UE4的网络游戏编程中，我们通常分为下面四种framework</p>
 <ol start="0">
@@ -863,13 +864,13 @@
 </ol>
 <p>这里所说的某个客户端指的是具有某个Actor所有权的玩家/客户端。而保证“所有权”在后续的RPCs中十分重要，下面有两图用来那些表达那些公共类存在于那个framework中</p>
 <p>图0：一些重要的类在网络框架中的分布</p>
-<img src="C:\Typora\upload\image-20200521110906114.png" alt="image-20200521110906114" style="zoom:67%;">
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/image-20200521110906114.png" alt="image-20200521110906114" style="zoom:67%;">
 
 <p>图1：对象的类在网络框架中的分布</p>
-<img src="C:\Typora\upload\image-20200521111045360.png" alt="image-20200521111045360" style="zoom:67%;">
+<img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/image-20200521111045360.png" alt="image-20200521111045360" style="zoom:67%;">
 
 <p>上面的图1有一个概念需要阐述：公共类，但是这个需要在后面讲到actor的replication才会更清晰（对于actor来说，Tick，Replication和Spawn是三大基本属性，分别对应有了心跳，复制和生生死死）</p>
-<h2 id="Game-Mode"><a href="#Game-Mode" class="headerlink" title="Game Mode"></a>Game Mode</h2><p>在网络框架GameMode Class一般来说会分为GameModeBase和GameMode。其中GameModeBase只有很少的细节，因为一些游戏可能并不需要老的GameMode Class中的所有细节。</p>
+<h3 id="Game-Mode"><a href="#Game-Mode" class="headerlink" title="Game Mode"></a>Game Mode</h3><p>在网络框架GameMode Class一般来说会分为GameModeBase和GameMode。其中GameModeBase只有很少的细节，因为一些游戏可能并不需要老的GameMode Class中的所有细节。</p>
 <p>而对于AGameMode通常用来定义规则，这也包括了使用的类例如Apawn，PlayerController，APlayerState等其他更多。<font color="red">注意这个只能用于服务器，客户端是没有GameMode这个对象的，如果本地客户端想要或得GameMode，只会获得一个<strong>nullptr</strong></font>。</p>
 <pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">/* Header file of our GameMode Child Class inside of the Class declaration */</span>
 <span class="token comment" spellcheck="true">// Maximum Number of Players needed/allowed during this Match</span>
@@ -906,7 +907,7 @@ virtual <span class="token keyword">void</span> <span class="token function">Beg
     <span class="token comment" spellcheck="true">// 'UGameplayStatics' Class to get the correct Key from the 'OptionsString'</span>
     MaxNumPlayers <span class="token operator">=</span> FCString<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">Atoi</span><span class="token punctuation">(</span> <span class="token operator">*</span><span class="token punctuation">(</span>UGameplayStatics<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">ParseOption</span><span class="token punctuation">(</span>OptionsString<span class="token punctuation">,</span> “MaxNumPlayers”<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="Game-State"><a href="#Game-State" class="headerlink" title="Game State"></a>Game State</h2><p>GameState类一般来说会AGameStateBase和AGameState。</p>
+<h3 id="Game-State"><a href="#Game-State" class="headerlink" title="Game State"></a>Game State</h3><p>GameState类一般来说会AGameStateBase和AGameState。</p>
 <p>一般来说GameStateBase会因为 细节会少得多, 因为一些游戏可能并不需要老的GameState Class中的所有细节。</p>
 <p>AGameState这个类是在服务器和客户端里信息共享中最重要的类了。GameState一般用来跟踪游戏的当前状态。在对于多人游戏来说，最重要的包括了连接这些游戏的玩家或者其他东西。</p>
 <p>这些游戏状态会被复制到所有的连接的客户端中。因此<strong>每一个连接的客户端</strong>都能够访问他们，因此GameState这类也是在多人游戏中处于中心位置。</p>
@@ -962,7 +963,7 @@ virtual <span class="token keyword">void</span> <span class="token function">Beg
     <span class="token keyword">else</span>
         TeamBScore<span class="token operator">++</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="Player-State"><a href="#Player-State" class="headerlink" title="Player State"></a>Player State</h2><p>APlayerState对于辨别特定的玩家来说是最重要的类，这个类能够持有玩家的当前信息。每一个玩家都有他们自己的独有的PlayerState，当然这些PlayerState也能够复制到每一个客户端，且每一个客户端都能够显示这些playerState（就是说你安妮出了5个装备，那么在其他玩家的计分板里面也会在你的信息一栏中出现5个装备）。一个简单访问玩家状态的方法是GameState类里面的玩家数组（类似于你在LOL里面的计分板：里面有每个召唤师的名字，所使用的英雄，当前KDA，击杀小兵，出的装备等）。</p>
+<h3 id="Player-State"><a href="#Player-State" class="headerlink" title="Player State"></a>Player State</h3><p>APlayerState对于辨别特定的玩家来说是最重要的类，这个类能够持有玩家的当前信息。每一个玩家都有他们自己的独有的PlayerState，当然这些PlayerState也能够复制到每一个客户端，且每一个客户端都能够显示这些playerState（就是说你安妮出了5个装备，那么在其他玩家的计分板里面也会在你的信息一栏中出现5个装备）。一个简单访问玩家状态的方法是GameState类里面的玩家数组（类似于你在LOL里面的计分板：里面有每个召唤师的名字，所使用的英雄，当前KDA，击杀小兵，出的装备等）。</p>
 <pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">/* Header file of our PlayerState Child Class inside of the Class declaration */</span>
 <span class="token comment" spellcheck="true">// Used to copy properties from the current PlayerState to the passed one</span>
 virtual <span class="token keyword">void</span> <span class="token function">CopyProperties</span><span class="token punctuation">(</span>class APlayerState<span class="token operator">*</span> PlayerState<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -987,7 +988,7 @@ Super<span class="token punctuation">:</span><span class="token punctuation">:</
             SomeVariable <span class="token operator">=</span> TestPlayerState<span class="token operator">-></span>SomeVariable
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="Pawn"><a href="#Pawn" class="headerlink" title="Pawn"></a>Pawn</h2><p>APawn是一个让玩家实际控制的Actor，在大部分的时候都是一个人类character，但是他可以是任何东西。一个玩家在任意时刻仅可以操作一个pawn，但是他也可以实现多个pawn之间的切换。Pawn大部分时间都是在客户端之间进行复制。</p>
+<h3 id="Pawn"><a href="#Pawn" class="headerlink" title="Pawn"></a>Pawn</h3><p>APawn是一个让玩家实际控制的Actor，在大部分的时候都是一个人类character，但是他可以是任何东西。一个玩家在任意时刻仅可以操作一个pawn，但是他也可以实现多个pawn之间的切换。Pawn大部分时间都是在客户端之间进行复制。</p>
 <p>而Pawn的一个子类ACharacter通常被拿来复制，因为他早就加载了一个适用于网络的MovementComponent一个能够处理玩家Character的位置，旋转等复制。</p>
 <p>注意，并不是客户端在移动你的角色，所有的移动都是应当在服务器端进行的（数据来源于客户端），处理后再分发到各个客户端上。</p>
 <pre class="line-numbers language-c"><code class="language-c">virtual <span class="token keyword">void</span> <span class="token function">PossessedBy</span><span class="token punctuation">(</span>AController<span class="token operator">*</span> NewController<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -1038,7 +1039,7 @@ virtual <span class="token keyword">float</span> <span class="token function">Ta
         <span class="token function">Destroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> ActualDamage<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="Player-Controller"><a href="#Player-Controller" class="headerlink" title="Player Controller"></a>Player Controller</h2><p>APlayerController有可能是我们会接触到的最有趣但是也最复杂的一个类，这个类也是对于大量的客户端stuff来说属于中心地位，因为这是第一个客户端自己的类。</p>
+<h3 id="Player-Controller"><a href="#Player-Controller" class="headerlink" title="Player Controller"></a>Player Controller</h3><p>APlayerController有可能是我们会接触到的最有趣但是也最复杂的一个类，这个类也是对于大量的客户端stuff来说属于中心地位，因为这是第一个客户端自己的类。</p>
 <p>我们可以将PlayerController视作玩家的Input，这也连接了玩家和服务器，即每一个客户有一个其自己的PlayerController。且一个客户端PlayerController只存在于他自己（客户端）<strong>和</strong>服务器，其他的客户端是无法知道你客户端的PlayerController。即</p>
 <center><font color="red">每一个客户端只知道他自己</font></center>
 
@@ -1081,13 +1082,15 @@ public<span class="token punctuation">:</span>
 <span class="token macro property">#<span class="token directive keyword">include</span> “TestGameState.h”</span>
 <span class="token comment" spellcheck="true">// You will read later about RPC's and why that '_Validate' is a thing</span>
 bool ATestPlayerController<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">Server_IncreaseVariable_Validate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    returntrue<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> true<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
+
 <span class="token comment" spellcheck="true">// You will read later about RPC's and why that '_Implementation' is a thing</span>
 <span class="token keyword">void</span> ATestPlayerController<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">Server_IncreaseVariable_Implementation</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     ATestGameState<span class="token operator">*</span> GameState <span class="token operator">=</span> Cast<span class="token operator">&lt;</span>ATestGameState<span class="token operator">></span><span class="token punctuation">(</span>UGameplayStatics<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">GetGameState</span><span class="token punctuation">(</span><span class="token function">GetWorld</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     GameState<span class="token operator">-></span><span class="token function">IncreaseVariable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
+
 <span class="token keyword">void</span> ATestPlayerController<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">BeginPlay</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     Super<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">BeginPlay</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token comment" spellcheck="true">// Make sure only the Client Version of this PlayerController calls the ServerRPC</span>
@@ -1102,10 +1105,575 @@ bool ATestPlayerController<span class="token punctuation">:</span><span class="t
     <span class="token comment" spellcheck="true">// This actually takes care of replicating the Variable</span>
     <span class="token function">DOREPLIFETIME</span><span class="token punctuation">(</span>ATestGameState<span class="token punctuation">,</span> OurVariable<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
+
 <span class="token keyword">void</span> ATestGameState<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">IncreaseVariable</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     OurVariable<span class="token operator">++</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="HUD"><a href="#HUD" class="headerlink" title="HUD"></a>HUD</h2><p>AHUD是一个只提供给一个用户，并且可以被PlayerController访问的类。</p>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="HUD"><a href="#HUD" class="headerlink" title="HUD"></a>HUD</h3><p>AHUD是一个只提供给一个用户，并且可以被PlayerController访问的类且AHUD会被自动生成。</p>
+<p>在UMG被释放之前，HUD类会在客户端的视口（viewport）绘制出文本，纹理等其他的东西。而在此处我们一般用Widgets（控件）来代替HUD，当然你仍然可以使用HUD来debug或者单独来处理这个类的生成，展示，隐藏和销毁Widget。</p>
+<p>由于HUD类无法直接连接到网络，接下来的例子将只会体现在玩家，因此此处略过。</p>
+<h3 id="Widgets（UMG）"><a href="#Widgets（UMG）" class="headerlink" title="Widgets（UMG）"></a>Widgets（UMG）</h3><p>控件（widgets）一般用在Epic游戏的新UI系统（UMG），它继承于Slate（c++来创建在UE4中使用的UI的模组）。而控件一般来说仅在客户端本地（Listen-Server）。</p>
+<p>Widgets<font color="orange">不会</font>被复制，并且总是需要一个分离，复制类来表现复制的动作。和上面HUD一样，这里我们依旧略过。</p>
+<h2 id="Dedicated-vs-Listen-Server"><a href="#Dedicated-vs-Listen-Server" class="headerlink" title="Dedicated vs Listen Server"></a>Dedicated vs Listen Server</h2><ol start="0">
+<li><p>Dedicated Server</p>
+<p>Dedicated Server是一个不会被用户端请求的专用服务器。它被从游戏客户端分离出来运行并且运行在服务器上使得玩家能够随时加入或者离开。</p>
+<p>Dedicated Server能够在Windows或者Linux下被编译并且能够运行在虚拟服务器上使得来自不同的IP地址段的玩家都能加入进游戏。</p>
+<p>Dedicated Server没有虚拟的部分，英雌他不需要UI，也不需要PlayerController，也没有Character及游戏内其他类似的表达。</p>
+</li>
+<li><p>Listen Server</p>
+<p>Listen-Server即是服务器也是客户端. 这就意味着总的服务器上总是至少有一个客户端连接。这个总是和服务器连接的客户端就是Listen-Server，并且若Listen-Server断开连接，则总服务器关闭；</p>
+<p>由于他也是一个客户端，所以Listen-Server也需要UI好PlayerController来表达它的客户端成分，通过在Listen-Server使用</p>
+<pre class="line-numbers language-c"><code class="language-c">    <span class="token function">PlayerController</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>这将会返回其特定客户端的PlayerController 。</p>
+<p>由于Listen-Server运行在它自己的客户端上，其IP也是其他的想要连接到这个listen-server的客户端的IP。在经过Dedicated Server比较后，这会经常导致网络用户没有其静态IP。但是使用OnlineSubsystem后可以解释这个问题（至于这个是什么东东后续由阐述）</p>
+</li>
+</ol>
+<h2 id="Replication"><a href="#Replication" class="headerlink" title="Replication"></a>Replication</h2><p>复制（Replication）是在服务器传递信息或者数据给服务器的一个行为，这个行为对某些特定实体或者群有一定的限制。对于蓝图来说，其表达复制的方式是通过设定AActor的setting来表达。</p>
+<p>拥有复制性质的第一个类是Actor，因此所有能够产生复制性质的类都是Actor的子类（都继承于Actor），虽然他们都不是以相同的方式来实现复制的，也有一些东西不会被复制，比如GameMode不会被复制并且仅存在于Server。</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">//如何使得一个类复制的设置</span>
+ATestCharacter<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">ATestCharacter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// Network game, so let's setup Replication</span>
+    bReplicates <span class="token operator">=</span> true<span class="token punctuation">;</span>
+    bReplicateMovement <span class="token operator">=</span> true<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>使用UE4++来设置是否可被复制见下面代码</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">/* Header file inside of the Classes declaration */</span>
+<span class="token comment" spellcheck="true">// Create replicated health variable</span>
+<span class="token function">UPROPERTY</span><span class="token punctuation">(</span>Replicated<span class="token punctuation">)</span>
+    <span class="token keyword">float</span> Health<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">/*cpp file*/</span>
+<span class="token keyword">void</span> ATestPlayerCharacter<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">GetLifetimeReplicatedProps</span><span class="token punctuation">(</span>TArray<span class="token operator">&lt;</span>FLifetimeProperty<span class="token operator">></span><span class="token operator">&amp;</span> OutLifetimeProps<span class="token punctuation">)</span> <span class="token keyword">const</span> <span class="token punctuation">{</span>
+    Super<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">GetLifetimeReplicatedProps</span><span class="token punctuation">(</span>OutLifetimeProps<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">// Here we list the variables we want to replicate + a condition if wanted</span>
+    <span class="token function">DOREPLIFETIME</span><span class="token punctuation">(</span>ATestPlayerCharacter<span class="token punctuation">,</span> Health<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// Replicates the Variable only to the Owner of this Object/Class</span>
+<span class="token function">DOREPLIFETIME_CONDITION</span><span class="token punctuation">(</span>ATestPlayerCharacter<span class="token punctuation">,</span> Health<span class="token punctuation">,</span> COND_OwnerOnly<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>下面有一些Condition来表示这些性质是作用在何处的：(翻译就偷懒一下)</p>
+<table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>COND_InitialOnlyActors</td>
+<td>This property will only attempt to send on the initial bunch</td>
+</tr>
+<tr>
+<td>COND_OwnerOnly</td>
+<td>This property will only send to the Actor’s owner</td>
+</tr>
+<tr>
+<td>COND_SkipOwner</td>
+<td>This property send to every connection EXCEPT the owner</td>
+</tr>
+<tr>
+<td>COND_SimulatedOnly</td>
+<td>This property will only send to simulated Actors</td>
+</tr>
+<tr>
+<td>COND_AutonomousOnly</td>
+<td>This property will only send to autonomous</td>
+</tr>
+<tr>
+<td>COND_SimulatedOrPhysics</td>
+<td>This property will send to simulated OR bRepPhysics Actors</td>
+</tr>
+<tr>
+<td>COND_InitialOrOwner</td>
+<td>This property will send on the initial packet, or to the Actor’s owner</td>
+</tr>
+<tr>
+<td>COND_Custom</td>
+<td>This property has no particular condition, but wants the ability to toggle on/off via SetCustomIsActiveOverride</td>
+</tr>
+</tbody></table>
+<p>注意，所有的复制仅仅存在于从服务器到客户端，而不存在其他的任何渠道。我们也将在后续学习如果从服务器复制一些客户端想要分享给其他的方法。</p>
+<p>接下来有一种不同的Replication方法被称为RepNotify。它使用一个函数，当接收到更新的值时，将对所有实例调用该函数。为了达到这个效果，你可以构建出你自己的逻辑（用蓝图）在接收到新的值之后调用这个函数。</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">/* Header file inside of the Classes declaration */</span>
+<span class="token comment" spellcheck="true">// Create RepNotify Health variable</span>
+<span class="token function">UPROPERTY</span><span class="token punctuation">(</span>ReplicatedUsing<span class="token operator">=</span>OnRep_Health<span class="token punctuation">)</span>
+<span class="token keyword">float</span> Health<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// Create OnRep Function | UFUNCTION() Macro is important! | Doesn't need to be virtual though</span>
+<span class="token function">UFUNCTION</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    virtual <span class="token keyword">void</span> <span class="token function">OnRep_Health</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">/* CPP file of the Class */</span>
+<span class="token keyword">void</span> ATestCharacter<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">OnRep_Health</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>Health <span class="token operator">&lt;</span> <span class="token number">0.0f</span><span class="token punctuation">)</span>
+        <span class="token function">PlayDeathAnimation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="Remote-Procedure-Calls（RPC）"><a href="#Remote-Procedure-Calls（RPC）" class="headerlink" title="Remote Procedure Calls（RPC）"></a>Remote Procedure Calls（RPC）</h2><p>其他的复制方式称为“RPC”，“Remote Procedure Call”的简称。它们用于在另一个实例上调用某些内容。这个就和你的电视遥控器远程操纵TV的方法差不多。</p>
+<p>UE4使用这个方法让客户端向服务器，服务器向客户端或者服务器向客户端群调用函数。</p>
+<p>注意，RPC是没有返回值的，若想要返回特定值，需要使用第二个RPC，但是这个方法只能有一些特定的方法。</p>
+<ol start="0">
+<li>Run on Server – Is meant to be executed on the Server Instance of the Actor（在服务器上运行，意味着只能够被服务器实例化的Actor使用）</li>
+<li>Run on owning Client – Is meant to be executed on the Owner of this Actor（在个人客户单上运行，意味着只能被自己的Actor使用）</li>
+<li>NetMulticast – Is meant to be executed on all Instances of this Actor（在网络多播，意味着任意实例化的Actor均会被调用）</li>
+</ol>
+<p>而要使的RPC完全发挥作用，需要满足下列要求（来自官方文档）</p>
+<ol start="0">
+<li><p>They must be called from Actors. （只能由Actors发出）</p>
+</li>
+<li><p>The Actor must be replicated. （Actor必须被复制）</p>
+</li>
+<li><p>If the RPC is being called from Server to be executed on a Client, only the Client who actually owns that Actor will execute the function. （如果RPC能够被服务器调用且会被客户端使用，那么只有对应Actor对应的客户端能够使用这个函数）</p>
+</li>
+<li><p>If the RPC is being called from Client to be executed on the Server, the Client must own the Actor that the RPC is being called on. （如果一个ROC已经被一个客户端调用且想要让服务器使用，那么客户端必须要拥有这个被RPC调用的Actor）</p>
+</li>
+<li><p>Multicast RPCs are an exception: （但是多播是一个例外）</p>
+<ol start="0">
+<li>If they are called from the Server, the Server will execute them locally, as well as execute them on all currently connected Clients. （如果有一个从服务器来到调用，那么服务器将会本地调用RPC，然后要求所有与之连接的客户端调用同一个RPC）</li>
+<li>If they are called from Clients, they will only execute locally, and will not execute on the Server. （如果是从客户端调用的RPC，那么只会本地执行，而不会在服务器执行）</li>
+<li>For now, we have a simple throttling mechanism for Multicast events<ol start="0">
+<li>A Multicast function will not replicate more than twice in a given. （注意这个多播函数不会被复制超过两次）</li>
+<li>Actor’s network update period. Long term, we expect to improve on this.（并且Actor的网络会周期性的更新，这是不好的，我们希望提高它的表现）</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>下面是从服务器发出的RPC的</p>
+<table>
+<thead>
+<tr>
+<th>Actor Ownership</th>
+<th>Not replicated</th>
+<th>NetMulticast</th>
+<th>Server</th>
+<th>Client</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Client-owned Actor</td>
+<td>Runs on Server</td>
+<td>Runs on Server and all Clients</td>
+<td>Runs on Server</td>
+<td>Runs on Actor’s owning Client</td>
+</tr>
+<tr>
+<td>Server-owned Actor</td>
+<td>Runs on Server</td>
+<td>Runs on Server and all Clients</td>
+<td>Runs on Server</td>
+<td>Runs on Server</td>
+</tr>
+<tr>
+<td>Unowned Actor</td>
+<td>Runs on Server</td>
+<td>Runs on Server and all Clients</td>
+<td>Runs on Server</td>
+<td>Runs on Server</td>
+</tr>
+</tbody></table>
+<p>下面是从客户端发出的RPC的</p>
+<table>
+<thead>
+<tr>
+<th>Actor Ownership</th>
+<th>Not replicated</th>
+<th>NetMulticast</th>
+<th>Server</th>
+<th>Client</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Owned by invoking Client</td>
+<td>Runs on invoking Client</td>
+<td>Runs on invoking Client</td>
+<td>Runs on Server</td>
+<td>Runs on invoking Client</td>
+</tr>
+<tr>
+<td>Owned by a different Client</td>
+<td>Runs on invoking Client</td>
+<td>Runs on invoking Client</td>
+<td>Dropped</td>
+<td>Runs on invoking Client</td>
+</tr>
+<tr>
+<td>Server-owned Actor</td>
+<td>Runs on invoking Client</td>
+<td>Runs on invoking Client</td>
+<td>Dropped</td>
+<td>Runs on invoking Client</td>
+</tr>
+<tr>
+<td>Unowned Actor</td>
+<td>Runs on invoking Client</td>
+<td>Runs on invoking Client</td>
+<td>Dropped</td>
+<td>Runs on invoking Client</td>
+</tr>
+</tbody></table>
+<p>接下来是相关代码</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> “UnrealNetwork.h” </span>
+<span class="token comment" spellcheck="true">// This is a Server RPC, marked as unreliable and WithValidation (is needed!)</span>
+<span class="token function">UFUNCTION</span><span class="token punctuation">(</span>Server<span class="token punctuation">,</span> unreliable<span class="token punctuation">,</span> WithValidation<span class="token punctuation">)</span>
+<span class="token keyword">void</span> <span class="token function">Server_PlaceBomb</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//c++</span>
+<span class="token comment" spellcheck="true">//The CPP file will implement a different function. This one needs '_Implementation' as a suffix</span>
+<span class="token comment" spellcheck="true">// This is the actual implementation (Not Server_PlaceBomb). But when calling it, we use "Server_PlaceBomb"</span>
+<span class="token keyword">void</span> ATestPlayerCharacter<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">Server_PlaceBomb_Implementation</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// BOOM!</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//The CPP file also needs a version with '_Validate' as a suffix. Later more about that</span>
+bool ATestPlayerCharacter<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">Server_PlaceBomb_Validate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> true<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">//The other two types of RPCs are created like this:</span>
+<span class="token comment" spellcheck="true">//Client RPC, which needs to be marked as 'reliable' or 'unreliable'!</span>
+<span class="token function">UFUNCTION</span><span class="token punctuation">(</span>Client<span class="token punctuation">,</span> unreliable<span class="token punctuation">)</span>
+    <span class="token keyword">void</span> <span class="token function">ClientRPCFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//Multicast RPC, which also needs to be marked as 'reliable' or 'unreliable'!</span>
+<span class="token function">UFUNCTION</span><span class="token punctuation">(</span>NetMulticast<span class="token punctuation">,</span> unreliable<span class="token punctuation">)</span>
+    <span class="token keyword">void</span> <span class="token function">MulticastRPCFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//we can also add the 'reliable' keyword to an RPC to make it reliable.</span>
+<span class="token function">UFUNCTION</span><span class="token punctuation">(</span>Client<span class="token punctuation">,</span> reliable<span class="token punctuation">)</span>
+    <span class="token keyword">void</span> <span class="token function">ReliableClientRPCFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>是否有效相关：关于有效性的idea指的是：若一个有效的RPC函数发现了这个参数是”bad“的，那么服务器辨别出来后将会和生成这个RPC对应的服务器或者客户端断开连接：</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">//Validation is required by now for every ServerRPCFunction. The 'WithValidation' keyword in the UFUNCTION Macro is used for that</span>
+<span class="token function">UFUNCTION</span><span class="token punctuation">(</span>Server<span class="token punctuation">,</span> unreliable<span class="token punctuation">,</span> WithValidation<span class="token punctuation">)</span>
+    <span class="token keyword">void</span> <span class="token function">SomeRPCFunction</span><span class="token punctuation">(</span>int32 AddHealth<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//Here is an example of how the '_Validate' Function can be used:</span>
+bool ATestPlayerCharacter<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">SomeRPCFunction_Validate</span><span class="token punctuation">(</span>int32 AddHealth<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>AddHealth <span class="token operator">></span> MAX_ADD_HEALTH<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> false<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// This will disconnect the caller!</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> true<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// This will allow the RPC to be called!</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>注意：从客户端到服务器的RPC需要使用’_Validate’函数来启发安全的服务器来RPC函数，并使添加代码的人尽可能容易地根据所有已知的输入约束检查每个参数是否有效</p>
+<h2 id="Ownership"><a href="#Ownership" class="headerlink" title="Ownership"></a>Ownership</h2><p>这是一个很重要的概念（正如你在前面的表格中看到的一样），首先我们先明确，只有服务器或者客户端才能够“拥有”一个Actor（反例就是PlayerController啦）。</p>
+<p>而另外一个例子就是在一个场景中生成一个门，这个门的所有权在于服务器。</p>
+<p>如果翻看上面的表格，那么你会发现如果一个客户端想要RPC一个不属于他的Actor的话，服务器会直接将其drop，因此，<font color="red">客户端是无法执行开门这个操作的，因为们的所有权是在服务器的</font>，但是问题来了，如何开门呢？</p>
+<p>我们可以使用一个Actor或者Class，使得一个客户端实际拥有这个门，这就是PlayerController开始崭露头角的地方了。因此我们在这里代替输入门的参数和请求一个服务器RPC，我们反而在PlayerController中创建服务器RPC然后使得一些调用门的接口函数（比如Interact()）。如果门得到了正确的结构，那么就是调用一个被定义的逻辑，然后截取希望得到的正确的们的状态的复制。</p>
+<p>注意：这个接口并不是多玩家游戏独有。</p>
+<h3 id="Actors-and-their-Owning-Connections"><a href="#Actors-and-their-Owning-Connections" class="headerlink" title="Actors and their Owning Connections"></a>Actors and their Owning Connections</h3><p>正如我们对提及的每一个类的总览，我们发现PlayerController是第一个拥有“owns”属性的类，这就意味着：</p>
+<p>每个连接的客户端都有一个PlayerController，并且被特定的创建。这也可以这么说，一个PlayerController被一个“连接”拥有。因此我们可以确定的是，如果一个Actor能够被某个客户端拥有，那么我们实际上也能够查询到最多的外部所有者，如果这是PlayerController，则拥有PlayerController的连接也拥有这个Actor。</p>
+<p>注意Pawn/Character，它们被 PlayerController所拥有，并且此时 PlayerController被一个Pawn所拥有。这意味着，拥有这个PlayerController的连接也拥有Pawn。</p>
+<p>这只是当 PlayerController拥有Pawn时的情况;当PlayerController不拥有这个Pawnd时，客户端也不再拥有这个Pawn。</p>
+<p>因此我们需要明确下列事实</p>
+<ol start="0">
+<li>RPCs需要辨别按各一个用户需要执行这个Run-On-Client RPC</li>
+<li>Actor的重复制和相关性</li>
+<li>Actor在被owner涉及时的复制性质</li>
+</ol>
+<p>当前已经了解到，当客户机/服务器调用RPC时，它们的反应不同，这取决于它们所属的连接。同时前文也阐述了有关条件复制的情况，其中（C++中）变量仅在一定条件下复制，那么接下来的主题将描述列表的相关部分。</p>
+<h2 id="Actor-Relevancy-and-Priority"><a href="#Actor-Relevancy-and-Priority" class="headerlink" title="Actor Relevancy and Priority"></a>Actor Relevancy and Priority</h2><h3 id="Relevancy"><a href="#Relevancy" class="headerlink" title="Relevancy"></a>Relevancy</h3><p>先引入一个栗子：想象一个具有足够大的关卡或者地图的一个游戏，玩家们能够做一些对于其他玩家不那么重要的事，在这种情况下，我们为什么要关注这些不重要的事情呢？</p>
+<p>因此为了提高带宽，UE4的Network Code使我们的服务器能够仅告诉几个与某个行为相关的客户端，并且这些客户端构成了一个相关集。当然，对于这个相集，也有着以下的规则</p>
+<ol>
+<li><p>如果Actor的状态是 ‘bAlwaysRelevant’（属于Pawn或者PlayerController）或者这个Pawn是某些行为的策划者，例如噪音或者损伤。则他们是相关的（ If the Actor is ‘bAlwaysRelevant’, is owned by the Pawn or PlayerController, is the Pawn, or the Pawn is the Instigator of some action like noise or damage, it is relevant ）；</p>
+</li>
+<li><p>如果Actor是’bNetUserOwnerRelevancy’并且具有所有者（就是说这个actor有老大了）, 则使用持有者相关性（If the Actor is ‘bNetUserOwnerRelevancy’ and has an Owner, use the Owner’s relevancy ）；</p>
+</li>
+<li><p>如果Actor是’bOnlyRelevantToOwner’并且没有通过第一次检查，则无关  （ If the Actor is ‘bOnlyRelevantToOwner’, and does not pass the first check, it is not relevant）；</p>
+</li>
+<li><p>如果Actor依附于另一个Actor的Skeleton，则他们的关联性由其基的关联性（If the Actor is attached to the Skeleton of another Actor, then its relevancy is determined by the relevancy of its base ）；</p>
+</li>
+<li><p>如果Actor是隐藏状态 (即’bHidden == true’)并且和根组件没有冲突，则actor与之无关（ if the Actor is hidden (‘bHidden == true’) and the root component does not collide then the Actor is not relevant ）；</p>
+<p>若没有根组件，则 ‘AActor::IsNetRelevantFor()’ 将记录一个警告，并询问是否应将设置为’bAlwaysRelevant = true’ （ if the Actor is hidden (‘bHidden == true’) and the root component does not collide then the Actor is not relevant . If there is no root component, ‘AActor::IsNetRelevantFor()’ will log a warning and ask if the Actor should be set to ‘bAlwaysRelevant = true’ ）；</p>
+</li>
+<li><p>如果将“AGameNetworkManager”设置为基于距离的关联，则Actor根据净剔除距离的远近来决定关联与否（If ‘AGameNetworkManager’ is set to use distance based relevancy, the Actor is relevant if it is closer than the net cull distance）；</p>
+</li>
+<li><p>注意：由于Pawn和PlayerController重写“AActor::IsNetRelevantFor（）”，因此关联条件不同（Pawn and PlayerController override ‘AActor::IsNetRelevantFor()’ and have different conditions for relevancy as a result）。</p>
+</li>
+</ol>
+<h3 id="Prioritization"><a href="#Prioritization" class="headerlink" title="Prioritization"></a>Prioritization</h3><p>UE4使用的是<strong>平衡加载</strong>技术，即优先加载所有的Actors，并且给予每个Actor基于重要性的带宽。每一个Actor有一个浮点型变量称之为“NetPriority”——值越大，则会有更多的带宽将分配给这个。（当值为2时，其分配的带宽会是值为1的Actor的两倍）。</p>
+<p>唯一一个能影响他们的优先级的东西就是<strong>Ratio</strong>（大概意思是各个所占的比率）。因此显而易见的是，你不能够通过增加他们的优先级提高UE4网络的效率 。</p>
+<p>而UE4是通过</p>
+<pre class="line-numbers language-c"><code class="language-c">virtual <span class="token keyword">void</span> AActor<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">GetNetPriority</span><span class="token punctuation">(</span><span class="token punctuation">)</span> override<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>来计算他们的当前优先级，为了防止饿死（详见OS），这个函数将会乘当前时间“NetPriority”每当这个Actor被复制。而GetNetPriority 这一函数也考虑了Actor和Viewer的相对位置和距离 。</p>
+<pre class="line-numbers language-c"><code class="language-c">bOnlyRelevantToOwner <span class="token operator">=</span> false<span class="token punctuation">;</span> 
+bAlwaysRelevant <span class="token operator">=</span> false<span class="token punctuation">;</span> 
+bReplicateMovement <span class="token operator">=</span> true<span class="token punctuation">;</span> 
+bNetLoadOnClient <span class="token operator">=</span> true<span class="token punctuation">;</span> 
+bNetUseOwnerRelevancy <span class="token operator">=</span> false<span class="token punctuation">;</span> 
+bReplicates <span class="token operator">=</span> true<span class="token punctuation">;</span>
+
+NetUpdateFrequency <span class="token operator">=</span> <span class="token number">100.0f</span><span class="token punctuation">;</span> 
+NetCullDistanceSquared <span class="token operator">=</span> <span class="token number">225000000.0f</span><span class="token punctuation">;</span> 
+NetPriority <span class="token operator">=</span> <span class="token number">1.0f</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="Actor-Role-and-Remote-Role"><a href="#Actor-Role-and-Remote-Role" class="headerlink" title="Actor Role and Remote Role"></a>Actor Role and Remote Role</h2><p>在这里，我们有着关于Actor复制的两个更重要的性质，而这两个性质告诉了我们：</p>
+<ol start="0">
+<li><p>谁有<strong>权（Authority）</strong>控制Actor；</p>
+<p>与所有权不同的是，要确定引擎的当前运行实例是否具有权限，需要检查Role的属性是否为Role_Authority。如果是，则引擎的此实例负责此Actor（无论是否复制）。</p>
+</li>
+<li><p>Actor<strong>是否</strong>被复制；</p>
+<p>而Role和Remote Role之间是能够依靠谁（指的是服务器和客户端之间）检查相关的值来逆转，举个例子</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">//if on the Server you have this configuration:</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span> Role <span class="token operator">==</span> Role_Authority <span class="token operator">&amp;&amp;</span> RemoteRole <span class="token operator">=</span> ROLE_SimulatedProxy <span class="token punctuation">)</span> 
+<span class="token comment" spellcheck="true">//Then the Client would see it as this:</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span> Role <span class="token operator">==</span> ROLE_SimulatedProxy <span class="token operator">&amp;&amp;</span> RemoteRole <span class="token operator">==</span> ROLE_Authority <span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这是有意义的，因为服务器负责Actor并将其复制到客户端。客户端只需要接收更新，并在更新之间模拟Actor即可。</p>
+</li>
+<li><p>复制Actor的<strong>模式（Mode，个人认为方法也行）</strong></p>
+<p>服务器不会每次更新都更新Actor。这会占用太多的带宽和CPU资源。相反，服务器将以</p>
+<pre class="line-numbers language-c"><code class="language-c">AActor<span class="token punctuation">:</span><span class="token punctuation">:</span>NetUpdateFrequency<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>这一属性上指定Actor的复制频率。这意味着，在Actor更新之间，客户端上的一些时间将会过去。这可能会导致Actor在动作上显得零星或不稳定（就是你玩LOL在往前走但是你自己在不断的瞬息）。为了弥补这一点，客户端将在两次更新之间模拟Actor。其具备以下两种模拟</p>
+<ol start="0">
+<li><p>ROLE_SimulatedProxy</p>
+<p>这是标准的模拟路径，通常基于基于最后已知速度的外推运动。当服务器发送特定Actor的更新时，客户端将调整Actor的位置，使其朝向新位置；然后在更新之间，客户端将根据服务器发送的最新速度来继续移动Actor（这只是一个栗子，我们完全可以自定义code来使用其他信息推断）。</p>
+</li>
+<li><p>ROLE_AutonomousProx</p>
+<p>这通常只用于由玩家控制的Actor身上。这仅仅意味着这个Actor接收到来自PlayerController的输入，所以当我们外推时，我们有更多的信息，并且可以使用实际的PlayerController来填充丢失的信息（而不是基于最后已知的速度外推）。</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="Traveling-in-Multiplayer"><a href="#Traveling-in-Multiplayer" class="headerlink" title="Traveling in Multiplayer"></a>Traveling in Multiplayer</h2><h3 id="Non-Seamless-travel"><a href="#Non-Seamless-travel" class="headerlink" title="Non-/Seamless travel"></a>Non-/Seamless travel</h3><p>要理解Seamless和Non-seamless的不同实际上十分简单，Seamless指的是一种非阻塞操作，而Nonseamless则是一种阻塞式操作。</p>
+<p>客户端的Non-seamless传输即——客户端从服务器断开连接，然后重新连接到同一个服务器，该服务器将随时准备好加载新map。Epic的官方文档建议尽可能频繁地使用Non-seamless travel，因为这将带来更流畅的体验，并且将避免重新连接过程中可能出现的任何问题。有三种方法能够达成这Non-seamless travel：</p>
+<ol start="0">
+<li>第一次加载地图时；</li>
+<li>第一次作为客户端连接到服务器时；</li>
+<li>想要结束多人游戏并开始新游戏时。</li>
+</ol>
+<h3 id="Main-Traveling-Functions"><a href="#Main-Traveling-Functions" class="headerlink" title="Main Traveling Functions"></a>Main Traveling Functions</h3><ol start="0">
+<li>UEngine::Browse（这里的map我个人认为是加载新地图，但是翻译为映射也是有道理的，所以如果有更好的翻译麻烦通知一下翻译的我）<ol start="0">
+<li>就像加载map时的硬重置一样；</li>
+<li>始终会导致“Non-seamless”传输；</li>
+<li>将导致服务器在传输到目标map之前会断开当前客户端的连接；</li>
+<li>客户端将断开与当前服务器的连接；</li>
+<li>由于专用服务器无法传输到其他服务器，因此map必须是本地的（即不能是URL）</li>
+</ol>
+</li>
+<li>UWorld::ServerTravel<ol start="0">
+<li>仅限服务器；</li>
+<li>当服务器跳转到新的world或者level时；</li>
+<li>所有连接的客户端都将跟随这一转换；</li>
+<li>这是多人游戏从一个地图到另一个地图的方式，服务器负责调用此函数；</li>
+<li>服务器将会为所有连接的客户端调用“APlayerController::ClientTravel”。</li>
+</ol>
+</li>
+<li>APlayerController::ClientTravel<ol start="0">
+<li>如果从客户端调用，将转到新服务器；</li>
+<li>如果从服务器调用，将指示特定客户机转到新地图（但保持与当前服务器的连接）。</li>
+</ol>
+</li>
+</ol>
+<h3 id="Enabling-Seamless-Travel"><a href="#Enabling-Seamless-Travel" class="headerlink" title="Enabling Seamless Travel"></a>Enabling Seamless Travel</h3><p>Seamless传输一般来说都配置有过渡map。这是通过</p>
+<pre class="line-numbers language-c"><code class="language-c">UGameMapsSettings<span class="token punctuation">:</span><span class="token punctuation">:</span>TransitionMap<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>属性配置的。</p>
+<p>默认情况下，此属性为空。如果您的游戏将此属性保留为空，则会为其创建一个空地图。过渡map存在的原因是，必须始终有一个已加载的世界（其中包含地图），因此在加载新地图之前，我们无法释放旧地图。由于map可能非常大，因此将新旧map同时存储在内存中十分糟糕，这就是过场图片的来源（比如DNF中你进入一个地下城之前的那个加载图片）。</p>
+<p>一旦您想设置了过场图片，您就设置下列</p>
+<pre class="line-numbers language-c"><code class="language-c">AGameMode<span class="token punctuation">:</span><span class="token punctuation">:</span>bUseSeamlessTravel <span class="token operator">=</span> true<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>然后从这里开始就可以Seamless传输，当然，这也可以通过游戏模式蓝图和“地图和节点”选项卡中的项目设置来设置。</p>
+<h3 id="Persisting-Actors-Seamless-Travel"><a href="#Persisting-Actors-Seamless-Travel" class="headerlink" title="Persisting Actors / Seamless Travel"></a>Persisting Actors / Seamless Travel</h3><p>当使用Seamless Travel时，可以将Actor从当前Level（持久化）转移到新Level上。这对某些Actor很有用。在默认情况下，以下这些Actor将自动保持不变：</p>
+<ol start="0">
+<li><p>GameMode Actor（仅限服务器）：通过</p>
+<pre class="line-numbers language-c"><code class="language-c">AGameMode<span class="token punctuation">:</span><span class="token punctuation">:</span>GetSeamlessTravelActorList'<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>进一步添加的任意Actor；</p>
+</li>
+<li><p>具有有效PlayerState的所有控制器（仅限服务器）；</p>
+</li>
+<li><p>所有PlayerController（仅限服务器）；</p>
+</li>
+<li><p>所有本地PlayerControlller（服务器和客户端）：通过</p>
+<pre class="line-numbers language-c"><code class="language-c">AplayerControl<span class="token punctuation">:</span><span class="token punctuation">:</span>GetSeamlessTravelActorList<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>进一步添加的任何Actor呼叫本地PlayerControlller</p>
+</li>
+</ol>
+<p>以下是执行Seamless Travel时的一般流程：</p>
+<ol start="0">
+<li>标记将持续到过渡Level（如上所述）的Actor；</li>
+<li>前往过渡Level；</li>
+<li>标记将持续到最后一级Level（见上文）的Actor；</li>
+<li>到达最终level。</li>
+</ol>
+<h2 id="Online-Subsystem-Overview"><a href="#Online-Subsystem-Overview" class="headerlink" title="Online Subsystem Overview"></a>Online Subsystem Overview</h2><p>在线子系统及其接口的存在为在给定环境中跨平台（指的是Steam、Xbox Live、Facebook等）的通用在线功能提供了清晰的逻辑抽象。其中可移植性是主要目标之一。</p>
+<p>默认情况下，您将使用“SubsystemNULL”。这允许您主持LAN Sessions（这样您可以通过服务器列表查找会话并将它们加入到您的LAN网络中）或直接通过IP加入。但是它不允许你在互联网上主持这样的 Sessions——因为我们没有向客户端提供服务器/会话列表的主服务器。</p>
+<p>子系统，例如Steam，将允许您托管在Internet上可见的服务器/会话。当然也可以创建自己的子系统/主服务器，但这需要在UE4之外编写大量代码。</p>
+<h3 id="Online-Subsystem-Module"><a href="#Online-Subsystem-Module" class="headerlink" title="Online Subsystem Module"></a>Online Subsystem Module</h3><h4 id="Basic-Design"><a href="#Basic-Design" class="headerlink" title="Basic Design"></a>Basic Design</h4><p>这个基本模块——联机子系统负责规范平台如何定义特定模块并在引擎中注册。平台服务的所有访问都将通过此模块进行。加载时，此模块将依次尝试加载 ‘Engine.ini’文件</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token punctuation">[</span>OnlineSubsystem<span class="token punctuation">]</span>
+DefaultPlatformService <span class="token operator">=</span> <span class="token operator">&lt;</span>Default Platform Identifier<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>如果成功，则当其未指定参数时，此默认联机接口将通过静态访问器可用：</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">static</span> IOnlineSubsystem<span class="token operator">*</span> <span class="token function">Get</span><span class="token punctuation">(</span><span class="token keyword">const</span> FName<span class="token operator">&amp;</span> SubsystemName <span class="token operator">=</span> NAME_None<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>当使用正确的标识符从该函数调用时，将按需加载其他服务。</p>
+<h4 id="Use-of-Delegates"><a href="#Use-of-Delegates" class="headerlink" title="Use of Delegates"></a>Use of Delegates</h4><p>Delegate（委托）与UE3类似，在线子系统在调用具有异步副作用的函数时将大量使用委托。重要的是要按照委托并等待调用正确的委托，然后再调用整个函数链上更远的函数。</p>
+<p>若未等待异步任务可能会导致崩溃、意外或者其他未定义（undefined behavior）行为。在连接失败（如电缆拉动或其他断开连接事件）期间，等待代理尤其重要。在理想情况下，任务完成所需的时间可能是瞬间的，但在超时情况下，可能会超过一分钟。</p>
+<p>委托接口相当简单，每个委托都清楚地定义在每个接口头的顶部。每个委托都有一个Add、Clear和Trigger函数。（尽管不鼓励手动触发委托）。通常的做法是在调用适当的函数之前Add（）委托，然后从委托本身Clear（）委托。</p>
+<p>以下有一些常用的接口：</p>
+<ol start="0">
+<li>Interfaces：并不是所有的平台都会实现所有的接口，游戏代码也应该做相应的规划；</li>
+<li>Profile：联机服务配置文件服务的接口定义。配置文件服务定义为与给定用户配置文件及其相关元数据（联机状态、访问权限等）相关的任何内容；</li>
+<li>Friends：联机服务的好友服务的接口定义。好友服务是与维护好友和好友列表相关的任何内容；</li>
+<li>Sessions：联机服务会话服务的接口定义。会话服务被定义为与管理会话及其状态相关的任何内容；</li>
+<li>Shared Cloud：提供用于共享已在云上的文件的接口（请参阅用户云与其他用户）；</li>
+<li>User Cloud：提供按用户云文件存储的接口；</li>
+<li>Leaderboards：提供访问联机排行榜的界面；</li>
+<li>Voice：提供在游戏中通过网络进行语音通信的接口；</li>
+<li>Achievements：提供读取/写入/解锁成就的界面；</li>
+<li>External UI：提供用于访问给定平台外部接口（如果可用）的接口。</li>
+</ol>
+<h3 id="Sessions-and-Matchmaking"><a href="#Sessions-and-Matchmaking" class="headerlink" title="Sessions and Matchmaking"></a>Sessions and Matchmaking</h3><p><strong>匹配</strong>是一个将玩家与会话进行配对（不一定是两个，可能多个）的过程。会话基本上是在服务器上运行的具有给定属性集的游戏的一个实例，这些属性集要么是公开（ advertise，广而告之）的，以便玩家可以可以找到它并加入；要么是私有的，只有以某种方式被邀请或通知它的玩家才能加入。</p>
+<p>想象一下一个在线游戏大厅，上面列出了当前正在玩的所有游戏。列表中的每一个游戏都是一个会话或单独的在线比赛。玩家通过搜索或其他方式与会话进行匹配，然后加入会话进行比赛。</p>
+<h4 id="Basic-Life-Time-of-a-Session"><a href="#Basic-Life-Time-of-a-Session" class="headerlink" title="Basic Life-Time of a Session"></a>Basic Life-Time of a Session</h4><p>（偷个懒，主要是翻译为中文后，这些动词的位置歪歪曲的不好看）</p>
+<ol start="0">
+<li><strong>Create</strong> a new Session with desired Settings；</li>
+<li><strong>Wait</strong> for Players to request to join the Match；</li>
+<li><strong>Register</strong> Players who want to join；</li>
+<li><strong>Start</strong> the Session ；</li>
+<li><strong>Play</strong> the Match；</li>
+<li><strong>End</strong> the Session；</li>
+<li><strong>Un-register</strong> the Players. Either:——<ol start="0">
+<li><strong>Update</strong> the Session if you want to change the Type of Match and go back to <strong>waiting</strong> for Players to join</li>
+<li><strong>Destroy</strong> the Session</li>
+</ol>
+</li>
+</ol>
+<h4 id="Session-Interface"><a href="#Session-Interface" class="headerlink" title="Session Interface"></a>Session Interface</h4><p>会话界面（Session Interface），或者说是IOnlineSession，提供了特定于平台的功能，用于设置后台所需的片段，以便执行匹配以及其他允许玩家查找和加入在线游戏的方法。这包括<strong>会话管理</strong>：通过搜索或其他方式查找会话，以及加入和退出这些会话。会话接口由联机子系统创建和拥有，这意味着它只存在于服务器上。</p>
+<p>一般来说同一时间只能存在一个会话接口——引擎当前运行的平台的会话接口。虽然会话接口执行所有会话处理，但游戏通常不会直接与之交互。相反，game Session（AGameSession）会充当会话接口的特定于游戏的包装器，而游戏代码在需要与会话交互时调用它。GameSession由GameMode创建和拥有，并且<strong>仅</strong>在运行在线游戏时存在于服务器上。</p>
+<p>虽然每个游戏可能有多个游戏会话类型，但一次只能使用一个。对于具有多个GameSession类型的游戏，最常见的情况是当游戏使用专用服务器时添加一种GameSession类型。</p>
+<h4 id="Session-Setting"><a href="#Session-Setting" class="headerlink" title="Session Setting"></a>Session Setting</h4><p>SessionSettings是由“FOnlineSessionSettingsclass”定义的一组确定会话特征的属性。</p>
+<p>在基本实现中，如下所示：</p>
+<ol start="0">
+<li>允许的玩家数量；</li>
+<li>是公开的还是私有的；</li>
+<li>是否局域网匹配的；</li>
+<li>服务器是专用的还是由玩家托管的；</li>
+<li>是否允许邀请的；</li>
+<li>等等。</li>
+</ol>
+<p>使用在线游戏大厅示例，这些游戏中的每一个都是一个会话，并且有自己的会话设置。例如，一些会话可能是玩家对玩家（Player versus Player - PvP），而其他会话是多人合作（ Cooperative Multiplayer ：Co - Op）。而不同的会话可以播放不同的地图或游玩列表，需要不同数量的玩家等等。</p>
+<h4 id="Session-Management"><a href="#Session-Management" class="headerlink" title="Session Management"></a>Session Management</h4><h5 id="Creating-Sessions"><a href="#Creating-Sessions" class="headerlink" title="Creating Sessions"></a>Creating Sessions</h5><p>所有的Session结点都是异步的任务，并且一单对话结束的时候会调用“OnSuccess”或者“OnFailure”，同时我们可以使用最高的exec输出（the top most exec output.）。</p>
+<p>关于使用C++建立Session（同时也包括了后面的<strong>Destroy</strong>,<strong>search</strong>,<strong>join</strong>）的方法见下面的网址：<a href="https://wiki.unrealengine.com/How_To_Use_Sessions_In_C++#Creating_a_Session（需要某些东西）。" target="_blank" rel="noopener">https://wiki.unrealengine.com/How_To_Use_Sessions_In_C++#Creating_a_Session（需要某些东西）。</a></p>
+<h5 id="Updating-Sessions"><a href="#Updating-Sessions" class="headerlink" title="Updating Sessions"></a>Updating Sessions</h5><p>一般来说更新是在要更改现有会话的设置时完成的，并使用“IOnlineSession::UpdateSession（）”函数执行。</p>
+<p>例如，会话当前可能设置为只允许8名玩家，而下一场比赛则需要允许12名玩家。若要更新会话，将调用“UpdateSession（）”，并将指定最多12个播放机的新会话设置传递给它。更新会话的请求完成后，将触发“OnUpdateSessionComplete”委托。这提供了执行处理会话设置更改所需的任何配置或初始化的机会。</p>
+<p>而更新会话通常在服务器上的匹配项之间执行，但也在客户端上执行，以保持会话信息同步。</p>
+<h5 id="Destroying-Sessions"><a href="#Destroying-Sessions" class="headerlink" title="Destroying Sessions"></a>Destroying Sessions</h5><p>当会话结束且不再需要时，将使用“IOnlineSession::DestroySession（）”函数销毁会话。</p>
+<p>销毁操作完成后，将触发“OnDestroySessionComplete”委托，以执行清理操作。</p>
+<h5 id="Searching-Sessions"><a href="#Searching-Sessions" class="headerlink" title="Searching Sessions"></a>Searching Sessions</h5><p>查找会话的最简单方法是搜索与所需设置子集匹配的会话。这可能是因为玩家在用户界面中选择了一个过滤器集合，也可能是在幕后根据玩家的技能和其他因素自动完成的，也可能是两种方法的结合。而搜索会话的最基本形式是经典的服务器-浏览器，它显示所有可用的游戏，并允许玩家根据他们想玩的游戏类型进行过滤。</p>
+<h5 id="Joining-Sessions"><a href="#Joining-Sessions" class="headerlink" title="Joining Sessions"></a>Joining Sessions</h5><p>确定要加入的播放机会话后，将通过调用“IOnlineSession::join Session（）”启动加入过程，并将玩家的号码、要加入的会话的名称和搜索结果传递给该玩家。加入过程完成时，将触发“OnJoinSessionComplete”委托。</p>
+<p>这就是让玩家进入比赛的逻辑。</p>
+<h3 id="Cloud-Based-Matchmaking"><a href="#Cloud-Based-Matchmaking" class="headerlink" title="Cloud-Based Matchmaking"></a>Cloud-Based Matchmaking</h3><p>基于云的匹配是指内置的匹配服务，这些服务是可用的，通常是特定于平台的。这类服务的一个例子是通过Microsoft Xbox Live服务提供的TrueSkill系统。</p>
+<p>若要在支持它的平台上启动匹配，请调用“IonlineSession::Startmatchmaking（）”，并将要匹配的播放机的控制器号、会话名称、创建新会话时要使用的会话设置以及要搜索的设置并传递给该函数。而这个匹配完成时将触发“OnMatchmakingComplete”委托，该委托会传递一个bool变量——指进程是否成功，以及在这种情况下要加入的会话的名称。</p>
+<p>可以通过调用“IOnlineSession::CancelMatchmaking（）”并将玩家的的控制器号和传递给调用以开始匹配的SessionName来取消进程中的匹配操作。</p>
+<p>取消操作完成时将触发“OnCancelMatchmakingCompletedelegate”。</p>
+<h3 id="Following-and-Inviting-Friends"><a href="#Following-and-Inviting-Friends" class="headerlink" title="Following and Inviting Friends"></a>Following and Inviting Friends</h3><p>在支持好友系统的平台上，玩家可以跟随好友进入会话或邀请好友加入会话。</p>
+<p>跟踪一个朋友到一个Session是通过调用’’IOnlineSession::FindFriendSession()“，并将要加入会话的本地玩家号码和已在会话中的朋友的ID，然后这些信息传递给函数，找到会话时将触发“OnFindFriendSessionComplete”委托，该委托包含了可用于加入会话的搜索结果。</p>
+<p>玩家还可以用“IOnlineSession::SendSessionInviteToFriend（）”或“IOnlineSession::SendSessionInviteToFriend s（）”邀请一个或多个好友加入他们的当前会话，并传递要邀请的玩家的本地玩家号、会话名和ID。而当朋友接受邀请时，将触发包含要加入的会话的搜索结果的“OnSessionInviteAccepted”委托。</p>
+<h2 id="How-to-Start-a-Multiplayer-Game"><a href="#How-to-Start-a-Multiplayer-Game" class="headerlink" title="How to Start a Multiplayer Game"></a>How to Start a Multiplayer Game</h2><p>开始多人游戏最简单、最直接的方法是在Play下拉菜单中将玩家数设置为大于1的值（虚幻编辑器“运行”右边的下三角的菜单中选择）。这将自动在服务器和客户端之间创建网络连接。因此，即使您在主菜单级别启动游戏，玩家数设置为大于等于2，游戏也将连接，并且这总是一个网络连接。这不是一个本地的couch-coop多人连接。这需要以不同的方式来处理。</p>
+<h3 id="Advanced-Settings"><a href="#Advanced-Settings" class="headerlink" title="Advanced Settings"></a>Advanced Settings</h3><p>高级设置允许您为播放模式指定更多选项。其中一个类别允许您设置多人游戏选项（在同样地方的最下一个选项），相关选项可以查看下表（）。</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Number of Players（游戏人数）</td>
+<td>This option defines the number of players to spawn in the game when launched. The editor and listen server count as players, a dedicated server will not. Clients make up the remainder of players.（此选项定义启动时要在游戏中生成的玩家数。编辑器和listen server算作玩家，而服务器不会。其余玩家由客户端那边的玩家组成。）</td>
+</tr>
+<tr>
+<td>Server Game Options（服务器游戏选项）</td>
+<td>Here you can specify additional options that will be passed to the server as URL parameters.（在这里，您可以指定将作为URL参数传递给服务器的其他选项。）</td>
+</tr>
+<tr>
+<td>Run Dedicated Server（运行专用服务器）</td>
+<td>If checked, a separate dedicated server will be launched. Otherwise the first player will act as a listen server that all other players can connect to.（如果选中，将启动一个单独的专用服务器。否则，第一个播放器玩家将充当所有其他所有玩家都可以连接到的listen server。）（有点类似于P2P模式）</td>
+</tr>
+<tr>
+<td>Auto Connect To Server（自动连接服务）</td>
+<td>Controls, if the Game should directly connect the Clients to the Server. Means, when you just want to test Gameplay, you can check it and not care about setting up Menu for connecting. Other way round, if you have the Menu, you might want to deactivate the boolean.（控件，游戏应该直接将客户端连接到服务器。即当你只想测试游戏性时，你可以勾选他它而不需要设置连接菜单。另一方面，如果你有菜单，你可能想停用布尔值。）</td>
+</tr>
+<tr>
+<td>Route 1st Gamepad to 2nd Client（将第一个Gamepad传送到第二个客户端）</td>
+<td>When running multiple player windows in a single process, this option determines how the game pad input get routed. If unchecked (default) the 1st game pad is attached to the 1st window, 2nd to the 2nd window, and so on. If it is checked, the 1st game pad goes to the 2nd window. The 1st window can then be controlled by keyboard/mouse, which is convenient if two people are testing on the same computer.（在一个进程中运行多个玩家窗口时，此选项确定如何传输Gamepad输入。默认为第一个Gamepad将附加到第一个窗口，第二个附加到第二个窗口，依此类推。如果选中，第一个Gamepad将转到第二个窗口。第1个窗口可以通过键盘/鼠标控制，如果两个人在同一台计算机上进行测试，这很方便。）</td>
+</tr>
+<tr>
+<td>Use Single Process（使用单一进程）</td>
+<td>This spawns multiple player windows in a single instance of Unreal Engine 4. This will load much faster, but has potential to have more issues. When this is unchecked, additional options become available.（将在单个UE4实例中生多个玩家窗口。这将加载得更快，但有可能有更多的问题。若未选中此项，则提供其他选项。）</td>
+</tr>
+<tr>
+<td>Create Audio Device for Every Player（为每个玩家创建音频设备）</td>
+<td>Enabling this will allow rendering accurate audio from every player’s perspective but will use more CPU.（启用此功能将允许从每个玩家渲染准确的音频，但将使用更多的CPU。）</td>
+</tr>
+<tr>
+<td>Play in Editor Description（编辑器中描述）</td>
+<td>This is a description of what will occur when playing based on the currently applied Multiplayer settings.（这是根据当前应用的多人游戏设置对播放时将发生的情况的描述。）</td>
+</tr>
+</tbody></table>
+<h5 id="Use-Single-Process"><a href="#Use-Single-Process" class="headerlink" title="Use Single Process"></a>Use Single Process</h5><p>当选中Use Single Process时，在UE4的单个实例中生成多个窗口。如果未选中此选项，则将为每个已分配的玩家启动多个UE4实例，并提供其他选项。</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Editor Multiplayer Mode（编辑器多人模式）</td>
+<td>This is the NetMode to use for Play In Editor (Play Offline, Play As Listen Server or Play As Client).（这是用于在编辑器中播放的网络模式（离线播放、作为Listen Server播放或作为客户端播放））</td>
+</tr>
+<tr>
+<td>Command Line Arguments（命令行参数）</td>
+<td>Here you can assign additional command line options that will be passed to standalone game instances.（在这里，您可以分配额外的命令行选项，这些选项将传递给独立的游戏实例。）</td>
+</tr>
+<tr>
+<td>Multiplayer Window Size (in pixels)（多人窗口像素大小）</td>
+<td>Define the width/height to use when spawning additional standalone game instances.（定义生成其他独立游戏实例时要使用的宽度/高度。）</td>
+</tr>
+</tbody></table>
+<h5 id="Run-as-Dedicated-Server"><a href="#Run-as-Dedicated-Server" class="headerlink" title="Run as Dedicated Server"></a>Run as Dedicated Server</h5><p>不启用“运行专用服务器”，第一个客户端将是ListenServer。另一方面，当标记为true时，所有玩家都将是客户。</p>
+<h3 id="Start-and-Connect-to-a-Server-UE4"><a href="#Start-and-Connect-to-a-Server-UE4" class="headerlink" title="Start and Connect to a Server - UE4++"></a>Start and Connect to a Server - UE4++</h3><h5 id="Start-a-Server"><a href="#Start-a-Server" class="headerlink" title="Start a Server"></a>Start a Server</h5><pre class="line-numbers language-c"><code class="language-c">UGameplayStatics<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">OpenLevel</span><span class="token punctuation">(</span><span class="token function">GetWorld</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> “LevelName” <span class="token punctuation">,</span> true<span class="token punctuation">,</span> “listen”<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h5 id="Connect-to-a-Server"><a href="#Connect-to-a-Server" class="headerlink" title="Connect to a Server"></a>Connect to a Server</h5><pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">// Assuming you are not already in the PlayerController (if you are, just call ClientTravel directly) </span>
+APlayerController<span class="token operator">*</span> PlayerController <span class="token operator">=</span> UGameplayStatics<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">GetPlayerController</span><span class="token punctuation">(</span><span class="token function">GetWorld</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+PlayerController<span class="token operator">-></span><span class="token function">ClientTravel</span><span class="token punctuation">(</span>“IPADDRESS”<span class="token punctuation">,</span> ETravelType<span class="token punctuation">:</span><span class="token punctuation">:</span>TRAVEL_Absolute<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h4 id="Starting-via-Command-Line"><a href="#Starting-via-Command-Line" class="headerlink" title="Starting via Command Line"></a>Starting via Command Line</h4><p>这个翻译是不是有点太过于蠢了= =。</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Listen Server</td>
+<td>UE4Editor.exe ProjectName MapName?Listen -game</td>
+</tr>
+<tr>
+<td>Dedicated Server</td>
+<td>UE4Editor.exe ProjectName MapName -server -game -log</td>
+</tr>
+<tr>
+<td>Client</td>
+<td>UE4Editor.exe ProjectName ServerIP -game</td>
+</tr>
+</tbody></table>
+<p>默认情况下，专用服务器是headless的。如果不使用“-log”，您将看不到任何显示专用服务器的窗口！</p>
+<h3 id="Connection-Process"><a href="#Connection-Process" class="headerlink" title="Connection Process"></a>Connection Process</h3><p>当新客户机第一次连接时，会发生一些事情：</p>
+<ol start="0">
+<li>首先，客户端将向服务器发送连接请求；</li>
+<li>服务器将处理此请求，如果服务器不拒绝连接，将向客户端发送一个响应，并提供正确的信息以继续；</li>
+<li>接下来将显示连接过程的主要步骤。注意这是官方文件的直接翻译。</li>
+</ol>
+<h5 id="The-major-steps-are"><a href="#The-major-steps-are" class="headerlink" title="The major steps are"></a>The major steps are</h5><p>主要步骤是：</p>
+<ol start="0">
+<li><p>客户端发送连接请求；</p>
+</li>
+<li><p>如果服务器接受，它将发送当前map；</p>
+</li>
+<li><p>服务器将等待客户端加载此map；</p>
+</li>
+<li><p>加载后，服务器将在本地调用“agamomede::PreLogin”——这将给GameMode一个拒绝连接的机会；</p>
+</li>
+<li><p>如果接受，服务器将调用“AgameMode::Login”</p>
+<p>此函数的作用是创建一个PlayerController，然后将其复制到新连接的客户端。客户端接收到后，此PlayerController将替换客户端临时的PlayerController，后者在连接过程中用作占位符。</p>
+<p>请注意，此处将调用“APlayerController::BeginPlay”，但是在这个Actor上调用RPC函数还不安全。你应该等到“agamomede::PostLogin”被调用；</p>
+</li>
+<li><p>假设一切顺利，“agamomede::PostLogin”被调用：</p>
+<p>此时，服务器可以安全地开始在此PlayerController上调用RPC函数。</p>
+</li>
+</ol>
+<p>以上便是整个UE4网络编程的基本内容了，当然中间涉及到某个需要特殊工具的链接，里面有更丰富的对话链接。但是仅仅只是写这些是不够的，还需要自行写一些类似的游戏才能掌握。希望能够对使用UE4（乃至后续UE5）的在网络游戏上的开发提供一些微小的帮助。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1149,7 +1717,7 @@ bool ATestPlayerController<span class="token punctuation">:</span><span class="t
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://astrojoke.github.io/2020/05/21/ue4-wang-luo-bian-cheng-ue4/">https://astrojoke.github.io/2020/05/21/ue4-wang-luo-bian-cheng-ue4/</a>
+                    <a href="https://astrojoke.github.io/2020/05/20/ue4-wang-luo-bian-cheng-ue4/">https://astrojoke.github.io/2020/05/20/ue4-wang-luo-bian-cheng-ue4/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1359,11 +1927,10 @@ bool ATestPlayerController<span class="token punctuation">:</span><span class="t
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2020/05/21/ue4-wang-luo-bian-cheng-ue4/">
+                <a href="/2020/05/20/ue4-wang-luo-bian-cheng-ue4/">
                     <div class="card-image">
                         
-                        
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="UE4网络编程（UE4++）">
+                        <img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/cover7.jpg" class="responsive-img" alt="UE4网络编程（UE4++）">
                         
                         <span class="card-title">UE4网络编程（UE4++）</span>
                     </div>
@@ -1371,12 +1938,12 @@ bool ATestPlayerController<span class="token punctuation">:</span><span class="t
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            施工中
+                            有关UE4网络编程的一些基础知识
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-20
                             </span>
                         <span class="publish-author">
                             
@@ -1609,7 +2176,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">105.8k</span>&nbsp;字
+                class="white-color">115.3k</span>&nbsp;字
             
             
             

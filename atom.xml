@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://astrojoke.github.io/"/>
-  <updated>2020-05-21T08:17:45.128Z</updated>
+  <updated>2020-05-22T08:17:55.427Z</updated>
   <id>https://astrojoke.github.io/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>UE4网络编程（UE4++）</title>
-    <link href="https://astrojoke.github.io/2020/05/21/ue4-wang-luo-bian-cheng-ue4/"/>
-    <id>https://astrojoke.github.io/2020/05/21/ue4-wang-luo-bian-cheng-ue4/</id>
-    <published>2020-05-21T08:15:53.000Z</published>
-    <updated>2020-05-21T08:17:45.128Z</updated>
+    <link href="https://astrojoke.github.io/2020/05/20/ue4-wang-luo-bian-cheng-ue4/"/>
+    <id>https://astrojoke.github.io/2020/05/20/ue4-wang-luo-bian-cheng-ue4/</id>
+    <published>2020-05-20T08:15:53.000Z</published>
+    <updated>2020-05-22T08:17:55.427Z</updated>
     
     <summary type="html">
     
@@ -29,8 +29,8 @@
       
         
         
-          &lt;p&gt;首先阐述下，UE4的网络编程是典型的（标准的）C/S模型，这就意味着服务器才是权威，并且所有的数据都必须&lt;strong&gt;首先&lt;/strong&gt;从客户端送到数据，接下来服务器会判断那些数据可用并且根据编写的代码对对应数据进行反应。&lt;/p&gt;
-&lt;p&gt;同时，&lt;strong&gt;永远&lt;/
+          &lt;p&gt;许久未见我又开始开工了，这次主要是近期在学习的UE4网络编程，注意此篇文章是翻译自某个PPT，但是是我自己读完后结合自己的理解翻译的，中间可能会有错误（比如map翻译为映射但是实际是地图等类似错误），欢迎大家指正。&lt;/p&gt;
+&lt;h2 id=&quot;Precontext&quot;&gt;&lt;a
         
       
     

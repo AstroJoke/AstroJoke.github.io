@@ -837,7 +837,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.9k
+                    3.8k
                 </div>
                 
 
@@ -871,29 +871,29 @@
 <p>于是我们要做的任务基本都订好了，接下来就是如何写的问题了</p>
 <h2 id="如何大概的完成这个项目"><a href="#如何大概的完成这个项目" class="headerlink" title="如何大概的完成这个项目"></a>如何大概的完成这个项目</h2><h3 id="Some-Preconcepts"><a href="#Some-Preconcepts" class="headerlink" title="Some Preconcepts"></a>Some Preconcepts</h3><ol>
 <li><p>先介绍一个概念Component，理解为技能啊熟练度啊之类就行了，算是一个Actor的附加属性。这里涉及到两个New Component的函数</p>
-<pre class="line-numbers language-c"><code class="language-c">CreateDefaultSubobject<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//构造函数使用</span>
-NewObject<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//随时随地，但是记得Delete小心内存泄漏</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c"><code class="language-c">CreateDefaultSubobject<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//构造函数使用</span>
+NewObject<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//随时随地，但是记得Delete小心内存泄漏</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 <li><p>UE4的资源加载</p>
 <pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">//UObject</span>
-ConstructorHelpers<span class="token punctuation">:</span><span class="token punctuation">:</span>FObjectFinder<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//只能在构造函数使用</span>
-LoadObject<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//随时随地</span>
+ConstructorHelpers<span class="token punctuation">:</span><span class="token punctuation">:</span>FObjectFinder<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//只能在构造函数使用</span>
+LoadObject<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//随时随地</span>
 <span class="token comment" spellcheck="true">//蓝图</span>
-ConstructorHelpers<span class="token punctuation">:</span><span class="token punctuation">:</span>FClasstFinder<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//只能在构造函数使用</span>
-LoadClass<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//随时随地</span>
+ConstructorHelpers<span class="token punctuation">:</span><span class="token punctuation">:</span>FClasstFinder<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//只能在构造函数使用</span>
+LoadClass<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//随时随地</span>
 <span class="token comment" spellcheck="true">//蓝图加载路径最后要加_C（当不定积分的规定就行了）</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>同时还有以下的两个全局函数</p>
-<pre class="line-numbers language-c"><code class="language-c">StaticLoadObject<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-StaticLoadClass<span class="token operator">&lt;</span>T<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//分别是早期的LoadObject&lt;T&gt;();和LoadClass&lt;T&gt;();</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-c"><code class="language-c">StaticLoadObject<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+StaticLoadClass<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//分别是早期的LoadObject&lt;T>();和LoadClass&lt;T>();</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
 </ol>
 <h2 id="添加玩家模型和相机"><a href="#添加玩家模型和相机" class="headerlink" title="添加玩家模型和相机"></a>添加玩家模型和相机</h2><p>我们需要在PlayerController添加骨骼模型（默认是Mesh）</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">static</span> ConstructorHelpers<span class="token punctuation">:</span><span class="token punctuation">:</span>FObjectFinder<span class="token operator">&lt;</span>USkeletalMesh<span class="token operator">&gt;</span> <span class="token function">StaticMeshThird</span><span class="token punctuation">(</span><span class="token function">TEXT</span><span class="token punctuation">(</span>"SkeletalMesh
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">static</span> ConstructorHelpers<span class="token punctuation">:</span><span class="token punctuation">:</span>FObjectFinder<span class="token operator">&lt;</span>USkeletalMesh<span class="token operator">></span> <span class="token function">StaticMeshThird</span><span class="token punctuation">(</span><span class="token function">TEXT</span><span class="token punctuation">(</span>"SkeletalMesh
 <span class="token string">'/Game/Res/PolygonAdventure/Mannequin/Player/SkMesh/Player.Player'</span>
 "<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 USkeletalMesh<span class="token operator">*</span> hhh <span class="token operator">=</span> StaticMeshThird<span class="token punctuation">.</span>Objetct<span class="token punctuation">;</span>
-<span class="token function">GetMesh</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-&gt;</span><span class="token function">SetSkeletalMesh</span><span class="token punctuation">(</span>StaticMeshThird<span class="token punctuation">.</span>Object<span class="token punctuation">)</span><span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token function">GetMesh</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">SetSkeletalMesh</span><span class="token punctuation">(</span>StaticMeshThird<span class="token punctuation">.</span>Object<span class="token punctuation">)</span><span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>然后进入之前的PlayerCharacterBP的里面去绑定对应Player，然后在蓝图的预览。接下来在上面的代码下设置是否只有自己可看，是否接受Decals，其碰撞类型，是否能够发生碰撞等属性。然后运行就能去蓝图浏览details了</p>
 <p>这只是第三人称的，你还需要自己写一个第一人称的，方法类似。然后使用UPROOERTY方法来声明camera，之后设置按照你自己的想法和素材决定。（camera有offset，摄像机手臂，是否旋转和距离等参数）</p>
 <h2 id="动作蓝图和玩家移动"><a href="#动作蓝图和玩家移动" class="headerlink" title="动作蓝图和玩家移动"></a>动作蓝图和玩家移动</h2><p>在之前我们建立的基类SlAiPlayerAnim中使用UPROOERTY方法声明速度和旋转并在.h中设定初值。</p>
@@ -922,7 +922,7 @@ USkeletalMesh<span class="token operator">*</span> hhh <span class="token operat
 <span class="token keyword">void</span> ASlAiPlayerController<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">ChangePreUpperType</span><span class="token punctuation">(</span>EUpperBody<span class="token punctuation">:</span><span class="token punctuation">:</span>Type RightType <span class="token operator">=</span> EUpperBody<span class="token punctuation">:</span><span class="token punctuation">:</span>None<span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">//根据当前手持物品的类型来修改预动作</span>
-    <span class="token keyword">switch</span> <span class="token punctuation">(</span>SPState<span class="token operator">-&gt;</span><span class="token function">GetCurrentObjectType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">switch</span> <span class="token punctuation">(</span>SPState<span class="token operator">-></span><span class="token function">GetCurrentObjectType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     <span class="token punctuation">{</span>
     <span class="token keyword">case</span> EObjectType<span class="token punctuation">:</span><span class="token punctuation">:</span>Normal<span class="token punctuation">:</span>
         LeftUpperType <span class="token operator">=</span> EUpperBody<span class="token punctuation">:</span><span class="token punctuation">:</span>Punch<span class="token punctuation">;</span>
@@ -1497,7 +1497,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">105.8k</span>&nbsp;字
+                class="white-color">115.3k</span>&nbsp;字
             
             
             
