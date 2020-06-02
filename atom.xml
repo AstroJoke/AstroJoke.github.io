@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://astrojoke.github.io/"/>
-  <updated>2020-05-22T08:17:55.427Z</updated>
+  <updated>2020-06-02T06:26:01.381Z</updated>
   <id>https://astrojoke.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>工科数学分析</title>
+    <link href="https://astrojoke.github.io/2020/06/02/gong-ke-shu-xue-fen-xi/"/>
+    <id>https://astrojoke.github.io/2020/06/02/gong-ke-shu-xue-fen-xi/</id>
+    <published>2020-06-02T06:17:00.000Z</published>
+    <updated>2020-06-02T06:26:01.381Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;纯粹是无聊整理一波之前学习的数学分析，希望对看的人有一定的帮助，另外由于偏工科因此开场的什么戴德金分割啊什么的暂时先略过，后期补上（咕咕咕）&lt;/p&gt;
+&lt;h2 id=&quot;数列极限&quot;&gt;&lt;a href=&quot;#数列极限&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数学" scheme="https://astrojoke.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+      <category term="数学分析" scheme="https://astrojoke.github.io/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
   
   <entry>
     <title>UE4网络编程（UE4++）</title>
@@ -39,105 +67,6 @@
     
       <category term="UE4" scheme="https://astrojoke.github.io/categories/UE4/"/>
     
-    
-      <category term="UE4" scheme="https://astrojoke.github.io/tags/UE4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>UE4-SlateAiCourse项目总结（背包，敌人AI和小地图）</title>
-    <link href="https://astrojoke.github.io/2020/05/11/ue4-slateaicourse-ge-ren-xiang-xiang-mu-zong-jie-3/"/>
-    <id>https://astrojoke.github.io/2020/05/11/ue4-slateaicourse-ge-ren-xiang-xiang-mu-zong-jie-3/</id>
-    <published>2020-05-11T13:47:48.000Z</published>
-    <updated>2020-05-12T05:13:09.500Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;script&gt;
-        document.querySelectorAll(&#39;.github-emoji&#39;)
-          .forEach(el =&gt; {
-            if (!el.dataset.src) { return; }
-       
-        
-      
-    
-    </summary>
-    
-    
-      <category term="项目" scheme="https://astrojoke.github.io/categories/%E9%A1%B9%E7%9B%AE/"/>
-    
-      <category term="UE4" scheme="https://astrojoke.github.io/categories/%E9%A1%B9%E7%9B%AE/UE4/"/>
-    
-    
-      <category term="游戏项目" scheme="https://astrojoke.github.io/tags/%E6%B8%B8%E6%88%8F%E9%A1%B9%E7%9B%AE/"/>
-    
-      <category term="UE4" scheme="https://astrojoke.github.io/tags/UE4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>UE4-SlateAiCourse项目总结（角色和资源）</title>
-    <link href="https://astrojoke.github.io/2020/05/10/ue4-slateaicourse-ge-ren-xiang-xiang-mu-zong-jie-2/"/>
-    <id>https://astrojoke.github.io/2020/05/10/ue4-slateaicourse-ge-ren-xiang-xiang-mu-zong-jie-2/</id>
-    <published>2020-05-10T14:51:21.000Z</published>
-    <updated>2020-05-12T05:08:20.375Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;这一期我打算不放过多代码了，就直接总结下写内容的关系。&lt;/p&gt;
-&lt;h2 id=&quot;前景提要和需要暂时创建的类&quot;&gt;&lt;a href=&quot;#前景提要和需要暂时创建的类&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="项目" scheme="https://astrojoke.github.io/categories/%E9%A1%B9%E7%9B%AE/"/>
-    
-      <category term="UE4" scheme="https://astrojoke.github.io/categories/%E9%A1%B9%E7%9B%AE/UE4/"/>
-    
-    
-      <category term="游戏项目" scheme="https://astrojoke.github.io/tags/%E6%B8%B8%E6%88%8F%E9%A1%B9%E7%9B%AE/"/>
-    
-      <category term="UE4" scheme="https://astrojoke.github.io/tags/UE4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>UE4 SlateAiCourse项目总结（游戏目录UI）</title>
-    <link href="https://astrojoke.github.io/2020/05/09/ue4-slateaicourse-ge-ren-xiang-xiang-mu-zong-jie-1/"/>
-    <id>https://astrojoke.github.io/2020/05/09/ue4-slateaicourse-ge-ren-xiang-xiang-mu-zong-jie-1/</id>
-    <published>2020-05-09T09:32:58.000Z</published>
-    <updated>2020-05-11T13:48:57.516Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;这个教程是梁迪老师的&amp;lt;&amp;lt;UE4纯C++与Slate开发沙盒游戏&amp;gt;&amp;gt;的个人向总结，其视频在腾讯课堂可以轻易搜到。由于个人比较懒，所以就不截图了，基本上此篇内容是纯文字的。&lt;/p&gt;
-&lt;p&gt;这个视频也是我接触到的第一个项目了，但是由于一些原因这次二次重做也
-        
-      
-    
-    </summary>
-    
-    
-      <category term="项目" scheme="https://astrojoke.github.io/categories/%E9%A1%B9%E7%9B%AE/"/>
-    
-      <category term="UE4" scheme="https://astrojoke.github.io/categories/%E9%A1%B9%E7%9B%AE/UE4/"/>
-    
-    
-      <category term="游戏项目" scheme="https://astrojoke.github.io/tags/%E6%B8%B8%E6%88%8F%E9%A1%B9%E7%9B%AE/"/>
     
       <category term="UE4" scheme="https://astrojoke.github.io/tags/UE4/"/>
     
@@ -626,6 +555,70 @@
         
           &lt;p&gt;今天之后，题目会开始变得困难了一些，但是就现在为止还是抵挡不住我们的刷题节奏。废话不多说，直接开搞。&lt;/p&gt;
 &lt;h2 id=&quot;题目0：小鱼比可爱&quot;&gt;&lt;a href=&quot;#题目0：小鱼比可爱&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="算法和程序设计" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+      <category term="编程算法题解" scheme="https://astrojoke.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
+    
+      <category term="洛谷" scheme="https://astrojoke.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
+    
+      <category term="入门" scheme="https://astrojoke.github.io/tags/%E5%85%A5%E9%97%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>洛谷官方题单——循环结构题解（水题警告）</title>
+    <link href="https://astrojoke.github.io/2020/04/13/luo-gu-guan-fang-ti-dan-xun-huan-jie-gou-ti-jie-shui-ti-jing-gao/"/>
+    <id>https://astrojoke.github.io/2020/04/13/luo-gu-guan-fang-ti-dan-xun-huan-jie-gou-ti-jie-shui-ti-jing-gao/</id>
+    <published>2020-04-13T15:20:45.000Z</published>
+    <updated>2020-04-24T13:39:59.525Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;今天虽然还是水题，但是实际上已经有部分需要一定的基础才能做出来。下面是代码和部分解释。&lt;/p&gt;
+&lt;h2 id=&quot;题目0：找最小值&quot;&gt;&lt;a href=&quot;#题目0：找最小值&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="算法和程序设计" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
+    
+    
+      <category term="编程算法题解" scheme="https://astrojoke.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
+    
+      <category term="洛谷" scheme="https://astrojoke.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
+    
+      <category term="入门" scheme="https://astrojoke.github.io/tags/%E5%85%A5%E9%97%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>洛谷官方题单——分支结构题解（水题警告）</title>
+    <link href="https://astrojoke.github.io/2020/04/11/luo-gu-guan-fang-ti-dan-fen-zhi-jie-gou-ti-jie-shui-ti-jing-gao/"/>
+    <id>https://astrojoke.github.io/2020/04/11/luo-gu-guan-fang-ti-dan-fen-zhi-jie-gou-ti-jie-shui-ti-jing-gao/</id>
+    <published>2020-04-11T14:09:25.000Z</published>
+    <updated>2020-04-24T13:39:53.400Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;依旧水题警告，不多BB，直接上。&lt;/p&gt;
+&lt;h2 id=&quot;题目0：数的性质&quot;&gt;&lt;a href=&quot;#题目0：数的性质&quot; class=&quot;headerlink&quot;
         
       
     

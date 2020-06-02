@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="UE4-SlateAiCourse项目总结（角色和资源）, AleXandrite">
-    <meta name="description" content="网上教程的项目总结，内容是角色和资源相关">
+    <meta name="keywords" content="工科数学分析, AleXandrite">
+    <meta name="description" content="数学分析极限部分">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>UE4-SlateAiCourse项目总结（角色和资源） | AleXandrite</title>
+    <title>工科数学分析 | AleXandrite</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -673,12 +673,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Cover6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Cover5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">UE4-SlateAiCourse项目总结（角色和资源）</h1>
+                    <h1 class="description center-align post-title">工科数学分析</h1>
                 </div>
             </div>
         </div>
@@ -795,12 +795,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%B8%B8%E6%88%8F%E9%A1%B9%E7%9B%AE/">
-                                <span class="chip bg-color">游戏项目</span>
-                            </a>
-                        
-                            <a href="/tags/UE4/">
-                                <span class="chip bg-color">UE4</span>
+                            <a href="/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/">
+                                <span class="chip bg-color">数学分析</span>
                             </a>
                         
                     </div>
@@ -811,12 +807,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E9%A1%B9%E7%9B%AE/" class="post-category">
-                                项目
-                            </a>
-                        
-                            <a href="/categories/%E9%A1%B9%E7%9B%AE/UE4/" class="post-category">
-                                UE4
+                            <a href="/categories/%E6%95%B0%E5%AD%A6/" class="post-category">
+                                数学
                             </a>
                         
                     </div>
@@ -828,7 +820,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-10
+                    2020-06-02
                 </div>
                 
 
@@ -837,14 +829,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.8k
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    13 分
+                    9 分
                 </div>
                 
 				
@@ -860,132 +852,117 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>这一期我打算不放过多代码了，就直接总结下写内容的关系。</p>
-<h2 id="前景提要和需要暂时创建的类"><a href="#前景提要和需要暂时创建的类" class="headerlink" title="前景提要和需要暂时创建的类"></a>前景提要和需要暂时创建的类</h2><p>在已有的类的基础上，在Content添加Blueprint/Temp文件夹，用来放置暂时的蓝图（后期会删掉）然后在里面写个蓝图继承于PlayerCharacter，然后命名为PlayCharacterBP，然后我们修改PlayerCharacter的时候就可以动态观察修改的方法。</p>
-<h2 id="先考虑我们需要怎么做（角色）"><a href="#先考虑我们需要怎么做（角色）" class="headerlink" title="先考虑我们需要怎么做（角色）"></a>先考虑我们需要怎么做（角色）</h2><p>接下来们需要在考虑我们要写的东西是什么（指进入游戏后）</p>
-<p>唔首先既然是沙盒游戏，那么必然需要有个MC（Minecraft）那么就需要一个Actor，同时我们又需要看到我们的Actor，所以我们还需要一个Camera来随时跟着我们的MC，这里就设计到了两个Actor；</p>
-<p>然后我们要移动，所以有了动作蓝图，然后使用动作蓝图完成移动。</p>
-<p>接下来移动了就涉及到了视角变换（好吧就是一个矩阵）视角变换，然后和蓝图一起绑定后，需要使用某种方法将代码传递到蓝图上，这就是Montage（法语剪接），然后完成之前的动作蓝图就可以下一步了。</p>
-<p>恩作为游戏，我们有了一个人，这个人可以到处跑，但是跑了有什么用？得打怪啊！（啪，你就刚会上下左右你就起飞了）不对不对，应该要检查我们周围有什么药啊素材啊，然后捡起来，捡起来之后先出现在快捷栏（毕竟DNF早期捡到的药都是出现在快捷栏的）（诶快捷栏需要做诶），恩涉及到素材我们又需要了解这个这个物品的属性，唔物品属性用啥来解决呢？emmm诶JSON鸭，反正一个文档很小，存点属性又不累。</p>
-<p>最后就是把快捷栏和游戏角色的state连接起来，恩基本完美了。</p>
-<p>于是我们要做的任务基本都订好了，接下来就是如何写的问题了</p>
-<h2 id="如何大概的完成这个项目"><a href="#如何大概的完成这个项目" class="headerlink" title="如何大概的完成这个项目"></a>如何大概的完成这个项目</h2><h3 id="Some-Preconcepts"><a href="#Some-Preconcepts" class="headerlink" title="Some Preconcepts"></a>Some Preconcepts</h3><ol>
-<li><p>先介绍一个概念Component，理解为技能啊熟练度啊之类就行了，算是一个Actor的附加属性。这里涉及到两个New Component的函数</p>
-<pre class="line-numbers language-c"><code class="language-c">CreateDefaultSubobject<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//构造函数使用</span>
-NewObject<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//随时随地，但是记得Delete小心内存泄漏</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+                <p>纯粹是无聊整理一波之前学习的数学分析，希望对看的人有一定的帮助，另外由于偏工科因此开场的什么戴德金分割啊什么的暂时先略过，后期补上（咕咕咕）</p>
+<h2 id="数列极限"><a href="#数列极限" class="headerlink" title="数列极限"></a>数列极限</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><ol start="0">
+<li>数列极限定义</li>
+<li>收敛数列极限的基本性质</li>
+<li>数列极限的计算方法</li>
+<li>实数系内的六个等价定理：单调有界定理、列紧性定理、柯西收敛定理、有限覆盖定理、闭区间套定理和确界定理</li>
+</ol>
+<h3 id="数列极限的定义和基本性质"><a href="#数列极限的定义和基本性质" class="headerlink" title="数列极限的定义和基本性质"></a>数列极限的定义和基本性质</h3><h4 id="数列极限的定义与应用"><a href="#数列极限的定义与应用" class="headerlink" title="数列极限的定义与应用"></a>数列极限的定义与应用</h4><h5 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h5><ol start="0">
+<li><p>定义：按照自然数编号依次排列的一列数$x_1,x_2,…,x_n,…$称为无穷数列，简称数列，即为${x_n}$；</p>
 </li>
-<li><p>UE4的资源加载</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">//UObject</span>
-ConstructorHelpers<span class="token punctuation">:</span><span class="token punctuation">:</span>FObjectFinder<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//只能在构造函数使用</span>
-LoadObject<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//随时随地</span>
-<span class="token comment" spellcheck="true">//蓝图</span>
-ConstructorHelpers<span class="token punctuation">:</span><span class="token punctuation">:</span>FClasstFinder<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//只能在构造函数使用</span>
-LoadClass<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//随时随地</span>
-<span class="token comment" spellcheck="true">//蓝图加载路径最后要加_C（当不定积分的规定就行了）</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>同时还有以下的两个全局函数</p>
-<pre class="line-numbers language-c"><code class="language-c">StaticLoadObject<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-StaticLoadClass<span class="token operator">&lt;</span>T<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//分别是早期的LoadObject&lt;T>();和LoadClass&lt;T>();</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<li><p><strong>数学语言描述</strong>：给定数列${a_n}$，$a$为常数，若$\forall \varepsilon&gt;0,\exists N\in \mathbb N^*$，使得$n&gt;N$时，有<br>$$<br>|a_n-a|&lt;\varepsilon<br>$$<br>则称数列${a_n}$以$a$为极限，记为$\lim \limits_{x \to \infty}a_n=a$，若数列没有极限，则称数列是发散的。</p>
+</li>
+<li><p>逻辑符号描述见下</p>
 </li>
 </ol>
-<h2 id="添加玩家模型和相机"><a href="#添加玩家模型和相机" class="headerlink" title="添加玩家模型和相机"></a>添加玩家模型和相机</h2><p>我们需要在PlayerController添加骨骼模型（默认是Mesh）</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">static</span> ConstructorHelpers<span class="token punctuation">:</span><span class="token punctuation">:</span>FObjectFinder<span class="token operator">&lt;</span>USkeletalMesh<span class="token operator">></span> <span class="token function">StaticMeshThird</span><span class="token punctuation">(</span><span class="token function">TEXT</span><span class="token punctuation">(</span>"SkeletalMesh
-<span class="token string">'/Game/Res/PolygonAdventure/Mannequin/Player/SkMesh/Player.Player'</span>
-"<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-USkeletalMesh<span class="token operator">*</span> hhh <span class="token operator">=</span> StaticMeshThird<span class="token punctuation">.</span>Objetct<span class="token punctuation">;</span>
-<span class="token function">GetMesh</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">-></span><span class="token function">SetSkeletalMesh</span><span class="token punctuation">(</span>StaticMeshThird<span class="token punctuation">.</span>Object<span class="token punctuation">)</span><span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>然后进入之前的PlayerCharacterBP的里面去绑定对应Player，然后在蓝图的预览。接下来在上面的代码下设置是否只有自己可看，是否接受Decals，其碰撞类型，是否能够发生碰撞等属性。然后运行就能去蓝图浏览details了</p>
-<p>这只是第三人称的，你还需要自己写一个第一人称的，方法类似。然后使用UPROOERTY方法来声明camera，之后设置按照你自己的想法和素材决定。（camera有offset，摄像机手臂，是否旋转和距离等参数）</p>
-<h2 id="动作蓝图和玩家移动"><a href="#动作蓝图和玩家移动" class="headerlink" title="动作蓝图和玩家移动"></a>动作蓝图和玩家移动</h2><p>在之前我们建立的基类SlAiPlayerAnim中使用UPROOERTY方法声明速度和旋转并在.h中设定初值。</p>
-<p>接下来我们需要使用判断跳跃和移动，接下来保存运行并回到虚幻编辑器，然后就可以编辑我们的“小人”动作绑定了。（蓝图不咋会，所以这部分建议直接看视频）</p>
-<p>然后蓝图设计完成之后，通过代码在playerCharacter.cpp中获得动作蓝图，就可以使用很少的代码实现很多东西了，然后需要实现前后左右等各种的移动方法实现，但是人物还有其他的动作没有写。所以下一节会告诉你怎么实现移动和pawn之间的交互，以及视角切换</p>
-<h2 id="视角切换"><a href="#视角切换" class="headerlink" title="视角切换"></a>视角切换</h2><p>视角切换的过程需要主要你从第一人称到第三人称切换的逻辑</p>
-<p>若切换第一人称，则自身不渲染，第三人称是要渲染的，同时camera也是不一样的，毕竟第三人称你可以理解为你随身绑着一个相机，而第一人称则是以你所在存在一个camera和你一起同运动，逻辑是不一样的，所以需要自行体会如何处理交换的逻辑以及交换前后的状态。</p>
-<p>对于角色的其他动作，实际资源自带且已经做成了Montage。所以我们将其直接设置属于UpperBody类（上半身），然后绑定到角色的播放序列里面（用蓝图）然后使用layered blend per bone混合相应动作（当然之前还有触发在playerAnim中声明对应指针，然后写代码就行了）（说的轻巧，写起来挺麻烦的，建议直接看教程）</p>
-<h2 id="制作快捷栏UI"><a href="#制作快捷栏UI" class="headerlink" title="制作快捷栏UI"></a>制作快捷栏UI</h2><p>创建UI自然也需要一个Widget（命名SlAiMenuGameHUDWidget）用来显示UI，而另外一个Slat widget名为SlAiShortcutWidget来写逻辑。</p>
-<p>在SlAiShortcutWidget.h中声明gamestyle，物品信息指针网格指针以及容器是否初始化的变量，以及初始化容器方法。</p>
-<p>HUD的Widget可以和MenuHUDWdget类似，直接CV然后改改就行。另外需要在HUD内设置一个SlAiShortcutWidget的共享指针，然后同样设置dpi等参数，写一个获取屏幕尺寸的函数以及绑定到UIScaler的静态方法，然后和前面文件类似写这些方法；接下来在构造函数内使用SOverlay然后加插槽“画”。</p>
-<p>画完之后将每一个boarder我们视作为一个容器，然后在SlAiShortcutWidget.cpp中实现：初始化这些容器（包括创建，画这个boarder）（后续还要绑定键位的）</p>
-<p>记得每次加了新的要”画“的东西需要去GameWidgetStyle里面声明笔刷（数组，因为有多个），然后运行后设置。（如果发现没有出现笔刷，我们创建后再修改）</p>
-<h2 id="物品属性（JSON"><a href="#物品属性（JSON" class="headerlink" title="物品属性（JSON)"></a>物品属性（JSON)</h2><p>有了快捷栏，但是我们物品属性都没有，那么我们自然需要一些办法去获得这些资源的属性，显而易见需要使用JSON（也有其他的可以用，但是这个比较快）。此处内容和总结1里面JSON内容差不多。（在type头文件声明对应的枚举类型，然后引入json相关头文件，写解析函数即可）（注意如果你用的是UEnum直接和前面的CV改改接口参数就行了）。</p>
-<p>导入了物品属性后，还需要写物品从快捷栏消失的逻辑判断函数。然后从datahandle里面写相关数据处理的函数。</p>
-<h2 id="需要重看：注册快捷栏到playerstate"><a href="#需要重看：注册快捷栏到playerstate" class="headerlink" title="**需要重看：注册快捷栏到playerstate"></a>**需要重看：注册快捷栏到playerstate</h2><p>因为涉及到widget和数据的交互，我们最好不要使用直接动数据的方法，而是声明一个委托的方式。（具体方式我也不懂，这个地方我看的一脸懵逼）（需要多看几次</p>
-<h2 id="碰撞交互"><a href="#碰撞交互" class="headerlink" title="碰撞交互"></a>碰撞交互</h2><p>物品碰撞可以在虚幻编辑器里面设置（Engine-Collison）设置preset，然后创建一个新的配置文件，在之前的handobject（是之前注册快捷栏之后设置的右手插槽来放工具的，这里略过了）设置一个自己的碰撞（因为自带碰撞会有bug导致某些移动无法达成）（每一个工具都是一个类哦）</p>
-<p>这个碰撞包括了根组件，静态模型组件，碰撞组件以及Overlay交互监测关闭（否则自带监测就会出现之前的情况），最后通过委托绑定哦监测方法到检测体（然后每一个类都得写一个- -）</p>
-<h2 id="手持物体切换与动作通知"><a href="#手持物体切换与动作通知" class="headerlink" title="手持物体切换与动作通知"></a>手持物体切换与动作通知</h2><p>我们已经写了一个添加物品到手上的函数，我们希望在handobject.cpp内实现一个物体切换函数（传入物体的ID，然后替换物体），注意物体切换前后的逻辑。老师说有个工厂方法，具体实现看老师写好的源代码就行了。</p>
-<p>只不过我们之前一直都没有设置对应物体的对应动作，接下来就是在Controller里面新建动作通知。在PlayerController添加下述代码（也可以在蓝图里面修改）</p>
-<pre class="line-numbers language-c"><code class="language-c">    <span class="token comment" spellcheck="true">//修改预动作</span>
-    <span class="token keyword">void</span> <span class="token function">ChangePreUpperType</span><span class="token punctuation">(</span>EUpperBody<span class="token punctuation">:</span><span class="token punctuation">:</span>Type RightType<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">//cpp的实现根据UpperType来决定动画</span>
-
-<span class="token comment" spellcheck="true">//.cpp</span>
-<span class="token keyword">void</span> ASlAiPlayerController<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">ChangePreUpperType</span><span class="token punctuation">(</span>EUpperBody<span class="token punctuation">:</span><span class="token punctuation">:</span>Type RightType <span class="token operator">=</span> EUpperBody<span class="token punctuation">:</span><span class="token punctuation">:</span>None<span class="token punctuation">)</span>
-<span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">//根据当前手持物品的类型来修改预动作</span>
-    <span class="token keyword">switch</span> <span class="token punctuation">(</span>SPState<span class="token operator">-></span><span class="token function">GetCurrentObjectType</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-    <span class="token keyword">case</span> EObjectType<span class="token punctuation">:</span><span class="token punctuation">:</span>Normal<span class="token punctuation">:</span>
-        LeftUpperType <span class="token operator">=</span> EUpperBody<span class="token punctuation">:</span><span class="token punctuation">:</span>Punch<span class="token punctuation">;</span>
-        RightUpperType <span class="token operator">=</span> RightType<span class="token punctuation">;</span>
-        <span class="token keyword">break</span><span class="token punctuation">;</span>
-    <span class="token keyword">case</span> EObjectType<span class="token punctuation">:</span><span class="token punctuation">:</span>Food<span class="token punctuation">:</span>
-        LeftUpperType <span class="token operator">=</span> EUpperBody<span class="token punctuation">:</span><span class="token punctuation">:</span>Punch<span class="token punctuation">;</span>
-        <span class="token comment" spellcheck="true">//如果右键状态是拾取那就给拾取,拾取优先级高</span>
-        RightUpperType <span class="token operator">=</span> RightType <span class="token operator">==</span> EUpperBody<span class="token punctuation">:</span><span class="token punctuation">:</span>None <span class="token operator">?</span> EUpperBody<span class="token punctuation">:</span><span class="token punctuation">:</span>Eat <span class="token punctuation">:</span> RightType<span class="token punctuation">;</span>
-        <span class="token keyword">break</span><span class="token punctuation">;</span>
-    <span class="token keyword">case</span> EObjectType<span class="token punctuation">:</span><span class="token punctuation">:</span>Tool<span class="token punctuation">:</span>
-        LeftUpperType <span class="token operator">=</span> EUpperBody<span class="token punctuation">:</span><span class="token punctuation">:</span>Hit<span class="token punctuation">;</span>
-        RightUpperType <span class="token operator">=</span> RightType<span class="token punctuation">;</span>
-        <span class="token keyword">break</span><span class="token punctuation">;</span>
-    <span class="token keyword">case</span> EObjectType<span class="token punctuation">:</span><span class="token punctuation">:</span>Weapon<span class="token punctuation">:</span>
-        LeftUpperType <span class="token operator">=</span> EUpperBody<span class="token punctuation">:</span><span class="token punctuation">:</span>Fight<span class="token punctuation">;</span>
-        RightUpperType <span class="token operator">=</span> RightType<span class="token punctuation">;</span>
-        <span class="token keyword">break</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>然后运行就可以浏览啦。</p>
-<h2 id="资源读取"><a href="#资源读取" class="headerlink" title="资源读取"></a>资源读取</h2><p>资源读取还是使用JSON进行读取（需要提前把资源包里的JSON看一波）然后需要在datahandle的头文件中需要提前创建好对应的数据结构，包括枚举和结构体。然后在对应的cpp中完成其构造函数（根据所给的JSON来写对应构造函数）。</p>
-<p>同时需要对资源碰撞进行预配置（在虚幻编辑器里面）然后创建新的配置文件，对其可见和相机的追踪类型设置为ignore（方便后面射线监测？）</p>
-<p>然后在Resoure类里面写随机数来决定是哪种形态的（资源包的树，石头等都有好几种姿态），然后构造逻辑是什么，销毁啥的自己写。</p>
-<h2 id="拾取物体、准星和CPP操控材质"><a href="#拾取物体、准星和CPP操控材质" class="headerlink" title="拾取物体、准星和CPP操控材质"></a>拾取物体、准星和CPP操控材质</h2><p>拾取物品需要使用射线监测来对其进行判断，因此需要建立一个新的Slate Widget来实现射线监测。</p>
-<p>然后需要在playerstate里面绑定这个类到player里面。同时还需要声明委托来从datahandle到playerstate的数据传递。</p>
-<p>接下来们就可以使用射线监测来识别物品，但是为了拾取物品，我们需要一个准心，准心的作用有两个，识别方向和采取资源时准心变化。</p>
-<p>准心获得采取进读条的方法是老师用蓝图做的，这里需要自己去看下。</p>
-<p>写完准星完成后，需要把这个类加到PointerWidget里面，同样的需要在代码里面实现什么时候出现在屏幕里，出现的高宽，出现框的大小等。这里涉及到“画”，故老生常谈画刷。画完后加载静态材质，然后再强制类型转换为动态材质，然后需要对其编辑。</p>
-<p>这个时候在对应h文件设置想要写的类型的构造函数，tick函数（override）和更新函数。同时需要对playercontroller注册一个修改准星的委托，注册函数是之前的更新函数。</p>
-<p>之后再GameHUD里绑定修改准星的委托（之前有快捷栏，注册射线信息的委托）</p>
-<p>之后运行会发现，这个准星自动就开始跑了，咋办，这就说明射线监测还没写完，至少需要判断工作状态</p>
-<h2 id="射线监测当前的工作状态"><a href="#射线监测当前的工作状态" class="headerlink" title="射线监测当前的工作状态"></a>射线监测当前的工作状态</h2><p>在之前，在项目设置-引擎-碰撞新建一个射线类型，然后preset。</p>
-<p>之后去playercontroller思考要写什么东西：射线监测结果，射线绘制，射线监测进行函数。然后实现三个函数（注意由于第一人称和第三人称，所以需要case选择）。</p>
-<p>同时还可以写准星的动态放大缩小显示等相关的函数，按需加（cv）</p>
-<p>工作状态下，我们需要写一个行为状态机（当然这里面有些新的就需要在sourceobject里面声明新的东西了）</p>
-<pre class="line-numbers language-pseudocode"><code class="language-pseudocode">void ASlAiPlayerController::StateMachine()
-{
-    普通模式
-        准星显示未锁定
-        更新准星
-    如果检测到敌人
-        准星锁定模式
-    如果检测到资源
-        如果左键没有按下,在资源模式下右键没有特殊意义
-            准星锁定模式;
-        如果左键已经按下
-            获取实际伤害
-            让资源受到伤害并且获取剩余血量百分比
-            更新准星
-    如果检测到可拾取物品,并且两者的距离小于300
-        改变右键预状态为拾取
-        修改准星锁定模式
-        如果右键按下
-            把物品捡起来
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>当然也需要对不同物体的范围有不同的变化，这里需要在playerstate实现，具体实现略</p>
-<h2 id="生成掉落物和动态创建材质"><a href="#生成掉落物和动态创建材质" class="headerlink" title="生成掉落物和动态创建材质"></a>生成掉落物和动态创建材质</h2><p>掉落物的初始化，生成，碰撞，和掉落物的ID（即掉落物是什么），笔刷以及笔刷对应的设置都是需要提前写的，还需要绑定材质。需要在代码和编辑器里面设置。同时还需要渲染新的贴图。还要写一个物品“爆”掉的物理模拟（或者说粒子？），这个模拟就是需要一些力，然后搞个随机力就可以模拟瞎爆炸的动画了。</p>
-<p>还需要在ResourceObject里面遍历生成掉落物并随机赋予个数，然后生成（当然必须要世界存在才能生成）。</p>
-<h2 id="动态球形检测"><a href="#动态球形检测" class="headerlink" title="动态球形检测"></a>动态球形检测</h2><p>有了掉落物，那么我们怎么检测什么时候可以拿呢？不同物品大小由不一样，所以需要一个动态球形检测（个人理解和包围盒差不多甚至更简单，包围盒毕竟是相交盒子再判断是不是和物体交，而这个只需要相交就可以判断可以拿了）。（当然你也可以搞个地上的掉落物旋转操作啥的，多实现一个就行了）</p>
-<p>大概就是对于每个掉落物在FlobObject里面实现一个检测函数，其中检测半径（自己设定），检测到玩家，关闭关闭可被检测属性。若有背包空间，删掉对应掉落物，然后背包相关设置。若失败则不删（override Tick函数），一定时间后消失，同时需要将可被检测属性需要重新打开。注意手动注销定时器，内存泄漏不是好文明。</p>
-<p>以上就是基本的游戏和资源相关了，写的很乱，见谅。接下来是敌人的AIcontroller的设定和背包系统，以及小地图或其他组件相关。下一期可能得过好几天了，下期见</p>
-<script>
+<p>$$<br>\forall\varepsilon&gt;0,\exists N(\varepsilon)\in \mathbb N^*,\forall n&gt;N:|x_n-a|&lt;\varepsilon<br>$$</p>
+<ol start="3">
+<li><p>推论：</p>
+<p>$\lim \limits_{x \to \infty}a_n=a \Leftrightarrow \forall \varepsilon&gt;0,\exists N\in \mathbb N^*$当$n&gt;N$时，所有的点$x_n$都落在了$(a-\varepsilon,a+\varepsilon)$内，且只有有限个（最多为$N$个）落在其外</p>
+</li>
+<li><p>数列不存在的定义：<br>$$<br>\forall a\in \mathbb R,\exists\varepsilon&gt;0,\forall N \in \mathbb N^*,\exists n_0&gt;N:|x_{n_0}-a|\geq\varepsilon_0<br>$$</p>
+</li>
+</ol>
+<h5 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h5><ol start="0">
+<li><p>证明：$\lim_\limits{n \to \infty}\frac {n+(-1)^{n-1}}n=1$（不等式法）</p>
+<p>证明：令$x_n=\frac {n+(-1)^{n-1}}n$则有$|x_n-1|=|\frac {n+(-1)^{n-1}}n-1|=\frac1n&lt;\varepsilon$</p>
+<p>​            $\forall \varepsilon&gt;0$，要使$|x_n-1|&lt;\varepsilon$，只要$n&gt;\frac 1{\varepsilon}$，即取$N=[\frac 1\varepsilon]+1$</p>
+<p>​            则当$n&gt;N$时，有$|\frac {n+(-1)^{n-1}}n-1|&lt;\varepsilon$</p>
+<p>​            即$\lim_\limits{n \to \infty}\frac {n+(-1)^{n-1}}n=1$，证毕</p>
+</li>
+<li><p>证明：$\lim_\limits{n \to \infty}q^n=0$，其中$|q|&lt;1$（不等式法）</p>
+<p>证明：若$q=0$，则$\lim_\limits{n \to \infty}=\lim_\limits{n \to \infty}0=0$</p>
+<p>​            若$0&lt;|q|&lt;1,\forall \varepsilon&gt;0$，取$0&lt;\varepsilon&lt;1$</p>
+<p>​            有$|x_n-0|=|q^n|&lt;\varepsilon,n\rm {ln}|q|&lt;\rm {ln}\varepsilon$</p>
+<p>​            故$n&gt;\frac {\rm {ln}\varepsilon}{\rm{ln}|q|}$，取$N=[\frac {\rm {ln}\varepsilon}{\rm{ln}|q|}]+1$</p>
+<p>​            则当$n&gt;N$时，就有$|q^n-0|&lt;\varepsilon$</p>
+<p>​            即$\lim_\limits{n \to \infty}q^n=0$，证毕</p>
+</li>
+<li><p>证明：$\lim_\limits{n \to \infty}\frac 1{(n+1)^2}=0$（放缩法）</p>
+<p>证明：$\forall \varepsilon&gt;0,\exists N=[\frac 1{2\varepsilon}]+1,\forall n&gt;N:|\frac 1{(n+1)^2}-0|&lt;\varepsilon$</p>
+<p>​            即$\lim_\limits{n \to \infty}\frac 1{(n+1)^2}=0$，证毕</p>
+</li>
+<li><p>证明：$\lim_\limits{n \to \infty}\frac n{3^n}=0$</p>
+<p>证明：利用二项展开式，有</p>
+<p>​            $\forall 0&lt;\varepsilon&lt;1,\exists N=\left[ \frac{\rm{ln}\varepsilon}{\rm{ln}\frac23}\right]+1,\forall n&gt;N:|\frac n{3^n}-0|=\frac n{3^n}&lt;\frac{2^n}{3^n}&lt;\varepsilon$</p>
+<p>​            即$\lim_\limits{n \to \infty}\frac n{3^n}=0$，证毕</p>
+</li>
+<li><p>证明：$\lim_\limits{n \to \infty}n^{\frac 1n}=1$</p>
+<p>证明：利用几何平均不大于算术平均，则有</p>
+<p>​            $n^{\frac 1n}=(1…1\sqrt n \sqrt n)^{\frac 1n}\leq\frac{(n-2)+2\sqrt n}n=1+\frac{2(\sqrt n -1)}n$</p>
+<p>​            故采用定义法</p>
+<p>​            $|n^{\frac 1n}-1|=n^{\frac 1n}-1\leq\frac{2(\sqrt n -1)}n&lt;\frac {2\sqrt n}n=\frac 2{\sqrt n}&lt;\varepsilon$，即$n&gt;\frac 4{\varepsilon^2}$</p>
+<p>​            则$\forall \varepsilon&gt;0,\exists N=[\frac 4{\varepsilon^2}]+1,\forall n&gt;N:|n^{\frac 1n}-1|&lt;\frac2{\sqrt n}&lt;\varepsilon$</p>
+<p>​            即$\lim_\limits{n \to \infty}n^{\frac 1n}=1$，证毕</p>
+<p>法2：设$n^{\frac 1n}=1+h_n$，则有$n=(1+h_n)^n$，利用二项展开，则有</p>
+<p>​            $n=1+nh_n+\frac {n(n-1)}2h_n^2+…+h_n^n&gt;\frac{n(n-1)}2h_n^2$</p>
+<p>​            整理后有$1&gt;\frac {n-1}2h_n^2$，即$h_n^2&lt;\frac 2{n-1}$</p>
+<p>​            故$|n^{\frac 1n}-1|=h_n&lt;\sqrt\frac 2{n-1} &lt;\varepsilon$，即有$n&gt;\frac 2{\varepsilon^2}+1$</p>
+<p>​            故$\forall \varepsilon&gt;0,\exists N=[\frac 2{\varepsilon^2}]+2,\forall n&gt;N:|n^{\frac 1n}-1|&lt;\varepsilon$</p>
+<p>​            即有$\lim_\limits{n \to \infty}n^{\frac 1n}=1$，证毕</p>
+</li>
+<li><p>证明：$\lim_\limits{n \to \infty}\frac {c^n}{n!}=0(c&gt;0)$</p>
+<p>证明：当$0&lt;c&lt;1,\forall \varepsilon&gt;0,\exists N=[\frac 1\varepsilon]+1,\forall n&gt;N: |\frac {c^n}{n!}|&lt;\frac 1n&lt;\varepsilon$</p>
+<p>​            当$c&gt;1,\exists m=[c+1] \in \mathbb N^*,c&lt;m+1,\forall n&gt;m$</p>
+<p>​            记$M=\frac{c\cdot c\cdot c…c}{1\cdot 2\cdot3 …(m-1)m}$，有$\frac{c^n}{n!}=\frac{c\cdot c\cdot c…c}{1\cdot 2\cdot3 …(m-1)m}\cdot \frac{c\cdot c\cdot c…c}{(m+1)(m+2)…n)}&lt;\frac {Mc}n$</p>
+<p>​            则有$\forall \varepsilon&gt;0,\exists N= \rm {max} {[\frac {Mc}\varepsilon ]+1,m},\forall n&gt;N:|\frac {c^n}{n!}|&lt;\frac {Mc}n&lt;\varepsilon$</p>
+<p>​            即$\lim_\limits{n \to \infty}\frac {c^n}{n!}=0(c&gt;0)$，证毕（注：$c&lt;0$时也成立)</p>
+</li>
+<li><p>证明：$\lim_\limits{n \to \infty}\sin n$极限不存在（利用极限不存在的定义）</p>
+<p>证明：若$A&gt;0,I_n=(2n\pi+\frac {5\pi}4,2n\pi+\frac {7\pi}4),|I_n|&gt;1,n_0\in I_n$</p>
+<p>​            则$x\in(2n\pi+\frac {5\pi}4,2n\pi+\frac {7\pi}4)$，即$\sin x&lt;-\frac {\sqrt 2} 2$</p>
+<p>​            其满足$\forall A\in \mathbb R,\exists\varepsilon_0&gt;0,\forall N\in \mathbb  N^*,\exists n_0&gt;N:|\sin n_0 -A|=|\sin n_0|+A\geq\frac {\sqrt2}2=\varepsilon_0$</p>
+<p>​            即$\lim_\limits{n \to \infty}\sin n$极限不存在，证毕（注：$A&lt;0$同理可得）</p>
+</li>
+</ol>
+<h5 id="补充：常用不等式"><a href="#补充：常用不等式" class="headerlink" title="补充：常用不等式"></a>补充：常用不等式</h5><ol start="0">
+<li><p>几何平均-算数平均不等式<br>$$<br>\frac 1{\frac 1n\left(\frac 1{a_1}+\frac 1{a_2}+…+\frac 1{a_n}\right)}\leq \sqrt[n]{a_1a_2……a_n} \leq \frac {a_1+a_2+…+a_n}n,(a_i\geq0,i\in I)<br>$$</p>
+</li>
+<li><p>伯努利（Bernoulli）不等式<br>$$<br>x&gt;-1,(1+x)^n&gt;1+nx,x\in \mathbb N^*<br>$$</p>
+</li>
+<li><p>柯西（Cauchy）不等式<br>$$<br>\left(\displaystyle\sum_{i=1}^na_ib_i\right)^2\leq\left(\displaystyle\sum_{i=1}^na_i^2\right)\left(\displaystyle\sum_{i=1}^nb_i^2\right)(a_i&gt;0,b_i&gt;0,i\in I)<br>$$</p>
+</li>
+<li><p>$x\geq0,y\geq0,n\in \mathbb N^*$<br>$$<br>(x+y)^n\geq x^n+y^n\\<br>(x^n+y^n)^{\frac1n}\leq x+y\\<br>(x+y)^{\frac 1n} \leq x^{\frac 1n}+y^{\frac 1n}\\<br>|x^{\frac 1n}-y^{\frac 1n}|\leq |x-y|^{\frac 1n}<br>$$</p>
+</li>
+</ol>
+<h5 id="补充：常用因式分解"><a href="#补充：常用因式分解" class="headerlink" title="补充：常用因式分解"></a>补充：常用因式分解</h5><ol start="0">
+<li><p>二项展开<br>$$<br>(a+b)^n=\displaystyle \sum_{k=0}^nC_n^ka^kb^{n-k}<br>$$</p>
+</li>
+<li><p>高次幂差公式<br>$$<br>a^n-b^n=(a-b)(a^{n-1}+a^{n-2}b+…+ab^{n-2}+b^{n-1})<br>$$</p>
+</li>
+</ol>
+<h5 id="补充：常用重要结论"><a href="#补充：常用重要结论" class="headerlink" title="补充：常用重要结论"></a>补充：常用重要结论</h5><ol start="0">
+<li>$\lim_\limits{n \to \infty}\sqrt[n]n=1$</li>
+<li>$\lim_\limits{n \to \infty}q^n=0,|q|&lt;1$</li>
+<li>$\lim_\limits{n \to \infty}\frac {c^n}{n!}=0$</li>
+<li>$\lim_\limits{n \to \infty}\frac {n^\alpha}{c^n}(\alpha&gt;0,c&gt;1)$</li>
+<li>$\lim_\limits{n \to \infty}\frac{n!}{n^n}=0$</li>
+<li>$\lim_\limits{n \to \infty}\sqrt[n]a=1(a&gt;0)$</li>
+</ol>
+<h4 id="收敛数列的基本性质"><a href="#收敛数列的基本性质" class="headerlink" title="收敛数列的基本性质"></a>收敛数列的基本性质</h4><h5 id="唯一性：若数列收敛，其极限唯一"><a href="#唯一性：若数列收敛，其极限唯一" class="headerlink" title="唯一性：若数列收敛，其极限唯一"></a>唯一性：若数列收敛，其极限唯一</h5><p>证明：设$\lim_\limits{n \to \infty}x_n=a,\lim_\limits{n \to \infty}x_n=b$，则由极限定义有$\forall\varepsilon&gt;0$</p>
+<p>​            $\exists N_1\in \mathbb N^<em>,\forall n&gt;N_1:|x_n-a|&lt;\varepsilon,\exists N_2\in \mathbb N^</em>,\forall n&gt;N_2:|x_n-b|&lt;\varepsilon$</p>
+<p>​            则取$N=\rm{max}{N_1,N_2},n&gt;N$有$|a-b|=|(x_n-b)-(x_n-a)|\leq|x_n-b|+|x_n-a|&lt;2\varepsilon$</p>
+<p>​            当且仅当$a=b$上式成立</p>
+<h5 id="有界性"><a href="#有界性" class="headerlink" title="有界性"></a>有界性</h5><ol start="0">
+<li><p>数列有界定义：对于数列${a_n}$，若存在一个实数$M$，满足$a_n\leq M,n\in I$，则称${a_n}$有上界，且$M$是${a_n}$的上界；对于数列${a_n}$，若存在一个实数$W$，满足$a_n\geq W,n\in I$，则称${a_n}$有下界，且$W$是${a_n}$的下界；对于数列${a_n}$，若存在一个实数$X$，满足$|a_n|\leq X,n\in I$，则称${a_n}$有界。</p>
+</li>
+<li><p><strong>收敛数列必定有界</strong></p>
+<p>证明：设$\lim_\limits{n \to \infty}x_n=a$，则由定义取$\varepsilon=1$时</p>
+</li>
+</ol>
+<h5 id="保序"><a href="#保序" class="headerlink" title="保序"></a>保序</h5><h4 id="收敛极限的计算"><a href="#收敛极限的计算" class="headerlink" title="收敛极限的计算"></a>收敛极限的计算</h4><h5 id="四则运算法则"><a href="#四则运算法则" class="headerlink" title="四则运算法则"></a>四则运算法则</h5><h5 id="夹逼定理"><a href="#夹逼定理" class="headerlink" title="夹逼定理"></a>夹逼定理</h5><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1028,7 +1005,7 @@ USkeletalMesh<span class="token operator">*</span> hhh <span class="token operat
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://astrojoke.github.io/2020/05/10/ue4-slateaicourse-ge-ren-xiang-xiang-mu-zong-jie-2/">https://astrojoke.github.io/2020/05/10/ue4-slateaicourse-ge-ren-xiang-xiang-mu-zong-jie-2/</a>
+                    <a href="https://astrojoke.github.io/2020/06/02/gong-ke-shu-xue-fen-xi/">https://astrojoke.github.io/2020/06/02/gong-ke-shu-xue-fen-xi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1066,12 +1043,8 @@ USkeletalMesh<span class="token operator">*</span> hhh <span class="token operat
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%B8%B8%E6%88%8F%E9%A1%B9%E7%9B%AE/">
-                                    <span class="chip bg-color">游戏项目</span>
-                                </a>
-                            
-                                <a href="/tags/UE4/">
-                                    <span class="chip bg-color">UE4</span>
+                                <a href="/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/">
+                                    <span class="chip bg-color">数学分析</span>
                                 </a>
                             
                         </div>
@@ -1237,54 +1210,47 @@ USkeletalMesh<span class="token operator">*</span> hhh <span class="token operat
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/05/11/ue4-slateaicourse-ge-ren-xiang-xiang-mu-zong-jie-3/">
+                <a href="/2020/06/02/gong-ke-shu-xue-fen-xi/">
                     <div class="card-image">
                         
+                        <img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Cover5.jpg" class="responsive-img" alt="工科数学分析">
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="UE4-SlateAiCourse项目总结（背包，敌人AI和小地图）">
-                        
-                        <span class="card-title">UE4-SlateAiCourse项目总结（背包，敌人AI和小地图）</span>
+                        <span class="card-title">工科数学分析</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            网上教程的项目总结
+                            数学分析极限部分
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-11
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-02
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%A1%B9%E7%9B%AE/" class="post-category">
-                                    项目
-                                </a>
-                            
-                            <a href="/categories/%E9%A1%B9%E7%9B%AE/UE4/" class="post-category">
-                                    UE4
+                            <a href="/categories/%E6%95%B0%E5%AD%A6/" class="post-category">
+                                    数学
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%B8%B8%E6%88%8F%E9%A1%B9%E7%9B%AE/">
-                        <span class="chip bg-color">游戏项目</span>
-                    </a>
-                    
-                    <a href="/tags/UE4/">
-                        <span class="chip bg-color">UE4</span>
+                    <a href="/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/">
+                        <span class="chip bg-color">数学分析</span>
                     </a>
                     
                 </div>
@@ -1298,33 +1264,29 @@ USkeletalMesh<span class="token operator">*</span> hhh <span class="token operat
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/09/ue4-slateaicourse-ge-ren-xiang-xiang-mu-zong-jie-1/">
+                <a href="/2020/05/20/ue4-wang-luo-bian-cheng-ue4/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Cover5.jpg" class="responsive-img" alt="UE4 SlateAiCourse项目总结（游戏目录UI）">
+                        <img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/cover7.jpg" class="responsive-img" alt="UE4网络编程（UE4++）">
                         
-                        <span class="card-title">UE4 SlateAiCourse项目总结（游戏目录UI）</span>
+                        <span class="card-title">UE4网络编程（UE4++）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            网上教程的项目总结，内容是游戏主界面UI
+                            有关UE4网络编程的一些基础知识
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-20
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%A1%B9%E7%9B%AE/" class="post-category">
-                                    项目
-                                </a>
-                            
-                            <a href="/categories/%E9%A1%B9%E7%9B%AE/UE4/" class="post-category">
+                            <a href="/categories/UE4/" class="post-category">
                                     UE4
                                 </a>
                             
@@ -1334,10 +1296,6 @@ USkeletalMesh<span class="token operator">*</span> hhh <span class="token operat
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%B8%B8%E6%88%8F%E9%A1%B9%E7%9B%AE/">
-                        <span class="chip bg-color">游戏项目</span>
-                    </a>
                     
                     <a href="/tags/UE4/">
                         <span class="chip bg-color">UE4</span>
@@ -1497,7 +1455,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">115.3k</span>&nbsp;字
+                class="white-color">103.6k</span>&nbsp;字
             
             
             
