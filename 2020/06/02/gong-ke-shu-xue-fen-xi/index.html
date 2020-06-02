@@ -829,14 +829,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    2.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    14 分
                 </div>
                 
 				
@@ -952,7 +952,8 @@
 <li>$\lim_\limits{n \to \infty}\sqrt[n]a=1(a&gt;0)$</li>
 </ol>
 <h4 id="收敛数列的基本性质"><a href="#收敛数列的基本性质" class="headerlink" title="收敛数列的基本性质"></a>收敛数列的基本性质</h4><h5 id="唯一性：若数列收敛，其极限唯一"><a href="#唯一性：若数列收敛，其极限唯一" class="headerlink" title="唯一性：若数列收敛，其极限唯一"></a>唯一性：若数列收敛，其极限唯一</h5><p>证明：设$\lim_\limits{n \to \infty}x_n=a,\lim_\limits{n \to \infty}x_n=b$，则由极限定义有$\forall\varepsilon&gt;0$</p>
-<p>​            $\exists N_1\in \mathbb N^<em>,\forall n&gt;N_1:|x_n-a|&lt;\varepsilon,\exists N_2\in \mathbb N^</em>,\forall n&gt;N_2:|x_n-b|&lt;\varepsilon$</p>
+<p>​            有$\exists N_1\in \mathbb N^*$，$\forall n&gt;N_1:|x_n-a|&lt;\varepsilon$</p>
+<p>​            同时$\exists N_2\in \mathbb N^*,\forall n&gt;N_2:|x_n-b|&lt;\varepsilon$</p>
 <p>​            则取$N=\rm{max}{N_1,N_2},n&gt;N$有$|a-b|=|(x_n-b)-(x_n-a)|\leq|x_n-b|+|x_n-a|&lt;2\varepsilon$</p>
 <p>​            当且仅当$a=b$上式成立</p>
 <h5 id="有界性"><a href="#有界性" class="headerlink" title="有界性"></a>有界性</h5><ol start="0">
@@ -960,9 +961,65 @@
 </li>
 <li><p><strong>收敛数列必定有界</strong></p>
 <p>证明：设$\lim_\limits{n \to \infty}x_n=a$，则由定义取$\varepsilon=1$时</p>
+<p>​            则必然有$\exists N \in \mathbb N^*, \forall n&gt;N:|x_n-a|&lt;1$，即有$a-1&lt;x_n&lt;a+1$</p>
+<p>​            记$M=\rm {max}{|x_1|,…,|x_N|,|a-1,|a+1||}$</p>
+<p>​            则对于一切自然数$n$，皆有$|x_n|\leq M$，故${x_n}$有界</p>
+</li>
+<li><p>数列子列：</p>
+<ol start="0">
+<li><p>定义${a_n}$为数列，${n_k}$为正整数集的无限子集，且$n_1&lt;n_2&lt;…&lt;n_k&lt;…$，称数列$a_{n_1},a_{n_2},…,a_{n_k},…$为数列${a_n}$的一个子列，即为${a_{n_k}}$</p>
+<p>注意：子列的各项都是选自与原数列，且保持了在原来数列中的相对位置，故有$n_k\geq k$</p>
+</li>
+<li><p>定理：若数列${x_n}$收敛于$a$，则其任意一个子列也收敛于$a$</p>
+<p>证明：设${x_{n_k}}$是数列${x_n}$的任意子列，由于$\lim_\limits{n \to \infty}x_n=a$</p>
+<p>​            故$\forall \varepsilon&gt;0,\exists N\in \mathbb N^*:|x_n-a|&lt;\varepsilon$</p>
+<p>​            取$K=N$，当$k&gt;K$有$n_k&gt;n_K=n_N\geq N$</p>
+<p>​            故有$|x_{n_k}-a|&lt;\varepsilon$即$\lim_\limits{n \to \infty}x_{n_k}=a$，证毕</p>
+<p>应用：数列有两个子列极限存在但是不相等则数列发散，若有一个子列极限不存在则数列极限不存在。</p>
+</li>
+<li><p>例题：若${a_{2k}}，{a_{2k+1}}$收敛且极限相等，则${a_n}$收敛</p>
+<p>证明：由于两个子列极限均收敛，设其极限为$a$，则$\forall \varepsilon&gt;0$</p>
+<p>​            有$\exists N_1\in \mathbb N^*,n=2k&gt;N_1:|a_{2k}-a|&lt;\varepsilon$</p>
+<p>​            且$\exists N_2 \in \mathbb N^*,n=2k+1&gt;N_2:|a_{2k+1}-a|&lt;\varepsilon$</p>
+<p>​            取$N=\rm{max}$${N_1.N_2},\forall n&gt;N:|a_n-a|&lt;\varepsilon$</p>
+<p>​            结论的证（可以进行数学归纳）</p>
 </li>
 </ol>
-<h5 id="保序"><a href="#保序" class="headerlink" title="保序"></a>保序</h5><h4 id="收敛极限的计算"><a href="#收敛极限的计算" class="headerlink" title="收敛极限的计算"></a>收敛极限的计算</h4><h5 id="四则运算法则"><a href="#四则运算法则" class="headerlink" title="四则运算法则"></a>四则运算法则</h5><h5 id="夹逼定理"><a href="#夹逼定理" class="headerlink" title="夹逼定理"></a>夹逼定理</h5><script>
+</li>
+</ol>
+<h5 id="保序性"><a href="#保序性" class="headerlink" title="保序性"></a>保序性</h5><ol start="0">
+<li><p>设$\lim_\limits{n \to \infty}a_n=a$，且$\alpha&lt;a&lt;\beta$，则$\exists N\in \mathbb N^*$，当$n&gt;N$有$\alpha&lt;a_n&lt;\beta$</p>
+<p>证明：取$\varepsilon=\frac{a-\alpha}2,\exists N_1=N^<em>,\forall n&gt;N_1:|a_n-a|&lt;\varepsilon$，有<br>$$<br>a_n&gt;a-\varepsilon=\frac{a+\alpha}2&gt;\alpha<br>$$<br>​            同理，取$\varepsilon=\frac{\beta-a}2$，$N_2\in \mathbb N^</em>,\forall n&gt;N_2:|a_n-a|&lt;\varepsilon$，有<br>$$<br>a_n&lt;a+\varepsilon=\frac {a+\beta}2&lt;\beta<br>$$<br>​            取$N=max{N_1.N_2}$，当$n&gt;N$时上述两式均成立，则有$\alpha&lt;a&lt;\beta$</p>
+</li>
+<li><p>设$\lim_\limits{n \to \infty}a_n=a$，$\lim_\limits{n \to \infty}b_n=b$，且$a&lt;b$，则$\exists N\in \mathbb N^*$，当$n&gt;N$时有$a_n&lt;b_n$（证明略，同上面的证明方法差不多）</p>
+</li>
+<li><p>设$\lim_\limits{n \to \infty}a_n=a$，$\lim_\limits{n \to \infty}b_n=b$，若$\exists N\in \mathbb N^*$，当$n&gt;N$时有$a_n\leq b_n$，则$a\leq b$（证明略，反证法）</p>
+</li>
+<li><p>注1：若$a_n&lt;b_n$，但是也可能有$a=b$</p>
+<p>注2：设$\lim_\limits{n \to \infty}a_n=a$，$\exists N\in \mathbb N^*,n&gt;N,a_n\geq 0$则$a\geq 0$</p>
+</li>
+<li><p><strong>例1</strong>：设$a_n\geq 0 $，若$\lim_\limits{n \to \infty}a_n=a$，则$\lim_\limits{n \to \infty}\sqrt[k]{a_n}=\sqrt[k]a(k\in \mathbb N^*)$</p>
+<p>证明：由保序性质可知$a\geq 0$</p>
+<ol>
+<li><p>若$a=0$，则由$\lim_\limits{n \to \infty}a_n=0$可得$\forall \varepsilon&gt;0,\exists N\in \mathbb N^*$，使得当$n&gt;N$时</p>
+<p>有$a_n&lt;\varepsilon^k$，使得$\sqrt[k]{a_n}&lt;\varepsilon$，使得$\lim_\limits{n \to \infty}\sqrt[k]{a_n}=0$</p>
+</li>
+<li><p>若$a&gt;0$，则由高次幂差的因式分解有<br>$$<br>|\sqrt[k]{a_n}-\sqrt a|=\left|\frac {(\sqrt[k]{a_n}-\sqrt[k]a)(\sqrt[k]{a_n})^{k-1}+…+(\sqrt[k]a)^{k-1}\ )}{(\sqrt[k]{a_n})^{k-1}+…+(\sqrt[k]a)^{k-1}\ }\right|<br>\\=\frac{|a_n-a|}{\sqrt[k]{a_n})^{k-1}+…+(\sqrt[k]a)^{k-1}\ }\leq\frac{|a_n-a|}{(\sqrt[k]a)^{k-1}\ }<br>$$<br>则由$\lim_\limits{n \to \infty}a_n=a$：$\forall \varepsilon&gt;0,\exists N\in \mathbb N^*,\forall n&gt;N:|a_n-a|&lt;\sqrt[k]a)^{k-1}\varepsilon$</p>
+<p>结合上述公式后有$|\sqrt[k]{a_n}-\sqrt[k]a|&lt;\frac {a_n-a}{\sqrt[k]a)^{k-1}\ }&lt;\varepsilon$，即$\lim_\limits{n \to \infty}a_n=a$，证毕。</p>
+</li>
+</ol>
+<p><strong>例2</strong>：求$\lim_\limits{n \to \infty} \frac 1{\sqrt n(\sqrt{n+1}-\sqrt n)}$</p>
+<p>解：<br>$$<br>原式=\lim_\limits{n \to \infty}\frac {\sqrt{n+1}+\sqrt n}{\sqrt n}<br>\\=\lim_\limits{n \to \infty}(1+\sqrt{1+\frac 1n})=2<br>$$</p>
+</li>
+</ol>
+<h4 id="收敛极限的计算"><a href="#收敛极限的计算" class="headerlink" title="收敛极限的计算"></a>收敛极限的计算</h4><h5 id="四则运算法则"><a href="#四则运算法则" class="headerlink" title="四则运算法则"></a>四则运算法则</h5><p>定理：设$\lim_\limits{n \to \infty}a_n=a$，$\lim_\limits{n \to \infty}b_n=b$，则由</p>
+<ol start="0">
+<li>$\lim_\limits{n \to \infty}(a_n\pm b_n)=a\pm b$</li>
+<li>$\lim_\limits{n \to \infty}(a_n\cdot b_n)=a\cdot b$</li>
+<li>若$b\neq0$，则$\lim_\limits{n \to \infty}\frac{a_n}{b_n}=\frac ab$</li>
+</ol>
+<p>证明方法就是使用极限的定义，此处略</p>
+<h5 id="夹逼定理"><a href="#夹逼定理" class="headerlink" title="夹逼定理"></a>夹逼定理</h5><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1455,7 +1512,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">103.6k</span>&nbsp;字
+                class="white-color">104.5k</span>&nbsp;字
             
             
             
