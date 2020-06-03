@@ -829,14 +829,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.8k
+                    4.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    14 分
+                    20 分
                 </div>
                 
 				
@@ -1019,7 +1019,106 @@
 <li>若$b\neq0$，则$\lim_\limits{n \to \infty}\frac{a_n}{b_n}=\frac ab$</li>
 </ol>
 <p>证明方法就是使用极限的定义，此处略</p>
-<h5 id="夹逼定理"><a href="#夹逼定理" class="headerlink" title="夹逼定理"></a>夹逼定理</h5><script>
+<h5 id="夹逼定理"><a href="#夹逼定理" class="headerlink" title="夹逼定理"></a>夹逼定理</h5><ol start="0">
+<li><p>定理：若数列${a_n}{b_n}{c_n}$满足$a_n\leq b_n\leq c_n, n\in \mathbb N^<em>$，且$\lim\limits_{n\to\infty}a_n=\lim\limits_{n\to\infty}c_n$，则有<br>$$<br>\lim\limits_{n\to\infty}a_n=\lim\limits_{n\to\infty}b_n=\lim\limits_{n\to\infty}c_n<br>$$<br>注：$\exists N\in \mathbb N^</em>,n&gt;N:a_n\leq b_n\leq c_n$，且$\lim\limits_{n\to\infty}a_n=\lim\limits_{n\to\infty}c_n$，结论依旧成立</p>
+</li>
+<li><p>证明思路分别对$a_n,c_n$使用定义，然后选取$N_{max}$，之后就可以得到两个不等式，既可以得到结论</p>
+</li>
+<li><p>使用方法：对某些数列（可能是求和，也可能是某些根式）进行放缩，或者题目告知了明显的不等式上下界信息的时候可以使用，注意和定积分定义相区别</p>
+</li>
+<li><p>无穷小数列：</p>
+<ol start="0">
+<li><p>定义：若$\lim\limits_{n\to\infty}x_n=0$，则称数列${x_n}$为无穷小数列</p>
+</li>
+<li><p>结论：</p>
+<ol start="0">
+<li><p>${x_n}$为无穷小的充要条件是${|x_n|}$为无穷小；</p>
+</li>
+<li><p>两个无穷小之和（之差）仍然为无穷小</p>
+</li>
+<li><p>设${x_n}$为无穷小，且${y_n}$有界，则${x_n\cdot y_n}$仍然为无穷小</p>
+</li>
+<li><p>$\lim\limits_{n\to\infty}x_n=x$的充要条件是$x_n=x+\beta_n$，这里的${\beta_n}$为无穷小数列<br>$$<br>\lim\limits_{n\to\infty}x_n=a\Leftrightarrow x_n=x+\beta_n,\lim\limits_{n\to\infty}\beta_n=0<br>$$</p>
+</li>
+<li><p>$\lim\limits_{n\to\infty}x_n=x$的充要条件是${x_n-x}$为无穷小</p>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>无穷大数列：</p>
+<ol start="0">
+<li><p>定义：若数列${a_n}$</p>
+<p>(1) $\forall A&gt;0,\exists N\in \mathbb N^*,n&gt;N:a_n&gt;A$，则称数列${a_n}$趋向于$+\infty$，并记作$\lim\limits_{n\to\infty}a_n=+\infty$</p>
+<p>(2) (1) $\forall A&gt;0,\exists N\in \mathbb N^*,n&gt;N:a_n&lt;-A$，则称数列${a_n}$趋向于$-\infty$，并记作$\lim\limits_{n\to\infty}a_n=-\infty$</p>
+<p>(3) $\forall A&gt;0,\exists N\in \mathbb N^*,n&gt;N:|a_n|&gt;A$，则称数列${a_n}$趋向于$\infty$，并记作$\lim\limits_{n\to\infty}a_n=\infty$</p>
+<p>则满足上述三种情况的数列，称$n\to \infty$时，数列${a_n}$为无穷大</p>
+</li>
+<li><p>性质</p>
+<ol start="0">
+<li>无穷数列的任何子列极限均为无穷</li>
+<li>无穷数列的加和称仍为无穷数列</li>
+<li>无穷数列的每一项均取倒数时为无穷小数列</li>
+<li>如果数列为无穷数列，则数列无界（反之不一定成立）</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="数列单调有界定理及闭区间套定理"><a href="#数列单调有界定理及闭区间套定理" class="headerlink" title="数列单调有界定理及闭区间套定理"></a>数列单调有界定理及闭区间套定理</h3><h4 id="单调有界定理"><a href="#单调有界定理" class="headerlink" title="单调有界定理"></a>单调有界定理</h4><ol start="0">
+<li><h5 id="单调数列的定义"><a href="#单调数列的定义" class="headerlink" title="单调数列的定义"></a>单调数列的定义</h5><p>数列的前一项严格大于等于（或小于等于）后一项，则称数列为单调递增（递减）数列；</p>
+<p>若去掉等于，则称之为严格单调递增（递减）数列。</p>
+</li>
+<li><h5 id="定理：单调有界数列必有极限"><a href="#定理：单调有界数列必有极限" class="headerlink" title="定理：单调有界数列必有极限"></a>定理：单调有界数列必有极限</h5><p>证明需要了解数字的构造，暂略（可以通过菲赫金哥尔茨的《数学分析原理》了解后，然后通过逐位确定极限值来证明这个定理）</p>
+<p>注：单调递增数列有极限，则极限为其上确界（内容见后）；单调递减数列有极限，则极限为其下确界。</p>
+</li>
+<li><h5 id="单调数列收敛原理的推论"><a href="#单调数列收敛原理的推论" class="headerlink" title="单调数列收敛原理的推论"></a>单调数列收敛原理的推论</h5><ol start="0">
+<li>单调数列收敛的充要条件为有一个子列的极限存在</li>
+<li>单调数列发散的充要条件为有一个子列的极限<strong>不</strong>存在</li>
+<li>一个单调数列要么极限存在，要么趋近无穷</li>
+<li>单调数列收敛的充要条件为数列有界</li>
+</ol>
+</li>
+<li><h5 id="两个典型的单调数列"><a href="#两个典型的单调数列" class="headerlink" title="两个典型的单调数列"></a>两个典型的单调数列</h5><ol start="0">
+<li><p>$s_n=1+\frac 1{1!}+\frac 1{2!}+\frac 1{3!}+…+\frac 1{n!}$</p>
+</li>
+<li><p>$e_n=\left(1+\frac 1n\right)^n$（证明过程需要使用伯努利不等式）</p>
+</li>
+<li><p>同时在单调有界数列的例题中，容易了解到欧拉公式<br>$$<br>1+\frac 12+…+\frac 1n=\ln(n)+\gamma+\varepsilon(n),\lim_\limits{0\to \infty}\varepsilon(n)=0<br>$$</p>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="闭区间套定理"><a href="#闭区间套定理" class="headerlink" title="闭区间套定理"></a>闭区间套定理</h4><ol start="0">
+<li><p>定理</p>
+<p>设$I_n=[a_n,b_n],n\in \mathbb N^*$为一列闭区间，满足</p>
+<p>（1）$I_1\supset I_2\supset I_3 \supset I_4\supset … \supset I_n\supset I_{n+1}\supset …$</p>
+<p>（2）区间长度$|I_n|=b_n-a_n\to 0(n\to \infty)$</p>
+<p>则</p>
+<p>（1）存在唯一点$\xi$满足$\xi \in \bigcap_{n=1}^\infty I_n$</p>
+<p>（2）$\lim_\limits{0\to \infty}a_n=\lim_\limits{0\to \infty}b_n=\xi$</p>
+</li>
+<li><p>证明：由区间的包含关系可知，数列${a_n}$为递增数列，而${b_n}$为递减数列，并且${a_n}$有上界$b_1$，${b_n}$有下界$a_1$（注，此处下界不是下确界，下界是一个集合）</p>
+<p>由单调有界定理可知$\lim_\limits{0\to \infty}a_n=a,\lim_\limits{0\to \infty}b_n=b$</p>
+<p>由于$a_n\leq b_n,n\in \mathbb N^*$，根据数列的保序性有$a\leq b $</p>
+<p>因此有不等式$a_n\leq a\leq b\leq b_n(n\in \mathbb N^*),0\leq b-a\leq b_n-a_n=|I_n|$</p>
+<p>由$|I_n|\to 0(n\to \infty)$可知$a=b$</p>
+<p>即$a\in I_n（n\in \mathbb N^*）$由此可以得到$a\in \bigcap_{n=1}^\infty I_n$</p>
+<p>接下来是唯一性：</p>
+<p>假设$\exists \alpha\in \bigcap_{n=1}^\infty[a_n,b_n],\beta\in \bigcap_{n=1}^\infty[a_n,b_n]$</p>
+<p>则有$|\beta-\alpha|\leq \lim_\limits{0\to \infty}|b_n-a_n|=0$</p>
+<p>故$\alpha = \beta$</p>
+</li>
+<li><p>注：定理条件缺一不可，即每一个区间都是闭区间</p>
+</li>
+<li><p>用途：在数列的奇数子列单调递增（递减），而偶数子列单调递减（递增）</p>
+</li>
+</ol>
+<h4 id="开区间套定理"><a href="#开区间套定理" class="headerlink" title="开区间套定理"></a>开区间套定理</h4><p>设$I_n=（a_n,b_n）,n\in \mathbb N^*$为一列严格开区间套，满足：</p>
+<p>（1）$a_1&lt;a_2&lt;…&lt;a_n&lt;…&lt;b_n&lt;b_{n-1}&lt;…&lt;b_2&lt;b_1$</p>
+<p>（2）区间长度$|I_n|=b_n-a_n\to 0(n\to \infty)$</p>
+<p>则存在唯一一点$\alpha$满足$\alpha \in \bigcap_{n=1}^\infty I_n$且$\lim_\limits{0\to \infty}a_n=\lim_\limits{0\to \infty}b_n=\alpha$</p>
+<h3 id="柯西定理"><a href="#柯西定理" class="headerlink" title="柯西定理"></a>柯西定理</h3><h4 id="列紧性定理"><a href="#列紧性定理" class="headerlink" title="列紧性定理"></a>列紧性定理</h4><h3 id="确界定理和有限覆盖定理"><a href="#确界定理和有限覆盖定理" class="headerlink" title="确界定理和有限覆盖定理"></a>确界定理和有限覆盖定理</h3><h3 id="实数连续与完备性"><a href="#实数连续与完备性" class="headerlink" title="实数连续与完备性"></a>实数连续与完备性</h3><h3 id="数列上下限及斯笃茨定理"><a href="#数列上下限及斯笃茨定理" class="headerlink" title="数列上下限及斯笃茨定理"></a>数列上下限及斯笃茨定理</h3><h2 id="函数的极限"><a href="#函数的极限" class="headerlink" title="函数的极限"></a>函数的极限</h2><h2 id="一元函数的导数和微分"><a href="#一元函数的导数和微分" class="headerlink" title="一元函数的导数和微分"></a>一元函数的导数和微分</h2><h2 id="微分中值定理"><a href="#微分中值定理" class="headerlink" title="微分中值定理"></a>微分中值定理</h2><h2 id="一元函数不定积分"><a href="#一元函数不定积分" class="headerlink" title="一元函数不定积分"></a>一元函数不定积分</h2><h2 id="一元函数定积分及其应用"><a href="#一元函数定积分及其应用" class="headerlink" title="一元函数定积分及其应用"></a>一元函数定积分及其应用</h2><h2 id="无穷积分"><a href="#无穷积分" class="headerlink" title="无穷积分"></a>无穷积分</h2><h2 id="级数"><a href="#级数" class="headerlink" title="级数"></a>级数</h2><h2 id="多元函数的极限"><a href="#多元函数的极限" class="headerlink" title="多元函数的极限"></a>多元函数的极限</h2><h2 id="多元函数的微分学"><a href="#多元函数的微分学" class="headerlink" title="多元函数的微分学"></a>多元函数的微分学</h2><h2 id="向量函数的微分学"><a href="#向量函数的微分学" class="headerlink" title="向量函数的微分学"></a>向量函数的微分学</h2><h2 id="常微分方程（ODE）"><a href="#常微分方程（ODE）" class="headerlink" title="常微分方程（ODE）"></a>常微分方程（ODE）</h2><h2 id="二重积分和三重积分"><a href="#二重积分和三重积分" class="headerlink" title="二重积分和三重积分"></a>二重积分和三重积分</h2><h2 id="曲线积分"><a href="#曲线积分" class="headerlink" title="曲线积分"></a>曲线积分</h2><h2 id="曲面积分和场论"><a href="#曲面积分和场论" class="headerlink" title="曲面积分和场论"></a>曲面积分和场论</h2><h2 id="含参变量的积分"><a href="#含参变量的积分" class="headerlink" title="含参变量的积分"></a>含参变量的积分</h2><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1512,7 +1611,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">104.5k</span>&nbsp;字
+                class="white-color">106k</span>&nbsp;字
             
             
             
