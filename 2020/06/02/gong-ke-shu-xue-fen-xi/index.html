@@ -829,14 +829,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.3k
+                    6.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    20 分
+                    31 分
                 </div>
                 
 				
@@ -1118,7 +1118,173 @@
 <p>（1）$a_1&lt;a_2&lt;…&lt;a_n&lt;…&lt;b_n&lt;b_{n-1}&lt;…&lt;b_2&lt;b_1$</p>
 <p>（2）区间长度$|I_n|=b_n-a_n\to 0(n\to \infty)$</p>
 <p>则存在唯一一点$\alpha$满足$\alpha \in \bigcap_{n=1}^\infty I_n$且$\lim_\limits{0\to \infty}a_n=\lim_\limits{0\to \infty}b_n=\alpha$</p>
-<h3 id="柯西定理"><a href="#柯西定理" class="headerlink" title="柯西定理"></a>柯西定理</h3><h4 id="列紧性定理"><a href="#列紧性定理" class="headerlink" title="列紧性定理"></a>列紧性定理</h4><h3 id="确界定理和有限覆盖定理"><a href="#确界定理和有限覆盖定理" class="headerlink" title="确界定理和有限覆盖定理"></a>确界定理和有限覆盖定理</h3><h3 id="实数连续与完备性"><a href="#实数连续与完备性" class="headerlink" title="实数连续与完备性"></a>实数连续与完备性</h3><h3 id="数列上下限及斯笃茨定理"><a href="#数列上下限及斯笃茨定理" class="headerlink" title="数列上下限及斯笃茨定理"></a>数列上下限及斯笃茨定理</h3><h2 id="函数的极限"><a href="#函数的极限" class="headerlink" title="函数的极限"></a>函数的极限</h2><h2 id="一元函数的导数和微分"><a href="#一元函数的导数和微分" class="headerlink" title="一元函数的导数和微分"></a>一元函数的导数和微分</h2><h2 id="微分中值定理"><a href="#微分中值定理" class="headerlink" title="微分中值定理"></a>微分中值定理</h2><h2 id="一元函数不定积分"><a href="#一元函数不定积分" class="headerlink" title="一元函数不定积分"></a>一元函数不定积分</h2><h2 id="一元函数定积分及其应用"><a href="#一元函数定积分及其应用" class="headerlink" title="一元函数定积分及其应用"></a>一元函数定积分及其应用</h2><h2 id="无穷积分"><a href="#无穷积分" class="headerlink" title="无穷积分"></a>无穷积分</h2><h2 id="级数"><a href="#级数" class="headerlink" title="级数"></a>级数</h2><h2 id="多元函数的极限"><a href="#多元函数的极限" class="headerlink" title="多元函数的极限"></a>多元函数的极限</h2><h2 id="多元函数的微分学"><a href="#多元函数的微分学" class="headerlink" title="多元函数的微分学"></a>多元函数的微分学</h2><h2 id="向量函数的微分学"><a href="#向量函数的微分学" class="headerlink" title="向量函数的微分学"></a>向量函数的微分学</h2><h2 id="常微分方程（ODE）"><a href="#常微分方程（ODE）" class="headerlink" title="常微分方程（ODE）"></a>常微分方程（ODE）</h2><h2 id="二重积分和三重积分"><a href="#二重积分和三重积分" class="headerlink" title="二重积分和三重积分"></a>二重积分和三重积分</h2><h2 id="曲线积分"><a href="#曲线积分" class="headerlink" title="曲线积分"></a>曲线积分</h2><h2 id="曲面积分和场论"><a href="#曲面积分和场论" class="headerlink" title="曲面积分和场论"></a>曲面积分和场论</h2><h2 id="含参变量的积分"><a href="#含参变量的积分" class="headerlink" title="含参变量的积分"></a>含参变量的积分</h2><script>
+<h3 id="柯西定理"><a href="#柯西定理" class="headerlink" title="柯西定理"></a>柯西定理</h3><h4 id="列紧性定理"><a href="#列紧性定理" class="headerlink" title="列紧性定理"></a>列紧性定理</h4><ol start="0">
+<li><p>定理内容：任意有界数列中必定有一个收敛子列</p>
+</li>
+<li><p>证明：设${x_n}$满足$a\leq x_n\leq b$</p>
+<p>将区间$[a,b]$二等分，选包含了${x_n}$的无穷多项子区间为$[a_1,b_1]$，其中$|b_1-a_1|=\frac {a-b}2$，取$x_{n_1}\in[a_1,b_1]$</p>
+<p>再次将$[a_1,b_1]$二等分，然后利用闭区间套定理逐步逼近</p>
+<p>最终会取得$x_{n_k}\in [a_k,b_k],n_k\geq n_{k-1}$</p>
+<p>得到以下结论：</p>
+<ol start="0">
+<li>$[a_1,b_1]\supset[a_2,b_2]\supset…\supset[a_k,b_k]\supset[a_{k+1},b_{k+1}]\supset…$</li>
+<li>$\lim_\limits{n\to\infty}|b_k-a_k|=\lim_\limits{n\to\infty}\frac{b-a}{2^k}=0$</li>
+<li>$x_{n_k}\in[a_k,b_k],n_k&gt;n_{k-1},k\in I$</li>
+</ol>
+<p>最后使用闭区间套定理和夹逼定理得到了对应收敛子列的极限</p>
+</li>
+</ol>
+<h4 id="柯西定理-1"><a href="#柯西定理-1" class="headerlink" title="柯西定理"></a>柯西定理</h4><ol start="0">
+<li><p>柯西基本列：对于任意给定数列${x_n}$，若$\forall \varepsilon&gt;0,\exists N(\varepsilon)\in\mathbb N^* $，则当$m,n \in \mathbb N^*$且$m,n&gt;N$时，有$|x_m-x_n|&lt;\varepsilon$，则称${x_n}$为基本列</p>
+<p>其等价叙述为：对于任意给定数列${x_n}$，若$\forall \varepsilon&gt;0,\exists N(\varepsilon)\in\mathbb N^* $，则$n&gt;N$时，$\forall p \in \mathbb N^*$，有$|x_{n+p}-x_n|&lt;\varepsilon$，则称${x_n}$为基本列</p>
+</li>
+<li><p>逻辑符号叙述为</p>
+<p>$\forall \varepsilon &gt;0,\exists N(\varepsilon) \in \mathbb N^ * ,\forall n&gt;N,\forall p\in \mathbb N^ * :|a_{n+p}-a_n|&lt;\varepsilon$</p>
+<p>$\forall \varepsilon &gt;0,\exists N(\varepsilon) \in \mathbb N^ * ,\forall n,m\in \mathbb N^ * ,m,n&gt;N:|a_m-a_n|&lt;\varepsilon$</p>
+</li>
+<li><p>例：证明：$a_n=1+\frac 1{2^2}+…+\frac 1{n^2}$</p>
+<p>证明：由$0&lt;a_{n+p}-a_n=\frac 1{(n+1)^2}+…+\frac 1{(n+p)^2}$</p>
+<p>​            $&lt;\frac 1{n(n+1)}+\frac 1{(n+1)(n+2)}+…+\frac 1{(n+p-1)(n+p)}$</p>
+<p>​            $=\frac 1n-\frac 1{n+p}$（裂项相消）$&lt;\frac 1n$，即</p>
+<p>​            $\forall \varepsilon &gt;0,\exists N=\left[\frac 1\varepsilon\right]+1,\forall  n\in \mathbb N^ * ,\forall n&gt;N,\forall p\in \mathbb N^ * :|a_{n+p}-a_n|&lt;\varepsilon$</p>
+<p>​            即${a_n}$为基本列</p>
+</li>
+<li><p>柯西定理</p>
+<ol start="0">
+<li><p>定理内容：若数列收敛的充要条件为数列是基本列</p>
+</li>
+<li><p>证明：（必要性）设${a_n}$收敛于$a$，则有</p>
+<p>​            $\forall \varepsilon &gt;0,\exists N\in \mathbb N^ * ,\forall n&gt;N:|a_n-a|&lt;\frac \varepsilon 2$</p>
+<p>​            当$m,n&gt;N$时有$|a_m-a_n|=|a_m-a+a-a_n|\leq|a_m-a|+|a_n-a|\leq\varepsilon$</p>
+<p>​            故数列为基本列</p>
+<p>​            （充分性）</p>
+<p>​            （1）先验证${a_n}$有界</p>
+<p>​                      取$\varepsilon_0=1,\exists N\in \mathbb N^ * ,n&gt;N:|a_n-a_{N+1}|&lt;\varepsilon=1$</p>
+<p>​                      即$|a_n|=|a_n-a_{N+1}+a_{n+1}|\leq|a_n-a_{N+1}+a_{N+1}|$</p>
+<p>​                                  $\leq|a_n-a_{N+1}|+|a_n+1|&lt;1+|a_{N+1}|$</p>
+<p>​                      取$M=\max={|a_1|,|a_2|,…,|a_N|,1+|a_{N+1}|}$，则$\forall n,|a_n|\leq M$        </p>
+<p>​            （2）证明$\lim_\limits{n\to\infty}a_n=a$</p>
+<p>​                        由列紧性定理有，存在收敛子列${a_{n_k}},\lim_\limits{n\to\infty}a_{a_k}=a$则</p>
+<p>​                        $\forall \varepsilon&gt;0,\exists N_1\in \mathbb N^ * ,\forall k&gt;N_1:|a_{n_k}-a|&lt;\frac \varepsilon2 $</p>
+<p>​                        又由于数列${a_n}$为基本列，故有</p>
+<p>​                        $\exists N\in \mathbb N^ * ,\forall m,n&gt;N:|a_m-a_n|&lt;\frac \varepsilon2 $</p>
+<p>​                        取$n_k&gt;\max{N_1,N}$，根据上述两式有：</p>
+<p>$$<br>|a_n-a|=|(a_n-a_{n_k})+(a_{n_k-a)}|\leq|a_n-a_{n_k}|+|a_{n_k}-a|&lt;\varepsilon$<br>$$</p>
+<p>​                        即$\lim_\limits{n\to\infty}a_n=a$</p>
+<p>​                        故柯西定理证毕</p>
+</li>
+</ol>
+</li>
+<li><p>实数完备性解释：（由柯西定理表明）实数构成的基本列必存在实数极限，这一性质称之为实数系统的完备性</p>
+</li>
+</ol>
+<h3 id="确界定理和有限覆盖定理"><a href="#确界定理和有限覆盖定理" class="headerlink" title="确界定理和有限覆盖定理"></a>确界定理和有限覆盖定理</h3><h4 id="上下确界定理"><a href="#上下确界定理" class="headerlink" title="上下确界定理"></a>上下确界定理</h4><ol start="0">
+<li><p>上确界（Supremum）</p>
+<p>设$E$是非空有上界结合，若$\exists\beta$满足</p>
+<ol start="0">
+<li>$\forall x\in E,x\leq \beta$</li>
+<li>$\forall \varepsilon &gt;0,\exists x_\varepsilon \in E: x_\varepsilon&gt;\beta-\varepsilon$</li>
+</ol>
+<p>则称$\beta$为$E$的上确界，记为$\beta =\sup E$</p>
+</li>
+<li><p>下确界（Infimum）</p>
+<p>设$E$是非空有有界结合，若$\exists\alpha$满足</p>
+<ol start="0">
+<li>$\forall x\in E,x\geq \alpha$</li>
+<li>$\forall \varepsilon &gt;0,\exists y_\varepsilon \in E: x_\varepsilon&lt;\alpha+\varepsilon$</li>
+</ol>
+<p>则称$\beta$为$E$的下确界，记为$\beta =\inf E$</p>
+</li>
+<li><p>注，确界可能属于这个集合，也可能不属于这个集合</p>
+</li>
+<li><p>确界定理：非空有上界数集必有上确界，非空有下界的数集必有下确界</p>
+</li>
+<li><p>确界原理证明方法和列紧性的证明类似，过程略</p>
+</li>
+<li><p>确界基本性质</p>
+<p>定义集合运算：$X+Y={x+y:x\in X,y\in Y}$</p>
+<p>则有下列性质</p>
+<ol start="0">
+<li>$\inf(X+Y)=\inf X+\inf Y$</li>
+<li>$\sup(X+Y)=\sup X+\sup Y$</li>
+<li>$\inf(a+X)=a+\inf X ,a\in \mathbb R$</li>
+<li>$\sup(a+X)=a+\sup X,a\in \mathbb R$</li>
+<li>$\inf(X+Y)\leq \inf X + \sup Y\leq \sup(X+Y)$</li>
+<li>保序性：对于数列${x_n}{y_n}，x_n\leq y_n$则$\sup x_n\leq \sup y_n,\inf x_n\leq \inf y_n$</li>
+</ol>
+</li>
+<li><p>实数连续性的进一步解释：确界存在定理，通常称之为实数系的连续性定理，实数的连续性指的是实数域中每一个点都与坐标轴上点唯一确定</p>
+</li>
+<li><p>若集合$E$存在上界$\beta$（下界$\alpha$），并且存在一个数列${x_n}\subset E$,满足$\lim\limits_{n\to \infty}x_n=\beta(\alpha)$，则$\beta(\alpha)$为集合$E$的上确界（下确界）</p>
+</li>
+</ol>
+<h4 id="有限覆盖定理"><a href="#有限覆盖定理" class="headerlink" title="有限覆盖定理"></a>有限覆盖定理</h4><ol start="0">
+<li>覆盖定义（这里要更多的了解可以去翻看Topology相关）：给定集合$A$，若有一族开区间${I_\lambda,\lambda \in E}$（E为指标集合），使得$A\subset\bigcup_{\lambda\in E}I_\lambda$，称这一族开区间覆盖了$A$，或称开区间族${I_\lambda}$是$A$的一个开覆盖。</li>
+<li>覆盖等价定义：${I_\lambda,\lambda \in E}$是$A$的覆盖，则$\forall x\in A$，总有一个开区间$I_{\lambda_0}\in $，使得$x\in I_{\lambda_0}$</li>
+<li>有限覆盖定理（<em>Heine-Borel</em>定理）：若${I_\lambda}$为有限闭区间$[a,b]$的任意一个（无限）开覆盖，则必可从只能够选出有限个开区间覆盖$[a,b]$（有机会把这个地方也写下，点集拓扑相较下来还是能够写一写）</li>
+<li>有限覆盖定理的证明方法为反证法</li>
+</ol>
+<h3 id="实数连续与完备性"><a href="#实数连续与完备性" class="headerlink" title="实数连续与完备性"></a>实数连续与完备性</h3><ol start="0">
+<li>实数系六个定理证明回顾：这里指定单调有界定理为$D$，闭区间套定理为$B$，确界原理为$Q$，有限覆盖定理为$Y$，<em>Cauchy</em>收敛定理为$C$和列紧性定理为$L$，则有</li>
+</ol>
+<p>$ \require{AMScd} $<br>$$<br>\begin{CD}<br>    &amp; &amp; &amp;D&amp; &amp; \\<br>    &amp; &amp;\nearrow&amp;\downarrow&amp; &amp; \\<br>    &amp;Q&amp;\leftarrow &amp;B&amp;\rightarrow&amp;Y\\<br>    &amp; &amp; &amp;\downarrow&amp; &amp; \\<br>    &amp; &amp; &amp;L&amp;\rightarrow C&amp; \\<br>\end{CD}<br>$$</p>
+<ol>
+<li><p>实数的基本性质：</p>
+<ol start="0">
+<li>实数对四则运算封闭</li>
+<li>任意两个实数满足下列三种关系之一：$a&gt;b,a=b,a&lt;b$</li>
+<li>实数大小具有传递性</li>
+<li>实数具有阿基米德性：$\forall a,b\in \mathbb R,b&gt;a&gt;0 \Rightarrow \exists n \in \mathbb N^ * : na&gt;b$</li>
+<li>实数几何具有稠密性：任何两个实数之间必存在另一个实数</li>
+<li>实数与数轴之间建立了一一对应的关系</li>
+</ol>
+</li>
+<li><p>聚点：若点$a$的任何邻域$U(a;\delta)={x||x-a|&lt;\delta}$都含有$E$中无穷多个点，则称$a$为$E$的聚点</p>
+<p>推论：$a$为集合$E$聚点的充分必要条件是存在各项互异数列${x_n}\subset E$，${x_n}$以$a$为极限</p>
+</li>
+<li><p>聚点定理：实数轴上任何一个有界无限点集至少有一个聚点（利用闭区间套定理+夹逼定理证明）（也可以使用优先覆盖定理结合反证法），因此我们可以对之前的图表进行更新（聚点定理定义为$J$）<br>$$<br>\begin{CD}<br>&amp; &amp;  &amp;D\\<br>&amp; &amp;\nearrow &amp;\downarrow\\<br>&amp;Q &amp;\leftarrow &amp;B &amp;\rightarrow &amp;Y\\<br>&amp;\Uparrow&amp; &amp;\downarrow &amp; &amp;\downarrow\\<br>&amp;C&amp;\leftarrow &amp;L&amp;\leftarrow&amp;J\\<br>\end{CD}<br>$$</p>
+</li>
+<li><p>使用<em>Cauchy</em>收敛定理证明确界定理（结合实数的阿基米德性质证明，证明暂略）（在上面的图表中的双箭头就是这里的体现）</p>
+</li>
+<li><p>我们可以从任意一个起点到任何一个终点。</p>
+</li>
+</ol>
+<h3 id="数列上下限及斯笃茨定理"><a href="#数列上下限及斯笃茨定理" class="headerlink" title="数列上下限及斯笃茨定理"></a>数列上下限及斯笃茨定理</h3><h4 id="数列上下极限"><a href="#数列上下极限" class="headerlink" title="数列上下极限"></a>数列上下极限</h4><ol start="0">
+<li><p>定义补充：扩充实数系$R_\infty=R\cup{-\infty,+\infty}$</p>
+</li>
+<li><p>设${a_n}$为一个数列，集合$E$为${a_n}$中所有子列极限包含$\pm\infty$构成的集合：<br>$$<br>E={l\in \mathbb R_\infty:\exists a_{n_k} ,a_{n_k}\to l (k\to \infty)}<br>$$<br>称$E$的上下确界$a^ * =\sup E , a_ * =\inf E$为数列的上下极限，记为$\lim \limits_{n\to\infty}\sup a_n=a^ * $，$\lim \limits_{n\to\infty}\inf a_n=a_ * $</p>
+</li>
+<li><p>性质：设两个数列${a_n},{b_n}$，则</p>
+<ol start="0">
+<li>$\lim \limits_{n\to\infty}\inf a_n \leq\lim \limits_{n\to\infty}\sup a_n $</li>
+<li>$\lim \limits_{n\to\infty}\inf a_n =\lim \limits_{n\to\infty}\sup a_n\Leftrightarrow \lim \limits_{n\to\infty}a_n$存在</li>
+<li>（保序性）若存在$N$，对于$n&gt;N$有$a_n\leq b_n$则$\lim \limits_{n\to\infty}\inf a_n \leq\lim \limits_{n\to\infty}\inf b_n$，$\lim \limits_{n\to\infty}\sup b_n \leq \lim \limits_{n\to\infty}\sup b_n$</li>
+<li>任何有界数列的上下极限总是存在的</li>
+</ol>
+</li>
+<li><p>上下极限的另外一种表达方式：对有界数列${x_n}$，定义</p>
+<p>$\alpha_n=\inf{x_n,x_{n+1},…}=\inf \limits_{k\geq n}{x_k}$</p>
+<p>$\beta_n=\sup{x_n,x_{n+1},…}=\sup \limits_{k\geq n}{x_k}$</p>
+<p>则${\alpha_n}$单调递增，${\beta_n}$单调递减，且下式成立<br>$$<br>\lim \limits_{n\to\infty}\alpha_n=\lim \limits_{n\to\infty}\inf x_n=a_* \\<br>\lim \limits_{n\to\infty}\beta_n=\lim \limits_{n\to\infty}\sup x_n=a^ *<br>$$</p>
+</li>
+</ol>
+<h4 id="斯笃茨（Stolz）定理"><a href="#斯笃茨（Stolz）定理" class="headerlink" title="斯笃茨（Stolz）定理"></a>斯笃茨（Stolz）定理</h4><p>Stolz定理：设</p>
+<ol start="0">
+<li>${b_n}$为严格单调递增数列</li>
+<li>$\lim \limits_{n\to\infty}b_n=+\infty$</li>
+<li>$\lim \limits_{n\to\infty}\frac {a_n-a_{n-1}\ }{b_n-b_{n-1}\ }=A(-\infty,+\infty)$</li>
+</ol>
+<p>则$\lim \limits_{n\to\infty}\frac {a_n}{b_n}=A$</p>
+<p>或设</p>
+<ol start="0">
+<li>$\lim \limits_{n\to\infty}a_n=\lim \limits_{n\to\infty}b_n=0$</li>
+<li>${b_n}$为严格单调递减数列</li>
+<li>$\lim \limits_{n\to\infty}\frac {a_n-a_{n-1}\ }{b_n-b_{n-1}\ }=A(-\infty,+\infty)$</li>
+</ol>
+<p>则$\lim \limits_{n\to\infty}\frac {a_n}{b_n}=A$</p>
+<p>证明分情况讨论$A$为有限数，正无穷和负无穷分别分析即可（过程暂略）</p>
+<p>注：逆命题是不成立的</p>
+<h2 id="函数的极限"><a href="#函数的极限" class="headerlink" title="函数的极限"></a>函数的极限</h2><h2 id="一元函数的导数和微分"><a href="#一元函数的导数和微分" class="headerlink" title="一元函数的导数和微分"></a>一元函数的导数和微分</h2><h2 id="微分中值定理"><a href="#微分中值定理" class="headerlink" title="微分中值定理"></a>微分中值定理</h2><h2 id="一元函数不定积分"><a href="#一元函数不定积分" class="headerlink" title="一元函数不定积分"></a>一元函数不定积分</h2><h2 id="一元函数定积分及其应用"><a href="#一元函数定积分及其应用" class="headerlink" title="一元函数定积分及其应用"></a>一元函数定积分及其应用</h2><h2 id="无穷积分"><a href="#无穷积分" class="headerlink" title="无穷积分"></a>无穷积分</h2><h2 id="级数"><a href="#级数" class="headerlink" title="级数"></a>级数</h2><h2 id="多元函数的极限"><a href="#多元函数的极限" class="headerlink" title="多元函数的极限"></a>多元函数的极限</h2><h2 id="多元函数的微分学"><a href="#多元函数的微分学" class="headerlink" title="多元函数的微分学"></a>多元函数的微分学</h2><h2 id="向量函数的微分学"><a href="#向量函数的微分学" class="headerlink" title="向量函数的微分学"></a>向量函数的微分学</h2><h2 id="常微分方程（ODE）"><a href="#常微分方程（ODE）" class="headerlink" title="常微分方程（ODE）"></a>常微分方程（ODE）</h2><h2 id="二重积分和三重积分"><a href="#二重积分和三重积分" class="headerlink" title="二重积分和三重积分"></a>二重积分和三重积分</h2><h2 id="曲线积分"><a href="#曲线积分" class="headerlink" title="曲线积分"></a>曲线积分</h2><h2 id="曲面积分和场论"><a href="#曲面积分和场论" class="headerlink" title="曲面积分和场论"></a>曲面积分和场论</h2><h2 id="含参变量的积分"><a href="#含参变量的积分" class="headerlink" title="含参变量的积分"></a>含参变量的积分</h2><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1611,7 +1777,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">106k</span>&nbsp;字
+                class="white-color">108.3k</span>&nbsp;字
             
             
             
