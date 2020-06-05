@@ -829,14 +829,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.6k
+                    8.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    31 分
+                    41 分
                 </div>
                 
 				
@@ -852,7 +852,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>纯粹是无聊整理一波之前学习的数学分析，希望对看的人有一定的帮助，另外由于偏工科因此开场的什么戴德金分割啊什么的暂时先略过，后期补上（咕咕咕）</p>
+                <p>纯粹是无聊整理一波之前学习的数学分析，希望对看的人有一定的帮助，另外由于偏工科因此开场的什么戴德金分割啊什么的暂时先略过，后期补上（咕咕咕）。<br>另外由于内容较多，请善用右侧的目录功能。</p>
 <h2 id="数列极限"><a href="#数列极限" class="headerlink" title="数列极限"></a>数列极限</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><ol start="0">
 <li>数列极限定义</li>
 <li>收敛数列极限的基本性质</li>
@@ -983,6 +983,8 @@
 <p>​            且$\exists N_2 \in \mathbb N^*,n=2k+1&gt;N_2:|a_{2k+1}-a|&lt;\varepsilon$</p>
 <p>​            取$N=\rm{max}$${N_1.N_2},\forall n&gt;N:|a_n-a|&lt;\varepsilon$</p>
 <p>​            结论的证（可以进行数学归纳）</p>
+</li>
+<li><p>补充引理：波尔查诺-维尔斯特拉斯引理：任何有界数列中总可以选出收敛于有限极限的子列。</p>
 </li>
 </ol>
 </li>
@@ -1284,7 +1286,138 @@
 <p>则$\lim \limits_{n\to\infty}\frac {a_n}{b_n}=A$</p>
 <p>证明分情况讨论$A$为有限数，正无穷和负无穷分别分析即可（过程暂略）</p>
 <p>注：逆命题是不成立的</p>
-<h2 id="函数的极限"><a href="#函数的极限" class="headerlink" title="函数的极限"></a>函数的极限</h2><h2 id="一元函数的导数和微分"><a href="#一元函数的导数和微分" class="headerlink" title="一元函数的导数和微分"></a>一元函数的导数和微分</h2><h2 id="微分中值定理"><a href="#微分中值定理" class="headerlink" title="微分中值定理"></a>微分中值定理</h2><h2 id="一元函数不定积分"><a href="#一元函数不定积分" class="headerlink" title="一元函数不定积分"></a>一元函数不定积分</h2><h2 id="一元函数定积分及其应用"><a href="#一元函数定积分及其应用" class="headerlink" title="一元函数定积分及其应用"></a>一元函数定积分及其应用</h2><h2 id="无穷积分"><a href="#无穷积分" class="headerlink" title="无穷积分"></a>无穷积分</h2><h2 id="级数"><a href="#级数" class="headerlink" title="级数"></a>级数</h2><h2 id="多元函数的极限"><a href="#多元函数的极限" class="headerlink" title="多元函数的极限"></a>多元函数的极限</h2><h2 id="多元函数的微分学"><a href="#多元函数的微分学" class="headerlink" title="多元函数的微分学"></a>多元函数的微分学</h2><h2 id="向量函数的微分学"><a href="#向量函数的微分学" class="headerlink" title="向量函数的微分学"></a>向量函数的微分学</h2><h2 id="常微分方程（ODE）"><a href="#常微分方程（ODE）" class="headerlink" title="常微分方程（ODE）"></a>常微分方程（ODE）</h2><h2 id="二重积分和三重积分"><a href="#二重积分和三重积分" class="headerlink" title="二重积分和三重积分"></a>二重积分和三重积分</h2><h2 id="曲线积分"><a href="#曲线积分" class="headerlink" title="曲线积分"></a>曲线积分</h2><h2 id="曲面积分和场论"><a href="#曲面积分和场论" class="headerlink" title="曲面积分和场论"></a>曲面积分和场论</h2><h2 id="含参变量的积分"><a href="#含参变量的积分" class="headerlink" title="含参变量的积分"></a>含参变量的积分</h2><script>
+<h3 id="本章小总结"><a href="#本章小总结" class="headerlink" title="本章小总结"></a>本章小总结</h3><ol start="0">
+<li>部分典型数列极限<ol start="0">
+<li>$\lim\limits_{n\to \infty}\sqrt[n]n=1$</li>
+<li>$\lim\limits_{n\to \infty}q^n=0,|q|&lt;1$</li>
+<li>$\lim\limits_{n\to \infty}\frac {c^n}{n!}=0$</li>
+<li>$\lim\limits_{n\to \infty}\frac {n^\alpha}{c^n}(\alpha&gt;0,c&gt;1)$</li>
+<li>$\lim\limits_{n\to \infty}\frac {n!}{n^n}=0$</li>
+<li>$\lim\limits_{n\to \infty}\sqrt[n]a=1(a&gt;0)$</li>
+<li>$\lim\limits_{n\to \infty}(1+\frac 1n)^n=e$</li>
+<li>$\lim\limits_{n\to \infty}(1+1+\frac 1{2!}+…+\frac 1{n!})=e$</li>
+<li>$1+\frac 12+…+\frac 1n-\ln(n)=\gamma+\varepsilon(n),\lim\limits_{n\to \infty}\varepsilon(n)=0$</li>
+<li>$x_n=1+\frac 1{2^\alpha}+…+\frac 1{n^\alpha}$，若$\alpha&gt;1$收敛，否则发散</li>
+<li>$\lim\limits_{n\to \infty}a_n=a\Rightarrow\lim\limits_{n\to \infty}\frac {a_1+a_2+…+a_n}n=a$</li>
+<li>$\lim\limits_{n\to \infty}x_n=a\geq0\Rightarrow\lim\limits_{n\to \infty}\sqrt[k]{x_n}=\sqrt[k]a$</li>
+<li>$\lim\limits_{n\to \infty}(1+\frac kn)^n=e^k,k\in \mathbb N^*$</li>
+<li>$x_n&gt;0,\lim\limits_{n\to \infty}x_n=A&gt;0\Rightarrow \lim\limits_{n\to \infty}\sqrt[n]{x_1x_2…x_n}=A$</li>
+</ol>
+</li>
+<li>数列极限计算方法<ol start="0">
+<li>常用数列极限</li>
+<li>极限的定义分析极限的存在性</li>
+<li>极限的四则运算</li>
+<li>极限的夹逼定理</li>
+<li>斯笃茨定理</li>
+</ol>
+</li>
+</ol>
+<h2 id="函数极限与连续"><a href="#函数极限与连续" class="headerlink" title="函数极限与连续"></a>函数极限与连续</h2><h3 id="集合映射基本术语和集合的分类"><a href="#集合映射基本术语和集合的分类" class="headerlink" title="集合映射基本术语和集合的分类"></a>集合映射基本术语和集合的分类</h3><h4 id="集合映射"><a href="#集合映射" class="headerlink" title="集合映射"></a>集合映射</h4><ol start="0">
+<li><p>定义1：设$A,B$为两个集合，如果$f$是一种规则，$\forall x\in A$，在$B$中有唯一元素$f(x)$与之对应，则称$f$为$A$到$B$的映射$f:A\to B$，其中$A$为$f$的定义域，$f(x)\in B$称为$x$在$f$下的像，$A$中元素$x$的像的全体称为映射的值域$f(A)={y|y\in B,y=f(x),x\in A}$</p>
+</li>
+<li><p>相等映射：设$f:A\to B , F : A\to B$，则$\forall x\in A$均有$f(x)=g(x)$，则称映射$f$和$g$相等，记为$f=g$</p>
+</li>
+<li><p>符合映射：设$f:B\to C, g:A\to B$，当$x\in A$定义映射$(f\circ g)(x)=f(g(x))$为映射$f$与$g$的复合映射（注：复合映射的定义域要匹配）</p>
+</li>
+<li><p>单射：定义映射$f:A\to B$，若$\forall x,y\in A$，若$x\neq y$，则$f(x)\neq f(y)$，称$f$为单射</p>
+</li>
+<li><p>满射：定义映射$f:A\to B$，若$f(A)=B$，则称$f$为单射</p>
+</li>
+<li><p>双射：若映射既是单射，又是满射，即映射为双射（亦称为一一对应）</p>
+</li>
+<li><p>逆像：设映射$f:A\to B,F\subset B$，则$A$的子集$f^{-1}(F)={x\in A:f(x)\in F}$，称为$F$的逆像</p>
+</li>
+<li><p>逆映射：设映射$f:A\to B$为双射，定义$f^{-1}:B\to A$，满足</p>
+<ol start="0">
+<li>$f^{-1}\circ f(x)=f^{-1}(f(x))=x,\forall x\in A$</li>
+<li>$f^{-1}\circ f = I_A$</li>
+<li>$f\circ f^{-1}(y)=f(f^{-1}(y))=y,\forall y \in B$</li>
+<li>$f\circ f^{-1}=I_B$</li>
+</ol>
+<p>其中$I_A,I_B$分别称为$A,B$上的恒等映射</p>
+</li>
+</ol>
+<h4 id="集合势及基本性质"><a href="#集合势及基本性质" class="headerlink" title="集合势及基本性质"></a>集合势及基本性质</h4><ol start="0">
+<li><p>集合势的定义：若集合$A$和$B$间存在双射，则称$A$和$B$有相同的势或等价，记为$A\sim B$</p>
+</li>
+<li><p>集合等价的性质：</p>
+<ol start="0">
+<li>自反性：$A\sim A$</li>
+<li>对称性：若$A\sim B$，则$B\sim A$</li>
+<li>传递性：若$A\sim B$，$B\sim C$，则$A\sim C$</li>
+</ol>
+</li>
+<li><p>集合的分类：定义（至多可数性）</p>
+<p>设$N_n={1,2,…,n}$</p>
+<ol start="0">
+<li>$\exists n\in \mathbb N^*$，使$A\sim N_n$，则称$A$为有限集</li>
+<li>若$A$不是有限集，则称$A$为无限集</li>
+<li>若$A\sim \mathbb N^* $，则称$A$为可数集</li>
+</ol>
+<p>不是有限集合可数集的集合称为不可数集，有限和可数集统称为至多可数集</p>
+</li>
+<li><p>集合势的基本结论</p>
+<ol start="0">
+<li>可数集的任何无限子集是可数集</li>
+<li>${E_n}$为可数集序列，则$S=\bigcup_{x=1}^\infty E_n$为可数集</li>
+<li>全体有理数集合为可数集</li>
+<li>实数集合为不可数集</li>
+</ol>
+</li>
+</ol>
+<h4 id="Hilbert旅馆"><a href="#Hilbert旅馆" class="headerlink" title="Hilbert旅馆"></a>Hilbert旅馆</h4><p>假设在无限房间的情况，一号房送到二号房，而二号房送到三号房，一直继续这样一号房就被空出来了。这个例子告诉我们：$\infty + N=\infty$，可数集$+N=$可数集。</p>
+<p>假设现在有无限房间都住满了人，又来了无限多位订房间的客人，解决 方法就是将第$N$号客人送到第$2N$房间，这个例子告诉我们：可数集+可数集=可数集。</p>
+<p>假设此刻又来了无穷多个大巴，每个大巴有无穷多个旅客，解决方法是将$N$号房间的客人搬到$2^N$房间去，这个例子告诉我们：无穷个可数集的并=可数集。</p>
+<h3 id="初等函数回顾"><a href="#初等函数回顾" class="headerlink" title="初等函数回顾"></a>初等函数回顾</h3><ol start="0">
+<li><p>函数的定义：$f:A\to B$的映射，若$B\subseteq \mathbb R$，则称$f$为函数</p>
+</li>
+<li><p>基本初等函数：略</p>
+</li>
+<li><p>基本运算性质：定义$f$和$g$的定义域为：$D(f)=D_f，D(g)=D_g$</p>
+<ol start="0">
+<li>和：$f+g:(f+g)(x)=f(x)+g(x),x\in D_f\cap D_g$</li>
+<li>差：$f-g:(f-g)(x)=f(x)-g(x),x\in D_f\cap D_g$</li>
+<li>积：$f\cdot g:(f\cdot g)(x)=f(x)\cdot g(x),x\in D_f\cap D_g$</li>
+<li>商：$\frac fg:(\frac fg)(x)=f(x)/g(x),x\in D_f\cap D_g , g(x)\neq 0 $</li>
+<li>复合运算：设函数$y=f(u)$的定义域为$A$，函数$u=g(x)$的值域为$B$，若$B \sub   A$，则定义$y=f\circ g(x)=f[g(x)]$为$f$和$g$的复合函数（注：复合函数可以由有限多个函数复合而成）</li>
+</ol>
+</li>
+<li><p>初等函数：基本初等函数的有限次复合和四则运算得到的函数</p>
+</li>
+<li><p>反函数：设$f$是$X\to Y$的双射，则$y=f(x)\to x=f^{-1}(y),x\in X,y\in Y$</p>
+<p>其中：$f\circ f^{-1}(y)=y,y\in Y，f^{-1}\circ f(x)=x,x\in X$，故$f\circ f^{-1}$和$f^{-1}\circ f$是恒等映射</p>
+</li>
+<li><p>双曲函数：<br>$$<br>\sin hx=\frac {e^e-e^{-x}\ }2 \leftrightarrow \arcsin hx = \ln(x+\sqrt{x^2+1})，x\in \mathbb R \\<br>\cos hx=\frac {e^e+e^{-x}\ }2 \leftrightarrow \arccos hx = \ln(x+\sqrt{x^2-1})，x\in [1,+\infty) \\<br>\tan hx=\frac {e^e-e^{-x}\ }{e^e+e^{-x}\ }\leftrightarrow \arctan hx=\frac 1e \ln \frac{1+x}{1-x},x\in (-1,1)<br>$$</p>
+</li>
+<li><p>极坐标：在平面内取一丁点$O$，引出一条射线$Ox$，再选择一个长度单位和角度的正方向（通常选取逆时针方向）。</p>
+<p>对于平面内任一一点$M$，用$r$表示线段$OM$的长度，$theta$表示从$Ox$到$OM$的夹角，称序偶$(r,\theta)$为点$M$的极坐标，这样建立的坐标系叫做极坐标系，$O$称为极点，$Ox$称为极轴，$r$称为点$M$的极径，$\theta$称为点$M$的极角。</p>
+<p>$$<br>x=r\cos(\theta)，y=r\sin(\theta),x^2+y^2=1,\tan\theta=\frac yx<br>$$</p>
+</li>
+<li><p>参数方程：一般形式为：$x=\phi(t),y=\psi(t)，a\leq t\leq b, t$为参数</p>
+<p>极坐标和直角坐标关系：<br>$$<br>x=r(\theta)\cos(\theta),y=r(\theta)\sin(\theta)<br>$$</p>
+</li>
+<li><p>旋轮线<br>$$<br>x=r(\theta-\sin\theta),y=r(1-\cos\theta)<br>$$</p>
+</li>
+<li><p>函数有界定义：设$f$为定义在$D$上的函数，若存在数$M(L)$，使得<br>$$<br>f(x)\leq M（f(x)\geq L）,\forall x\in D<br>$$<br>则称$f$为$D$的有上（下）界函数，$M(L)$称为$f$在$D$上的一个上（下）界。</p>
+<p>若存在一个正数$M$，使得对$\forall x\in D$，有$|f(x)|\leq M$，则称$f$为$D$上的有界函数</p>
+<p>注：$f$在$D$上无上界，无下界，无界的定义可以按照上述定义的否定来叙述</p>
+</li>
+<li><p>单调函数定义：$y=f(x),x\in I,\forall x_1,x_2\in I$，当$x_1&lt;x_2$时：</p>
+<p>若$f(x_1)\leq f(x_2)$时，则$f(x)$在$I$上为单调增函数；</p>
+<p>若$f(x_1)\geq f(x_2)$时，则$f(x)$在$I$上为单调减函数；</p>
+<p>若$f(x_1)&lt; f(x_2)$时，则$f(x)$在$I$上为严格单调增函数；</p>
+<p>若$f(x_1)&gt; f(x_2)$时，则$f(x)$在$I$上为严格单调减函数；</p>
+<p>定理：$f:A\to B$的严格单调函数，则$f^{-1}$存在且在其定义域内与$f$具有<strong>相同</strong>的单调性</p>
+</li>
+<li><p>奇偶性：设$I$关于原点对称，$\forall x\in I$</p>
+<p>若$f(-x)=f(x)$，则$f(x)$为偶函数；若$f(-x)=-f(x)$，称$f(x)$为奇函数</p>
+<p>偶函数$\pm$偶函数=偶函数，奇函数$\pm$奇函数=奇函数</p>
+</li>
+<li><p>周期性：设$f$定义在$I$，若$\exists T&gt;0,s.t. \forall x\in I:f(x\pm T)=f(x)$，则称$f$为周期函数，$T$为$f$的一个周期（$if\ n\in \mathbb N^* , nT$也为$f$的周期；所有周期的最小的一个周期称为基本周期，简称周期；常量函数不存在基本周期）</p>
+</li>
+</ol>
+<h3 id="函数极限定义与基本理论"><a href="#函数极限定义与基本理论" class="headerlink" title="函数极限定义与基本理论"></a>函数极限定义与基本理论</h3><h4 id="函数极限的定义与基本性质"><a href="#函数极限的定义与基本性质" class="headerlink" title="函数极限的定义与基本性质"></a>函数极限的定义与基本性质</h4><h4 id="函数极限的四则运算与夹逼定理"><a href="#函数极限的四则运算与夹逼定理" class="headerlink" title="函数极限的四则运算与夹逼定理"></a>函数极限的四则运算与夹逼定理</h4><h4 id="复合函数的极限"><a href="#复合函数的极限" class="headerlink" title="复合函数的极限"></a>复合函数的极限</h4><h4 id="海涅定理"><a href="#海涅定理" class="headerlink" title="海涅定理"></a>海涅定理</h4><h4 id="函数极限的柯西定理"><a href="#函数极限的柯西定理" class="headerlink" title="函数极限的柯西定理"></a>函数极限的柯西定理</h4><h3 id="函数连续与一致连续"><a href="#函数连续与一致连续" class="headerlink" title="函数连续与一致连续"></a>函数连续与一致连续</h3><h3 id="无穷小和无穷大阶的比较"><a href="#无穷小和无穷大阶的比较" class="headerlink" title="无穷小和无穷大阶的比较"></a>无穷小和无穷大阶的比较</h3><h3 id="闭区间上连续函数的性质"><a href="#闭区间上连续函数的性质" class="headerlink" title="闭区间上连续函数的性质"></a>闭区间上连续函数的性质</h3><h2 id="一元函数的导数"><a href="#一元函数的导数" class="headerlink" title="一元函数的导数"></a>一元函数的导数</h2><h2 id="微分中值定理"><a href="#微分中值定理" class="headerlink" title="微分中值定理"></a>微分中值定理</h2><h2 id="一元函数的导数和微分"><a href="#一元函数的导数和微分" class="headerlink" title="一元函数的导数和微分"></a>一元函数的导数和微分</h2><h2 id="微分及微分中值定理"><a href="#微分及微分中值定理" class="headerlink" title="微分及微分中值定理"></a>微分及微分中值定理</h2><h2 id="一元函数不定积分"><a href="#一元函数不定积分" class="headerlink" title="一元函数不定积分"></a>一元函数不定积分</h2><h2 id="一元函数定积分及其应用"><a href="#一元函数定积分及其应用" class="headerlink" title="一元函数定积分及其应用"></a>一元函数定积分及其应用</h2><h2 id="无穷积分"><a href="#无穷积分" class="headerlink" title="无穷积分"></a>无穷积分</h2><h2 id="级数"><a href="#级数" class="headerlink" title="级数"></a>级数</h2><h2 id="多元函数的极限"><a href="#多元函数的极限" class="headerlink" title="多元函数的极限"></a>多元函数的极限</h2><h2 id="多元函数的微分学"><a href="#多元函数的微分学" class="headerlink" title="多元函数的微分学"></a>多元函数的微分学</h2><h2 id="向量函数的微分学"><a href="#向量函数的微分学" class="headerlink" title="向量函数的微分学"></a>向量函数的微分学</h2><h2 id="常微分方程（ODE）"><a href="#常微分方程（ODE）" class="headerlink" title="常微分方程（ODE）"></a>常微分方程（ODE）</h2><h2 id="二重积分和三重积分"><a href="#二重积分和三重积分" class="headerlink" title="二重积分和三重积分"></a>二重积分和三重积分</h2><h2 id="曲线积分"><a href="#曲线积分" class="headerlink" title="曲线积分"></a>曲线积分</h2><h2 id="曲面积分和场论"><a href="#曲面积分和场论" class="headerlink" title="曲面积分和场论"></a>曲面积分和场论</h2><h2 id="含参变量的积分"><a href="#含参变量的积分" class="headerlink" title="含参变量的积分"></a>含参变量的积分</h2><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1777,7 +1910,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">108.3k</span>&nbsp;字
+                class="white-color">110.5k</span>&nbsp;字
             
             
             
