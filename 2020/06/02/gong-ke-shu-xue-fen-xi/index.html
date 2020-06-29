@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="工科数学分析, AleXandrite">
-    <meta name="description" content="最后一次更新2020年6月19日">
+    <meta name="description" content="最后一次更新2020年6月29日">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -829,14 +829,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    17.5k
+                    19.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    83 分
+                    91 分
                 </div>
                 
 				
@@ -1942,7 +1942,75 @@ $$
 <li>基本初等函数的微分公式：基本初等函数的导数后面乘一个$dx$</li>
 <li>四则运算法则：和导数一样</li>
 </ol>
-<h3 id="带Peano余项的泰勒公式"><a href="#带Peano余项的泰勒公式" class="headerlink" title="带Peano余项的泰勒公式"></a>带Peano余项的泰勒公式</h3><h2 id="一元函数不定积分"><a href="#一元函数不定积分" class="headerlink" title="一元函数不定积分"></a>一元函数不定积分</h2><h2 id="一元函数定积分及其应用"><a href="#一元函数定积分及其应用" class="headerlink" title="一元函数定积分及其应用"></a>一元函数定积分及其应用</h2><h2 id="无穷积分"><a href="#无穷积分" class="headerlink" title="无穷积分"></a>无穷积分</h2><h2 id="级数"><a href="#级数" class="headerlink" title="级数"></a>级数</h2><h2 id="多元函数的极限"><a href="#多元函数的极限" class="headerlink" title="多元函数的极限"></a>多元函数的极限</h2><h2 id="多元函数的微分学"><a href="#多元函数的微分学" class="headerlink" title="多元函数的微分学"></a>多元函数的微分学</h2><h2 id="向量函数的微分学"><a href="#向量函数的微分学" class="headerlink" title="向量函数的微分学"></a>向量函数的微分学</h2><h2 id="常微分方程（ODE）"><a href="#常微分方程（ODE）" class="headerlink" title="常微分方程（ODE）"></a>常微分方程（ODE）</h2><h2 id="二重积分和三重积分"><a href="#二重积分和三重积分" class="headerlink" title="二重积分和三重积分"></a>二重积分和三重积分</h2><h2 id="曲线积分"><a href="#曲线积分" class="headerlink" title="曲线积分"></a>曲线积分</h2><h2 id="曲面积分和场论"><a href="#曲面积分和场论" class="headerlink" title="曲面积分和场论"></a>曲面积分和场论</h2><h2 id="含参变量的积分"><a href="#含参变量的积分" class="headerlink" title="含参变量的积分"></a>含参变量的积分</h2><script>
+<h3 id="带Peano余项的泰勒公式"><a href="#带Peano余项的泰勒公式" class="headerlink" title="带Peano余项的泰勒公式"></a>带Peano余项的泰勒公式</h3><ol start="0">
+<li><p>定理：设函数$f(x)$定义在$U(x_0,\delta)$，在$x_0$点$n$阶可导，$x\in U(x_0,\delta)$，则有<br>$$<br>f(x)=P_n(x)+o[(x-x_0)’’]\\<br>P_n(x)=\displaystyle\sum_{k=0}^n\frac {f^{(k)}(x_0)}{k!}(x-x_0)^k\\<br>R_n(x)=o((x-x_0)^n)<br>$$<br>其中第一个式子称为$f(x)$在点$x_0$的泰勒公式；$P_n(x)$为$f(x)$在$x_0$点的$n$阶泰勒多项式，而$R_n(x)$为Peano余项。其中，当$x_0=0$的时候，称第一个式子为麦克劳林（Maclaurin）公式</p>
+</li>
+<li><p>基本初等函数的泰勒展开</p>
+<ol start="0">
+<li>$e^x=1+x+\frac {x^2}{2!}+…+\frac {x^n}{n!}+o(x^n)$</li>
+<li>$\sin x=x-\frac {x^3}{3!}+\frac {x^5}{5!}-\frac{x^7}{7!}+…+\frac {(-1)^{n-1}x^{2n-1}\ }{(2n-1)!}+o(x^{2n})$</li>
+<li>$\cos x=1-\frac {x^2}{2!}+\frac {x^4}{4!}-\frac {x^6}{6!}+…+\frac {(-1)^nx^{2n}\ }{(2n)!}+o(x^{2n+1})$</li>
+<li>$\ln (1+x)=x-\frac {x^2}2+\frac {x^3}3+…+\frac {(-1^n)x^n}n+o(x^n)$</li>
+<li>$\ln (1-x)=-[x+\frac {x^2}2+\frac {x^3}3+…+\frac {x^n}n]+o(x^n)$</li>
+<li>$(1+x)^\lambda=\sum_{k=0}^nC_\lambda^kx^k+o(x^n)$</li>
+<li>SP：0. $\sqrt{x+1}=1+\frac 12x+\sum_{k=2}^n(-1)^{k-1}\frac {(2k-3)!!}{(2k)!!}x^k+o(x^n)$<ol>
+<li>$\frac 1{1+x}=\sum_{k=0}^n(-1)^kx^k+o(x^n)$</li>
+<li>$\frac 1{1-x}=\sum_{k=0}^nx^k+o(x^n)$</li>
+<li>$\frac 1{\sqrt{1+x} }=1+\sum_{k=1}^n\frac {(-1)^k(2k-1)!!}{(2k)!!}x^k+o(x^n)$</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="带Lagrange余项的泰勒公式"><a href="#带Lagrange余项的泰勒公式" class="headerlink" title="带Lagrange余项的泰勒公式"></a>带Lagrange余项的泰勒公式</h3><p>定理：设函数$f(x)$定义在$U(x_0,\delta)$，在$x_0$点$n+1$阶可导，$x\in U(x_0,\delta)$，则有<br>$$<br>f(x)=P_n(x)+o[(x-x_0)’’]\\<br>P_n(x)=\displaystyle\sum_{k=0}^n\frac {f^{(k)}(x_0)}{k!}(x-x_0)^k\\<br>R_n(x)=\frac {f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1},\xi在x和x_0之间<br>$$<br>其亦可以写为<br>$$<br>f(x_0+h)=\displaystyle\sum_{k=0}^n\frac {f^{(k)}(x_0)}{k!}h^k+R_n(x)\\<br>R_n(x)=\frac {f^{(n+1)}(\xi)}{(n+1)!}h^{n+1}=\frac {f^{(n+1)}(x_0+\theta h )}{(n+1)!}h^{n+1},\theta \in (0,1)<br>$$<br>其中$\xi$介于$x_0,x_0+h$之间，且$\xi=x_0+\theta h$</p>
+<p>其麦克劳林展开式为<br>$$<br>f(x)=f(0)+f’(0)x+\frac {f’’(0)}{x!}x^2+…+\frac {f^{(n)}(0)}{n!}x^n+\frac {f^{(n+1)}(\theta x)}{(n+1)!}x^{n+1},0&lt;\theta&lt;1<br>$$</p>
+<h2 id="一元函数不定积分"><a href="#一元函数不定积分" class="headerlink" title="一元函数不定积分"></a>一元函数不定积分</h2><h3 id="不定积分的定义与基本性质"><a href="#不定积分的定义与基本性质" class="headerlink" title="不定积分的定义与基本性质"></a>不定积分的定义与基本性质</h3><ol start="0">
+<li><p>若存在函数$F(x),F’(x)=f(x), \forall x\in I$，则称$F(x)$为$f(x)$在集合$I$上的原函数</p>
+</li>
+<li><p>函数$f(x)$在集合$I$上的所有原函数称为$f(x)$在集合$I$上的不定积分<br>$$<br>\int f ‘(x)dx=F(x)+c<br>$$</p>
+</li>
+<li><p>基本性质</p>
+<ol start="0">
+<li>若函数$f(x)$的原函数存在，则$kf(x)$存在原函数，且$\int kfdx=k\int f(x)dx,\forall k\in \mathbb R$</li>
+<li>若函数$f(x)$和$g(x)$的原函数存在，则$f(x)\pm g(x)$存在且为$\int(f\pm g)dx=\int fdx\pm\int gdx$</li>
+<li>$\int d F(x)=F(x)+c$（微分运算和积分运算是互逆运算）</li>
+</ol>
+</li>
+<li><p>积分表1：基本初等函数积分表（略）</p>
+</li>
+</ol>
+<h3 id="第一类换元公式及应用"><a href="#第一类换元公式及应用" class="headerlink" title="第一类换元公式及应用"></a>第一类换元公式及应用</h3><p>若$f(u)$在区间$I$上有原函数$F(u),\phi(x)$在$J$上可导，且${u|u=\phi(x),\forall x\in J}\subset I$，则$F(\phi(x))$是$f(\phi(x))\phi’(x)$在区间$J$上的原函数，即<br>$$<br>\int f(\phi(x))\phi’(x)=\int f(u)du=F(u)+C=F(\phi(x))+C<br>$$<br>我们称之为第一类换元公式（凑微分）</p>
+<h3 id="分部积分公式及应用"><a href="#分部积分公式及应用" class="headerlink" title="分部积分公式及应用"></a>分部积分公式及应用</h3><p>分部积分公式<br>$$<br>(uv)’=u’v+uv’\\<br>uv’=(uv)’-u’v<br>$$<br>设函数$u(x)$和$v(x)$可导，若$u’(x)v(x)$存在原函数，则$u(x)v’(x)$存在原函数，并有<br>$$<br>\int u(x)v’(x)dx=u(x)v(x)-\int u’(x)v(x)dx\\<br>\int u(x)dv(x)=u(x)v(x)-\int v(x)du(x)<br>$$<br>一般而言，存在三角函数和自然对数相关的内容时，可以考虑分部积分</p>
+<h3 id="第二类换元公式及应用"><a href="#第二类换元公式及应用" class="headerlink" title="第二类换元公式及应用"></a>第二类换元公式及应用</h3><p>设$x=\psi(t)$ 是在区间$J$单调可导函数，并且$\psi’(t)\neq 0$，又$f(\psi(t))\psi’(t)$在区间$J$上存在原函数，则在$J$上有换元公式<br>$$<br>\int f(x)dx=\int f(\psi(t))\psi ‘(t)dt|_{t=\psi^{-1}(x)}<br>$$<br>其中$t=\psi^{-1}(x)$为$x=\psi(t)$的反函数</p>
+<p>注：第一类换元是将多项凑成一项合并，而第二类换元则是将被积函数确切的进行变量替换而分解，即<br>$$<br>\int f(\psi(t))\psi ‘(t)dt|_{t=\psi^{-1}(x)}=\int f(t)dt=F(t)+C=F(\psi(t))+C<br>$$</p>
+<h3 id="有理函数的积分"><a href="#有理函数的积分" class="headerlink" title="有理函数的积分"></a>有理函数的积分</h3><ol start="0">
+<li><p>形如$R(x)=P(x)/Q(x)$ 的函数，称之为有理函数，其中$P(x)$和$Q(x)$分别是多项式。若分子次数大于分母，则为真分式，否则为假分式，注意假分式一定可以分解为一个多项式和真分式</p>
+</li>
+<li><p>有理函数分解定理：设$R(x)$为一个真分式，其分母为因式分解形式<br>$$<br>Q(x)=(x-a)^{n_1}…(x-b)^{n_k}(x^2+px+q)^{m_1}…(x^2+rx+s)^{m_l}<br>$$<br>其中$n_1,n_2,…,n_1,…,m_l\in \mathbb Z$，且所有二次式无实根，则</p>
+<p>注1：$f(x)=(x-a)^k,g(x),g(a)\neq 0$，则称$x=a$为$f(x)$的$k$重根</p>
+<p>注2：若$x=a$为$f(x)$的$k$重根$\Leftrightarrow f^{(i)}(a)=0,i=0,1,2,…,k-1,f^{(k)}(a)\neq 0$</p>
+<p>之后我们可以得到<br>$$<br>\begin {align}<br>R(x) &amp;=\frac {P(x)}{R(x)}\\<br>&amp; ={ \frac {A_{n_1} }{(x-a)^{n_1} }+…+\frac {A_1}{(x-a)}  }\\<br>&amp;+ \ ……\ +\\<br>&amp;{ \frac {B_{n_k} }{(x-b)^{n_k} }+…+ \frac {B_1}{(x-b)} }+\\<br>&amp;{ \frac {K_{m_1}x+L_m}{(x^2+px+q)^{m_1} }+…+\frac {K_1x+L_1}{(x^2+px+q} }\\<br>&amp;+\ ……\ +\\<br>&amp;{ \frac {M_{m_l}x+N_m}{(x^2+rx+s)^{m_l} }+…+\frac {M_1x+N_1}{(x^2+rx+s)}  }<br>\end{align}<br>$$<br>这些系数只能通过待定系数法确定。</p>
+</li>
+<li><p>解决方法</p>
+<ol start="0">
+<li><p>若假分式，则分解为多项式和真分式之和</p>
+</li>
+<li><p>对真分式分解</p>
+</li>
+<li><p>真分式分解后分别进行积分，其中<br>$$<br>\int\frac{Ax+B}{(x^2+px+q)^k}dx<br>$$<br>可以利用下述递推公式<br>$$<br>\begin{cases}<br>B_{k+1}=\frac u{[u^2+a^2]^k(2ka^2)}+\frac{2k+1}{2ka^2}B_k\\<br>B_1=\int \frac{du}{[u^2+a^2]}=\frac 1a \arctan \frac ua+c<br>\end{cases}<br>$$</p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="有理三角函数的不定积分"><a href="#有理三角函数的不定积分" class="headerlink" title="有理三角函数的不定积分"></a>有理三角函数的不定积分</h3><ol start="0">
+<li><p>定义：$\sum_{i=0}^m\sum_{j=0}^na_{ij}x^iy^j$为关于$x,y$的二元多项式；若$R(x,y)$为两个二元多项式的商，则<br>$$<br>R(x,y)=\frac {\displaystyle\sum_{i=0}^m\displaystyle\sum_{j=0}^na_{ij}x^iy^j}{\displaystyle\sum_{i=0}^k\displaystyle\sum_{j=0}^lb_{ij}x^iy^j}<br>$$<br>称之为二元有理函数。</p>
+</li>
+<li><p>将二元函数的$x,y$分别换为$\sin x, \cos x$，则有$R(\sin x,\cos x))$类型的积分，即万能代换：</p>
+<p>令$t=\tan \frac x2,\cos x=\frac {1-t^2}{1+t^2},\sin x=\frac {2t}{1+t^2},dx=\frac 2{1+t^2}dt $，则可以将此类积分转化为有理函数的不定积分</p>
+</li>
+</ol>
+<h3 id="无理根式的不定积分"><a href="#无理根式的不定积分" class="headerlink" title="无理根式的不定积分"></a>无理根式的不定积分</h3><p>形如$R(x,\sqrt[n]{\frac {ax+b}{cx+d} })$类型的的不定积分：使用$t$换元整个根式，转化为有理函数积分；当有多个根式的时候，去根号时的次数为多个根式次数的最小公倍数</p>
+<h2 id="一元函数定积分及其应用"><a href="#一元函数定积分及其应用" class="headerlink" title="一元函数定积分及其应用"></a>一元函数定积分及其应用</h2><h2 id="无穷积分"><a href="#无穷积分" class="headerlink" title="无穷积分"></a>无穷积分</h2><h2 id="级数"><a href="#级数" class="headerlink" title="级数"></a>级数</h2><h2 id="多元函数的极限"><a href="#多元函数的极限" class="headerlink" title="多元函数的极限"></a>多元函数的极限</h2><h2 id="多元函数的微分学"><a href="#多元函数的微分学" class="headerlink" title="多元函数的微分学"></a>多元函数的微分学</h2><h2 id="向量函数的微分学"><a href="#向量函数的微分学" class="headerlink" title="向量函数的微分学"></a>向量函数的微分学</h2><h2 id="常微分方程（ODE）"><a href="#常微分方程（ODE）" class="headerlink" title="常微分方程（ODE）"></a>常微分方程（ODE）</h2><h2 id="二重积分和三重积分"><a href="#二重积分和三重积分" class="headerlink" title="二重积分和三重积分"></a>二重积分和三重积分</h2><h2 id="曲线积分"><a href="#曲线积分" class="headerlink" title="曲线积分"></a>曲线积分</h2><h2 id="曲面积分和场论"><a href="#曲面积分和场论" class="headerlink" title="曲面积分和场论"></a>曲面积分和场论</h2><h2 id="含参变量的积分"><a href="#含参变量的积分" class="headerlink" title="含参变量的积分"></a>含参变量的积分</h2><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -2206,7 +2274,7 @@ $$
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            最后一次更新2020年6月19日
+                            最后一次更新2020年6月29日
                         
                     </div>
                     <div class="publish-info">
@@ -2435,7 +2503,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">119.2k</span>&nbsp;字
+                class="white-color">120.9k</span>&nbsp;字
             
             
             
