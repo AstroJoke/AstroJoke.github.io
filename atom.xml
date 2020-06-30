@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://astrojoke.github.io/"/>
-  <updated>2020-06-29T09:42:07.226Z</updated>
+  <updated>2020-06-30T15:33:22.058Z</updated>
   <id>https://astrojoke.github.io/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>工科数学分析</title>
+    <title>工科数学分析（二）</title>
+    <link href="https://astrojoke.github.io/2020/06/30/gong-ke-shu-xue-fen-xi-er/"/>
+    <id>https://astrojoke.github.io/2020/06/30/gong-ke-shu-xue-fen-xi-er/</id>
+    <published>2020-06-30T07:00:37.000Z</published>
+    <updated>2020-06-30T15:33:22.058Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;多元函数的极限&quot;&gt;&lt;a href=&quot;#多元函数的极限&quot; class=&quot;headerlink&quot; title=&quot;多元函数的极限&quot;&gt;&lt;/a&gt;多元函数的极限&lt;/h2&gt;&lt;h3 id=&quot;N维线性空间与欧几里得空间&quot;&gt;&lt;a href=&quot;#N维线性空间与欧几里得空间&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="数学" scheme="https://astrojoke.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+      <category term="数学分析" scheme="https://astrojoke.github.io/tags/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>工科数学分析（一）</title>
     <link href="https://astrojoke.github.io/2020/06/02/gong-ke-shu-xue-fen-xi/"/>
     <id>https://astrojoke.github.io/2020/06/02/gong-ke-shu-xue-fen-xi/</id>
     <published>2020-06-02T06:17:00.000Z</published>
-    <updated>2020-06-29T09:42:07.226Z</updated>
+    <updated>2020-06-30T15:33:45.924Z</updated>
     
     <summary type="html">
     
@@ -587,38 +614,6 @@
         
           &lt;p&gt;今天虽然还是水题，但是实际上已经有部分需要一定的基础才能做出来。下面是代码和部分解释。&lt;/p&gt;
 &lt;h2 id=&quot;题目0：找最小值&quot;&gt;&lt;a href=&quot;#题目0：找最小值&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="算法和程序设计" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-      <category term="编程算法题解" scheme="https://astrojoke.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
-    
-      <category term="洛谷" scheme="https://astrojoke.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
-    
-      <category term="入门" scheme="https://astrojoke.github.io/tags/%E5%85%A5%E9%97%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>洛谷官方题单——分支结构题解（水题警告）</title>
-    <link href="https://astrojoke.github.io/2020/04/11/luo-gu-guan-fang-ti-dan-fen-zhi-jie-gou-ti-jie-shui-ti-jing-gao/"/>
-    <id>https://astrojoke.github.io/2020/04/11/luo-gu-guan-fang-ti-dan-fen-zhi-jie-gou-ti-jie-shui-ti-jing-gao/</id>
-    <published>2020-04-11T14:09:25.000Z</published>
-    <updated>2020-04-24T13:39:53.400Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;依旧水题警告，不多BB，直接上。&lt;/p&gt;
-&lt;h2 id=&quot;题目0：数的性质&quot;&gt;&lt;a href=&quot;#题目0：数的性质&quot; class=&quot;headerlink&quot;
         
       
     

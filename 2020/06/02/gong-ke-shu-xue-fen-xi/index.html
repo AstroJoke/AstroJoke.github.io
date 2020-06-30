@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="工科数学分析, AleXandrite">
-    <meta name="description" content="最后一次更新2020年6月29日">
+    <meta name="keywords" content="工科数学分析（一）, AleXandrite">
+    <meta name="description" content="（最后一次更新：7月1日）极限，一元函数的微积分学和级数">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>工科数学分析 | AleXandrite</title>
+    <title>工科数学分析（一） | AleXandrite</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -678,7 +678,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">工科数学分析</h1>
+                    <h1 class="description center-align post-title">工科数学分析（一）</h1>
                 </div>
             </div>
         </div>
@@ -829,14 +829,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    19.2k
+                    22.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    91 分
+                    106 分
                 </div>
                 
 				
@@ -2010,7 +2010,138 @@ $$
 </li>
 </ol>
 <h3 id="无理根式的不定积分"><a href="#无理根式的不定积分" class="headerlink" title="无理根式的不定积分"></a>无理根式的不定积分</h3><p>形如$R(x,\sqrt[n]{\frac {ax+b}{cx+d} })$类型的的不定积分：使用$t$换元整个根式，转化为有理函数积分；当有多个根式的时候，去根号时的次数为多个根式次数的最小公倍数</p>
-<h2 id="一元函数定积分及其应用"><a href="#一元函数定积分及其应用" class="headerlink" title="一元函数定积分及其应用"></a>一元函数定积分及其应用</h2><h2 id="无穷积分"><a href="#无穷积分" class="headerlink" title="无穷积分"></a>无穷积分</h2><h2 id="级数"><a href="#级数" class="headerlink" title="级数"></a>级数</h2><h2 id="多元函数的极限"><a href="#多元函数的极限" class="headerlink" title="多元函数的极限"></a>多元函数的极限</h2><h2 id="多元函数的微分学"><a href="#多元函数的微分学" class="headerlink" title="多元函数的微分学"></a>多元函数的微分学</h2><h2 id="向量函数的微分学"><a href="#向量函数的微分学" class="headerlink" title="向量函数的微分学"></a>向量函数的微分学</h2><h2 id="常微分方程（ODE）"><a href="#常微分方程（ODE）" class="headerlink" title="常微分方程（ODE）"></a>常微分方程（ODE）</h2><h2 id="二重积分和三重积分"><a href="#二重积分和三重积分" class="headerlink" title="二重积分和三重积分"></a>二重积分和三重积分</h2><h2 id="曲线积分"><a href="#曲线积分" class="headerlink" title="曲线积分"></a>曲线积分</h2><h2 id="曲面积分和场论"><a href="#曲面积分和场论" class="headerlink" title="曲面积分和场论"></a>曲面积分和场论</h2><h2 id="含参变量的积分"><a href="#含参变量的积分" class="headerlink" title="含参变量的积分"></a>含参变量的积分</h2><script>
+<h2 id="一元函数定积分"><a href="#一元函数定积分" class="headerlink" title="一元函数定积分"></a>一元函数定积分</h2><h3 id="定积分的定义与性质"><a href="#定积分的定义与性质" class="headerlink" title="定积分的定义与性质"></a>定积分的定义与性质</h3><h4 id="定积分概念的物理背景"><a href="#定积分概念的物理背景" class="headerlink" title="定积分概念的物理背景"></a>定积分概念的物理背景</h4><ol start="0">
+<li>求曲边梯形的面积：用矩形面积近似取代曲边梯形面积——小矩形越多，误差越小，但是总是有误差；</li>
+<li>求变速直线运动的路程：分为多个时间段之和</li>
+<li>一般处理办法：将区间分割为多个小的子区间-&gt;求累加和-&gt;取极限（闭区间套思想，逐步逼近）</li>
+</ol>
+<h4 id="定积分的数学定义"><a href="#定积分的数学定义" class="headerlink" title="定积分的数学定义"></a>定积分的数学定义</h4><p>定义：设$f(x)$在$[a,b]$上有定义，存在实数$I$，对于任意$\varepsilon &gt;0$，存在$\delta&gt;0$，使得任意分割$\pi:x_0=a&lt;x_1&lt;x_2&lt;…&lt;x_n=b$，当当前分割的细度$|\pi|=\max\limits_{1\leq i\leq n}(\Delta x_i)&lt;\delta$，且$\Delta x_i-x_{i-1}$时，对任意$\xi\in [x_{i-1},x_i]$有<br>$$<br>|\displaystyle\sum_{i=1}^nf(\xi_i)(x_i-x_{i-1})-I|&lt;\varepsilon<br>$$<br>称$f(x)$在$[a,b]$上<strong>黎曼可积</strong>，$I$为$f(x)$在$[a,b]$上的定积分或者黎曼积分，记为$\int_a^bf(x)dx=I$</p>
+<p>注1：定义中的$\xi_i$为对应区间$[x_{i-1},x_i]$的任一一点</p>
+<p>注2：$\varepsilon-\delta$描述：$\lim\limits_{|\pi\to 0|}\displaystyle\sum_{i=1}^nf(\xi_i)(x_i-x_{i-1})=I$，与函数的极限$\lim \limits_{x\to a}f(x)$不同</p>
+<p>注3：定积分的大小和自变量的选取无关</p>
+<p>注4：积分上下限交换，定积分符号改变</p>
+<p>注5：设两个函数$f(x),g(x)$，若两个函数在同一区间内有<strong>有限点</strong>不同，且均可积分，则两函数在该区间各自的定积分相等（证明略）</p>
+<h4 id="定积分的几何意义"><a href="#定积分的几何意义" class="headerlink" title="定积分的几何意义"></a>定积分的几何意义</h4><p>曲边梯形的代数面积（在$x$下方为负，上方为正）</p>
+<h4 id="定积分的基本性质"><a href="#定积分的基本性质" class="headerlink" title="定积分的基本性质"></a>定积分的基本性质</h4><p>假设两个函数$f(x),g(x)$在$[a,b]$内均可积</p>
+<ol start="0">
+<li><p>线性性质：对于任意实数$\alpha，\beta$，有<br>$$<br>\int_a^b(\alpha f(x)\pm \beta g(x))dx=\alpha\int_a^bf(x)dx\pm\beta\int_a^bg(x)dx<br>$$</p>
+</li>
+<li><p>保序性：若对于任意$x\in [a,b]$，$f(x)\leq g(x)$，则<br>$$<br>\int _a^bf(x)dx\leq\int _a^bg(x)dx<br>$$<br>特别的，若$\forall x\in [a,b],f(x)\geq 0$，则<br>$$<br>\int _a^bf(x)dx\geq0<br>$$</p>
+</li>
+<li><p>积分中值定理：在可积的基础上保证对应区间连续，则<br>$$<br>\exists \theta \in [a,b]:\int_a^bf(x)dx=f(\theta)(b-a)<br>$$<br>证明方法使用介质定理和一致连续最大最小值相关</p>
+</li>
+</ol>
+<h4 id="积分不等式"><a href="#积分不等式" class="headerlink" title="积分不等式"></a>积分不等式</h4><p>注：在下列式子中，所有的符号都是保证了可积</p>
+<ol start="0">
+<li><p>Cauchy-Schwarz不等式<br>$$<br>\left(\int_a^bf(x)g(x)dx\right)^2\leq\int_a^bf(x)dx\cdot\int_a^bg^2(x)dx<br>$$</p>
+</li>
+<li><p>Minkowski不等式<br>$$<br>\left( \int_a^b[f(x)+g(x)]^2dx\right)^{\frac 12}\leq\left( \int_a^bf^2(x)dx\right)^\frac12+\left( \int_a^bg^2(x)dx\right)^\frac12<br>$$</p>
+</li>
+</ol>
+<h3 id="定积分存在定理"><a href="#定积分存在定理" class="headerlink" title="定积分存在定理"></a>定积分存在定理</h3><h4 id="函数的可积性理论"><a href="#函数的可积性理论" class="headerlink" title="函数的可积性理论"></a>函数的可积性理论</h4><ol start="0">
+<li><p>定义1：可积的<strong>必要条件</strong>——函数$f$在$[a,b]$上可积，则$f$在$[a,b]$上有界。（反例，狄利克雷函数）</p>
+</li>
+<li><p>达布上和和达布下和：设$f(x)$在$[a,b]$上有界，则在区间内的一个分割$\pi:x_0=a&lt;x_1&lt;x_2&lt;…x_n=b$，定义和式<br>$$<br>\mathop{S}^\limits-(\pi,f)=\displaystyle\sum_{i=1}^nM_i(x_i-x_{i-1})\\<br>\mathop{S}<em>\limits-(\pi,f)=\displaystyle\sum</em>{i=1}^nM_i(x_i-x_{i-1})<br>$$<br>这里的$M_i,m_i$分别为$f(x)$在$[x_{i-1},x_i]$上的上确界和下确界，则两个和式分别称为函数$f(x)$对应分割$\pi$的达布上和和达布下和</p>
+<p>推论1：在前述条件下有<br>$$<br>m(b-a)\leq\mathop{S}\limits_-(\pi,f)\leq\displaystyle\sum_{i=1}^nf(\xi_i)(x_i-x_{i-1})\leq\mathop{S}\limits^-(\pi,f)\leq M(b-a)<br>$$<br>$m,M$别为为$f(x)$在区间$[a,b]$内的下确界和上确界</p>
+</li>
+<li><p>定理2：设$f(x)$在$[a,b]$上有界，在$[a,b]$上有两个分割$\pi,\pi’$，其中$\pi’$为$\pi$基础上多加了$k$个新分店的加密分割，则<br>$$<br>\mathop{S}^\limits-(\pi,f)\geq\mathop{S}^\limits-(\pi’,f)\geq\mathop{S}^\limits-(\pi,f)-k\omega||\pi||\\<br>\mathop{S}_\limits-(\pi,f)\leq\mathop{S}_\limits-(\pi’,f)\leq\mathop{S}_\limits-(\pi,f)+k\omega||\pi||<br>$$<br>其中$\omega=M-m,M,m$分别是$f$在$[a,b]$上的上下确界。</p>
+<p>而随着分割的加密，达布上和单调递减，而达布下和单调递增。</p>
+<p>推论2：设$f(x)$在$[a,b]$内有界，对于任意两个分割$\pi’，\pi$，成立<br>$$<br>m(b-a)\leq\mathop{S}\limits_-(\pi,f)\leq\mathop{S}\limits^-(\pi’,f)\leq M(b-a)<br>$$<br>其中$m=\inf\limits_{x\in[a,b]}f(x),M=\sup\limits_{x\in[a,b]}f(x)$</p>
+</li>
+<li><p>定义2：设函数$f(x)$在$[a,b]$上有界，令<br>$$<br>\mathop{I}\limits ^ - =\inf\left{\mathop{S}\limits ^ - ( \pi,f) | \forall \pi 为[a,b]上的一个分割\right}（1）\\<br>\mathop{I}\limits _ - =\sup\left{\mathop{S}\limits _ - ( \pi,f) | \forall \pi 为[a,b]上的一个分割\right}（2）<br>$$<br>称$\mathop{I}\limits ^ - $为$f(x)$在$[a,b]$上的上积分，而$\mathop{I}\limits_-$为$f(x)$在$[a,b]$上的下积分（补充，极限也有上极限和下极限，今后有空会补充上来）</p>
+</li>
+<li><p>定理3（达布定理）对于$f(x)$在$[a,b]$有界函数，则有<br>$$<br>\lim\limits_{||\pi||\to0}\mathop{S}\limits^-(\pi,f)=\mathop{I}\limits^-\\<br>\lim\limits_{||\pi||\to0}\mathop{S}\limits_-(\pi,f)=\mathop{I}\limits_-<br>$$<br>证明方法使用上下确界定义和定理2的共同使用</p>
+</li>
+<li><p>定理4：函数$f(x)$在$[a,b]$内有界，则在此区间内可积的<strong>充要条件</strong>为<strong>上、下积分相等</strong></p>
+</li>
+</ol>
+<h4 id="等价定理"><a href="#等价定理" class="headerlink" title="等价定理"></a>等价定理</h4><p>设函数$f(x)$在$[a,b]$上有界，下列命题等价</p>
+<ol start="0">
+<li><p>$f(x)$在$[a,b]$内可积；</p>
+</li>
+<li><p>上积分和下积分相等；</p>
+</li>
+<li><p>对于区间$[a,b]$的任意一个分割$\pi$<br>$$<br>\lim\limits_{||\pi||\to0}\displaystyle\sum_{i=1}^n\omega_i(x_i-x_{i-1})=0<br>$$</p>
+</li>
+<li><p>对于区间$[a,b]$的任意一个分割$\pi$，对于任意$\varepsilon&gt;0$有<br>$$<br>\displaystyle\sum_{i=1}^n\omega_i(x_i-x_{i-1})&lt;\varepsilon<br>$$</p>
+</li>
+<li><p>对于区间$[a,b]$的任意一个分割$\pi$，对于任意$\varepsilon&gt;0$，存在$\delta&gt;0$有，当$||\pi||&lt;\delta$<br>$$<br>\displaystyle\sum_{i=1}^n\omega_i(x_i-x_{i-1})&lt;\varepsilon<br>$$<br>注：上述中的$\omega_i=M_i-m_i$，为$f(x)$在区间$[x_{i-1},x_i]$上的振幅（$M,m$分别为区间内的上确界和下确界）</p>
+</li>
+</ol>
+<h4 id="绝对可积（此处部分内容缺失，后续补上）"><a href="#绝对可积（此处部分内容缺失，后续补上）" class="headerlink" title="绝对可积（此处部分内容缺失，后续补上）"></a>绝对可积（此处部分内容缺失，后续补上）</h4><p>若函数$f(x)$在区间$[a,b]$内可积，则$|f|$也在$[a,b]$内可积，且<br>$$<br>|\int_a^bf(x)dx|\leq\int_a^b|f(x)|dx<br>$$<br>注意此定理的逆命题是不成立的</p>
+<h4 id="可积函数类"><a href="#可积函数类" class="headerlink" title="可积函数类"></a>可积函数类</h4><ol start="0">
+<li>一些前言：设$f(x)$在$[a,b]$内有界，存在点列${a_n}\in[a,b],\lim\limits_{n\to\infty}a_n=c,{a_n}$为$f(x)$的间断点，则$f(x)$在$[a,b]$上可积，证明暂略。</li>
+<li>定理：函数$f(x)$在$[a,b]$上有界，则可积的充要条件为：$\forall\varepsilon&gt;0,\eta&gt;0$，总存在分割$T$，使得属于$T$的所有小区间中，对于振幅$\omega_{k’}\geq\varepsilon$的对应分割区间长度总和$\sum_{k’}\Delta x_{k’}&lt;\eta$</li>
+<li>定理：函数$f(x)$在$[a,b]$上为单调有界函数，则函数在区间内可积</li>
+<li>定理：函数$f(x)$在$[a,b]$上连续（因为连续，所以一致连续），则函数在区间内可积</li>
+<li>推论：函数$f(x)$在$[a,b]$上有界且有<strong>有限个</strong>间断点，函数在区间内可积</li>
+</ol>
+<h3 id="微积分基本定理与牛顿莱布尼茨公式"><a href="#微积分基本定理与牛顿莱布尼茨公式" class="headerlink" title="微积分基本定理与牛顿莱布尼茨公式"></a>微积分基本定理与牛顿莱布尼茨公式</h3><h4 id="牛顿莱布尼茨公式"><a href="#牛顿莱布尼茨公式" class="headerlink" title="牛顿莱布尼茨公式"></a>牛顿莱布尼茨公式</h4><p>若$F(x)$是连续函数$f(x)$在区间$[a,b]$内的一个原函数，则<br>$$<br>\int _a^bf(x)dx=F(b)-F(a)<br>$$</p>
+<h4 id="变上限函数的连续和可导"><a href="#变上限函数的连续和可导" class="headerlink" title="变上限函数的连续和可导"></a>变上限函数的连续和可导</h4><ol start="0">
+<li><p>变上限函数：$f\in \mathbb R[a,b]$（$[a,b]$上可积函数的集合），$\forall x\in[a,b]$，定义<br>$$<br>F(x)=\int _a^xf(t)dt<br>$$</p>
+</li>
+<li><p>定理1：若$f\in \mathbb R[a,b]$，则$F(x)\in C[a,b]$</p>
+</li>
+<li><p>定理2：若$f(t)$在$[a,b]$上连续，则变上限积分函数$F(x)=\int _a^xf(t)dt$在$[a,b]$上可导，且<br>$$<br>F’(x)=\frac {d}{dx}\int_a^xf(t)dt=f(x)(a\leq x\leq b)<br>$$</p>
+</li>
+<li><p>推论1：设$f(x)\in C[a,b]$，且$\phi(x)$在$[a,b]$上可导，且当$x\in [a,b]，a\leq\phi(x)\leq b$，令<br>$$<br>F(x)=\int_a^{\phi(x)}f(t)dt,x\in[a,b]<br>$$<br>则有<br>$$<br>\frac {dF}{dx}=f(\phi(x))\phi’(x),x\in [a,b]\frac {dF}{dx}=f(\phi(x))\phi’(x),x\in [a,b]<br>$$</p>
+</li>
+<li><p>推论2：设$f(x)\in C[a,b]$，且$\phi(x)$在$[a,b]$上可导，且当$x\in [a,b],a\leq\phi(x)\leq b$，令<br>$$<br>F(x)=\int_{\phi(x)}^af(t)dt,x\in[a,b]<br>$$<br>则有<br>$$<br>\frac {dF}{dx}=-f(\phi(x))\phi’(x),x\in [a,b]<br>$$</p>
+</li>
+<li><p>推论3：设$f(x)\in C[a,b]$，且$\phi_1(x), \phi_2(x)$在$[a,b]$上可导，且当$x\in [a,b],a\leq\phi_1(x)\leq b, a\leq\phi_2(x)\leq b$，令<br>$$<br>F(x)=\int_{\phi_1(x)}^{\phi_2(x)}f(t)dt,x\in[a,b]<br>$$<br>则有<br>$$<br>\frac {dF}{dx}=f(\phi_2(x))\phi_2’(x)-f(\phi_1(x))\phi_1’(x),x\in [a,b]<br>$$</p>
+</li>
+<li><p>原函数存在定理：若函数$f(x)$在$[a,b]$上连续，则变上限积分函数$F(x)=\int_a^xf(t)dt$就是$f(x)$在$[a,b]$内的一个原函数</p>
+</li>
+</ol>
+<h3 id="定积分的计算"><a href="#定积分的计算" class="headerlink" title="定积分的计算"></a>定积分的计算</h3><p>定积分的计算方法基本和不定积分计算一致，但是需要带入上下限计算数值。</p>
+<h4 id="泰勒公式的积分余项"><a href="#泰勒公式的积分余项" class="headerlink" title="泰勒公式的积分余项"></a>泰勒公式的积分余项</h4><p>设$f(x)$在$(a,b)$上有直到$n+1$阶的连续导数，对于任意$x_0\in(a,b)$，有<br>$$<br>f(x)=\displaystyle\sum_{t=0}^n\frac {f^{(i)}(x_0)}{i!}(x-x_0)^i+R_n(x)\\<br>R_n(x)=\frac 1{n!}\int_{x_0}^x(x-t)^nf^{(n+1)}(t)dt,x\in(a,b)<br>$$<br>则称$R(x)$为泰勒公式的积分余项</p>
+<h4 id="定积分的换元"><a href="#定积分的换元" class="headerlink" title="定积分的换元"></a>定积分的换元</h4><p>注意还原过程中，需要保证变换前后的一致性。</p>
+<p>推论1：当$f(x)$在$[-a,a]$上连续，则有</p>
+<ol start="0">
+<li>$f(x)$为偶函数，则$\int_{-a}^af(x)dx=2\int_0^af(x)dx$</li>
+<li>$f(x)$为奇函数则$\int_{-a}^af(x)dx=0$</li>
+</ol>
+<p>推论2：当$f(x)$为周期为$T$的连续函数，则<br>$$<br>\int_a^{a+T}f(x)dx=\int_0^Tf(x)dx<br>$$</p>
+<h4 id="一些有用的公式（后续会补充）"><a href="#一些有用的公式（后续会补充）" class="headerlink" title="一些有用的公式（后续会补充）"></a>一些有用的公式（后续会补充）</h4><ol start="0">
+<li><p>华莱士公式<br>$$<br>I_n=\int_0^{\frac \pi2}\sin^nxdx=<br>\begin{cases}<br>\frac {n-1}n\cdot\frac{n-1}{n-2}\cdot…\cdot\frac34\cdot\frac12\cdot\frac \pi2，n为偶数\\<br>\frac {n-1}n\cdot\frac {n-3}{n-2}\cdot…\cdot\frac 45\cdot\frac 23，n为奇数<br>\end{cases}<br>$$</p>
+</li>
+<li><p>三角函数相关公式<br>$$<br>\int_0^{\frac \pi2}f(\sin x)dx=\int_0^{\frac \pi2}f(\cos x)dx\\<br>\int_0^\pi xf(\sin x)dx=\frac \pi2\int_0^\pi f(\sin x)dx<br>$$</p>
+</li>
+</ol>
+<h3 id="积分中值定理"><a href="#积分中值定理" class="headerlink" title="积分中值定理"></a>积分中值定理</h3><h4 id="积分第一中值定理"><a href="#积分第一中值定理" class="headerlink" title="积分第一中值定理"></a>积分第一中值定理</h4><p>假设$f(x),g(x)$在$[a,b]$内连续，$g(x)$在对应区间内不变号，则存在$\theta\in[a,b]$满足<br>$$<br>\int_a^bf(x)g(x)dx=f(\theta)\int_a^bg(x)dx<br>$$</p>
+<h4 id="积分第二中值定理"><a href="#积分第二中值定理" class="headerlink" title="积分第二中值定理"></a>积分第二中值定理</h4><p>假设$f(x),g(x)$在$[a,b]$内可积</p>
+<ol start="0">
+<li><p>若函数$g$在$[a,b]$上非负递减，则<br>$$<br>\exists\xi\in[a,b]:\int_a^bf(x)g(x)dx=g(a)\int_a^\xi f(x)dx<br>$$</p>
+</li>
+<li><p>若函数$g$在$[a,b]$上非负递增，则<br>$$<br>\exists\xi\in[a,b]:\int_a^bf(x)g(x)dx=g(b)\int_\xi^bf(x)dx<br>$$</p>
+</li>
+</ol>
+<h4 id="积分第三中值定理"><a href="#积分第三中值定理" class="headerlink" title="积分第三中值定理"></a>积分第三中值定理</h4><p>假设$f(x),g(x)$在$[a,b]$内可积，$g$为单调函数，则$\exists\xi\in[a,b]$，使得<br>$$<br>\int_a^bf(x)g(x)dx=g(a)\int_a^\xi f(x)dx+g(b)\int_\xi^bf(x)dx<br>$$</p>
+<h3 id="勒贝格定理"><a href="#勒贝格定理" class="headerlink" title="勒贝格定理"></a>勒贝格定理</h3><ol start="0">
+<li><p>零测集：设$A$为实数集，$\forall \varepsilon&gt;0$，存在至多可数的一列开区间${I_n,n\in\mathbb N^ * }$，它是$A$的一个开覆盖，并且$\sum_{n=1}^\infty|I_n|\leq \varepsilon$，则称$A$为零测度集</p>
+</li>
+<li><p>零测集性质</p>
+<ol start="0">
+<li>至多可数个零测集的并为零测集</li>
+<li>设$A$为零测集，若$B\subset A$，则$B$也为零测集</li>
+<li>实数域内的有理数集合是零测集，无理数集合不是零测集</li>
+</ol>
+</li>
+<li><p>勒贝格定理：假设$f(x)$在$[a,b]$内有界，$f(x)$在$[a,b]$内黎曼可积的充要条件为$D(f)$为一零测集。</p>
+<p>其中：$D(f)={x\in[a,b]:f在x处不连续}$</p>
+</li>
+<li><p>推论：</p>
+<ol start="0">
+<li>若$f$在$[a,b]$内可积且不为$0$，则$1/f$在$[a,b]$内可积；</li>
+<li>若$f(x),g(x)$在$[a,b]$内可积，则$fg$在$[a,b]$内可积；</li>
+<li>如果$f$在$[a,b]$内可积，则$f$在任意子区间内均可积；</li>
+<li>若$f(x),g(x)$在$[a,b]$内可积且$g$不为0，则$f/g$在区间内可积；</li>
+<li>若$f$在$[a,b]$内连续，$\phi$在$[\alpha,\beta]$内可积，$a\leq\phi(t)\leq b,t\in[\alpha,\beta]$，则$f\circ g$在$[\alpha,\beta]$内可积；</li>
+<li>关于（4）的注：若$f$在$[a,b]$内可积，其复合后在$[a,b]$内不一定可积。</li>
+</ol>
+</li>
+</ol>
+<h2 id="定积分的应用"><a href="#定积分的应用" class="headerlink" title="定积分的应用"></a>定积分的应用</h2><h3 id="直角坐标系下图形面积"><a href="#直角坐标系下图形面积" class="headerlink" title="直角坐标系下图形面积"></a>直角坐标系下图形面积</h3><h3 id="参数方程下曲线围成平面图形面积"><a href="#参数方程下曲线围成平面图形面积" class="headerlink" title="参数方程下曲线围成平面图形面积"></a>参数方程下曲线围成平面图形面积</h3><h3 id="极坐标下平面图形面积"><a href="#极坐标下平面图形面积" class="headerlink" title="极坐标下平面图形面积"></a>极坐标下平面图形面积</h3><h3 id="旋转曲面的面积"><a href="#旋转曲面的面积" class="headerlink" title="旋转曲面的面积"></a>旋转曲面的面积</h3><h3 id="旋转体的体积"><a href="#旋转体的体积" class="headerlink" title="旋转体的体积"></a>旋转体的体积</h3><h3 id="曲线的弧长"><a href="#曲线的弧长" class="headerlink" title="曲线的弧长"></a>曲线的弧长</h3><h3 id="物理应用之变力做功"><a href="#物理应用之变力做功" class="headerlink" title="物理应用之变力做功"></a>物理应用之变力做功</h3><h3 id="物理应用之引力问题"><a href="#物理应用之引力问题" class="headerlink" title="物理应用之引力问题"></a>物理应用之引力问题</h3><h3 id="物理应用之力矩和之心"><a href="#物理应用之力矩和之心" class="headerlink" title="物理应用之力矩和之心"></a>物理应用之力矩和之心</h3><h2 id="无穷积分"><a href="#无穷积分" class="headerlink" title="无穷积分"></a>无穷积分</h2><h3 id="无穷积分的定义和计算"><a href="#无穷积分的定义和计算" class="headerlink" title="无穷积分的定义和计算"></a>无穷积分的定义和计算</h3><h3 id="无穷区间上非负函数的积分"><a href="#无穷区间上非负函数的积分" class="headerlink" title="无穷区间上非负函数的积分"></a>无穷区间上非负函数的积分</h3><h3 id="无穷积分的狄利克雷和阿贝尔判定"><a href="#无穷积分的狄利克雷和阿贝尔判定" class="headerlink" title="无穷积分的狄利克雷和阿贝尔判定"></a>无穷积分的狄利克雷和阿贝尔判定</h3><h3 id="瑕积分的定义与收敛"><a href="#瑕积分的定义与收敛" class="headerlink" title="瑕积分的定义与收敛"></a>瑕积分的定义与收敛</h3><h2 id="数项级数"><a href="#数项级数" class="headerlink" title="数项级数"></a>数项级数</h2><h3 id="数项级数的收敛性"><a href="#数项级数的收敛性" class="headerlink" title="数项级数的收敛性"></a>数项级数的收敛性</h3><h3 id="正项级数的比较判别法"><a href="#正项级数的比较判别法" class="headerlink" title="正项级数的比较判别法"></a>正项级数的比较判别法</h3><h3 id="正项级数的积分判别法"><a href="#正项级数的积分判别法" class="headerlink" title="正项级数的积分判别法"></a>正项级数的积分判别法</h3><h3 id="正项级数的柯西判别法"><a href="#正项级数的柯西判别法" class="headerlink" title="正项级数的柯西判别法"></a>正项级数的柯西判别法</h3><h3 id="正项级数的达朗贝尔判别法"><a href="#正项级数的达朗贝尔判别法" class="headerlink" title="正项级数的达朗贝尔判别法"></a>正项级数的达朗贝尔判别法</h3><h3 id="正项级数的拉贝判别法"><a href="#正项级数的拉贝判别法" class="headerlink" title="正项级数的拉贝判别法"></a>正项级数的拉贝判别法</h3><h3 id="一般级数的收敛"><a href="#一般级数的收敛" class="headerlink" title="一般级数的收敛"></a>一般级数的收敛</h3><h3 id="绝对收敛和条件收敛"><a href="#绝对收敛和条件收敛" class="headerlink" title="绝对收敛和条件收敛"></a>绝对收敛和条件收敛</h3><h3 id="绝对收敛级数的性质"><a href="#绝对收敛级数的性质" class="headerlink" title="绝对收敛级数的性质"></a>绝对收敛级数的性质</h3><h2 id="函数级数"><a href="#函数级数" class="headerlink" title="函数级数"></a>函数级数</h2><h3 id="函数列与函数项级数的基本概念"><a href="#函数列与函数项级数的基本概念" class="headerlink" title="函数列与函数项级数的基本概念"></a>函数列与函数项级数的基本概念</h3><h3 id="函数序列的一致收敛性"><a href="#函数序列的一致收敛性" class="headerlink" title="函数序列的一致收敛性"></a>函数序列的一致收敛性</h3><h3 id="函数项级数的一致收敛性"><a href="#函数项级数的一致收敛性" class="headerlink" title="函数项级数的一致收敛性"></a>函数项级数的一致收敛性</h3><h3 id="狄利克雷和阿贝尔判别法"><a href="#狄利克雷和阿贝尔判别法" class="headerlink" title="狄利克雷和阿贝尔判别法"></a>狄利克雷和阿贝尔判别法</h3><h3 id="函数项级数和函数的连续性"><a href="#函数项级数和函数的连续性" class="headerlink" title="函数项级数和函数的连续性"></a>函数项级数和函数的连续性</h3><h3 id="函数项级数和函数的可积性"><a href="#函数项级数和函数的可积性" class="headerlink" title="函数项级数和函数的可积性"></a>函数项级数和函数的可积性</h3><h3 id="函数项级数和函数的可微性"><a href="#函数项级数和函数的可微性" class="headerlink" title="函数项级数和函数的可微性"></a>函数项级数和函数的可微性</h3><h3 id="幂级数的收敛区间"><a href="#幂级数的收敛区间" class="headerlink" title="幂级数的收敛区间"></a>幂级数的收敛区间</h3><h3 id="幂级数和函数的性质"><a href="#幂级数和函数的性质" class="headerlink" title="幂级数和函数的性质"></a>幂级数和函数的性质</h3><h3 id="泰勒级数"><a href="#泰勒级数" class="headerlink" title="泰勒级数"></a>泰勒级数</h3><h3 id="傅里叶级数"><a href="#傅里叶级数" class="headerlink" title="傅里叶级数"></a>傅里叶级数</h3><h3 id="傅里叶级数的性质"><a href="#傅里叶级数的性质" class="headerlink" title="傅里叶级数的性质"></a>傅里叶级数的性质</h3><h3 id="傅里叶级数的计算"><a href="#傅里叶级数的计算" class="headerlink" title="傅里叶级数的计算"></a>傅里叶级数的计算</h3><h3 id="傅里叶级数的平方逼近问题"><a href="#傅里叶级数的平方逼近问题" class="headerlink" title="傅里叶级数的平方逼近问题"></a>傅里叶级数的平方逼近问题</h3><h3 id="傅里叶积分和傅里叶变换"><a href="#傅里叶积分和傅里叶变换" class="headerlink" title="傅里叶积分和傅里叶变换"></a>傅里叶积分和傅里叶变换</h3><h3 id="傅里叶变换的计算"><a href="#傅里叶变换的计算" class="headerlink" title="傅里叶变换的计算"></a>傅里叶变换的计算</h3><h3 id="傅里叶变换的性质"><a href="#傅里叶变换的性质" class="headerlink" title="傅里叶变换的性质"></a>傅里叶变换的性质</h3><h3 id="离散傅里叶变换"><a href="#离散傅里叶变换" class="headerlink" title="离散傅里叶变换"></a>离散傅里叶变换</h3><h3 id="快速傅里叶变换"><a href="#快速傅里叶变换" class="headerlink" title="快速傅里叶变换"></a>快速傅里叶变换</h3><h3 id="小波变换初步"><a href="#小波变换初步" class="headerlink" title="小波变换初步"></a>小波变换初步</h3><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -2258,29 +2389,28 @@ $$
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/06/02/gong-ke-shu-xue-fen-xi/">
+                <a href="/2020/06/30/gong-ke-shu-xue-fen-xi-er/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Cover5.jpg" class="responsive-img" alt="工科数学分析">
+                        <img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Cover11.jpg" class="responsive-img" alt="工科数学分析（二）">
                         
-                        <span class="card-title">工科数学分析</span>
+                        <span class="card-title">工科数学分析（二）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            最后一次更新2020年6月29日
+                            （还未开工）多元、向量函数微积分，场论和含参变量微积分
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-02
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-30
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -2293,7 +2423,6 @@ $$
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -2503,7 +2632,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">120.9k</span>&nbsp;字
+                class="white-color">125.3k</span>&nbsp;字
             
             
             
