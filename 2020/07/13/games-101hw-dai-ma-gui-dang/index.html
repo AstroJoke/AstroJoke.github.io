@@ -770,14 +770,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.9k
+                    6.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    21 分
+                    33 分
                 </div>
                 
 				
@@ -1325,8 +1325,7 @@
 <p>实际上本次作业就是De Casteljau 算法的实现</p>
 </li>
 </ol>
-<h3 id="具体代码-2"><a href="#具体代码-2" class="headerlink" title="具体代码"></a>具体代码</h3><ol start="0">
-<li><p>De Casteljau算法的实现：具体数学推导见我的另外一篇文章，注意是递归的方法，可能会比较慢。</p>
+<h3 id="具体代码-2"><a href="#具体代码-2" class="headerlink" title="具体代码"></a>具体代码</h3><h4 id="De-Casteljau算法的实现"><a href="#De-Casteljau算法的实现" class="headerlink" title="De Casteljau算法的实现"></a>De Casteljau算法的实现</h4><p>具体数学推导见我的另外一篇文章，注意是递归的方法，可能会比较慢。</p>
 <pre class="line-numbers language-c"><code class="language-c">cv<span class="token punctuation">:</span><span class="token punctuation">:</span>Point2f <span class="token function">recursive_bezier</span><span class="token punctuation">(</span><span class="token keyword">const</span> std<span class="token punctuation">:</span><span class="token punctuation">:</span>vector<span class="token operator">&lt;</span>cv<span class="token punctuation">:</span><span class="token punctuation">:</span>Point2f<span class="token operator">></span> <span class="token operator">&amp;</span>control_points<span class="token punctuation">,</span> <span class="token keyword">float</span> t<span class="token punctuation">)</span> 
 <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// TODO: Implement de Casteljau's algorithm</span>
@@ -1343,9 +1342,7 @@
 
     <span class="token keyword">return</span> <span class="token function">recursive_bezier</span><span class="token punctuation">(</span>vec<span class="token punctuation">,</span> t<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>奖励，反走样方法</p>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">bezier</span><span class="token punctuation">(</span><span class="token keyword">const</span> std<span class="token punctuation">:</span><span class="token punctuation">:</span>vector<span class="token operator">&lt;</span>cv<span class="token punctuation">:</span><span class="token punctuation">:</span>Point2f<span class="token operator">></span><span class="token operator">&amp;</span> control_points<span class="token punctuation">,</span> cv<span class="token punctuation">:</span><span class="token punctuation">:</span>Mat<span class="token operator">&amp;</span> window<span class="token punctuation">)</span>
+<h4 id="反走样方法"><a href="#反走样方法" class="headerlink" title="反走样方法"></a>反走样方法</h4><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> <span class="token function">bezier</span><span class="token punctuation">(</span><span class="token keyword">const</span> std<span class="token punctuation">:</span><span class="token punctuation">:</span>vector<span class="token operator">&lt;</span>cv<span class="token punctuation">:</span><span class="token punctuation">:</span>Point2f<span class="token operator">></span><span class="token operator">&amp;</span> control_points<span class="token punctuation">,</span> cv<span class="token punctuation">:</span><span class="token punctuation">:</span>Mat<span class="token operator">&amp;</span> window<span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
     <span class="token comment" spellcheck="true">// TODO: Iterate through all t = 0 to t = 1 with small steps, and call de Casteljau's </span>
     <span class="token comment" spellcheck="true">// recursive Bezier algorithm.</span>
@@ -1381,15 +1378,423 @@
             window<span class="token punctuation">.</span>at<span class="token operator">&lt;</span>cv<span class="token punctuation">:</span><span class="token punctuation">:</span>Vec3b<span class="token operator">></span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>y<span class="token punctuation">,</span> p<span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token operator">=</span> color<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="main函数中的内容更改"><a href="#main函数中的内容更改" class="headerlink" title="main函数中的内容更改"></a>main函数中的内容更改</h4><pre class="line-numbers language-c"><code class="language-c">    <span class="token comment" spellcheck="true">//naive_bezier(control_points, window);</span>
+    <span class="token function">bezier</span><span class="token punctuation">(</span>control_points<span class="token punctuation">,</span> window<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="作业5：光线与三角形相交"><a href="#作业5：光线与三角形相交" class="headerlink" title="作业5：光线与三角形相交"></a>作业5：光线与三角形相交</h2><ol start="0">
+<li>[5 分] 提交的格式正确，包含所有必须的文件。代码可以编译和运行。 </li>
+<li>[10 分] 光线生成： 正确实现光线生成部分，并且能够看到图像中的两个球体。 </li>
+<li>[15 分] 光线与三角形相交： 正确实现了 Moller-Trumbore 算法，并且能够看到图像中的地面。 </li>
+</ol>
+<h3 id="具体代码-3"><a href="#具体代码-3" class="headerlink" title="具体代码"></a>具体代码</h3><h4 id="光线生成"><a href="#光线生成" class="headerlink" title="光线生成"></a>光线生成</h4><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> Renderer<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">Render</span><span class="token punctuation">(</span><span class="token keyword">const</span> Scene<span class="token operator">&amp;</span> scene<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//前面省略</span>
+    Vector3f <span class="token function">eye_pos</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> m <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> scene<span class="token punctuation">.</span>height<span class="token punctuation">;</span> <span class="token operator">++</span>j<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> scene<span class="token punctuation">.</span>width<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// generate primary ray direction</span>
+            <span class="token comment" spellcheck="true">// TODO: Find the x and y positions of the current pixel to get the direction</span>
+            <span class="token comment" spellcheck="true">// vector that passes through it.</span>
+            <span class="token comment" spellcheck="true">// Also, don't forget to multiply both of them with the variable *scale*, and</span>
+            <span class="token comment" spellcheck="true">// x (horizontal) variable with the *imageAspectRatio* </span>
+            <span class="token keyword">float</span> x <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">*</span> <span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">0.5</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token keyword">float</span><span class="token punctuation">)</span>scene<span class="token punctuation">.</span>width <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> imageAspectRatio <span class="token operator">*</span> scale<span class="token punctuation">;</span>
+            <span class="token keyword">float</span> y <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">-</span> <span class="token number">2</span> <span class="token operator">*</span> <span class="token punctuation">(</span>j <span class="token operator">+</span> <span class="token number">0.5</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token keyword">float</span><span class="token punctuation">)</span>scene<span class="token punctuation">.</span>height<span class="token punctuation">)</span> <span class="token operator">*</span> scale<span class="token punctuation">;</span>
+            Vector3f <span class="token function">direction</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            direction <span class="token operator">=</span> <span class="token function">normalize</span><span class="token punctuation">(</span>direction<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Don't forget to normalize this direction!</span>
+            framebuffer<span class="token punctuation">[</span>m<span class="token operator">++</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">castRay</span><span class="token punctuation">(</span>eye_pos<span class="token punctuation">,</span> direction<span class="token punctuation">,</span> scene<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">UpdateProgress</span><span class="token punctuation">(</span>j <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token keyword">float</span><span class="token punctuation">)</span>scene<span class="token punctuation">.</span>height<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//后面省略   </span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="光线与三角形求交"><a href="#光线与三角形求交" class="headerlink" title="光线与三角形求交"></a>光线与三角形求交</h4><pre class="line-numbers language-c"><code class="language-c">bool <span class="token function">rayTriangleIntersect</span><span class="token punctuation">(</span><span class="token keyword">const</span> Vector3f<span class="token operator">&amp;</span> v0<span class="token punctuation">,</span> <span class="token keyword">const</span> Vector3f<span class="token operator">&amp;</span> v1<span class="token punctuation">,</span> <span class="token keyword">const</span> Vector3f<span class="token operator">&amp;</span> v2<span class="token punctuation">,</span> <span class="token keyword">const</span> Vector3f<span class="token operator">&amp;</span> orig<span class="token punctuation">,</span>
+                          <span class="token keyword">const</span> Vector3f<span class="token operator">&amp;</span> dir<span class="token punctuation">,</span> <span class="token keyword">float</span><span class="token operator">&amp;</span> tnear<span class="token punctuation">,</span> <span class="token keyword">float</span><span class="token operator">&amp;</span> u<span class="token punctuation">,</span> <span class="token keyword">float</span><span class="token operator">&amp;</span> v<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// TODO: Implement this function that tests whether the triangle</span>
+    <span class="token comment" spellcheck="true">// that's specified bt v0, v1 and v2 intersects with the ray (whose</span>
+    <span class="token comment" spellcheck="true">// origin is *orig* and direction is *dir*)</span>
+    <span class="token comment" spellcheck="true">// Also don't forget to update tnear, u and v.</span>
+    Vector3f E1 <span class="token operator">=</span> v1 <span class="token operator">-</span> v0<span class="token punctuation">;</span>
+    Vector3f E2 <span class="token operator">=</span> v2 <span class="token operator">-</span> v0<span class="token punctuation">;</span>
+    Vector3f S <span class="token operator">=</span> orig <span class="token operator">-</span> v0<span class="token punctuation">;</span>
+    Vector3f S1 <span class="token operator">=</span> <span class="token function">crossProduct</span><span class="token punctuation">(</span>dir<span class="token punctuation">,</span> E2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Vector3f S2 <span class="token operator">=</span> <span class="token function">crossProduct</span><span class="token punctuation">(</span>S<span class="token punctuation">,</span> E1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">float</span> k <span class="token operator">=</span> <span class="token function">dotProduct</span><span class="token punctuation">(</span>S1<span class="token punctuation">,</span> E1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    tnear <span class="token operator">=</span> <span class="token number">1.0f</span> <span class="token operator">/</span> k <span class="token operator">*</span> <span class="token function">dotProduct</span><span class="token punctuation">(</span>S2<span class="token punctuation">,</span> E2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    u <span class="token operator">=</span> <span class="token number">1.0f</span> <span class="token operator">/</span> k <span class="token operator">*</span> <span class="token function">dotProduct</span><span class="token punctuation">(</span>S1<span class="token punctuation">,</span> S<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    v <span class="token operator">=</span> <span class="token number">1.0f</span> <span class="token operator">/</span> k <span class="token operator">*</span> <span class="token function">dotProduct</span><span class="token punctuation">(</span>S2<span class="token punctuation">,</span> dir<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>tnear <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> v <span class="token operator">>=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> v <span class="token operator">&lt;=</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> u <span class="token operator">>=</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> u <span class="token operator">&lt;=</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">return</span> true<span class="token punctuation">;</span>
+    <span class="token keyword">else</span> <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol>
+<li>[5 points] 提交格式正确，包含所有需要的文件；代码可以在虚拟机下正确 编译运行。 </li>
+<li>[20 points] 包围盒求交：正确实现光线与包围盒求交函数。 </li>
+<li>[15 points] BVH 查找：正确实现 BVH 加速的光线与场景求交。 </li>
+<li>[加分项 20 points] SAH 查找：自学 SAH(Surface Area Heuristic) , 正 确实现 SAH 加速，并且提交结果图片，并在 README.md 中说明 SVH 的实现 方法，并对比 BVH、SVH 的时间开销。(可参考 <a href="http://15462.courses.cs.cmu.edu/fall2015/lecture/acceleration/slide_024，也可以查找其他资料" target="_blank" rel="noopener">http://15462.courses.cs.cmu.edu/fall2015/lecture/acceleration/slide_024，也可以查找其他资料</a>)</li>
+</ol>
+<h3 id="具体代码-4"><a href="#具体代码-4" class="headerlink" title="具体代码"></a>具体代码</h3><h4 id="包围盒求交"><a href="#包围盒求交" class="headerlink" title="包围盒求交"></a>包围盒求交</h4><pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">inline</span> bool Bounds3<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">IntersectP</span><span class="token punctuation">(</span><span class="token keyword">const</span> Ray<span class="token operator">&amp;</span> ray<span class="token punctuation">,</span> <span class="token keyword">const</span> Vector3f<span class="token operator">&amp;</span> invDir<span class="token punctuation">,</span>
+    <span class="token keyword">const</span> std<span class="token punctuation">:</span><span class="token punctuation">:</span>array<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token operator">></span><span class="token operator">&amp;</span> dirIsNeg<span class="token punctuation">)</span> <span class="token keyword">const</span>
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// invDir: ray direction(x,y,z), invDir=(1.0/x,1.0/y,1.0/z), use this because Multiply is faster that Division</span>
+    <span class="token comment" spellcheck="true">// dirIsNeg: ray direction(x,y,z), dirIsNeg=[int(x>0),int(y>0),int(z>0)], use this to simplify your logic</span>
+    <span class="token comment" spellcheck="true">// TODO test if ray bound intersects</span>
+    <span class="token comment" spellcheck="true">//x</span>
+    <span class="token keyword">float</span> xmin <span class="token operator">=</span> <span class="token punctuation">(</span>pMin<span class="token punctuation">.</span>x <span class="token operator">-</span> ray<span class="token punctuation">.</span>origin<span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token operator">*</span> invDir<span class="token punctuation">.</span>x<span class="token punctuation">,</span> xmax <span class="token operator">=</span> <span class="token punctuation">(</span>pMax<span class="token punctuation">.</span>x <span class="token operator">-</span> ray<span class="token punctuation">.</span>origin<span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token operator">*</span> invDir<span class="token punctuation">.</span>x<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//y</span>
+    <span class="token keyword">float</span> ymin <span class="token operator">=</span> <span class="token punctuation">(</span>pMin<span class="token punctuation">.</span>y <span class="token operator">-</span> ray<span class="token punctuation">.</span>origin<span class="token punctuation">.</span>y<span class="token punctuation">)</span> <span class="token operator">*</span> invDir<span class="token punctuation">.</span>y<span class="token punctuation">,</span> ymax <span class="token operator">=</span> <span class="token punctuation">(</span>pMax<span class="token punctuation">.</span>y <span class="token operator">-</span> ray<span class="token punctuation">.</span>origin<span class="token punctuation">.</span>y<span class="token punctuation">)</span> <span class="token operator">*</span> invDir<span class="token punctuation">.</span>y<span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//z</span>
+    <span class="token keyword">float</span> zmin <span class="token operator">=</span> <span class="token punctuation">(</span>pMin<span class="token punctuation">.</span>z <span class="token operator">-</span> ray<span class="token punctuation">.</span>origin<span class="token punctuation">.</span>z<span class="token punctuation">)</span> <span class="token operator">*</span> invDir<span class="token punctuation">.</span>z<span class="token punctuation">,</span> zmax <span class="token operator">=</span> <span class="token punctuation">(</span>pMax<span class="token punctuation">.</span>z <span class="token operator">-</span> ray<span class="token punctuation">.</span>origin<span class="token punctuation">.</span>z<span class="token punctuation">)</span> <span class="token operator">*</span> invDir<span class="token punctuation">.</span>z<span class="token punctuation">;</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//判断是否反向</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>dirIsNeg<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">float</span> t <span class="token operator">=</span> xmin<span class="token punctuation">,</span> xmin <span class="token operator">=</span> xmax<span class="token punctuation">,</span> xmax <span class="token operator">=</span> t<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>dirIsNeg<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">float</span> t <span class="token operator">=</span> ymin<span class="token punctuation">,</span> ymin <span class="token operator">=</span> ymax<span class="token punctuation">,</span> ymax <span class="token operator">=</span> t<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>dirIsNeg<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">float</span> t <span class="token operator">=</span> zmin<span class="token punctuation">,</span> zmin <span class="token operator">=</span> zmax<span class="token punctuation">,</span> zmax <span class="token operator">=</span> t<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//进出包围盒的时间</span>
+    <span class="token keyword">float</span> T_Enter <span class="token operator">=</span> std<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">max</span><span class="token punctuation">(</span>xmin<span class="token punctuation">,</span> std<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">max</span><span class="token punctuation">(</span>ymin<span class="token punctuation">,</span> zmin<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">float</span> T_Exit <span class="token operator">=</span> std<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">min</span><span class="token punctuation">(</span>xmax<span class="token punctuation">,</span> std<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">min</span><span class="token punctuation">(</span>ymax<span class="token punctuation">,</span> zmax<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>T_Enter <span class="token operator">&lt;=</span> T_Exit <span class="token operator">&amp;&amp;</span> T_Exit <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> true<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> false<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="BVH树的查找"><a href="#BVH树的查找" class="headerlink" title="BVH树的查找"></a>BVH树的查找</h4><pre class="line-numbers language-c"><code class="language-c">Intersection BVHAccel<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">getIntersection</span><span class="token punctuation">(</span>BVHBuildNode<span class="token operator">*</span> node<span class="token punctuation">,</span> <span class="token keyword">const</span> Ray<span class="token operator">&amp;</span> ray<span class="token punctuation">)</span> <span class="token keyword">const</span>
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// TODO Traverse the BVH to find intersection</span>
+    <span class="token comment" spellcheck="true">// invDir: ray direction(x,y,z), invDir=(1.0/x,1.0/y,1.0/z), use this because Multiply is faster that Division</span>
+    <span class="token comment" spellcheck="true">// dirIsNeg: ray direction(x,y,z), dirIsNeg=[int(x>0),int(y>0),int(z>0)], use this to simplify your logic</span>
+    <span class="token comment" spellcheck="true">// TODO test if ray bound intersects</span>
+    <span class="token comment" spellcheck="true">// 命名采用的是求交的名字，此处是简单的前序遍历</span>
+    Vector3f invDir <span class="token operator">=</span> Vector3f<span class="token punctuation">{</span> <span class="token number">1.0f</span> <span class="token operator">/</span> ray<span class="token punctuation">.</span>direction<span class="token punctuation">.</span>x<span class="token punctuation">,</span> <span class="token number">1.0f</span> <span class="token operator">/</span> ray<span class="token punctuation">.</span>direction<span class="token punctuation">.</span>y<span class="token punctuation">,</span> <span class="token number">1.0f</span> <span class="token operator">/</span> ray<span class="token punctuation">.</span>direction<span class="token punctuation">.</span>z <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    std<span class="token punctuation">:</span><span class="token punctuation">:</span>array<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token operator">></span> dirIsNeg <span class="token operator">=</span> <span class="token punctuation">{</span> ray<span class="token punctuation">.</span>direction<span class="token punctuation">.</span>x <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">,</span> ray<span class="token punctuation">.</span>direction<span class="token punctuation">.</span>y <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">,</span> ray<span class="token punctuation">.</span>direction<span class="token punctuation">.</span>z <span class="token operator">></span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>node<span class="token operator">-></span>bounds<span class="token punctuation">.</span><span class="token function">IntersectP</span><span class="token punctuation">(</span>ray<span class="token punctuation">,</span> invDir<span class="token punctuation">,</span> dirIsNeg<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>node<span class="token operator">-></span>left <span class="token operator">==</span> nullptr <span class="token operator">&amp;&amp;</span> node<span class="token operator">-></span>right <span class="token operator">==</span> nullptr<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> node<span class="token operator">-></span>object<span class="token operator">-></span><span class="token function">getIntersection</span><span class="token punctuation">(</span>ray<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    Intersection BVH_Left <span class="token operator">=</span> <span class="token function">getIntersection</span><span class="token punctuation">(</span>node<span class="token operator">-></span>left<span class="token punctuation">,</span> ray<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Intersection BVH_Right <span class="token operator">=</span> <span class="token function">getIntersection</span><span class="token punctuation">(</span>node<span class="token operator">-></span>right<span class="token punctuation">,</span> ray<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> BVH_Left<span class="token punctuation">.</span>distance <span class="token operator">&lt;</span> BVH_Right<span class="token punctuation">.</span>distance <span class="token operator">?</span> BVH_Left <span class="token punctuation">:</span> BVH_Right<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="SAH查找（暂略）"><a href="#SAH查找（暂略）" class="headerlink" title="SAH查找（暂略）"></a>SAH查找（暂略）</h4><h2 id="作业7：路径追踪"><a href="#作业7：路径追踪" class="headerlink" title="作业7：路径追踪"></a>作业7：路径追踪</h2><p>（史上最难，因为我第一次学习写多线程。。）</p>
+<ol start="0">
+<li>[5 points] 提交格式正确，包含所有需要的文件；代码可以在虚拟机下正确 编译运行。 </li>
+<li>[45 points] Path Tracing：正确实现 Path Tracing 算法，并提交分辨率 不小于 512*512，采样数不小于 8 的渲染结果图片。 </li>
+<li>[加分项 10 points] 多线程：将多线程应用在 Ray Generation 上，注意实现时可能涉及的冲突。 </li>
+<li>[加分项 10 points] Microfacet：正确实现 Microfacet 材质，并提交可 体现 Microfacet 性质的渲染结果。</li>
+</ol>
+<h3 id="具体代码-5"><a href="#具体代码-5" class="headerlink" title="具体代码"></a>具体代码</h3><h4 id="Path-Tracing主要代码"><a href="#Path-Tracing主要代码" class="headerlink" title="Path Tracing主要代码"></a>Path Tracing主要代码</h4><pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">//in Scene.cpp</span>
+
+<span class="token comment" spellcheck="true">// Implementation of Path Tracing</span>
+Vector3f Scene<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">castRay</span><span class="token punctuation">(</span><span class="token keyword">const</span> Ray <span class="token operator">&amp;</span>ray<span class="token punctuation">,</span> <span class="token keyword">int</span> depth<span class="token punctuation">)</span> <span class="token keyword">const</span>
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">/*
+    intersect(const Ray ray)in Scene.cpp: 求一条光线与场景的交点
+
+    sampleLight(Intersection pos, float pdf)inScene.cpp: 在场景的所有光源上按面积uniform、地、sample、一个点，并
+    计算该 sample 的概率密度
+
+    sample(const Vector3f wi, const Vector3f N) in Material.cpp: 按照该材质的性质，给定入射方向与法向量，用某种分
+    布采样一个出射方向
+
+    pdf(const Vector3f wi, const Vector3f wo, const Vector3f N)inMaterial.cpp: 给定一对入射、出射方向与法向量，计
+    算 sample 方法得到该出射 方向的概率密度
+
+    eval(const Vector3f wi, const Vector3f wo, const Vector3f N)inMaterial.cpp: 给定一对入射、出射方向与法向量，计
+    算这种情况下的 f_r 值
+
+    可能用到的变量有：
+    RussianRoulette in Scene.cpp: P_RR, Russian Roulette 的概率
+    */</span>
+
+    <span class="token comment" spellcheck="true">// TO DO Implement Path Tracing Algorithm here</span>
+    <span class="token comment" spellcheck="true">/*
+    shade(p, wo)
+        sampleLight(inter, pdf_light)
+        Get x, ws, NN, emit from inter
+        Shoot a ray from p to x 
+        If the ray is not blocked in the middle
+            L_dir = emit * eval(wo, ws, N) * dot(ws, N) * dot(ws, NN) / |x-p|^2 / pdf_light
+        L_indir = 0.0 
+        Test Russian Roulette with probability RussianRoulette
+        wi = sample(wo, N)
+        Trace a ray r(p, wi)
+        If ray r hit a non-emitting object at q
+            L_indir = shade(q, wi) * eval(wo, wi, N) * dot(wi, N) / pdf(wo, wi, N) / RussianRoulette
+        Return L_dir + L_indir
+    */</span>
+
+    <span class="token comment" spellcheck="true">//sampleLight(inter, pdf_light)</span>
+    <span class="token comment" spellcheck="true">/*
+    Intersection的类成员
+    bool happened;
+    Vector3f coords;
+    Vector3f tcoords;
+    Vector3f normal;
+    Vector3f emit;
+    double distance;
+    Object* obj;
+    Material* meterial;
+    */</span>
+    Intersection Light_Inter<span class="token punctuation">;</span>
+    <span class="token keyword">float</span> Light_PDF <span class="token operator">=</span> <span class="token number">0.0f</span><span class="token punctuation">;</span>
+    <span class="token function">sampleLight</span><span class="token punctuation">(</span>Light_Inter<span class="token punctuation">,</span> Light_PDF<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    Intersection Object_Inter <span class="token operator">=</span> <span class="token function">intersect</span><span class="token punctuation">(</span>ray<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//Check</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>Object_Inter<span class="token punctuation">.</span>happened<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>Object_Inter<span class="token punctuation">.</span>meterial<span class="token operator">-></span><span class="token function">hasEmission</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> Object_Inter<span class="token punctuation">.</span>meterial<span class="token operator">-></span><span class="token function">getEmission</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//Get object, ws, NN, emit from inter</span>
+    Vector3f Object_To_Light <span class="token operator">=</span> Light_Inter<span class="token punctuation">.</span>coords <span class="token operator">-</span> Object_Inter<span class="token punctuation">.</span>coords<span class="token punctuation">;</span>
+    Vector3f Object_To_Light_Direction <span class="token operator">=</span> Object_To_Light<span class="token punctuation">.</span><span class="token function">normalized</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">float</span> Distance_square <span class="token operator">=</span> Object_To_Light<span class="token punctuation">.</span>x <span class="token operator">*</span> Object_To_Light<span class="token punctuation">.</span>x <span class="token operator">+</span> Object_To_Light<span class="token punctuation">.</span>y <span class="token operator">*</span> Object_To_Light<span class="token punctuation">.</span>y <span class="token operator">+</span> Object_To_Light<span class="token punctuation">.</span>z <span class="token operator">*</span> Object_To_Light<span class="token punctuation">.</span>z<span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//Shoot a ray from p to x </span>
+    Ray Object_To_Light_Ray <span class="token operator">=</span> <span class="token punctuation">{</span> Object_Inter<span class="token punctuation">.</span>coords<span class="token punctuation">,</span> Object_To_Light_Direction <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    Intersection t <span class="token operator">=</span> <span class="token function">intersect</span><span class="token punctuation">(</span>Object_To_Light_Ray<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//L_dir = 0.0</span>
+    Vector3f L_dir <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//If the ray is not blocked in the middle</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>t<span class="token punctuation">.</span>distance <span class="token operator">-</span> Object_To_Light<span class="token punctuation">.</span><span class="token function">norm</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> <span class="token operator">-</span>EPSILON<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//L_dir = emit * eval(wo, ws, N) * dot(ws, N) * dot(ws, NN) / |x-p|^2 / pdf_light</span>
+        L_dir <span class="token operator">=</span> Light_Inter<span class="token punctuation">.</span>emit <span class="token operator">*</span> Object_Inter<span class="token punctuation">.</span>meterial<span class="token operator">-></span><span class="token function">eval</span><span class="token punctuation">(</span>ray<span class="token punctuation">.</span>direction<span class="token punctuation">,</span> Object_To_Light_Direction<span class="token punctuation">,</span> Object_Inter<span class="token punctuation">.</span>normal<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token function">dotProduct</span><span class="token punctuation">(</span>Object_To_Light_Direction<span class="token punctuation">,</span> Object_Inter<span class="token punctuation">.</span>normal<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token function">dotProduct</span><span class="token punctuation">(</span><span class="token operator">-</span>Object_To_Light_Direction<span class="token punctuation">,</span> Light_Inter<span class="token punctuation">.</span>normal<span class="token punctuation">)</span> <span class="token operator">/</span> Distance_square <span class="token operator">/</span> Light_PDF<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//L_indir = 0.0</span>
+    Vector3f L_indir <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//Test Russian Roulette with probability RussianRoulette</span>
+    <span class="token comment" spellcheck="true">//俄罗斯轮盘赌</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">get_random_float</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">></span> RussianRoulette<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> L_dir<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//wi = sample(wo, N)</span>
+    Vector3f Object_To_Next_Object <span class="token operator">=</span> Object_Inter<span class="token punctuation">.</span>meterial<span class="token operator">-></span><span class="token function">sample</span><span class="token punctuation">(</span>ray<span class="token punctuation">.</span>direction<span class="token punctuation">,</span> Object_Inter<span class="token punctuation">.</span>normal<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">normalized</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//Trace a ray r(p, wi)</span>
+    Ray Object_To_Next_Ray <span class="token operator">=</span> <span class="token punctuation">{</span> Object_Inter<span class="token punctuation">.</span>coords<span class="token punctuation">,</span> Object_To_Next_Object <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    Intersection nextObjInter <span class="token operator">=</span> <span class="token function">intersect</span><span class="token punctuation">(</span>Object_To_Next_Ray<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//If ray r hit a non-emitting object at q</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>nextObjInter<span class="token punctuation">.</span>happened <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>nextObjInter<span class="token punctuation">.</span>meterial<span class="token operator">-></span><span class="token function">hasEmission</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//L_indir = shade(q, wi) * eval(wo, wi, N) * dot(wi, N) / pdf(wo, wi, N) / RussianRoulette</span>
+        <span class="token keyword">float</span> pdf <span class="token operator">=</span> Object_Inter<span class="token punctuation">.</span>meterial<span class="token operator">-></span><span class="token function">pdf</span><span class="token punctuation">(</span>ray<span class="token punctuation">.</span>direction<span class="token punctuation">,</span> Object_To_Next_Object<span class="token punctuation">,</span> Object_Inter<span class="token punctuation">.</span>normal<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        L_indir <span class="token operator">=</span> <span class="token function">castRay</span><span class="token punctuation">(</span>Object_To_Next_Ray<span class="token punctuation">,</span> depth <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> Object_Inter<span class="token punctuation">.</span>meterial<span class="token operator">-></span><span class="token function">eval</span><span class="token punctuation">(</span>ray<span class="token punctuation">.</span>direction<span class="token punctuation">,</span> Object_To_Next_Object<span class="token punctuation">,</span> Object_Inter<span class="token punctuation">.</span>normal<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token function">dotProduct</span><span class="token punctuation">(</span>Object_To_Next_Object<span class="token punctuation">,</span> Object_Inter<span class="token punctuation">.</span>normal<span class="token punctuation">)</span> <span class="token operator">/</span> pdf <span class="token operator">/</span> RussianRoulette<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment" spellcheck="true">//Return L_dir + L_indir</span>
+    <span class="token keyword">return</span> L_dir <span class="token operator">+</span> L_indir<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="需要迁移的内容见HM6，直接C-V"><a href="#需要迁移的内容见HM6，直接C-V" class="headerlink" title="需要迁移的内容见HM6，直接C/V"></a>需要迁移的内容见HM6，直接C/V</h4><ol start="0">
+<li>Triangle::getIntersection in Triangle.hpp</li>
+<li>IntersectP(const Ray&amp; ray, const Vector3f&amp; invDir, const std::array&lt;int, 3&gt;&amp; dirIsNeg) in the Bounds3.hpp（*<em>注意检查 t_enter = t_exit *</em>）</li>
+<li>getIntersection(BVHBuildNode* node, const Ray ray)inBVH.cpp</li>
+</ol>
+<h4 id="关于多线程"><a href="#关于多线程" class="headerlink" title="关于多线程"></a>关于多线程</h4><p>为了保证数据不产生竞争，需要灵活地使用mutex和锁，同时数据传输也需要进行一次打包防止中断，使用的是std::Thread的部分内容和晚上查阅的材料</p>
+<ol start="0">
+<li><p>关于Render.hpp</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token comment" spellcheck="true">//</span>
+<span class="token comment" spellcheck="true">// Created by goksu on 2/25/20.</span>
+<span class="token comment" spellcheck="true">//</span>
+<span class="token macro property">#<span class="token directive keyword">pragma</span> once</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">"Scene.hpp"</span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;functional></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;queue></span></span>
+
+<span class="token keyword">struct</span> hit_payload
+<span class="token punctuation">{</span>
+    <span class="token keyword">float</span> tNear<span class="token punctuation">;</span>
+    uint32_t index<span class="token punctuation">;</span>
+    Vector2f uv<span class="token punctuation">;</span>
+    Object<span class="token operator">*</span> hit_obj<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">struct</span> Thread_Data_List
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> m<span class="token punctuation">;</span>
+    Vector3f eye_pos<span class="token punctuation">;</span>
+    Vector3f dir<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> depth<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> SPP<span class="token punctuation">;</span>
+    <span class="token keyword">unsigned</span> <span class="token keyword">int</span> id<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">struct</span> Threads
+<span class="token punctuation">{</span>
+    Thread_Data_List Thread_data<span class="token punctuation">;</span>
+    std<span class="token punctuation">:</span><span class="token punctuation">:</span>function<span class="token operator">&lt;</span><span class="token keyword">void</span><span class="token punctuation">(</span>Thread_Data_List<span class="token punctuation">)</span><span class="token operator">></span> Thread_Function<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+class Renderer
+<span class="token punctuation">{</span>
+public<span class="token punctuation">:</span>
+    <span class="token keyword">void</span> <span class="token function">Render</span><span class="token punctuation">(</span><span class="token keyword">const</span> Scene<span class="token operator">&amp;</span> scene<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">CastRayTask</span><span class="token punctuation">(</span>Thread_Data_List<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//多线程相关</span>
+    <span class="token keyword">void</span> <span class="token function">Run</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">void</span> <span class="token function">Add_Thread</span><span class="token punctuation">(</span><span class="token keyword">const</span> Threads<span class="token operator">&amp;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+private<span class="token punctuation">:</span>
+    Scene<span class="token operator">*</span> renderer_scene<span class="token punctuation">;</span>
+    std<span class="token punctuation">:</span><span class="token punctuation">:</span>vector<span class="token operator">&lt;</span>Vector3f<span class="token operator">></span> framebuffer<span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">//多线程相关</span>
+    bool Exit_Thread<span class="token punctuation">;</span>
+    <span class="token keyword">unsigned</span> <span class="token keyword">int</span> Thread_ID<span class="token punctuation">;</span>
+    std<span class="token punctuation">:</span><span class="token punctuation">:</span>queue<span class="token operator">&lt;</span>Threads<span class="token operator">></span> Thread_Queue<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li><p>main函数中的内容更改</p>
-<pre class="line-numbers language-c"><code class="language-c">            <span class="token comment" spellcheck="true">//naive_bezier(control_points, window);</span>
-            <span class="token function">bezier</span><span class="token punctuation">(</span>control_points<span class="token punctuation">,</span> window<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<li><p>对应的.cpp文件</p>
+<pre class="line-numbers language-c"><code class="language-c"><span class="token keyword">void</span> Renderer<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">Render</span><span class="token punctuation">(</span><span class="token keyword">const</span> Scene<span class="token operator">&amp;</span> scene<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    Exit_Thread <span class="token operator">=</span> false<span class="token punctuation">;</span>
+    std<span class="token punctuation">:</span><span class="token punctuation">:</span>vector<span class="token operator">&lt;</span>std<span class="token punctuation">:</span><span class="token punctuation">:</span>thread<span class="token operator">*</span><span class="token operator">></span> threads<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> MAX_THREAD_SIZE<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        std<span class="token punctuation">:</span><span class="token punctuation">:</span>thread<span class="token operator">*</span> t <span class="token operator">=</span> new std<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">thread</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">=</span><span class="token punctuation">]</span> <span class="token punctuation">{</span><span class="token function">Run</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        threads<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    renderer_scene <span class="token operator">=</span> <span class="token punctuation">(</span>Scene<span class="token operator">*</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>scene<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    framebuffer<span class="token punctuation">.</span><span class="token function">resize</span><span class="token punctuation">(</span>scene<span class="token punctuation">.</span>width <span class="token operator">*</span> scene<span class="token punctuation">.</span>height<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">float</span> scale <span class="token operator">=</span> <span class="token function">tan</span><span class="token punctuation">(</span><span class="token function">deg2rad</span><span class="token punctuation">(</span>scene<span class="token punctuation">.</span>fov <span class="token operator">*</span> <span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">float</span> imageAspectRatio <span class="token operator">=</span> scene<span class="token punctuation">.</span>width <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token keyword">float</span><span class="token punctuation">)</span>scene<span class="token punctuation">.</span>height<span class="token punctuation">;</span>
+    Vector3f <span class="token function">eye_pos</span><span class="token punctuation">(</span><span class="token number">278</span><span class="token punctuation">,</span> <span class="token number">273</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">800</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> m <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    Thread_ID <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+    <span class="token comment" spellcheck="true">// change the spp value to change sample ammount</span>
+    <span class="token keyword">int</span> SPP <span class="token operator">=</span> <span class="token number">200</span><span class="token punctuation">;</span>
+    std<span class="token punctuation">:</span><span class="token punctuation">:</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"SPP: "</span> <span class="token operator">&lt;&lt;</span> SPP <span class="token operator">&lt;&lt;</span> <span class="token string">"\n"</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>uint32_t j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> scene<span class="token punctuation">.</span>height<span class="token punctuation">;</span> <span class="token operator">++</span>j<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span>uint32_t i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> scene<span class="token punctuation">.</span>width<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> k <span class="token operator">&lt;</span> SPP<span class="token punctuation">;</span> <span class="token operator">++</span>k<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">// generate primary ray direction</span>
+                <span class="token keyword">float</span> x <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">*</span> <span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token function">get_random_float</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token keyword">float</span><span class="token punctuation">)</span>scene<span class="token punctuation">.</span>width <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> imageAspectRatio <span class="token operator">*</span> scale<span class="token punctuation">;</span>
+                <span class="token keyword">float</span> y <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">-</span> <span class="token number">2</span> <span class="token operator">*</span> <span class="token punctuation">(</span>j <span class="token operator">+</span> <span class="token function">get_random_float</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token keyword">float</span><span class="token punctuation">)</span>scene<span class="token punctuation">.</span>height<span class="token punctuation">)</span> <span class="token operator">*</span> scale<span class="token punctuation">;</span>
+                Vector3f dir <span class="token operator">=</span> <span class="token function">normalize</span><span class="token punctuation">(</span><span class="token function">Vector3f</span><span class="token punctuation">(</span><span class="token operator">-</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+                Thread_Data_List Thread_Data <span class="token operator">=</span> Thread_Data_List<span class="token punctuation">{</span> m<span class="token operator">++</span><span class="token punctuation">,</span> eye_pos<span class="token punctuation">,</span> dir<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> SPP <span class="token punctuation">}</span><span class="token punctuation">;</span>
+                <span class="token keyword">auto</span> Thread_Function <span class="token operator">=</span> std<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>Renderer<span class="token punctuation">:</span><span class="token punctuation">:</span>CastRayTask<span class="token punctuation">,</span> this<span class="token punctuation">,</span> std<span class="token punctuation">:</span><span class="token punctuation">:</span>placeholders<span class="token punctuation">:</span><span class="token punctuation">:</span>_1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                Threads Ready_Thread <span class="token operator">=</span> <span class="token punctuation">{</span> Thread_Data<span class="token punctuation">,</span> Thread_Function <span class="token punctuation">}</span><span class="token punctuation">;</span>
+                <span class="token function">Add_Thread</span><span class="token punctuation">(</span>Ready_Thread<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    Exit_Thread <span class="token operator">=</span> true<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">auto</span><span class="token operator">&amp;</span> t <span class="token punctuation">:</span> threads<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//上一个线程结束后，再开启下一个线程</span>
+        t<span class="token operator">-></span><span class="token function">join</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//后续不变</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> Renderer<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">Add_Thread</span><span class="token punctuation">(</span><span class="token keyword">const</span> Threads<span class="token operator">&amp;</span> t<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>true<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        std<span class="token punctuation">:</span><span class="token punctuation">:</span>unique_lock <span class="token function">Lock</span><span class="token punctuation">(</span>_lock<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>Thread_Queue<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> MAX_QUEUE_SIZE<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Thread_Queue<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            Lock<span class="token punctuation">.</span><span class="token function">unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            _no_empty<span class="token punctuation">.</span><span class="token function">notify_all</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span>
+        <span class="token punctuation">{</span>
+            _no_full<span class="token punctuation">.</span><span class="token function">wait</span><span class="token punctuation">(</span>Lock<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> Renderer<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">Run</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span>true<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//线程上锁防止竞争</span>
+        std<span class="token punctuation">:</span><span class="token punctuation">:</span>unique_lock <span class="token function">Lock</span><span class="token punctuation">(</span>_lock<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>Thread_Queue<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Threads t <span class="token operator">=</span> Thread_Queue<span class="token punctuation">.</span><span class="token function">front</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            Thread_Queue<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            Lock<span class="token punctuation">.</span><span class="token function">unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            t<span class="token punctuation">.</span>Thread_data<span class="token punctuation">.</span>id <span class="token operator">=</span> id<span class="token punctuation">;</span>
+            t<span class="token punctuation">.</span><span class="token function">Thread_Function</span><span class="token punctuation">(</span>t<span class="token punctuation">.</span>Thread_data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment" spellcheck="true">//唤醒</span>
+            _no_full<span class="token punctuation">.</span><span class="token function">notify_all</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>Exit_Thread<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Lock<span class="token punctuation">.</span><span class="token function">unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">break</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span>
+        <span class="token punctuation">{</span>
+            _no_empty<span class="token punctuation">.</span><span class="token function">wait_for</span><span class="token punctuation">(</span>Lock<span class="token punctuation">,</span> std<span class="token punctuation">:</span><span class="token punctuation">:</span>chrono<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">milliseconds</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">void</span> Renderer<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">CastRayTask</span><span class="token punctuation">(</span>Thread_Data_List data<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// ProtoType</span>
+    <span class="token comment" spellcheck="true">// framebuffer[m] += scene.castRay(Ray(eye_pos, dir), 0) / spp;</span>
+    std<span class="token punctuation">:</span><span class="token punctuation">:</span>unique_lock <span class="token function">Lock</span><span class="token punctuation">(</span>_buf_lock<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    framebuffer<span class="token punctuation">[</span>data<span class="token punctuation">.</span>m<span class="token punctuation">]</span> <span class="token operator">+</span><span class="token operator">=</span> renderer_scene<span class="token operator">-></span><span class="token function">castRay</span><span class="token punctuation">(</span><span class="token function">Ray</span><span class="token punctuation">(</span>data<span class="token punctuation">.</span>eye_pos<span class="token punctuation">,</span> data<span class="token punctuation">.</span>dir<span class="token punctuation">)</span><span class="token punctuation">,</span> data<span class="token punctuation">.</span>depth<span class="token punctuation">)</span> <span class="token operator">/</span> data<span class="token punctuation">.</span>SPP<span class="token punctuation">;</span>
+    <span class="token keyword">int</span> line <span class="token operator">=</span> <span class="token punctuation">(</span>Thread_ID<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token punctuation">(</span>renderer_scene<span class="token operator">-></span>width <span class="token operator">*</span> data<span class="token punctuation">.</span>SPP<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    Lock<span class="token punctuation">.</span><span class="token function">unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ol>
-<h2 id="作业5：光线与三角形相交"><a href="#作业5：光线与三角形相交" class="headerlink" title="作业5：光线与三角形相交"></a>作业5：光线与三角形相交</h2><p>（还在慢更中）</p>
+<h2 id="作业8：弹簧质点系统"><a href="#作业8：弹簧质点系统" class="headerlink" title="作业8：弹簧质点系统"></a>作业8：弹簧质点系统</h2><ol start="0">
+<li>[5 分] 提交的格式正确，包含所有必须的文件。代码可以编译和运行。 </li>
+<li>[5 分] 连接绳子约束，正确的构造绳子 </li>
+<li>[5 分] 半隐式欧拉法 </li>
+<li>[5 分] 显式欧拉法 </li>
+<li>[10 分] 显式 Verlet </li>
+<li>[5 分] 阻尼</li>
+</ol>
+<p>（本地代码找不到了，还在重写）</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1891,7 +2296,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">131.7k</span>&nbsp;字
+                class="white-color">134k</span>&nbsp;字
             
             
             
