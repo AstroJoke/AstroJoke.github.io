@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="工科数学分析（一）, AleXandrite">
-    <meta name="description" content="（最后一次更新：7月23日）极限，一元函数的微积分学和级数">
+    <meta name="description" content="（最后一次更新：7月25日）极限，一元函数的微积分学和级数">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -766,14 +766,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    27.7k
+                    29.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    130 分
+                    139 分
                 </div>
                 
 				
@@ -2366,7 +2366,87 @@ $$
 <li><p>补充：Wallice（沃利斯）公式<br>$$<br>\displaystyle\prod_{i=1}^{\infty}[1-\frac{1}{(2i)^2}]=\frac 2\pi<br>$$</p>
 </li>
 </ol>
-<h2 id="函数级数"><a href="#函数级数" class="headerlink" title="函数级数"></a>函数级数</h2><h3 id="函数列与函数项级数的基本概念"><a href="#函数列与函数项级数的基本概念" class="headerlink" title="函数列与函数项级数的基本概念"></a>函数列与函数项级数的基本概念</h3><h3 id="函数序列的一致收敛性"><a href="#函数序列的一致收敛性" class="headerlink" title="函数序列的一致收敛性"></a>函数序列的一致收敛性</h3><h3 id="函数项级数的一致收敛性"><a href="#函数项级数的一致收敛性" class="headerlink" title="函数项级数的一致收敛性"></a>函数项级数的一致收敛性</h3><h3 id="狄利克雷和阿贝尔判别法"><a href="#狄利克雷和阿贝尔判别法" class="headerlink" title="狄利克雷和阿贝尔判别法"></a>狄利克雷和阿贝尔判别法</h3><h3 id="函数项级数和函数的连续性"><a href="#函数项级数和函数的连续性" class="headerlink" title="函数项级数和函数的连续性"></a>函数项级数和函数的连续性</h3><h3 id="函数项级数和函数的可积性"><a href="#函数项级数和函数的可积性" class="headerlink" title="函数项级数和函数的可积性"></a>函数项级数和函数的可积性</h3><h3 id="函数项级数和函数的可微性"><a href="#函数项级数和函数的可微性" class="headerlink" title="函数项级数和函数的可微性"></a>函数项级数和函数的可微性</h3><h3 id="幂级数的收敛区间"><a href="#幂级数的收敛区间" class="headerlink" title="幂级数的收敛区间"></a>幂级数的收敛区间</h3><h3 id="幂级数和函数的性质"><a href="#幂级数和函数的性质" class="headerlink" title="幂级数和函数的性质"></a>幂级数和函数的性质</h3><h3 id="泰勒级数"><a href="#泰勒级数" class="headerlink" title="泰勒级数"></a>泰勒级数</h3><h2 id="傅里叶级数"><a href="#傅里叶级数" class="headerlink" title="傅里叶级数"></a>傅里叶级数</h2><h3 id="傅里叶级数的性质"><a href="#傅里叶级数的性质" class="headerlink" title="傅里叶级数的性质"></a>傅里叶级数的性质</h3><h3 id="傅里叶级数的计算"><a href="#傅里叶级数的计算" class="headerlink" title="傅里叶级数的计算"></a>傅里叶级数的计算</h3><h3 id="傅里叶级数的平方逼近问题"><a href="#傅里叶级数的平方逼近问题" class="headerlink" title="傅里叶级数的平方逼近问题"></a>傅里叶级数的平方逼近问题</h3><h3 id="傅里叶积分和傅里叶变换"><a href="#傅里叶积分和傅里叶变换" class="headerlink" title="傅里叶积分和傅里叶变换"></a>傅里叶积分和傅里叶变换</h3><h3 id="傅里叶变换的计算"><a href="#傅里叶变换的计算" class="headerlink" title="傅里叶变换的计算"></a>傅里叶变换的计算</h3><h3 id="傅里叶变换的性质"><a href="#傅里叶变换的性质" class="headerlink" title="傅里叶变换的性质"></a>傅里叶变换的性质</h3><h3 id="离散傅里叶变换"><a href="#离散傅里叶变换" class="headerlink" title="离散傅里叶变换"></a>离散傅里叶变换</h3><h3 id="快速傅里叶变换"><a href="#快速傅里叶变换" class="headerlink" title="快速傅里叶变换"></a>快速傅里叶变换</h3><h3 id="小波变换初步"><a href="#小波变换初步" class="headerlink" title="小波变换初步"></a>小波变换初步</h3><script>
+<h2 id="函数级数"><a href="#函数级数" class="headerlink" title="函数级数"></a>函数级数</h2><h3 id="函数列与函数项级数的基本概念"><a href="#函数列与函数项级数的基本概念" class="headerlink" title="函数列与函数项级数的基本概念"></a>函数列与函数项级数的基本概念</h3><ol start="0">
+<li><p>定义：设$u(x),n=1,2,3,…$是定义在集合$I$上的函数</p>
+<ol start="0">
+<li>$\displaystyle\sum_{n=1}^\infty u_n(x)=u_1(x)+u_2(x)+…+u_n(x)+…$称为函数级数，其中记$S_n(x)=\displaystyle\sum_{k=1}^nu_k(x)$，则${S_n(x)}$为部分和函数序列；</li>
+<li>设$x_0\in I$，若级数$\displaystyle\sum_{n=1}^\infty u_n(x_0)$收敛，即$\lim\limits_{n\to \infty}S_n(x_0)$存在，则称函数项级数$\displaystyle\sum_{n=1}^\infty u_n(x)$在$x_0$处收敛，否则则在该点处发散；</li>
+<li>级数$\displaystyle\sum_{n=1}^\infty u_n(x)$收敛点构成的集合$E$称为函数项级数的收敛域，发散点集则称为该函数项级数的发散域。</li>
+</ol>
+</li>
+<li><p>求函数项级数的收敛域实际上是将自变量$x$视为参数，应用数项级数收敛判定定理来判定是否收敛</p>
+</li>
+<li><p><strong>讨论</strong>对于函数序列${f_n(x)}$，$f(x)=\lim\limits_{n\to \infty}f_n(x)$</p>
+<ol start="0">
+<li><p>若$f_n(x)(n=1,2,3,…)$在$[a,b]$内连续，则$f(x)$在$[a,b]$内也连续？（不成立）<br>$$<br>\lim\limits_{x\to x_0}f(x)=f(x_0)\Leftrightarrow \lim\limits_{x\to x_0}\lim\limits_{n\to \infty}f_n(x)=\lim\limits_{n\to \infty}\lim\limits_{x\to x_0}f_n(x)？<br>$$</p>
+</li>
+<li><p>若$f_n(x)(n=1,2,3,…)$在$[a,b]$内可积，则$f(x)$在$[a,b]$内也可积？（不成立）<br>$$<br>\int_a^b\lim\limits_{n\to \infty}f_n(x)dx=\lim\limits_{n\to \infty}\int_a^bf_n(x)dx？<br>$$</p>
+</li>
+<li><p>若$f_n(x)(n=1,2,3,…)$在$[a,b]$内可导，则$f(x)$在$[a,b]$内也可导？（不成立）<br>$$<br>f’(x)=\frac d{dx}\lim\limits_{n\to \infty}f_n(x)=\lim\limits_{n\to \infty}(\frac d{dx}f_n(x))？<br>$$</p>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="一致收敛性"><a href="#一致收敛性" class="headerlink" title="一致收敛性"></a>一致收敛性</h3><h4 id="函数序列的一致收敛"><a href="#函数序列的一致收敛" class="headerlink" title="函数序列的一致收敛"></a>函数序列的一致收敛</h4><ol start="0">
+<li><p>定义1（函数序列的逐点收敛）：设函数序列${f_n(x)}$，任意选取$x_0\in I$，若数列${f_n(x)}$收敛到$f(x_0)$，则称函数序列${f_n(x)}$在$I$上逐点收敛<br>$$<br>\forall x_0\in I,\forall \varepsilon&gt;0,\exists N(\varepsilon,x_0)\in \mathbb N ^ * , \forall n&gt;N:|f_n(x_0)-f(x_0)|&lt;\varepsilon<br>$$</p>
+</li>
+<li><p>定义2（函数序列的一致收敛）：设函数序列${f_n(x)}$定义在$I$上，若对于任意$\varepsilon&gt;0$，存在仅和$\varepsilon$有关的自然数$N(\varepsilon)&gt;0$，当$n&gt;N$时，对于任意$x\in I$有$|f_n(x_0)-f(x_0)|&lt;\varepsilon$成立，则称函数序列${f_n(x)}$在$I$上一致收敛于$f(x)$，记为$f_n(x)\stackrel{uni}\longrightarrow f(x)$<br>$$<br>\forall \varepsilon&gt;0,\exists N(\varepsilon)\in \mathbb N ^ * , \forall n&gt;N,\forall x\in I :|f_n(x)-f(x)|&lt;\varepsilon<br>$$<br>其否定义为<br>$$<br>\exists \varepsilon_0&gt;0,\forall  N\in \mathbb N ^ * , \exists n_0&gt;N,\exists x_0 \in I :|f_{n_0}(x_0)-f(x_0)|\geq\varepsilon_0<br>$$</p>
+</li>
+<li><p>若$\lim\limits_{n\to \infty}f_n(x)=f(x),|f_n(x)-f(x)|\leq \alpha_n, n\in \mathbb N ^ * ,\lim\limits_{n\to \infty}\alpha_n=0$，则有函数序列${f_n(x)}$一致收敛于$f(x)$</p>
+</li>
+<li><p>余项定理：函数序列${f_n(x)}$在$I$上一致连续于$f(x)$的充要条件为<br>$$<br>\beta_n=\sup|f_n(x)-f(x)|(n\in \mathbb N ^ * ),\lim\limits_{n\to \infty}\beta_n=0<br>$$</p>
+</li>
+<li><p>逐点收敛的柯西定理：函数序列逐点收敛充要条件为<br>$$<br>\forall x_0\in I,\forall N(x_0,\varepsilon)\in \mathbb N ^ * ,\forall n&gt;N,\forall p\in \mathbb N^ *:|f_n(x_0)-f_{n+p}(x_0)|&lt;\varepsilon<br>$$</p>
+</li>
+<li><p>一致收敛的柯西定理：函数序列${f_n(x)}$在$I$上一致收敛的充要条件是：任给$\varepsilon&gt;0$，存在仅和$\varepsilon$有关的自然数$N(\varepsilon)$，当$n&gt;N$时，对任意的$p\in \mathbb N ^ *$，有$|f_n(x)-f_{n+p}(x)|&lt;\varepsilon$对一切$x\in I$成立<br>$$<br>\forall \varepsilon&gt;0,\exists N(\varepsilon)\in \mathbb N ^ * , \forall n&gt;N,\forall p\in \mathbb N ^ * ,\forall x\in I :|f_n(x)-f_{n+p}(x)|&lt;\varepsilon<br>$$</p>
+</li>
+</ol>
+<h4 id="函数项级数的一致收敛"><a href="#函数项级数的一致收敛" class="headerlink" title="函数项级数的一致收敛"></a>函数项级数的一致收敛</h4><ol start="0">
+<li><p>定义：函数项级数$\displaystyle\sum_{n=1}^\infty u_n(x)$，$S_n(x)=\displaystyle\sum_{k=1}^n u_k(x)$，若${S_n(x)}$在$I$上一致收敛于$S(x)$，则称$\displaystyle\sum_{n=1}^\infty u_n(x)$在$I$上一致收敛于$S(x)$</p>
+</li>
+<li><p>函数项级数一致收敛柯西定理：$\displaystyle\sum_{n=1}^\infty u_n(x)$在$I$上一致收敛的充要条件<br>$$<br>\forall \varepsilon &gt;0, \exists N(\varepsilon)\in \mathbb N^ * ,\forall n&gt;N , \forall p\in \mathbb N ^ * ,\forall x\in I:|u_{n+1}(x)+…+u_{n+p}(x)|&lt;\varepsilon<br>$$<br>推论：设$\displaystyle\sum_{n=1}^\infty u_n(x)$在$I$上一致连续，则函数列${u_n(x)}$在$I$上一致收敛于0（逆否命题也成立）</p>
+<p>不一致收敛的充要条件<br>$$<br>\exists \varepsilon_0&gt;0,\forall N\in \mathbb N^ * ,\exists n_0&gt;N,\exists p_0\in \mathbb N^ * ,\exists x_0\in I:|u_{n_0+1}(x_0)+…+u_{n_0+p_0}(x_0)\geq \varepsilon_0|<br>$$</p>
+</li>
+<li><p>魏尔斯特拉斯判别法：若存在正项收敛级数$\displaystyle\sum_{n=1}^\infty a_n$使得当$x\in I$时有$|u_n(x)|\leq a_n,n= 1,2,…$，则$\displaystyle\sum_{n=1}^\infty u_n(x)$在$I$上一致收敛</p>
+<p>推论：若$|u_n(x)|\leq a_n(x),n=1,2,3,…$且$\displaystyle\sum_{n=1}^\infty a_n(x)$一致收敛，该结论依旧成立。（亦称优先判别法，将$a_n$对应的级数称为$u_n(x)$对应级数的优级数）</p>
+</li>
+</ol>
+<h3 id="狄利克雷和阿贝尔判别法"><a href="#狄利克雷和阿贝尔判别法" class="headerlink" title="狄利克雷和阿贝尔判别法"></a>狄利克雷和阿贝尔判别法</h3><ol start="0">
+<li><p>函数序列的逐点有界：设${f_n(x)}$定义在$I$上，若给定$x\in I$，存在$M(x)&gt;0$，使得$|f_n(x)|\leq M(x)$对$n=1,2,…$成立，则称${f_n(x)}$在$I$上逐点有界<br>$$<br>\forall x\in I,\exists M(x):|f_n(x)|\leq M(x),\forall n\in \mathbb N ^ *<br>$$<br>注：已知一个数列收敛必有界，因此一个函数序列收敛必逐点有界</p>
+</li>
+<li><p>函数列的一致有界：若存在$M^<em>&gt;0$使得$|f_n(x)|\leq M^</em>$对一切$x\in I,n=1,2,…$成立，则称${f_n(x)}$在$I$上一致有界<br>$$<br>\exists M <em>&gt;0,\forall n\in \mathbb N ^ *,\forall x\in I:|f_n(x)\leq M^</em>|<br>$$</p>
+</li>
+<li><p>阿贝尔引理：<br>$$<br>|\displaystyle\sum_{k=1}^na_kb_k|\leq M(|b_1|+2|b_n|)<br>$$</p>
+</li>
+</ol>
+<h4 id="狄利克雷判别法"><a href="#狄利克雷判别法" class="headerlink" title="狄利克雷判别法"></a>狄利克雷判别法</h4><p>若$\displaystyle\sum_{n=1}^\infty a_n(x)b_n(x)$满足下列条件</p>
+<ol start="0">
+<li>${b_n(x)}$对固定的$x\in I$单调且在$I$上一致收敛于0</li>
+<li>$\displaystyle\sum_{n=1}^\infty a_n(x)$的部分和函数列${S_k(x)}$在$I$上一致有界：$\exists M&gt;0,\forall x\in I,|S_k(x)|\leq M,k=1,2,3,…$</li>
+</ol>
+<p>则$\displaystyle\sum_{n=1}^\infty a_n(x)b_n(x)$在$I$上一致收敛</p>
+<h4 id="阿贝尔判别法"><a href="#阿贝尔判别法" class="headerlink" title="阿贝尔判别法"></a>阿贝尔判别法</h4><p>若$\displaystyle\sum_{n=1}^\infty a_n(x)b_n(x)$满足下列条件</p>
+<ol start="0">
+<li>${b_n(x)}$对固定的$x\in I$单调且在$I$上一致有界</li>
+<li>$\displaystyle\sum_{n=1}^\infty a_n(x)$在$I$上一致收敛</li>
+</ol>
+<p>则$\displaystyle\sum_{n=1}^\infty a_n(x)b_n(x)$在$I$上一致收敛</p>
+<h3 id="函数项级数和函数的性质"><a href="#函数项级数和函数的性质" class="headerlink" title="函数项级数和函数的性质"></a>函数项级数和函数的性质</h3><h4 id="连续性"><a href="#连续性" class="headerlink" title="连续性"></a>连续性</h4><ol start="0">
+<li><p>基本问题——和函数是否连续：若$f_n(x)(n=1,2,3,…)$在$[a,b]$内连续，则$f(x)$在$[a,b]$内是否连续<br>$$<br>\lim\limits_{x\to x_0}f(x)=f(x_0)\Leftrightarrow \lim\limits_{x\to x_0}\lim\limits_{n\to \infty}f_n(x)=\lim\limits_{n\to \infty}\lim\limits_{x\to x_0}f_n(x)<br>$$</p>
+</li>
+<li><p>函数序列极限函数的连续性：若$f_n(x)(n=1,2,3,…)$在$I$内连续，且${f_n(x)}$在$I$上一致收敛于$f(x)$，则$f(x)$在$I$上连续，且$\lim\limits_{x\to x_0}（\lim\limits_{n\to \infty}f_n(x)）=\lim\limits_{n\to \infty}（\lim\limits_{x\to x_0}f_n(x)）,\forall x_0\in I$</p>
+<p>注：当$x_0$为有限边界点时结论成立，则边界点相应的是左右连续的</p>
+</li>
+<li><p>函数项级数的连续性：设$u_n(x),n=1,2,…$在$I$上连续，函数项级数$\displaystyle\sum_{n=1}^\infty u_n(x)$在$I$上一致收敛于$S(x)$，则$S(x)$在$I$上连续，$\lim\limits_{x\to x_0}S(x)=S(x_0)$，即<br>$$<br>\lim\limits_{x\to x_0}(\displaystyle\sum_{n=1}^\infty u_n(x))=\displaystyle\sum_{n=1}^\infty(\lim\limits_{x\to x_0}u_n(x)),\forall x_0\in I<br>$$<br>注：当$x_0$为有限边界点时结论成立，则边界点相应的是左右连续的</p>
+<ol start="0">
+<li>推论：设$f_n(x),n=1,2,3,…$在$I$上连续，且$\lim\limits_{n\to \infty}f_n(x)=f(x)$，且$f(x)$在$I$上不连续，则${f_n(x)}$在$I$上不一致收敛</li>
+<li>推论：设$u_n(x),n=1,2,3,…$在$I$上连续，$\displaystyle\sum_{n=1}^\infty u_n(x)$在$I$上收敛于$S(x)$，$S(x)$在$I$上不连续，则$\displaystyle\sum_{n=1}^\infty u_n(x)$不一致收敛于$S(x)$</li>
+</ol>
+</li>
+<li><p>内闭一致收敛：</p>
+</li>
+</ol>
+<h4 id="可积性"><a href="#可积性" class="headerlink" title="可积性"></a>可积性</h4><h4 id="可微性"><a href="#可微性" class="headerlink" title="可微性"></a>可微性</h4><h3 id="幂级数的及其收敛区间"><a href="#幂级数的及其收敛区间" class="headerlink" title="幂级数的及其收敛区间"></a>幂级数的及其收敛区间</h3><h3 id="幂级数和函数的性质"><a href="#幂级数和函数的性质" class="headerlink" title="幂级数和函数的性质"></a>幂级数和函数的性质</h3><h3 id="泰勒级数"><a href="#泰勒级数" class="headerlink" title="泰勒级数"></a>泰勒级数</h3><h2 id="傅里叶级数"><a href="#傅里叶级数" class="headerlink" title="傅里叶级数"></a>傅里叶级数</h2><h3 id="傅里叶级数的性质"><a href="#傅里叶级数的性质" class="headerlink" title="傅里叶级数的性质"></a>傅里叶级数的性质</h3><h3 id="傅里叶级数的计算"><a href="#傅里叶级数的计算" class="headerlink" title="傅里叶级数的计算"></a>傅里叶级数的计算</h3><h3 id="傅里叶级数的平方逼近问题"><a href="#傅里叶级数的平方逼近问题" class="headerlink" title="傅里叶级数的平方逼近问题"></a>傅里叶级数的平方逼近问题</h3><h3 id="傅里叶积分和傅里叶变换"><a href="#傅里叶积分和傅里叶变换" class="headerlink" title="傅里叶积分和傅里叶变换"></a>傅里叶积分和傅里叶变换</h3><h3 id="傅里叶变换的计算"><a href="#傅里叶变换的计算" class="headerlink" title="傅里叶变换的计算"></a>傅里叶变换的计算</h3><h3 id="傅里叶变换的性质"><a href="#傅里叶变换的性质" class="headerlink" title="傅里叶变换的性质"></a>傅里叶变换的性质</h3><h3 id="离散傅里叶变换"><a href="#离散傅里叶变换" class="headerlink" title="离散傅里叶变换"></a>离散傅里叶变换</h3><h3 id="快速傅里叶变换"><a href="#快速傅里叶变换" class="headerlink" title="快速傅里叶变换"></a>快速傅里叶变换</h3><h3 id="小波变换初步"><a href="#小波变换初步" class="headerlink" title="小波变换初步"></a>小波变换初步</h3><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -2857,7 +2937,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">136.5k</span>&nbsp;字
+                class="white-color">138.4k</span>&nbsp;字
             
             
             
