@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://astrojoke.github.io/"/>
-  <updated>2020-07-19T11:57:15.501Z</updated>
+  <updated>2020-10-01T08:02:20.750Z</updated>
   <id>https://astrojoke.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>操作系统总结</title>
+    <link href="https://astrojoke.github.io/2020/10/01/cao-zuo-xi-tong-zong-jie/"/>
+    <id>https://astrojoke.github.io/2020/10/01/cao-zuo-xi-tong-zong-jie/</id>
+    <published>2020-10-01T04:16:36.000Z</published>
+    <updated>2020-10-01T08:02:20.750Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;以下内容是近期复习操作系统的整理，用于随时随地自己复习，欢迎各位提出错误并指正。&lt;/p&gt;
+&lt;h2 id=&quot;操作系统概述&quot;&gt;&lt;a href=&quot;#操作系统概述&quot; class=&quot;headerlink&quot; title=&quot;操作系统概述&quot;&gt;&lt;/a&gt;操作系统概述&lt;/h2&gt;&lt;h3
+        
+      
+    
+    </summary>
+    
+    
+      <category term="计算机基础知识" scheme="https://astrojoke.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
+    
+    
+      <category term="操作系统" scheme="https://astrojoke.github.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>GAMES-101HW代码归档</title>
@@ -166,7 +194,7 @@
     <link href="https://astrojoke.github.io/2020/05/02/overview-of-computer-graphics/"/>
     <id>https://astrojoke.github.io/2020/05/02/overview-of-computer-graphics/</id>
     <published>2020-05-02T06:02:50.000Z</published>
-    <updated>2020-05-07T08:50:48.325Z</updated>
+    <updated>2020-10-19T16:00:34.931Z</updated>
     
     <summary type="html">
     
@@ -580,38 +608,6 @@
         
         
           &lt;p&gt;今天是字符串的入门题，字符串的题学习建议使用cpp的stl中的string，虽然STL又名sometime time
-        
-      
-    
-    </summary>
-    
-    
-      <category term="算法和程序设计" scheme="https://astrojoke.github.io/categories/%E7%AE%97%E6%B3%95%E5%92%8C%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/"/>
-    
-    
-      <category term="编程算法题解" scheme="https://astrojoke.github.io/tags/%E7%BC%96%E7%A8%8B%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/"/>
-    
-      <category term="洛谷" scheme="https://astrojoke.github.io/tags/%E6%B4%9B%E8%B0%B7/"/>
-    
-      <category term="入门" scheme="https://astrojoke.github.io/tags/%E5%85%A5%E9%97%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>洛谷官方题单——数组题解（部分水题警告）</title>
-    <link href="https://astrojoke.github.io/2020/04/14/luo-gu-guan-fang-ti-dan-shu-zu-ti-jie-bu-fen-shui-ti-jing-gao/"/>
-    <id>https://astrojoke.github.io/2020/04/14/luo-gu-guan-fang-ti-dan-shu-zu-ti-jie-bu-fen-shui-ti-jing-gao/</id>
-    <published>2020-04-14T11:36:38.000Z</published>
-    <updated>2020-04-24T13:40:01.925Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;今天之后，题目会开始变得困难了一些，但是就现在为止还是抵挡不住我们的刷题节奏。废话不多说，直接开搞。&lt;/p&gt;
-&lt;h2 id=&quot;题目0：小鱼比可爱&quot;&gt;&lt;a href=&quot;#题目0：小鱼比可爱&quot; class=&quot;headerlink&quot;
         
       
     

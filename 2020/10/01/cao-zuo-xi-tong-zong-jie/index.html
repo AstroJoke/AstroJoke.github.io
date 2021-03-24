@@ -1,0 +1,1773 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="操作系统总结, AleXandrite">
+    <meta name="description" content="操作系统的知识点整理">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>操作系统总结 | AleXandrite</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <script src="/libs/jquery/jquery.min.js"></script>
+    
+<style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+        .loading-text{
+            font-size: 1.5rem;
+    }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+</style>
+<script>
+(function () {
+    const loaded = function(){
+        setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+            // document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },1000); 
+        },1000);//强制显示loading page 1s  
+    };
+    loaded();
+})()
+ </script><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="AleXandrite" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+        .loading-text{
+            font-size: 1.5rem;
+    }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+</style>
+<script>
+(function () {
+    const loaded = function(){
+        setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+            // document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },1000); 
+        },1000);//强制显示loading page 1s  
+    };
+    loaded();
+})()
+ </script></head>
+
+
+
+ <div id="loading-container">
+     <p class="loading-text">玩命加载中 . . . </p> 
+     <div class="loading-image">
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div> 
+         <div></div>
+     </div>
+ </div><body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">AleXandrite</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle-o" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>Medias</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Musics</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/movies">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Movies</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Books</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Galleries</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">AleXandrite</div>
+        <div class="logo-desc">
+            
+            To share and record something
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle-o"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			Medias
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>   
+				
+                  <a href="/musics " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Musics</span>
+                  </a>
+                </li>
+              
+                <li>   
+				
+                  <a href="/movies " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Movies</span>
+                  </a>
+                </li>
+              
+                <li>   
+				
+                  <a href="/books " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-book" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Books</span>
+                  </a>
+                </li>
+              
+                <li>   
+				
+                  <a href="/galleries " style="margin-left:75px";>
+				  
+				   <i class="fa fas fa-image" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Galleries</span>
+                  </a>
+                </li>
+               
+            </ul>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">操作系统总结</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                                <span class="chip bg-color">操作系统</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="post-category">
+                                计算机基础知识
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-10-01
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.8k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    17 分
+                </div>
+                
+				
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+            
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>以下内容是近期复习操作系统的整理，用于随时随地自己复习，欢迎各位提出错误并指正。</p>
+<h2 id="操作系统概述"><a href="#操作系统概述" class="headerlink" title="操作系统概述"></a>操作系统概述</h2><h3 id="操作系统的概念相关"><a href="#操作系统的概念相关" class="headerlink" title="操作系统的概念相关"></a>操作系统的概念相关</h3><h4 id="操作系统的概念"><a href="#操作系统的概念" class="headerlink" title="操作系统的概念"></a>操作系统的概念</h4><p>出于严谨，此处需要声明，操作系统的概念实际上并没有明确的定义。</p>
+<p>定义：操作系统是管理计算机硬件的程序，因其为应用程序提供了基础，并且充当了计算机用户和硬件的中介。</p>
+<p>也有部分书籍进行了总结：操作系统是指控制和管理整个计算机系统的硬件和软件资源，合理的组织，调度计算机的工作资源分配，进而为用户和其他的软件提供方便快捷的接口和环境程序的集合。</p>
+<p>引用原文（《OSC》）</p>
+<blockquote>
+<p>In general, we have no completely adequate definition of an operating system.</p>
+<p>Operating systems exist because they offer a reasonable way to solve the problem of creating a usable computing system. The fundamental goal of computer systems is to execute programs and to make solving user problems easier. </p>
+<p>The common functions of controlling and allocating resources are then brought together into one piece of software: the operating system. </p>
+<p>In addition, we have no universally accepted definition of what is part of the operating system. A simple viewpoint is that <strong>it includes everything a vendor ships when you order “the operating system.”</strong></p>
+<p>A more common definition, and the one that we usually follow, is that the operating system is the one program running at all times on the computer—usually called the kernel. Along with the <strong>kernel</strong>, there are two other types of programs: system programs, which are associated with the operating system but are not necessarily part of the kernel, and application programs, which include all programs not associated with the operation of the system. </p>
+</blockquote>
+<h4 id="操作系统的特征"><a href="#操作系统的特征" class="headerlink" title="操作系统的特征"></a>操作系统的特征</h4><ol start="0">
+<li>并发（concurrence）：两个或多个时间在同一时间段内/时间间隔内发生；注意与并行（parallel）（指两个或多个事件在同一时间点/时刻内发生）的区别；</li>
+<li>共享（share）：指同一内存在某一时刻同时被多个进程使用，使用途径包括”互斥共享方式“和”同时访问方式“。注意资源共享是以程序的并发为前提的，而对共享的处理会反过来影响并发；</li>
+<li>虚拟（virtualization）：将物理上的关系通过一种映射关系使之对于OS呈现另外一种关系的过程，使用的技术包括但不限于虚拟处理器，虚拟内存和虚拟外部设备，对其的使用分为时分复用和空分复用</li>
+<li>异步（Asynchronies）：进程并发导致其执行速率的无法预知</li>
+</ol>
+<h4 id="功能及服务"><a href="#功能及服务" class="headerlink" title="功能及服务"></a>功能及服务</h4><p>引用OSC的部分原文</p>
+<ol start="0">
+<li><p>关于用户视角</p>
+<blockquote>
+<p>User View </p>
+<p>The user’s view of the computer varies according to the interface being used.  The goal is to maximize the work or play that the user is performing. </p>
+<p>In this case, the operating system is designed mostly for ease of use, with some attention paid to performance and security and <strong>none</strong> paid to resource utilization—how various hardware and software resources are shared.</p>
+</blockquote>
+</li>
+<li><p>关于系统视角 </p>
+<blockquote>
+<p>System View</p>
+<p>From the computer’s point of view, the operating system is the program most intimately involved with the hardware. </p>
+<p>In this context, we can view an operating system as a resource allocator. A computer system has many resources that may be required to solve a problem: CPU time, memory space, storage space, I/O devices, and soon.</p>
+<p>The operating system acts as the manager of these resources. Facing numerous and possibly conflicting requests for resources, the operating system must decide how to allocate them to specific programs and users so that it can operate the computer system efficiently and fairly.</p>
+<p>A slightly different view of an operating system <strong>emphasizes the need to control the various I/O devices and user programs</strong>.</p>
+<p>An operating system is a control program which manages the execution of user programs to prevent errors and improper use of the computer. It is especially concerned with the operation and control of I/O devices.</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="操作系统的发展和分类"><a href="#操作系统的发展和分类" class="headerlink" title="操作系统的发展和分类"></a>操作系统的发展和分类</h3><ol start="0">
+<li>手工（带孔纸带）：繁琐，资源利用率低且对CPU的使用不充分</li>
+<li>批处理系统：<ol start="0">
+<li>单道批处理：虽然能够自动，且能够顺序运行，且具备单道性，但是其资源利用率依旧较低，且吞吐率低</li>
+<li>多道批处理：虽然多道能够实现宏观并行微观串行，资源利用率高且吞吐量大，但是由于用户响应过场且无人机交互</li>
+</ol>
+</li>
+<li>分时操作系统：能够实现同时，交互，独立且及时</li>
+<li>实时操作系统：其由软实时和硬实时，由于内容篇幅较大故省略</li>
+<li>如今的网络操作系统，分布式操作系统和PC操作系统：同上</li>
+</ol>
+<h3 id="操作系统的运行环境"><a href="#操作系统的运行环境" class="headerlink" title="操作系统的运行环境"></a>操作系统的运行环境</h3><ol start="0">
+<li>现代OS是以中断驱动的：OS执行的事件总是由trap和interrupt引起的。其中陷阱（trap）（或异常exception）是有<strong>软件</strong>生成的中断：其或源于<strong>出错</strong>，或源于程序的特定请求。</li>
+<li>双重模式：指用户模式和内核模式（user/kernel mode）（模式为为1/0）<ol start="0">
+<li>作用：保护作用——防止OS和用户程序受到其他错误的用户程序的影响</li>
+<li>实现：将可能对机器造成损害的机器指令作为特权指令，且对硬件仅在内核模式才可以执行特权指令</li>
+</ol>
+</li>
+<li>系统调用：为用户提供手段，以请求OS完成某些特定任务，其通常会陷入中断向量的某个特定的位置，同时硬件将其视为<strong>软件中断</strong>。</li>
+<li>定时器：指设定在指定周期自中断的计算器，其中可变定时器铜鼓一个固定速率的时钟和计数器实现。</li>
+<li>中断处理：关中断-&gt;保存断点-&gt;中断服务寻址-&gt;保存现场和屏蔽字-&gt;开中断-&gt;执行中断服务程序-&gt;关中断-&gt;恢复现场-&gt;开中断-&gt;中断返回</li>
+</ol>
+<h3 id="操作系统的体系结构"><a href="#操作系统的体系结构" class="headerlink" title="操作系统的体系结构"></a>操作系统的体系结构</h3><ol start="0">
+<li><p>简单结构（例如MS-DOS和传统的UNIX）<br>$$<br>\quad<br>\begin{CD}<br>APP @&gt;^{}&gt;&gt; ROM\<br>@V^{}VV\<br>常驻系统程序 @&gt;^{}&gt;&gt; BIOS设备\<br>@V^{}VV\<br>设备驱动 @&gt;^{}&gt;&gt; 驱动<br>\end{CD}<br>$$</p>
+</li>
+<li><p>分层方法（图略，后期补上）</p>
+</li>
+<li><p>微内核：从kernel中删除所有不是必要的不捡，而将其视作系统级和用户级的实现，其主要功能是提供<strong>通信</strong>：通过消息传递为客户端程序和运行在用户控件中各种服务提供通信。其优点是方便扩展且有更好的安全性和可靠性，但是使用微内核可能导致新能受损</p>
+</li>
+<li><p>模块：可加载的内核模块（loadable kernel module），讷河中由一族核心组件，无论启动或者运行，均可通过模块链接进其他的服务</p>
+</li>
+<li><p>混合系统</p>
+</li>
+</ol>
+<h2 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h2><h3 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h3><ol start="0">
+<li>进程：用于称呼所有的CPU活动（例如任务，作业等）这一相似集合的名称</li>
+<li>进程的非正式定义：执行中的程序，其包括代码段（文本段），也包括了程序计数器PC的值等当前活动，通常的进程可能与同一进程族关联</li>
+<li>进程控制块（PCB)：是唯一代表进程的数据结构，包括但不限于有：进程状态，PC，CPU，寄存器，CPU的调度信息，内存管理信息，I/O状态信息和记录（记账）信息</li>
+<li>进程的特征：动态并发独立异步结构。</li>
+</ol>
+<h4 id="进程状态和转换："><a href="#进程状态和转换：" class="headerlink" title="进程状态和转换："></a>进程状态和转换：</h4><p>$$<br>\begin{CD}<br> new \stackrel{allow}\longrightarrow ready\ \ \ \ \ \ \ \ \ \   \stackrel{schedule}{\rightleftharpoons} \ \ \ \ \ \ \ \ \ \ run \stackrel{exit}\longrightarrow End\<br>\ \ \ \ \ \ \stackrel{I/O\ or\ task\ finish}\nwarrow\ \ \stackrel{I/O\ or\ task\ wait} \swarrow \<br>\ \ \  wait\<br>\end{CD}<br>$$</p>
+<h4 id="进程控制和调度"><a href="#进程控制和调度" class="headerlink" title="进程控制和调度"></a>进程控制和调度</h4><ol start="0">
+<li><p>进程调度器：将可用进程集合中选择一个到CPU上运行</p>
+</li>
+<li><p>调度队列</p>
+<ol start="0">
+<li>进程在进入系统是会被加到<strong>作业队列</strong>中，就绪队列上包括系统内的所有进程，驻留在内存中的就绪或等待运行的进程。其通过链表来实现</li>
+<li>设备队列：等待I/O设备的进程列表</li>
+<li>进程调度采用队列图<ol start="0">
+<li>新进程：加入就绪队列</li>
+<li>等待进程：直至被选中执行或者被分派</li>
+<li>运行进程：<ol start="0">
+<li>I/O请求后进入I/O队列</li>
+<li>创建一个新的子进程，等待被中值</li>
+<li>由于时间片用完等中断而强制释放CPU，重回就绪队列</li>
+</ol>
+</li>
+<li>循环终止：从所有队列删除，资源释放</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>调度程序：进程通过适当调度器或调度程序来执行</p>
+<ol start="0">
+<li>批处理系统：长期调度程序/作业调度程序从缓冲池选择进程加载内存以便执行；而短期调度程序/CPU调度程序从内存中的进程选择一个并分配CPU。两者区别分别是短期调度必须经常为CPU选择新的进程，而长期调度程序控制<strong>多道程序调度</strong>且I/O密集和CPU密集的合理进程组合</li>
+<li>分式系统：引入额外的中期调度程序——核心是<strong>将进程从内存中移出，降低多道程序</strong>后<strong>进程可被重新调入内存你，并从中断处继续执行</strong>（亦称<strong>交换</strong>）</li>
+</ol>
+</li>
+<li><p>上下文切换：中断时，OS需要保存保存当前运行在CPU上进程的<strong>上下文</strong>，之后进行恢复。其采用PCB表示（状态保存或状态恢复）（挂起进程-&gt;恢复进程）</p>
+<p>定义：A进程保存当前状态，再回复B进程的状态的过程</p>
+</li>
+<li><p>进程运行：</p>
+<ol start="0">
+<li>进程创建：<ol start="0">
+<li>创建进程的进程称为父进程，新进程为子进程，如此递归得到了一个进程树；</li>
+<li>识别进程：通过创建进程获得的进程ID（pid）（注意和PCB的区别，pid负责识别，而PCB负责辨别）</li>
+<li>子进程资源：从父进程或者系统处获得</li>
+<li>创建子进程时<ol start="0">
+<li>父进程和子进程进行并行/并发；</li>
+<li>父进程等待直至子进程执行完；</li>
+</ol>
+</li>
+<li>地址空间：“子进程为父进程的复制品”（即共享地址空间）或“子进程获得新的地址空间”</li>
+</ol>
+</li>
+<li>进程终止：<ol start="0">
+<li>原因<ol start="0">
+<li>子进程使用完了其所分配的资源</li>
+<li>分配给子进程的任务结束</li>
+<li>父进程推出且操作系统不允许孤儿进程的存在（称为级联终止）</li>
+</ol>
+</li>
+<li>僵尸进程：进程终止且子进程未被wait()；</li>
+<li>孤儿进程：父进程终止且父进程未被wait();</li>
+</ol>
+</li>
+<li>进程阻塞与唤醒：主要内容是上下文切换过程</li>
+<li>进程切换见上面的交换图。</li>
+<li>等待队列push/pop的是进程的PCB</li>
+</ol>
+</li>
+</ol>
+<h4 id="进程组织"><a href="#进程组织" class="headerlink" title="进程组织"></a>进程组织</h4><p>进程 = PCB + 代码段 + 数据段（指原始数据或者中间数据）</p>
+<h4 id="进程间通信"><a href="#进程间通信" class="headerlink" title="进程间通信"></a>进程间通信</h4><ol start="0">
+<li><p>独立进程：进程A不影响除A以外的其他进程，同时也不会被其他进程影响</p>
+</li>
+<li><p>协作进程：对“独立进程”取非</p>
+</li>
+<li><p>进程协作的优点：信息共享，加速，模块化，方案</p>
+</li>
+<li><p>进程间通信的方式和内容</p>
+<ol start="0">
+<li><p>共享内存：指多个将同一快内存纳入自己地址空间的行为；建立共享内存区域时需要进行系统调用</p>
+</li>
+<li><p>消息传递（消息队列）：允许进程不必通过共享地址空间来实现通信和同步，若进程A,B需要通信，则他们必须互相发送消息和接受信息——建立通信链路。</p>
+<p>其逻辑实现包括：直接通信，间接通信，同步通信，异步通信，自动缓冲和显式缓冲</p>
+<ol start="0">
+<li><p>直接通信：</p>
+<ol start="0">
+<li><p>命名—对称：send(P1, message); receive(P2, message); </p>
+<p>​        非对称：send(P1, message); receive(ID, message);</p>
+</li>
+<li><p>属性：</p>
+<ol start="0">
+<li>进程间建立了链路</li>
+<li>每个链路对应着惟一的映射</li>
+<li>每对进程间具有唯一的链路</li>
+</ol>
+</li>
+<li><p>对称和非对称的缺点：生成进程定义的有限模块化，导致硬编码偏大，不便于后续的修改</p>
+</li>
+</ol>
+</li>
+<li><p>间接通信：通过“邮箱”和“端口</p>
+<ol start="0">
+<li>命名：send(mail, message)；receive(mail, message)</li>
+<li>特点：<ol start="0">
+<li>共享同一邮箱才能建立链路</li>
+<li>同一链路关联多个进程</li>
+<li>两个进程间可以存在多个不同的链路</li>
+</ol>
+</li>
+<li>邮箱来源：OS提供进程用来创建邮箱，通过邮箱发送和接受信息和删除邮箱</li>
+</ol>
+</li>
+<li><p>同步（阻塞/非阻塞）（同步/异步）</p>
+<ol start="0">
+<li>阻塞发送：发送进程阻塞，直至信息由接收进程所接受</li>
+<li>非阻塞发送：发送进程发送后立马恢复</li>
+<li>阻塞接收：接收进程阻塞直至消息可用</li>
+<li>非阻塞接收：接收进程持续受到有效信息和空信息的其中一种</li>
+<li>若阻塞发送和阻塞接受结合，则发生交会</li>
+</ol>
+</li>
+<li><p>缓存：</p>
+<ol start="0">
+<li>无缓冲：阻塞发送</li>
+<li>有限缓冲<ol start="0">
+<li>发送队列未满：非阻塞发送</li>
+<li>发送队列满：阻塞发送</li>
+</ol>
+</li>
+<li>无限缓冲：非阻塞发送</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>管道：允许两个进程进行通信</p>
+<ol start="0">
+<li>普通管道：允许两个进程按照生产者-消费者模型进行通信：生产者向管道的一端写，消费者从管道另外一端读<ol start="0">
+<li>单向管道仅允许单项通信，若要实现双工，则需要两条管道，且数据流动方向相反</li>
+<li>普通管道由进程创建且只能由创建进程访问。一般情况：父进程创建且向其子进程访问</li>
+<li>在WindowsOS中，其又名匿名管道</li>
+<li>无论在那个系统，普通管道仅仅只能在同一机器内的进程通信</li>
+</ol>
+</li>
+<li>命名管道<ol start="0">
+<li>FIFO</li>
+<li>可单向也可半双工</li>
+<li>父子要求不再是必要条件</li>
+<li>建立一个命名管道后，多个进程均可用它通信</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h3><p>线程CPU使用的基本单元，包括线程ID，线程PC，线程寄存机组合线程堆栈</p>
+<h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><ol start="0">
+<li>性质：同一进程的其他线程共享代码段，数据段和其他OS资源，传统/重量级进程只有单个控制进程，若一个进程具备多个线程，则任务可并行。</li>
+<li>动机<ol start="0">
+<li>一个APP多个控制线程以实现不同功能</li>
+<li>单个APP可能同时执行多个相似的任务</li>
+<li>RPC中的应用和现代OS的应用</li>
+</ol>
+</li>
+<li>优点：响应性提高，资源共享使得分配资源减小，经济，可伸缩</li>
+<li>缺点：编程困难<ol start="0">
+<li>识别任务并将其分割</li>
+<li>平衡是否对某个任务使用线程</li>
+<li>数据分割方案</li>
+<li>多种竞争避免</li>
+<li>测试困难</li>
+</ol>
+</li>
+<li>并行：<ol start="0">
+<li>数据的并行：数据分布于多个计算核上，并在每个核执行相同的操作</li>
+<li>任务并行：将任务分配到多个计算核，执行不同的任务</li>
+</ol>
+</li>
+</ol>
+<h4 id="多线程模型"><a href="#多线程模型" class="headerlink" title="多线程模型"></a>多线程模型</h4><ol start="0">
+<li>粗分类：用户线程和内核线程</li>
+<li>多对一模型：多个用户级线程对应一个内核线程，由用户空间线程库对线程管理，但是如果一个线程被阻塞，则整个进程都被阻塞</li>
+<li>一对一模型：一个用户级线程对应一个内核线程，虽然线程阻塞不再影响其他的线程，但是消耗了过多的内核线程，性能影响较大</li>
+<li>多对多模型：多路复用，多个用户线程到同样数量甚至更少的内核线程</li>
+<li>关于并发：多对一未增加并发但是可以无限开线程；一对一增加了并发但是线程不能开太多；而多对多增加了并发且能够任意开线程</li>
+<li>双层模型：多对多+一对一</li>
+<li>全局变量：被所有线程共享，每个线程有自己的堆栈以用于存储自己的本地数据</li>
+</ol>
+<h4 id="隐式多线程：多线程的创建，管理交给编译器和运行库处理"><a href="#隐式多线程：多线程的创建，管理交给编译器和运行库处理" class="headerlink" title="隐式多线程：多线程的创建，管理交给编译器和运行库处理"></a>隐式多线程：多线程的创建，管理交给编译器和运行库处理</h4><p>本部分主要阐述线程池</p>
+<ol start="0">
+<li>由于可能的无限制线程可能耗尽系统资源的解决方法之一</li>
+<li>思想<ol start="0">
+<li>在进程创建的时候就创建一定的线程数量，并将其加到线程池中等待工作</li>
+<li>当接受到请求，（若线程存在）便唤醒其中一个线程</li>
+<li>结束工作后，线程关闭，并返回到线程池中</li>
+</ol>
+</li>
+<li>优点<ol start="0">
+<li>更效率：使用已有线池比临时创建更快</li>
+<li>通过限制最大可用数，对不能大量并发的OS十分重要</li>
+<li>将执行任务从创建人任务的机制分离出来，可以实现多种不同的任务策略</li>
+</ol>
+</li>
+</ol>
+<h4 id="多线程问题"><a href="#多线程问题" class="headerlink" title="多线程问题"></a>多线程问题</h4><ol start="0">
+<li>系统调用fork和exec时由应用程序制定具体创建和销毁语义</li>
+<li>信号处理下<ol start="0">
+<li>信号模式：由特定时间发生而产生的并传递到具体进程，且信号接收需要立即处理</li>
+<li>信号处理：默认为内核运行，若用户需要自定可以override</li>
+<li>多线程信号：信号指定给每个线程或某个线程，以及一个特定线程接收进程的所有信号</li>
+</ol>
+</li>
+<li>线程撤销：指在线程完成前终止线程<ol start="0">
+<li>撤销的线程—<strong>目标线程</strong>的情况：异步撤销（立即，但可能不会释放必要的资源）或延迟撤销（有机会有序的终止自己）</li>
+<li>缺省撤销一般为延迟撤销：到达<strong>撤销点</strong>后调用<strong>清理处理程序</strong></li>
+</ol>
+</li>
+<li>线程的本地存储：指的是每个线程需要他自己的数据，其类似于“static”</li>
+<li>调度程序的激活：由kernel提供一组虚拟处理器给应用程序，而应用程序可调度用户线程到任意一个可用的LWP，与此同时内会通过<strong>回调处理程序</strong>来进行回调（将特定时间通知给引用程序）</li>
+</ol>
+<h3 id="处理机调度"><a href="#处理机调度" class="headerlink" title="处理机调度"></a>处理机调度</h3><h4 id="处理机的基本概念"><a href="#处理机的基本概念" class="headerlink" title="处理机的基本概念"></a>处理机的基本概念</h4><ol start="0">
+<li>CPU的调度成功的属性：进程的执行包括周期进行的CPU执行和I/O</li>
+<li>CPU调度程序：调度程序从内存中选择一个可执行的线程并将其分配给CPU，线程选择<strong>短期调度程序</strong>或<strong>CPU调度程序</strong>， 每当CPU空闲，OS就应从新增队列中选择一个进程执行。注：就绪队列只是在逻辑上是FIFO的，而任务会通过一定的方法进行排队（优先队列），队列通常为PCB</li>
+<li>抢占调度<ol start="0">
+<li>状态切换：<ol start="0">
+<li>run -&gt;wait;</li>
+<li>run-&gt;ready（中断）;</li>
+<li>wait-&gt;ready;</li>
+<li>end</li>
+</ol>
+</li>
+<li>判别<ol start="0">
+<li>若仅有 状态切换中的0和3，则调度方案为非抢占的或协作的</li>
+<li>否则就成为抢占式的</li>
+<li>非抢占模式下，该进程会一直使用CPU直至end或wait</li>
+<li>存在共享数据时，抢占调度可能导致<strong>竞争</strong>，且会影响OS的内核设计</li>
+<li>发生中断时，需要保护对应的代码段</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>调度程序<ol start="0">
+<li>定义：指的是用来将CPU控制交给由短期调度程序选择的进程的模块</li>
+<li>功能：切换上下文，切换为用户态，跳转到应用程序到合适的位置，以重启应用程序</li>
+<li>调度延迟：调度程序停止一个进程而启动另一个经常所需要的时间</li>
+</ol>
+</li>
+</ol>
+<h4 id="调度准则——最大化CPU使用率和吞吐率，最小化周转-等待-响应时间"><a href="#调度准则——最大化CPU使用率和吞吐率，最小化周转-等待-响应时间" class="headerlink" title="调度准则——最大化CPU使用率和吞吐率，最小化周转/等待/响应时间"></a>调度准则——最大化CPU使用率和吞吐率，最小化周转/等待/响应时间</h4><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://astrojoke.github.io" rel="external nofollow noreferrer">AleXandrite</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://astrojoke.github.io/2020/10/01/cao-zuo-xi-tong-zong-jie/">https://astrojoke.github.io/2020/10/01/cao-zuo-xi-tong-zong-jie/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="https://astrojoke.github.io" target="_blank">AleXandrite</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                                    <span class="chip bg-color">操作系统</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">我觉得没有人会给我打赏</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/10/01/cao-zuo-xi-tong-zong-jie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="操作系统总结">
+                        
+                        <span class="card-title">操作系统总结</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            操作系统的知识点整理
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="post-category">
+                                    计算机基础知识
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+                        <span class="chip bg-color">操作系统</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/07/13/games-101hw-dai-ma-gui-dang/">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/AstroJoke/Blog_Image/images/Cover6.jpg" class="responsive-img" alt="GAMES-101HW代码归档">
+                        
+                        <span class="card-title">GAMES-101HW代码归档</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            GAMES101的作业代码整合
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%9B%BE%E5%BD%A2%E5%AD%A6/" class="post-category">
+                                    图形学
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
+                        <span class="chip bg-color">图形学</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BB%A3%E7%A0%81/">
+                        <span class="chip bg-color">代码</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+    
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="https://astrojoke.github.io" target="_blank">AleXandrite</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">143.2k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+                <span id="busuanzi_container_site_pv" style='display:none'>
+                        <i class="fa fa-heart-o"></i>
+                        本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+             
+             
+                <span id="busuanzi_container_site_uv" style='display:none'>
+                       人次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/AstroJoke" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:2829799409@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2829799409" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2829799409" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+<script>
+    $(document).ready(function () {
+
+        var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+        var pvcountOffset = 0;  // 初始化首次数据
+        var uvcountOffset = 0;
+
+        function fixCount() {
+            if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
+                $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pvcountOffset);
+                clearInterval(int);
+            }
+            if ($("#busuanzi_container_site_pv").css("display") != "none") {
+                $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uvcountOffset); // 加上初始数据 
+                clearInterval(int); // 停止检测
+            }
+        }
+    });
+</script>
+
+
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <script type="text/javascript">
+        var OriginTitile=document.title,st;
+        document.addEventListener("visibilitychange",function(){
+            document.hidden?(document.title="ヽ(●-`Д´-)ノ崩溃啦",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ骗你的",st=setTimeout(function(){document.title=OriginTitile},3e3))
+        })
+    </script>
+
+    
+
+    
+
+    
+    
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
